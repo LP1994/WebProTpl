@@ -1,0 +1,164 @@
+项目部分使用说明
+
+
+
+从“src/js/App.js”开始配置每个页面对应的“.js”的路由管理！！！
+从“页面路由管理(src/js/App.js)”开始你的编码吧！！！
+
+
+
+注意：
+1、webpack-subresource-integrity插件不支持文件路径(JS文件路径)中带有“./”的前缀！！！具体如下说明！！！
+可以：
+output: {
+filename: 'js/[name]_[chunkhash:6].js',
+chunkFilename: 'js/[name]_chunk_[chunkhash:6].js'
+}
+不可以：
+output: {
+filename: './js/[name]_[chunkhash:6].js',
+chunkFilename: './js/[name]_chunk_[chunkhash:6].js'
+}
+
+
+
+一、使用jQuery插件的方法(前提是webpack已经配置好了)
+第一步：
+import 'jquery.nicescroll';
+第二步：
+$(document.body).niceScroll();
+
+
+
+二、在.ejs页面中引入HTML页面片段
+<%= require( 'tplEJSDir/test1.html' ) %>
+注：在ejs文件中引入另外的ejs
+<%= require( 'tplEJSDir/1.ejs' )() %>
+
+
+
+三、在.ejs页面中引入资源
+<img src = '${ require( "imgDir/add0.png" ) }' alt = 'add0.png' />
+<link rel = 'manifest' href = '${ require( "jsonDir/MWebManifest.json" ) }' />
+<link rel = 'manifest' href = '<%= require( "jsonDir/MWebManifest.json" ) %>' />
+
+
+
+四、关于4种CSS文件的引用方式
+1、
+.css、.scss、.styl、.stylus、.pcss、.postcss在.js中导入使用，或者是.vue中的<style lang = 'css' scoped></style>、<style lang = 'scss' scoped></style>、<style lang = 'stylus' scoped></style>、<style lang = 'postcss' scoped></style>的使用方式！
+但是无法在.ejs中以link标签引入！也无法require导入！
+最后会被提取到一个.css文件中，最后把这个.css文件以link标签引入到页面中！
+
+2、
+.less只能在.ejs中以link标签引入！
+在.js中导入，会导出编译后的.less文件的路径(如：'../styles/Demo1_LESS.css')！
+
+3、
+.sass在.js中导入使用，或者是.vue中的<style lang = 'sass' scoped></style>的使用方式！
+但是无法在.ejs中以link标签引入！也无法require导入！
+最后会被提取到一个<style>标签中，并且把这个<style>标签加到页面中！
+
+
+
+五、静态资源
+src/static里头放着静态无需多次修改的资源文件
+static文件夹下都是静态的外部资源！这些不会被webpack识别处理的！
+但可以被静态的使用！！！
+webpack编译结束后，static文件夹整个会被复制到如：dist/devServer下，这样就可以静态的使用它们了！
+
+
+
+六、提取JS(htmlWebpackPlugin只有files和options两个属性)
+htmlWebpackPlugin.files的值如下：
+{
+    publicPath: 'http://localhost:8082/WebProTpl/app/devServer/',
+    chunks: {
+        'app': {
+            'size': 378,
+            'entry': 'http://localhost:8082/WebProTpl/app/devServer/./js/app_chunk_2977b3cc.js',
+            'hash': '2977b3cc1d2646751538',
+            'css': []
+        }
+    },
+    js: [
+        'http://localhost:8082/WebProTpl/app/devServer/./js/app_chunk_2977b3cc.js'
+    ],
+    css: [],
+    manifest: ''
+}
+<% const files = htmlWebpackPlugin.files %>
+<%= compilation.assets[files.chunks.app.entry.slice(files.publicPath.length)].source() %>
+
+
+
+七、htmlWebpackPlugin.options
+{
+    template: 'G:\\WebStormWS\\WebProTpl\\node_modules\\html-webpack-plugin\\lib\\loader.js!G:\\WebStormWS\\WebProTpl\\src\\tplEJS\\demoTpl.ejs',
+    templateParameters: '',
+    filename: './pages/webProTpl.html',
+    hash: false,
+    inject: 'body',
+    compile: true,
+    favicon: false,
+    minify: {
+        'html5': true,
+        'removeComments': true,
+        'removeScriptTypeAttributes': true,
+        'removeStyleLinkTypeAttributes': true,
+        'removeEmptyAttributes': true,
+        'removeAttributeQuotes': true
+    },
+    cache: false,
+    showErrors: true,
+    chunks: 'all',
+    excludeChunks: [],
+    chunksSortMode: 'none',
+    meta: {},
+    title: 'WebProTpl',
+    xhtml: false
+}
+
+
+
+八、通过遍历compilation.assets可以获取诸多信息，进行诸多操作
+<% let assets = compilation.assets %>
+<% for( let key in assets ) { %>
+<%= key %> : <%= assets[ key ] %>
+<br />
+<br />
+<% } %>
+输出如下：
+other/demoManifest.json : [object Object]
+
+img/add1_3b83d51d.png : [object Object]
+
+styles/demoLess1_2e4cfd4d.css : [object Object]
+
+./js/app_chunk_2f59e493.js : [object Object]
+
+./js/manifest_d41d8cd9.js : [object Object]
+
+./js/tools_chunk_5f6cfc83.js : [object Object]
+
+./js/vendors_chunk_73826fe0.js : [object Object]
+
+
+
+九、自定义字体
+@font-face {
+  font-family: 'MicrosoftYaHeiUI_Regular';
+  src: url(../../../../assets/fonts/MicrosoftYaHeiUI_Regular.ttc);
+}
+p {
+  font-family: 'MicrosoftYaHeiUI_Regular';
+}
+
+
+
+十、关于webpack中的“~”的使用
+样式文件、HTML文件中
+各类非 js 直接引用（import require）静态资源，依赖相对路径加载问题，都可以用 ~ 语法完美解决；
+例如 css module 中： @import "~@/style/theme"
+css 属性中： background: url("~@/assets/xxx.jpg")
+html 标签中： <img src="~@/assets/xxx.jpg" alt="alias">

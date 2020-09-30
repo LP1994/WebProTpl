@@ -1,0 +1,381 @@
+Object API
+
+一、Object.values()
+1、描述：
+Object.values()方法返回给定对象自己的可枚举属性值的数组，其顺序与for in循环提供的顺序相同（不同之处在于for in循环枚举原型链中的属性）以及。
+属性的顺序与手动循环对象的属性值所给出的顺序相同。
+2、参数：
+对象、字符串
+3、如：
+Object.values( { a: 1, b: 2, } );
+// [ 1, 2, ]
+4、PS：
+非对象参数将被强制转换为对象
+
+
+
+二、Object.keys()
+1、描述：
+Object.keys()方法以与普通循环相同的顺序返回给定对象自己的属性名称的数组。属性的顺序与手动循环对象的属性所给出的顺序相同。
+2、参数：
+数组、对象、字符串
+3、如：
+Object.keys( { a: 1, b: 2, } );
+// [ a, b, ]
+4、PS：
+在ES5中，如果此方法的参数不是对象（基元），那么它将导致TypeError。在ES2015中，非对象参数将被强制转换为对象。
+key是数字时，会从小到大排序。
+非对象参数将被强制转换为对象
+
+
+
+三、Object.entries()
+1、描述：
+Object.entries()方法返回给定对象自己的可枚举字符串键控属性[key，value]对的数组，其顺序与for…in循环提供的顺序相同（区别在于for in循环也枚举原型链中的属性）。Object.entries()返回的数组顺序不取决于对象的定义方式。如果需要某种排序，则应首先对数组进行排序，如Object.entries( obj ).sort( ( a, b ) => b[0].localecompare( a[ 0 ] ) );属性的顺序与手动循环对象的属性值所给出的顺序相同。
+2、参数：
+对象、字符串
+3、如：
+Object.entries( { a: 1, b: 2, } )
+// [ [ 'a', 1, ], [ 'b', 2, ], ]
+
+// 对象转Map
+const obj = { foo: 'bar', baz: 42 };
+const map = new Map(Object.entries(obj));
+console.log(map);
+// Map { foo: "bar", baz: 42 }
+4、PS：
+非对象参数将被强制转换为对象
+
+
+
+四、Object.fromEntries()
+1、描述：
+Object.fromEntries()方法将键值对列表转换为对象。
+2、参数：
+可迭代的，例如Array或Map或实现可迭代协议的其他对象。
+3、如：
+const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
+const obj = Object.fromEntries(map);
+console.log(obj); // { foo: "bar", baz: 42 }
+
+const arr = [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ];
+const obj = Object.fromEntries(arr);
+console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+4、PS：
+Object.fromEntries()执行Object.entries()的反向。
+
+
+
+五、Object.is( value1, value2 )
+1、描述：
+Object.is()方法确定两个值是否相同。放回一个布尔值，指示两个参数是否是相同的值。
+Object.is()确定两个值是否相同。如果满足下列条件之一，则两个值相同：
+both undefined
+both null
+both true or both false
+两个相同长度的字符串，具有相同顺序的相同字符
+两个相同的对象（意味着两个对象具有相同的引用）
+both +0
+both -0
+both NaN
+或者两者都是非零且两者都不是NaN，两者都具有相同的值
+2、参数：
+两个参数
+3、如：
+Object.is('foo', 'foo');     // true
+Object.is(window, window);   // true
+
+Object.is('foo', 'bar');     // false
+Object.is([], []);           // false
+
+var foo = { a: 1 };
+var bar = { a: 1 };
+Object.is(foo, foo);         // true
+Object.is(foo, bar);         // false
+
+Object.is(null, null);       // true
+
+// Special Cases
+Object.is(0, -0);            // false
+Object.is(-0, -0);           // true
+Object.is(NaN, 0/0);         // true
+4、PS：
+根据==运算符，这与相等不同。在测试相等性之前，==运算符对两边应用各种强制（如果它们不是同一类型），但object.is不强制这两个值。
+根据===运算符，这也不相同。 ===运算符（以及==运算符）将数值-0和+ 0视为相等，并将Number.NaN视为不等于NaN。
+
+
+
+六、Object.assign( target, ...sources )
+1、描述：
+Object.assign()方法用于将所有可枚举自身属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+2、参数：
+
+3、如：
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+let obj1 = { a: 0 , b: { c: 0}};
+let obj2 = Object.assign({}, obj1);
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}
+
+obj1.a = 1;
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 0}}
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}
+
+obj2.a = 2;
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 0}}
+console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 0}}
+
+obj2.b.c = 3;
+console.log(JSON.stringify(obj1)); // { a: 1, b: { c: 3}}
+console.log(JSON.stringify(obj2)); // { a: 2, b: { c: 3}}
+
+var v1 = 'abc';
+var v2 = true;
+var v3 = 10;
+var v4 = Symbol('foo');
+
+var obj = Object.assign({}, v1, null, v2, undefined, v3, v4);
+// Primitives will be wrapped, null and undefined will be ignored.
+// Note, only string wrappers can have own enumerable properties.
+console.log(obj); // { "0": "a", "1": "b", "2": "c" }
+
+var target = Object.defineProperty({}, 'foo', {
+  value: 1,
+  writable: false
+}); // target.foo is a read-only property
+
+Object.assign(target, { bar: 2 }, { foo2: 3, foo: 3, foo3: 3 }, { baz: 4 });
+// TypeError: "foo" is read-only
+// The Exception is thrown when assigning target.foo
+
+console.log(target.bar);  // 2, the first source was copied successfully.
+console.log(target.foo2); // 3, the first property of the second source was copied successfully.
+console.log(target.foo);  // 1, exception is thrown here.
+console.log(target.foo3); // undefined, assign method has finished, foo3 will not be copied.
+console.log(target.baz);  // undefined, the third source will not be copied either.
+4、PS：
+如果目标对象中的属性具有相同的键，则它们将被源中的属性覆盖。后来的资源属性同样会覆盖之前的属性。
+Object.assign()方法只将可枚举的和自己的属性从源对象复制到目标对象。它在源上使用[[Get]]，在目标上使用[[Set]]，因此它将调用getter和setter。
+因此，它分配属性，而不只是复制或定义新属性。如果合并源包含getter，这可能使其不适合将新属性合并到原型中。用于将属性定义（包括其可枚举性）复制到原型对象中。应改用Object.getOwnPropertyDescriptor()和Object.defineProperty()。
+String和Symbol属性都被复制。
+如果出现错误，例如，如果属性不可写，则会引发TypeError，如果在引发错误之前添加了任何属性，则可以更改目标对象。
+请注意，Object.assign（）不会抛出null或未定义的源值。
+对于深度克隆，我们需要使用其他替代方法，因为Object.assign（）复制属性值。如果源值是对象的引用，则它仅复制该引用值。
+无法复制原型链上的属性和不可枚举的属性
+复制符号类型的属性
+
+
+
+七、Object.create( proto, [ propertiesObject ] )
+1、描述：
+Object.create()方法使用现有对象作为新创建对象的原型来创建新对象。
+2、参数：
+proto：该对象应该是新创建的对象的原型。
+propertiesObject：可选。如果已指定且未定义，则其可枚举的自身属性（即，在其自身上定义的属性，以及在其原型链上不可枚举的属性）的对象将指定要添加到新创建的对象中的属性描述符，并使用相应的属性名称。
+这些属性对应于Object.defineProperties()的第二个参数。
+3、如：
+const person = {
+  isHuman: false,
+  printIntroduction: function () {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  }
+};
+
+const me = Object.create(person);
+
+me.name = "Matthew"; // "name" is a property set on "me", but not on "person"
+me.isHuman = true; // inherited properties can be overwritten
+
+me.printIntroduction();
+
+// Example where we create an object with a couple of
+// sample properties. (Note that the second parameter
+// maps keys to *property descriptors*.)
+o = Object.create(Object.prototype, {
+  // foo is a regular 'value property'
+  foo: {
+    writable: true,
+    configurable: true,
+    value: 'hello'
+  },
+  // bar is a getter-and-setter (accessor) property
+  bar: {
+    configurable: false,
+    get: function() { return 10; },
+    set: function(value) {
+      console.log('Setting `o.bar` to', value);
+    }
+/* with ES2015 Accessors our code can look like this
+    get() { return 10; },
+    set(value) {
+      console.log('Setting `o.bar` to', value);
+    } */
+  }
+});
+4、PS：
+如果propertiesObject参数为null或非基本包装器对象，则为TypeError异常。
+默认属性是不可写的
+Object.create( null ) // 可添加新属性
+ocn.toString() // throws error: ocn.toString is not a function
+ocn.valueOf() // throws error: ocn.valueOf is not a function
+ocn.hasOwnProperty("p") // throws error: ocn.hasOwnProperty is not a function
+alert(ocn) // throws error: Cannot convert object to primitive value
+"ocn is: " + ocn // throws error: Cannot convert object to primitive value
+
+
+
+八：Object.defineProperty( obj, prop, descriptor )
+1、描述：
+静态方法Object.defineProperty()直接在对象上定义新属性，或修改对象上的现有属性，并返回该对象。
+2、参数：
+obj
+用于定义属性的对象。
+prop
+要定义或修改的属性的name or Symbol。
+descriptor
+正在定义或修改属性的描述符。
+3、如：
+const object1 = {};
+
+Object.defineProperty(object1, 'property1', {
+  value: 42,
+  writable: false
+});
+
+object1.property1 = 77;
+// throws an error in strict mode
+
+console.log(object1.property1);
+// expected output: 42
+4、PS：
+注意：直接在Object构造函数上调用此方法，而不是在Object类型的实例上调用此方法。
+此方法允许对对象上的属性进行精确的添加或修改。通过赋值进行常规属性添加将创建在属性枚举期间显示的属性（对于…In循环或Object.Keys方法），这些属性的值可能会更改，并且可能会被删除。
+此方法允许从默认值更改这些额外的详细信息。默认情况下，使用object.defineproperty（）添加的值是不可变的。
+对象中存在的属性描述符有两种主要形式：数据描述符和访问器描述符。数据描述符是具有值的属性，该值可能是可写的，也可能是不可写的。访问器描述符是由getter-setter函数对描述的属性。描述符必须是这两种风格中的一种，不能同时是这两种风格。
+数据和访问器描述符都是对象。它们共享以下可选键（默认值是在使用object.defineproperty（）定义属性的情况下）：
+configurable
+如果并且仅当可以更改此属性描述符的类型并且可以从相应对象中删除该属性时，才为true。
+默认为false。
+
+enumerable
+如果且仅当此属性在枚举相应对象上的属性时出现时为true。
+默认为false。
+
+数据描述符还具有以下可选键：
+value
+与属性关联的值。可以是任何有效的javascript值（数字、对象、函数等）。
+默认为未定义。
+
+writable
+如果且仅当与属性关联的值可以使用赋值运算符更改时为true。
+默认为false。
+
+访问器描述符还具有以下可选键：
+get
+用作属性的getter的函数，如果没有getter，则为未定义的函数。当访问属性时，调用此函数时不带参数，并且将此设置为通过其访问属性的对象（这可能不是由于继承而在其上定义属性的对象）。返回值将用作属性的值。
+默认为未定义。
+
+set
+一种用作属性的setter的函数，如果没有setter，则为undefined。当属性分配给时，使用一个参数（分配给属性的值）调用此函数，并将此集合分配给通过其分配属性的对象。
+默认为未定义。
+
+
+
+九、Object.defineProperties( obj, props )
+1、描述：
+Object.defineProperties()方法直接在对象上定义新的或修改现有属性，返回该对象。
+2、参数：
+obj
+用于定义或修改属性的对象。
+
+props
+一个对象，其键表示要定义或修改的属性的名称，其值是描述这些属性的对象。props中的每个值都必须是数据描述符或访问器描述符；不能同时是两者（有关详细信息，请参见object.defineproperty（））。
+
+数据描述符和访问者描述符可以选择包含以下键：
+configurable
+当且仅当可以更改此属性描述符的类型并且可以从相应对象中删除属性时，才返回true。 默认为false。
+enumerable
+当且仅当在枚举相应对象的属性期间显示此属性时，才返回true。 默认为false。
+
+描述符数据还具有以下可选键：
+
+value
+与属性关联的值。可以是任何有效的JavaScript值（数字，对象，函数等）。 默认为未定义。
+writable
+当且仅当可以使用赋值运算符更改与属性关联的值时，才返回true。 默认为false。
+
+访问器描述符还具有以下可选键：
+
+get
+一个函数，用作属性的getter，如果没有getter则不定义。函数的返回值将用作属性的值。 默认为未定义。
+
+set
+用作属性的setter的函数，如果没有setter则为undefined。该函数将接收作为其唯一参数的新值分配给属性。 默认为未定义。
+3、如：
+const object1 = {};
+
+Object.defineProperties(object1, {
+  property1: {
+    value: 42,
+    writable: true
+  },
+  property2: {}
+});
+
+console.log(object1.property1);
+// expected output: 42
+4、PS：
+如果描述符既没有value，writable，get和set键，则将其视为数据描述符。如果描述符同时具有值​​或可写以及获取或设置键，则抛出异常。
+
+
+
+十、Object.getPrototypeOf( obj )
+1、描述：
+Object.getPrototypeOf()方法返回指定对象的原型（即内部[[Prototype]]属性的值）。
+2、参数：
+obj
+要返回其原型的对象。
+3、如：
+const prototype1 = {};
+const object1 = Object.create(prototype1);
+
+console.log(Object.getPrototypeOf(object1) === prototype1);
+// expected output: true
+4、PS：
+给定对象的原型。如果没有继承的属性，则返回null。
+在ES5中，如果obj参数不是对象，它将抛出TypeError异常。在ES2015中，参数将被强制转换为Object。
+Object.getPrototypeOf('foo');
+// TypeError: "foo" is not an object (ES5 code)
+Object.getPrototypeOf('foo');
+// String.prototype                  (ES2015 code)
+
+
+
+十一、Object.setPrototypeOf( obj, prototype )
+1、描述：
+Object.setPrototypeOf()方法将指定对象的原型（即内部[[Prototype]]属性）设置为另一个对象或null。
+2、参数：
+obj
+要设置原型的对象。
+prototype
+对象的新原型（对象或null）。
+3、如：
+var dict = Object.setPrototypeOf({}, null);
+4、PS：
+警告：一个物体的[[Prototype]]的变化，取决于现代Javascript引擎优化性能的性质，在每一个浏览器和Javascript引擎中都是非常缓慢的操作。
+交替遗传性能的影响很小，而且不限于简单地将时间消耗在Object.setPrototypeOf(...)声明中，但可以扩展到任何代码，该代码可存取到任何[[Prototype]]对象，而该代码已被替换。
+如果你关心的是性能，你应该避免设置一个对象的[[Prototype]]。Instead，create a new object with the desired[[Prototype]]using Object.create().
+但是，如果某个功能是该语言的一部分，那么执行该功能的负担就是引擎开发人员（理想情况下）。
+如果要修改其[[Prototype]]的对象根据Object.isExtensible()不可扩展，则引发类型错误异常。如果prototype参数不是对象或空值（即数字、字符串、布尔值或未定义），则不执行任何操作。
+否则，此方法会将obj的[[Prototype]]更改为新值。
+Object.setPrototypeOf()在ECMAScript 2015规范中。它通常被认为是设置对象原型的正确方法，而不是有争议的Object.prototype.__proto__属性。
+

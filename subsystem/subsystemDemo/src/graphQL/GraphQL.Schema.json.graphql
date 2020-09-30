@@ -1,0 +1,1423 @@
+# This file was generated based on "GraphQL.Schema.json". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+"警报"
+interface IBMS_IAlarm {
+    "警报级别"
+    alarmLevel: String!
+    "警报分类"
+    alarmType: String
+    "设备分类"
+    deviceCategory: String!
+    "设备编号"
+    deviceId: String!
+    "设备名称"
+    deviceName: String!
+    "设备厂家名称"
+    devieceFacturerName: String!
+    "警报流水号"
+    id: String!
+    "警报消息"
+    message: String
+    "设备地点"
+    regionName: String!
+    "设备子系统"
+    subsystemName: String
+    "事件名称"
+    title: String!
+    "警报事件的链接地址"
+    url: String!
+}
+
+"区域"
+interface IBMS_IRegion {
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "标签"
+    tags: [String]
+}
+
+"账号接口"
+interface UA_IAccount {
+    "显示名称"
+    displayName: String!
+    "编号"
+    id: String!
+    "持有的登录令牌,exp表达式"
+    loginTokens(exp: String): [UA_LoginToken]!
+}
+
+"联系方式接口"
+interface UA_IContact {
+    "分类"
+    category: String!
+    "内容"
+    content: String!
+}
+
+"部门接口"
+interface UA_IDepartment {
+    "部门下的雇员数量"
+    employeeCount(exp: String): Int!
+    employeePaging(pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_IEmployee]
+    "显示部门雇员"
+    employees(exp: String): [UA_IEmployee]
+    "分页显示部门雇员"
+    employeesPaging(exp: String, pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_IEmployee]
+    "全称"
+    name: String!
+    "所属组织机构"
+    organization: UA_IOrganization!
+    "直属下级部门数量"
+    subordinateCount: Int!
+    "直属下级部门"
+    subordinates: [UA_IDepartment]!
+    "上级部门"
+    superior: UA_IDepartment
+    superiorId: String
+}
+
+"雇员接口"
+interface UA_IEmployee {
+    "持有的账号"
+    account: UA_PersonalAccount
+    "联系方式"
+    contacts: [UA_IContact]
+    "部门名称"
+    deptName: String
+    "头像"
+    headerPri: String
+    "编号"
+    id: String!
+    "是否离职"
+    leave: Boolean
+    "是否男性"
+    male: Boolean
+    "姓名"
+    name: String!
+    "在职"
+    removed: Boolean
+    "时间"
+    time: String
+    "职务称谓"
+    title: String
+}
+
+"身份对象接口"
+interface UA_IIdentity {
+    "编号"
+    id: String!
+}
+
+"组织机构接口"
+interface UA_IOrganization {
+    "部门数量,exp:表达式"
+    departmentCount(exp: String): Int!
+    "部门, exp:表达式"
+    departments(exp: String): [UA_IDepartment]!
+    "编号"
+    id: String!
+    "全称"
+    name: String!
+    "简称"
+    shortName: String!
+}
+
+"个人账号接口"
+interface UA_IPersonalAccount {
+    "提取指定类型的身份"
+    identity(className: String!): UA_IIdentity
+    "身份类型,exp表达式"
+    identityTypes(exp: String): [UA_IdentityType]
+}
+
+"操作"
+type Action {
+    "名称"
+    name: String!
+}
+
+"上下文菜单"
+type CM_ContextMenu {
+    "编号"
+    id: String!
+    "子菜单项目"
+    items: [CM_MenuGroup]!
+}
+
+"菜单"
+type CM_Menu {
+    "上下为菜单"
+    context: CM_ContextMenu
+    "侧边栏"
+    sidebar: CM_SidebarMenu
+}
+
+"菜单组"
+type CM_MenuGroup {
+    "标题"
+    caption: String!
+    "说明"
+    description: String
+    "图标"
+    icon: String
+    "编号"
+    id: String!
+    "子菜单项目"
+    items: [CM_SimpleMenu]!
+}
+
+"侧边栏菜单"
+type CM_SidebarMenu {
+    "标题"
+    caption: String!
+    "编号"
+    id: String!
+    "子菜单组"
+    items: [CM_MenuGroup]!
+}
+
+"简单的菜单"
+type CM_SimpleMenu {
+    "标题"
+    caption: String!
+    "说明"
+    description: String
+    "图标"
+    icon: String
+    "编号"
+    id: String!
+    "span"
+    span: CM_SpanContent
+    "链接"
+    url: String
+}
+
+"Span内容"
+type CM_SpanContent {
+    "内容"
+    content: String!
+    "信息级别"
+    inforLevel: CM_InforLevel!
+    "样式"
+    shape: CM_SpanShape!
+}
+
+"建筑分类(功能区大类)"
+type IBMS_Architecture_Category {
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+}
+
+"地块"
+type IBMS_Block implements IBMS_IRegion {
+    "建筑数量,包括楼宇和场所"
+    architectureCount: Int!
+    "面积"
+    area: Float
+    "楼宇数量"
+    buildingCount(exp: String): Int!
+    "楼宇"
+    buildings(exp: String): [IBMS_Building]!
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "所属园区"
+    parent: IBMS_Park
+    "场所数量"
+    placeCount(exp: String): Int!
+    "场所"
+    places(exp: String): [IBMS_Place]!
+    "标签"
+    tags: [String]
+}
+
+"楼宇"
+type IBMS_Building implements IBMS_IRegion {
+    "分类"
+    categorys: [IBMS_Architecture_Category]!
+    "楼层数"
+    floorCount(exp: String): Int!
+    "楼层"
+    floors(exp: String): [IBMS_Floor]!
+    "楼层分页"
+    floorsPaging(exp: String, pageIndex: Int!, pageSize: Int!): [IBMS_Floor]!
+    "楼宇所有功能区"
+    funAreas: [IBMS_FunctionalArea]!
+    "楼宇所有功能区数量"
+    funAreasCount: Int
+    "建筑高度"
+    height: Float
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "所属地块"
+    parent: IBMS_Block
+    "标签"
+    tags: [String]
+    "地下高度"
+    underHeight: Float
+}
+
+"已复核警报"
+type IBMS_CheckedAlarm implements IBMS_IAlarm {
+    "警报级别"
+    alarmLevel: String!
+    "警报分类"
+    alarmType: String
+    "复核人编号"
+    checkedAccountId: String
+    "报警时间"
+    checkedAlarmTime: String!
+    "设备分类"
+    deviceCategory: String!
+    "故障设备编号"
+    deviceId: String!
+    "故障设备名称"
+    deviceName: String!
+    "设备厂家名称"
+    devieceFacturerName: String!
+    "警报流水号"
+    id: String!
+    "警报消息"
+    message: String
+    "设备误报原因"
+    misinformationMessage: String
+    "设备地点"
+    regionName: String!
+    "复核人报告(故障处理)"
+    report: String
+    "复核时间/处理时间"
+    reviewTime: String
+    "复核类型"
+    reviewType: String
+    "过往同类事件发生次数"
+    similarAlarmTotal: IBMS_SimilarAlarmTotal!
+    "设备子系统"
+    subsystemName: String
+    "警报事件"
+    title: String!
+    "警报事件的链接地址"
+    url: String!
+}
+
+"楼层"
+type IBMS_Floor implements IBMS_IRegion {
+    "功能区数量"
+    functionalAreaCount: Int
+    "区域内功能区"
+    functionalAreas(exp: String, pageIndex: Int, pageSize: Int): [IBMS_FunctionalArea]!
+    "层高"
+    height: Float!
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "楼层号"
+    number: Int!
+    "所属楼宇"
+    parent: IBMS_Building
+    "标签"
+    tags: [String]
+}
+
+"功能区"
+type IBMS_FunctionalArea {
+    "分类"
+    category: IBMS_FunctionalArea_Category
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "标签"
+    tags: [String]
+}
+
+"功能区分类"
+type IBMS_FunctionalArea_Category {
+    "说明"
+    description: String
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+}
+
+"条件查询已复核警报数量及数据"
+type IBMS_Page_Checked {
+    "总数量"
+    checkedCount: String
+    count: String
+    data: [IBMS_CheckedAlarm]!
+}
+
+"条件查询未复核警报数量及数据"
+type IBMS_Page_Unchecked {
+    count: String
+    data: [IBMS_UnCheckedAlarm]!
+    "总数量"
+    unCheckedCount: String
+}
+
+"园区"
+type IBMS_Park implements IBMS_IRegion {
+    "面积"
+    area: Float
+    "地块数量"
+    blockCount(exp: String): Int!
+    "地块"
+    blocks(exp: String): [IBMS_Block]!
+    "地块分页           pageSize: 单页记录数       pageIndex:页码,首页为1  sorting:排序,根据\"名称\",\"所属园区\"或\"地块面积\"进行排序"
+    blocksPaging(exp: String, pageIndex: Int!, pageSize: Int!, sorting: String!): [IBMS_Block]!
+    "编号"
+    id: String!
+    "图片"
+    image: [String]
+    "简介"
+    introduction: String
+    "名称"
+    name: String!
+    "上级区域 (园区没有上级)"
+    parent: IBMS_IRegion
+    "标签"
+    tags: [String]
+}
+
+"地面场所"
+type IBMS_Place implements IBMS_IRegion {
+    "面积"
+    area: Float
+    "分类"
+    categorys: [IBMS_Architecture_Category]!
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "所属地块"
+    parent: IBMS_Block
+    "场所功能区数量"
+    placeFunAreaCount: Int
+    "场所功能区"
+    placeFunAreas(exp: String, pageIndex: Int!, pageSize: Int!): [IBMS_FunctionalArea]!
+    "标签"
+    tags: [String]
+}
+
+type IBMS_SimilarAlarmTotal {
+    "警报总数"
+    alarmTotal: String
+    "故障次数"
+    malfunctionTotal: String
+    "误报次数"
+    misinformationTotal: String
+}
+
+"未复核警报"
+type IBMS_UnCheckedAlarm implements IBMS_IAlarm {
+    "警报级别"
+    alarmLevel: String!
+    "警报分类"
+    alarmType: String
+    "设备分类"
+    deviceCategory: String!
+    "故障设备编号"
+    deviceId: String!
+    "故障设备名称"
+    deviceName: String!
+    "设备厂家名称"
+    devieceFacturerName: String!
+    "警报流水号"
+    id: String!
+    "报警原因"
+    message: String
+    "设备地点"
+    regionName: String!
+    "过往同类事件发生次数"
+    similarAlarmTotal: IBMS_SimilarAlarmTotal!
+    "设备子系统"
+    subsystemName: String
+    "警报事件"
+    title: String!
+    "报警时间"
+    unCheckedAlarmTime: String
+    "警报事件的链接地址"
+    url: String!
+}
+
+"日志事件"
+type LogEvent {
+    "操作行为"
+    action: String
+    "日志事件分类"
+    category: String!
+    "说明"
+    description: String
+    "客体位置"
+    destAddr: String
+    "客体端口"
+    destPort: Int
+    "耗时"
+    elapsedTime: String!
+    "流水号"
+    id: String!
+    "操作名称"
+    name: String
+    "客体"
+    objects(id: String): Objects
+    "操作者"
+    operator: String
+    "参数"
+    param(id: String): Parameters
+    "资源"
+    resource: String
+    "主体"
+    subject(id: String): Subject
+    "主体所在位置"
+    subjectAddr: String!
+    "主体端口"
+    subjectPort: Int
+    "操作是否成功"
+    success: Boolean!
+    "系统分类"
+    sysCategory: String
+    "时间戳"
+    timestamps: String!
+}
+
+"个人账号"
+type MapEarnt {
+    code: String
+    msg: String
+}
+
+"更新"
+type Mutation {
+    """
+
+    添加警报     alarmId:警报编号   url:警报事件的链接地址    title: alarmStamptime:报警时间戳   deviceId:设备编号   deviceName:设备名称
+    devieceFacturerName:设备厂家名称   deviceCategory:设备分类   functionalId:设备所在功能区编号
+    message:警报消息   alarmLevel:警报级别   accountId:发起警报的用户编号
+    """
+    ibms_alarm_addAlarm(accountId: String!, alarmId: String!, alarmLevel: String!, alarmStamptime: String!, deviceCategory: String!, deviceId: String!, deviceName: String!, devieceFacturerName: String!, functionalId: String!, message: String!, title: String!, url: String!): Boolean
+    """
+
+    添加子系统触发警报    alarmId:警报编号   url:警报事件的链接地址    title: alarmStamptime:报警时间戳   deviceId:设备编号   deviceName:设备名称
+    devieceFacturerName:设备厂家名称   deviceCategory:设备分类   functionalId:设备所在功能区编号
+    message:警报消息   alarmLevel:警报级别
+    """
+    ibms_alarm_addSubsystemAlarm(alarmId: String!, alarmLevel: String!, alarmStamptime: String!, deviceCategory: String!, deviceId: String!, deviceName: String!, devieceFacturerName: String!, functionalId: String!, message: String!, title: String!, url: String!): Boolean
+    "重置警报级别     alarmId:警报编号    alarmLevel:警报级别"
+    ibms_alarm_resetAlarmLevel(alarmId: String!, alarmLevel: String!): Boolean
+    "设备误报     alarmId:警报编号    misinformationMessage:误报消息"
+    ibms_alarm_reviewAlarm(alarmId: String!, misinformationMessage: String!): Boolean
+    "设备故障现场处理      alarmId:警报编号    misinformationMessage:故障处理"
+    ibms_alarm_siteTreatment(alarmId: String!, misinformationMessage: String!): Boolean
+    "添加地块标签    blockId:地块编号   blockTag:地块标签"
+    ibms_region_addBlockTag(blockId: String!, blockTag: String): Boolean
+    "添加楼宇分类    buildingId:楼宇编号    buildingCategoryId:楼宇分类编号"
+    ibms_region_addBuildingCategory(buildingCategoryId: [String!]!, buildingId: String!): Boolean
+    "添加楼宇标签     buildingId:楼宇编号    buildingTag：楼宇标签"
+    ibms_region_addBuildingTag(buildingId: String!, buildingTag: String): Boolean
+    "添加楼层标签     floorId:楼层编号     floorTag:楼层标签"
+    ibms_region_addFloorTag(floorId: String!, floorTag: String): Boolean
+    "添加功能区分类"
+    ibms_region_addFuCategory(categoryId: String, floorId: String!): Boolean
+    "添加功能区标签    fuAreaId:功能区编号    fuAreaTag:功能区标签"
+    ibms_region_addFunAreaTag(fuAreaId: String!, fuAreaTag: String!): Boolean
+    "添加园区标签    parkId:园区编号   parkTag:园区标签"
+    ibms_region_addParkTag(parkId: String!, parkTag: String): Boolean
+    "添加场所分类     placeId:场所编号     placeCategoryId: 场所分类编号"
+    ibms_region_addPlaceCategory(placeCategoryId: String!, placeId: String!): Boolean
+    "添加场所标签    placeId:场所编号     placeTag:场所标签"
+    ibms_region_addPlaceTag(placeId: String!, placeTag: String!): Boolean
+    "定义地块   blockName:地块名称  blockParentId:所属园区编号  blockArea:地块面积  blockTags:地块标签"
+    ibms_region_defineBlock(blockArea: String, blockId: String, blockName: String!, blockParentId: String!, blockTags: [String]!): Boolean
+    "定义楼宇   buildingName:楼宇名称  buildingParentId:所属地块编号  buildingHeight:地面建筑高度  buildingUnderHeight:地下建筑高度  buildingTags:建筑标签  buildingCategoryIds:建筑分类编号"
+    ibms_region_defineBuilding(buildingCategoryIds: [String]!, buildingHeight: String, buildingId: String, buildingName: String!, buildingParentId: String!, buildingTags: [String]!, buildingUnderHeight: String): Boolean
+    "定义楼层   floorName:楼层名称  floorParentId:所属楼宇编号  floorHeight:层高  floorNumber:楼层号  floorTags:楼层标签   categoryIds:功能区分类编号"
+    ibms_region_defineFloor(categoryIds: [String]!, floorHeight: String, floorId: String, floorNumber: String!, floorParentId: String!, floorTags: [String]!): String
+    "定义功能区     fuAreaId:功能区编号   fuAreaName:功能区名称   fuAreaParentId:所属楼层编号    categoryId:功能区分类编号   fuAreaTags:功能区标签"
+    ibms_region_defineFunctionalArea(categoryId: String!, fuAreaId: String, fuAreaName: String!, fuAreaParentId: String!, fuAreaTags: [String]!): Boolean
+    "定义园区   parkName:园区名称  parkArea:园区面积  parkTags:园区标签 "
+    ibms_region_definePark(parkArea: String, parkId: String, parkName: String!, parkTags: [String]): Boolean
+    "定义场所   placeName:场所名称  placeParentId:所属地块编号  placeArea:场所面积  placeTags:场所标签  placeCategoryIds:场所分类编号"
+    ibms_region_definePlace(placeArea: String, placeCategoryIds: [String!], placeId: String, placeName: String!, placeParentId: String!, placeTags: [String]!): Boolean
+    "移除地块标签     blockId:地块编号   blockTag:地块标签"
+    ibms_region_removeBlockTag(blockId: String!, blockTag: String): Boolean
+    "移除楼宇分类    buildingId:楼宇编号    buildingCategoryId:楼宇分类编号"
+    ibms_region_removeBuildingCategory(buildingCategoryId: String!, buildingId: String!): Boolean
+    "移除楼宇标签     buildingId:楼宇编号    buildingTag：楼宇标签"
+    ibms_region_removeBuildingTag(buildingId: String!, buildingTag: String): Boolean
+    "移除楼层标签      floorId:楼层编号     floorTag:楼层标签"
+    ibms_region_removeFloorTag(floorId: String!, floorTag: String): Boolean
+    "移除功能区分类"
+    ibms_region_removeFuCategory(categoryId: String, floorId: String!): Boolean
+    "移除功能区标签    fuAreaId:功能区编号    fuAreaTag:功能区标签"
+    ibms_region_removeFunAreaTag(fuAreaId: String!, fuAreaTag: String!): Boolean
+    "移除园区标签    parkId:园区编号   parkTag:园区标签"
+    ibms_region_removeParkTag(parkId: String!, parkTag: String): Boolean
+    "移除场所分类     placeId:场所编号     placeCategoryId：场所分类编号"
+    ibms_region_removePlaceCategory(placeCategoryId: String!, placeId: String!): Boolean
+    "移除场所标签     placeId:场所编号     placeTag:场所标签"
+    ibms_region_removePlaceTag(placeId: String!, placeTag: String!): Boolean
+    "重置地块面积    blockId:地块编号    blockArea:地块面积"
+    ibms_region_resetBlockArea(blockArea: String!, blockId: String!): Boolean
+    "重置地块名称   blockId:地块编号   blockName:地块名称   "
+    ibms_region_resetBlockName(blockId: String!, blockName: String!): Boolean
+    "重置地块所属园区    blockId:地块编号    blockParentId:园区编号"
+    ibms_region_resetBlockParent(blockId: String!, blockParentId: String!): Boolean
+    "重置楼宇地面高度    buildingId:楼宇编号    buildingHeight:地面建筑高度"
+    ibms_region_resetBuildingHeight(buildingHeight: String!, buildingId: String!): Boolean
+    "重置楼宇名称   buildingId:楼宇编号    buildingName:楼宇名称"
+    ibms_region_resetBuildingName(buildingId: String!, buildingName: String!): Boolean
+    "重置楼宇所属地块   buildingId:楼宇编号     buildingParentId:所属地块编号"
+    ibms_region_resetBuildingParent(buildingId: String!, buildingParentId: String!): Boolean
+    "重置楼宇地下高度    buildingId:楼宇编号     buildingUnderHeight:楼宇地下高度"
+    ibms_region_resetBuildingUnderHeight(buildingId: String!, buildingUnderHeight: String!): Boolean
+    "重置楼层层高      floorId:楼层编号      floorHeight:层高"
+    ibms_region_resetFloorHeight(floorHeight: String!, floorId: String!): Boolean
+    "重置楼层名称  floorId:楼层编号    floorName:楼层名称"
+    ibms_region_resetFloorName(floorId: String!, floorName: String!): Boolean
+    "重置楼层号         floorId:楼层编号     floorCount:楼层号"
+    ibms_region_resetFloorNumber(floorId: String!, floorNumber: String!): Boolean
+    "重置楼层所属楼宇    floorId:楼层编号    floorParentId:所属楼宇编号"
+    ibms_region_resetFloorParent(floorId: String!, floorParentId: String!): Boolean
+    "重置功能区分类    fuAreaId:功能区编号    categoryId:功能区分类编号"
+    ibms_region_resetFunAreaCategory(categoryId: String!, fuAreaId: String!): Boolean
+    "重置功能区名称    fuAreaId:功能区编号    fuAreaName:功能区名称"
+    ibms_region_resetFunAreaName(fuAreaId: String!, fuAreaName: String!): Boolean
+    "重置功能区所属楼层     fuAreaId:功能区编号    fuAreaParentId:所属楼层编号"
+    ibms_region_resetFunAreaParent(fuAreaId: String!, fuAreaParentId: String!): Boolean
+    "重置园区面积   parkId:园区编号   parkArea:园区面积"
+    ibms_region_resetParkArea(parkArea: String, parkId: String!): Boolean
+    "重置园区简介   parkId:园区编号   introduction:园区简介"
+    ibms_region_resetParkIntroduction(introduction: String!, parkId: String!): Boolean
+    "重置园区名称   parkId:园区编号   parkName:园区名称"
+    ibms_region_resetParkName(parkId: String!, parkName: String!): Boolean
+    "重置园区图片    parkId:园区编号   parkPicturePath：园区图片路径"
+    ibms_region_resetParkPicture(files: [Upload!]!, parkId: String!): Boolean
+    "重置场所面积     placeId:场所编号     placeArea:场所面积"
+    ibms_region_resetPlaceArea(placeArea: String!, placeId: String!): Boolean
+    "重置场所名称   placeId:场所编号    placeName:场所名称"
+    ibms_region_resetPlaceName(placeId: String!, placeName: String!): Boolean
+    "重置场所所属地块     placeId:场所编号    placeParentId:所属地块编号"
+    ibms_region_resetPlaceParent(parentId: String!, placeId: String!): Boolean
+    "取消地块定义    blockId:地块编号"
+    ibms_region_undefineBlock(blockId: String!): Boolean
+    "取消楼宇定义    buildingId:楼宇编号"
+    ibms_region_undefineBuilding(buildingId: String!): Boolean
+    "取消楼层定义      floorId:楼层编号"
+    ibms_region_undefineFloor(floorId: String!): Boolean
+    "取消定义功能区   fuAreaId:功能区编号"
+    ibms_region_undefineFunctionalArea(fuAreaId: String!): Boolean
+    "取消园区定义    parkId:园区编号"
+    ibms_region_undefinePark(parkId: String!): Boolean
+    "取消广场定义    placeId:场所编号"
+    ibms_region_undefinePlace(placeId: String!): Boolean
+    """
+
+    employeeId 雇员编号   mobile移动电话联系方式
+    添加地址方式
+    """
+    ua_addAddressContactOfEmployee(address: String!, employeeId: String!): Boolean
+    "添加邮件联系方式"
+    ua_addEmailContactOfEmployee(email: String, employeeId: String!): Boolean
+    "添加传真联系方式"
+    ua_addFaxContactOfEmployee(employeeId: String!, fax: String!): Boolean
+    """
+
+    employeeId 雇员编号   fax传真联系方式
+    添加移动电话联系方式
+    """
+    ua_addMobileContactOfEmployee(employeeId: String!, mobile: String!): Boolean
+    """
+
+    telephone固定电话
+    添加我的固定电话
+    """
+    ua_addMyAddress(address: String!): Void
+    """
+
+    mobile移动电话
+    添加我的邮箱
+    """
+    ua_addMyEmail(email: String!): Void
+    """
+
+    email邮箱
+    添加我的传真
+    """
+    ua_addMyFax(fax: String!): Void
+    """
+
+    employeeId 雇员编号   male性别
+    添加我的移动电话
+    """
+    ua_addMyMobile(mobile: String!): Void
+    """
+
+    fax传真
+    添加我的固定电话
+    """
+    ua_addMyTelephone(telephone: String!): Void
+    "添加权限到角色"
+    ua_addPermissionToRole(permissionId: [String!]!, roleId: String!): Void
+    """
+
+    employeeId 雇员编号   email邮箱
+    添加固定电话联系方式    # employeeId 雇员编号   telephone联系方式  areaCode区号    extension分机号
+    """
+    ua_addTelephoneContactOfEmployee(areaCode: String, employeeId: String!, extension: String, telephone: String!): Boolean
+    """
+
+    employeeId 雇员编号 male雇员性别
+    更改雇员所属部门
+    """
+    ua_adjuestDepartmentOfEmployee(deptName: String!, employeeId: String!): Void
+    """
+
+    opsorganId运营编号 deptName 部门名称 newName: 部门新名称
+    调整部门上级
+    """
+    ua_adjuestDepartmentSuperior(deptName: String!, opsorganId: String!, parentName: String): Void
+    "重建全部表"
+    ua_buildTableAll: MapEarnt
+    ua_createEmployeeAccount(employeeId: String!): UA_OperationsEmployee
+    "定义角色  角色编号:roleId 角色名称:name   角色说明: description   运营编号：organId  许可：permissionIds"
+    ua_defineRole(categoryId: String, description: String!, name: String!, permissionIds: [String]): Void
+    "定义角色分类   分类编号:categoryId 分类名称:name   分类说明: description"
+    ua_defineRoleCategory(description: String, name: String!): Void
+    "删除角色分类说明"
+    ua_deleteRoleCategoryDescrption(categoryId: String!): Void
+    """
+
+    UA_OperationsEmployee雇员编号
+    雇员去职
+    """
+    ua_employeeLeaving(employeeId: String!): Void
+    "设立部门"
+    ua_estableshDepartment(deptName: String!, opsorganId: String!, parentName: String): Void
+    "授权  账号编号:accountId  角色编号:roleId "
+    ua_grantRole(accountId: String!, roleId: String!): Void
+    "批量授权"
+    ua_grantRoles(accountId: String!, roleIds: [String!]!): Void
+    "授权  多个账号编号:accountIds  角色编号:roleId "
+    ua_grantaccountsRole(accountIds: [String!]!, roleId: String!): Void
+    """
+
+    employeeId 雇员编号 title称谓
+    雇员重定岗
+    """
+    ua_heavyCreate(deptName: String, employeeId: String!, opsorganId: String!, title: String): Void
+    "登录"
+    ua_login(domain: UA_LoginDomain!, identifier: String!, password: String!): UA_CurrentUser
+    "注销登录"
+    ua_logout: Boolean!
+    """
+
+    opsorganId运营编号 deptName 部门名称  parentName父级部门名称
+    合并部门
+    """
+    ua_mergeDepartments(deptName: String!, mergetName: String!, opsorganId: String!): Void
+    """
+
+    opsorganId运营编号 deptName 部门名称
+    雇员入职
+    """
+    ua_onboard(account: Boolean, deptName: String, id: String!, male: Boolean, mobile: String, name: String!, opsorganId: String!, title: String): UA_OperationsEmployee
+    "取消授权"
+    ua_recycleRole(accountId: String!, roleId: String!): Void
+    "批量回收授权"
+    ua_recycleRoles(accountId: String!, roleIds: [String!]!): Void
+    "批量多个账号回收授权"
+    ua_recycleaccountsRoles(accountIds: [String!]!, roleId: String!): Void
+    "employeeId雇员编号"
+    ua_reinstatement(deptName: String, employeeId: String!, title: String): Void
+    """
+
+    employeeId 雇员编号   mobile移动电话联系方式
+    作废地址
+    """
+    ua_removeAddressContactOfEmployee(address: String!, employeeId: String!): Boolean
+    """
+
+    employeeId 雇员编号   mobile移动电话联系方式
+    作废邮件联系方式
+    """
+    ua_removeEmailContactOfEmployee(email: String, employeeId: String!): Boolean
+    """
+
+    employeeId 雇员编号   telephone固定电话联系方式
+    作废传真联系方式
+    """
+    ua_removeFaxContactOfEmployee(employeeId: String!, fax: String!): Boolean
+    """
+
+    employeeId 雇员编号   fax作废传真联系方式
+    作废移动电话联系方式
+    """
+    ua_removeMobileContactOfEmployee(employeeId: String!, mobile: String!): Boolean
+    """
+
+    address:地址
+    移除我的固定电话
+    """
+    ua_removeMyAddress(address: String!): Void
+    """
+
+    email:邮箱
+    移除我的邮箱
+    """
+    ua_removeMyEmail(email: String!): Void
+    """
+
+    fax:传真
+    移除我的电话
+    """
+    ua_removeMyFax(fax: String!): Void
+    """
+
+    mobile:移动电话
+    移除我的电话
+    """
+    ua_removeMyMobile(mobile: String!): Void
+    """
+
+    telephone:固定电话
+    移除我的固定电话
+    """
+    ua_removeMyTelephone(telephone: String!): Void
+    "移除权限到角色"
+    ua_removePermissionFromRole(permissionId: String!, roleId: String!): Void
+    """
+
+    employeeId 雇员编号   email邮件联系方式
+    作废固定电话联系方式  # employeeId 雇员编号   telephone联系方式  areaCode区号    extension分机号
+    """
+    ua_removeTelephoneContactOfEmployee(areaCode: String, employeeId: String!, extension: String, telephone: String!): Boolean
+    "重置运营组织名称    "
+    ua_renameOfOpsOrgan(name: String!): Void
+    """
+
+    opsorganId运营编号 deptName 部门名称 parentName父级部门名称
+    更改部门名称
+    """
+    ua_resetDepartmentName(deptName: String!, newName: String!, opsorganId: String!): Void
+    """
+
+    employeeId 雇员编号 name雇员名称
+    更改雇员性别
+    """
+    ua_resetEmployeeMale(employeeId: String!, male: Boolean): Void
+    """
+
+    employeeId雇员编号
+    更改雇员名称
+    """
+    ua_resetEmployeeName(employeeId: String!, name: String!): Void
+    "重置我的显示名称"
+    ua_resetMyDisplayName(displayName: String!): Void
+    """
+
+    employeeId 雇员编号   name我的姓名
+    重置我的性别
+    """
+    ua_resetMyMale(male: Boolean): Void
+    """
+
+    employeeId 雇员编号   mobile移动电话联系方式
+    重置我的姓名
+    """
+    ua_resetMyName(name: String!): Void
+    "重置我的密码"
+    ua_resetMyPassword(newPassword: String!, password: String!): String
+    "强制修改(重置雇员的密码)"
+    ua_resetPasswordModify(id: String!, modify: Boolean!): Void
+    "角色重置所属分类"
+    ua_resetRoleCategory(categoryId: String!, roleId: String!): Void
+    "角色分类重置说明   "
+    ua_resetRoleCategoryDescrption(categoryId: String!, description: String): Void
+    "角色分类重命名  "
+    ua_resetRoleCategoryName(categoryId: String!, name: String!): Void
+    "角色重置说明"
+    ua_resetRoleDescription(description: String, roleId: String!): Void
+    "角色重命名"
+    ua_resetRoleName(name: String!, roleId: String!): Void
+    """
+
+    name: 运营简称
+     重置运营组织名称和运营组织简称  运营组织简称 shortName   运营组织名
+    """
+    ua_resetShortNameAndresName(name: String, shortName: String): Void
+    """
+
+    name: 运营组织名称
+    重置运营组织简称
+    """
+    ua_resetShortNameOfOpsOrgan(name: String!): Void
+    """
+
+    employeeId 雇员编号 deptName部门名称
+    更改雇员职务称谓
+    """
+    ua_resetTitleOfEmployee(employeeId: String!, title: String): UA_ResetEmployeeTitleCommand
+    """
+
+    opsorganId运营编号 deptName 部门名称  mergetName合并部门名称
+    裁撤部门
+    """
+    ua_revokeDepartment(deptName: String!, opsorganId: String!): Void
+    "取消角色定义"
+    ua_undefineRole(roleId: String!): Void
+    "取消角色分类定义"
+    ua_undefineRoleCategory(categoryId: String!): Void
+}
+
+"客体"
+type Objects {
+    "所属域"
+    domain: String!
+    "实例标示符"
+    instance: String!
+    "名称"
+    name: String!
+    "所属资源"
+    resource: String!
+}
+
+type Parameters {
+    param: String
+}
+
+"查询"
+type Query {
+    "根据页面路径和子系统菜单编号获取对应的菜单(侧边栏和上下为菜单)"
+    cm_getPageMenu(path: String!, queryString: String, subsysMenuId: String!): CM_Menu
+    """
+
+    注意,警报级别分为  NORMAL 一般  , PRIORITY 优先处理 , IMMEDIATELY 紧急状态(需要立刻处理) 三个级别
+    全文检索查询未复核警报         pageIndex:当前页数   pageSize:每页记录数   beginStamptime:开始时间   endStamptime:结束时间
+    deviceCategory:设备类型    alarmLevel:警报级别     content:搜索文字
+    """
+    ibms_alarm_getAlarmByContent(alarmLevel: String, beginStamptime: String!, content: String, deviceCategory: String, endStamptime: String!, pageIndex: Int!, pageSize: Int!): IBMS_Page_Unchecked!
+    """
+
+    全文检索查询已复核警报         pageIndex:当前页数   pageSize:每页记录数   beginStamptime:开始时间   endStamptime:结束时间
+    deviceCategory:设备类型    alarmLevel:警报级别     content:搜索文字
+    """
+    ibms_alarm_getMisinformationByContent(alarmLevel: String, beginStamptime: String!, content: String, deviceCategory: String, endStamptime: String!, pageIndex: Int!, pageSize: Int!): IBMS_Page_Checked!
+    "获取所有建筑分类"
+    ibms_getArchitectureCategories(exp: String): [IBMS_Architecture_Category]!
+    """
+
+    获取所有功能区分类小类
+    exp: （name:名称    type: 功能区类型 INDOOR:封闭式    OPEN:开放式）
+    """
+    ibms_getFunCategories(exp: String): [IBMS_FunctionalArea_Category]!
+    "根据功能区大类获取功能区小类   \tid：功能区大类id"
+    ibms_getFunctionalAreaCategoryByBuildingCategory(id: String): [IBMS_FunctionalArea_Category]!
+    "根据编号查询区域"
+    ibms_region_findById(regionId: String): IBMS_IRegion!
+    "所有园区"
+    ibms_region_getParks(exp: String): [IBMS_Park]!
+    "根据流水号获取日志事件"
+    logEvent_getLogEventById(id: String!): LogEvent
+    "分页查询所有日志事件"
+    logEvent_getlogEvents(endTime: String, pageIndex: Int!, pageSize: Int!, startTime: String): pageModel!
+    "当前用户"
+    ua_currentUser: UA_CurrentUser!
+    "根据编号查找特定用户"
+    ua_findAccountById(accountId: String!): UA_IAccount
+    "按编号查找可操作资源   资源编号： resourceId"
+    ua_findActionalResource(resourceId: String!): UA_ActionalResource
+    "根据编号查找特定用户"
+    ua_findEmployeeById(accountId: String!): UA_PersonalAccount
+    "根据编号查找运营组织雇员"
+    ua_findOperationsEmployee(employeeId: String!): UA_OperationsEmployee
+    "按编号查找权限"
+    ua_findPermission(id: String!): UA_Permission
+    "按编号查找角色分类"
+    ua_findResourceCategory(categoryId: String!): UA_RoleCategory
+    "按编号查找角色  角色编号： roleId"
+    ua_findRole(roleId: String!): UA_Role
+    "按账号编号获取已授权角色  "
+    ua_getAccountRoles(accountId: String, name: String): [UA_AccountRoles]
+    "满足exp的所有可操作资源数量"
+    ua_getActionalResourceCount(exp: String): Int!
+    "所有可操作资源的根（根是指没有上游资源的资源）"
+    ua_getActionalResourceWithRoot: [UA_ActionalResource]!
+    "满足exp的所有可操作资源"
+    ua_getActionalResources(exp: String): [UA_ActionalResource]!
+    "满足exp的所有可操作资源并分页"
+    ua_getActionalResourcesPaging(exp: String, pageIndex: Int!, pageSize: Int!): [UA_ActionalResource]!
+    "按当前用户获取已授权角色"
+    ua_getCurrentAccountRole: [UA_AccountRoles]
+    "在线用户详情"
+    ua_getOnlineAccountDetails(id: String): UA_OnlineAccountDetails
+    "在线雇员数量"
+    ua_getOnlineEmployeeCount(exp: String): Int!
+    "在线雇员列表"
+    ua_getOnlineEmployees(exp: String, pageIndex: Int!, pageSize: Int!): [UA_OnlineEmployee]!
+    "获取运营组织"
+    ua_getOperationsOrganization: UA_OperationsOrganization!
+    "所有角色分类数量"
+    ua_getResourceCategoryCount: Int!
+    "所有角色分类"
+    ua_getResourceCategorys: [UA_RoleCategory]!
+    "所有角色分类分页"
+    ua_getResourceCategorysPaging(pageIndex: Int!, pageSize: Int!): [UA_RoleCategory]!
+    "所有角色数量"
+    ua_getRoleCount: Int!
+    "所有角色"
+    ua_getRoles: [UA_Role]!
+    "所有角色分页  roleName:角色名称   roleCategoryId:分类编号"
+    ua_getRolesPaging(pageIndex: Int!, pageSize: Int!, roleCategoryId: String, roleName: String): [UA_Role]!
+    "在线用户总数"
+    ua_getonlineAccountCount(exp: String): Int!
+    """
+
+    授权列表
+    ua_getRolePermissions(id: String!,name:String):[UA_RolePermission]
+    在线用户列表
+    """
+    ua_getonlineAccountPaging(exp: String, name: String, pageIndex: Int!, pageSize: Int!, sorting: String): [UA_OnlineAccount]!
+}
+
+"主体"
+type Subject {
+    "应用程序域"
+    domain: String!
+    "标识符"
+    identifier: String!
+    "名称"
+    name: String!
+}
+
+"订阅"
+type Subscription {
+    subscription: String!
+}
+
+"账号"
+type UA_Account implements UA_IAccount {
+    "显示名称"
+    displayName: String!
+    "编号"
+    id: String!
+    "持有的登录令牌,exp表达式"
+    loginTokens(exp: String): [UA_LoginToken]!
+}
+
+"权限"
+type UA_AccountRoles {
+    "编号"
+    accountId: String
+    description: String
+    "权限"
+    permissionName: [UA_RolePermNames]
+    "角色分类Id"
+    roleCategoryId: String
+    "角色分类名称"
+    roleCategoryName: String
+    "角色编号"
+    roleId: String
+    "角色分类编号"
+    roleName: String
+}
+
+"可操作的资源"
+type UA_ActionalResource {
+    "下游资源数量"
+    downstreamCount(exp: String): Int
+    "下游资源"
+    downstreams(exp: String): [UA_ActionalResource]
+    "编号"
+    id: String!
+    "资源名称"
+    name: String!
+    "路径"
+    path: String!
+    "权限数量"
+    permissionCount(exp: String): Int!
+    "权限"
+    permissions(exp: String): [UA_Permission]
+    "上游资源"
+    upstream: UA_ActionalResource
+}
+
+"联系方式"
+type UA_Contact implements UA_IContact {
+    "分类"
+    category: String!
+    "内容"
+    content: String!
+}
+
+"当前用户"
+type UA_CurrentUser {
+    "账号"
+    account: UA_IAccount!
+    "是否通过身份认证"
+    authenticated: Boolean!
+    "是否需要强制更改密码"
+    forceRestPassword: Boolean!
+    "会话编号"
+    sessionId: String
+}
+
+"身份对象实例"
+type UA_Identity implements UA_IIdentity {
+    "编号"
+    id: String!
+}
+
+"身份类型"
+type UA_IdentityType {
+    "类名"
+    className: String!
+    "类实例编号"
+    identityId: String!
+}
+
+"登录令牌，每个账号持有至少一个登录令牌"
+type UA_LoginToken {
+    "所属域"
+    domain: UA_LoginDomain!
+    "在所属域中的唯一标示"
+    identifier: String!
+}
+
+"权限"
+type UA_OnlineAccount {
+    "编号"
+    accountId: String
+    accountTypeName: String
+    channel: String
+    displayName: String
+}
+
+"在线用户详情"
+type UA_OnlineAccountDetails {
+    deptName: String
+    name: String
+    sessionInfo(id: String): [UA_SessionInfo]
+    title: String
+}
+
+"在线雇员"
+type UA_OnlineEmployee {
+    accountId: String
+    deptName: String
+    male: Boolean
+    name: String
+    time: String
+    title: String
+}
+
+"运营组织的部门"
+type UA_OperationsDepartment implements UA_IDepartment {
+    "部门下的雇员数量"
+    employeeCount(exp: String): Int!
+    """
+
+    screah:电话或者姓名    sorting:通过"姓名","姓名拼音"和"入职日期"进行排序    pageNum:页码    pageSize:每页记录数
+    分页显示部门雇员
+    """
+    employeePaging(pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_IEmployee]
+    "部门雇员"
+    employees(exp: String): [UA_IEmployee]
+    "分页显示部门雇员"
+    employeesPaging(exp: String, pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_IEmployee]
+    "全称"
+    name: String!
+    "所属组织机构"
+    organization: UA_IOrganization!
+    "直属下级部门数量"
+    subordinateCount: Int!
+    "直属下级部门"
+    subordinates: [UA_IDepartment]!
+    "上级部门"
+    superior: UA_IDepartment
+    "父级id"
+    superiorId: String
+}
+
+"运营组织的雇员"
+type UA_OperationsEmployee implements UA_IEmployee {
+    "持有的账号"
+    account: UA_PersonalAccount
+    "联系方式"
+    contacts: [UA_Contact]
+    "所属部门"
+    department: UA_OperationsDepartment
+    "部门名称"
+    deptName: String
+    "头像"
+    headerPri: String
+    "编号"
+    id: String!
+    "是否离职"
+    leave: Boolean
+    "是否男性"
+    male: Boolean
+    "姓名"
+    name: String!
+    "所属运营组织"
+    organization: UA_OperationsOrganization!
+    "在职"
+    removed: Boolean
+    "时间"
+    time: String
+    "职务称谓"
+    title: String
+}
+
+"运营组织"
+type UA_OperationsOrganization implements UA_IOrganization {
+    "部门数量,exp:表达式"
+    departmentCount(exp: String): Int!
+    "部门, exp:表达式"
+    departments(exp: String): [UA_IDepartment]!
+    "离职雇员数量"
+    dismissionEmployeeCount: String
+    "离职雇员    screah:电话或者姓名    sorting:通过\"姓名\",\"姓名拼音\"和\"入职日期\"进行排序    pageNum:页码    pageSize:每页记录数"
+    dismissionEmployees(pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_OperationsEmployee]!
+    "满足exp表达式雇员的数量"
+    employeeCount(exp: String): Int!
+    "雇员，exp:表达式"
+    employees(exp: String): [UA_OperationsEmployee]!
+    """
+
+    分页包装类
+    employeesPag(title: String): UA_OperationsOrganization
+      pageNum: 页码, pageSize: 每页多少条,leave: onJob 在职   departure 离职 online 在线,screah:电话 姓名 ,sorting 排序:  name 姓名  namePinyin 姓名拼音 time入职时间
+    """
+    employeesPag(exp: String, leave: String, pageNum: Int!, pageSize: Int!, screah: String, sorting: String): UA_PageModel
+    "分页显示雇员"
+    employeesPaging(exp: String, pageNum: Int!, pageSize: Int!, title: String): [UA_OperationsEmployee]!
+    "雇员总数,exp:表达式"
+    employeesTotal(exp: String): Int!
+    "编号"
+    id: String!
+    "全称"
+    name: String!
+    "在职雇员数量"
+    onJobEmployeeCount: String
+    "在职雇员    screah:电话或者姓名    sorting:通过\"姓名\",\"姓名拼音\"和\"入职日期\"进行排序    pageNum:页码    pageSize:每页记录数"
+    onJobEmployees(pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_OperationsEmployee]!
+    "在线雇员数量"
+    onlineEmployeeCount: String
+    "在线雇员    screah:电话或者姓名    sorting:通过\"姓名\",\"姓名拼音\"和\"入职日期\"进行排序    pageNum:页码    pageSize:每页记录数"
+    onlineEmployees(pageNum: Int!, pageSize: Int!, screah: String, sorting: String): [UA_OperationsEmployee]!
+    "简称"
+    shortName: String!
+}
+
+type UA_PageModel {
+    """
+
+    离职人数
+    数据集合
+    """
+    data: [UA_OperationsEmployee]!
+    "在职人数"
+    departureTotal: Int!
+    "离职人数"
+    onlineTotal: Int!
+    "记录总数"
+    recordsTotal: Int!
+}
+
+"权限"
+type UA_Permission {
+    "操作"
+    action: String!
+    "说明"
+    description: String
+    "互斥权限数量"
+    exclusiveCount: Int!
+    "互斥权限"
+    exclusives: [UA_Permission]!
+    "编号"
+    id: String!
+    "所属可操作资源资源"
+    resource: UA_ActionalResource!
+}
+
+"个人账号"
+type UA_PersonalAccount implements UA_IAccount & UA_IPersonalAccount {
+    "显示名称"
+    displayName: String!
+    "编号"
+    id: String!
+    "提取指定类型的身份"
+    identity(className: String!): UA_Identity
+    "身份类型,exp表达式"
+    identityTypes(exp: String): [UA_IdentityType]
+    "持有的登录令牌,exp表达式"
+    loginTokens(exp: String): [UA_LoginToken]!
+}
+
+"运营组织的雇员"
+type UA_ResetEmployeeTitleCommand {
+    "编号"
+    id: String!
+    "姓名"
+    title: String!
+}
+
+"权限分类"
+type UA_ResourcePermission {
+    id: String!
+    "资源名称"
+    name: String!
+    "路径"
+    path: String!
+    "许可"
+    permission: [UA_Permission]
+}
+
+"权限"
+type UA_Role {
+    "说明"
+    description: String
+    "互斥角色数量"
+    exclusiveCount: Int!
+    "互斥角色"
+    exclusives: [UA_Role]!
+    "持有人数量"
+    holderCount(exp: String): Int!
+    "持有人"
+    holders(exp: String): [UA_UIAccount]
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    "运营组织名称"
+    organName: String
+    "权限数量"
+    permissionCount(exp: String): Int!
+    "权限"
+    permissions(exp: String): [UA_Permission]
+    resourcePermissions: [UA_ResourcePermission]
+    "角色分类"
+    roleCategory: UA_RoleCategory
+}
+
+"权限分类"
+type UA_RoleCategory {
+    "说明"
+    description: String
+    "编号"
+    id: String!
+    "名称"
+    name: String!
+    """
+
+    所属组织
+    owner: [UA_IOrganization]
+    """
+    owner: UA_IOrganization
+    "角色数量"
+    roleCount(exp: String): Int!
+    "角色"
+    roles(exp: String): [UA_Role]
+}
+
+type UA_RolePermNames {
+    action: String
+    "权限名称"
+    rolePName: String
+}
+
+type UA_SessionInfo {
+    requestChannel: String
+    timestamp: String
+}
+
+"权限分类"
+type UA_UEmployee {
+    "部门名称"
+    deptName: String
+    "编号"
+    id: String!
+    "是否离职"
+    leave: Boolean
+    "是否男性"
+    male: Boolean
+    "姓名"
+    name: String!
+    "在职"
+    removed: Boolean
+    "职务称谓"
+    title: String
+}
+
+type UA_UIAccount implements UA_IAccount {
+    "部门名称【待删除问候】"
+    departmentName: String
+    "显示名称"
+    displayName: String!
+    "雇员"
+    employee: UA_UEmployee
+    "编号"
+    id: String!
+    "持有的登录令牌,exp表达式"
+    loginTokens(exp: String): [UA_LoginToken]!
+}
+
+type pageModel {
+    data: [LogEvent]!
+    total: Int!
+}
+
+"信息级别"
+enum CM_InforLevel {
+    "错误"
+    ERROR
+    "正常"
+    NORMAL
+    "警告"
+    WARN
+}
+
+"Span风格"
+enum CM_SpanShape {
+    "椭圆"
+    ECLIPSE
+    "矩形"
+    RECTANGLE
+}
+
+"登录令牌域"
+enum UA_LoginDomain {
+    "邮箱"
+    email
+    "手机号"
+    mobile
+    "用户名"
+    userName
+}
+
+"代表无返回"
+enum Void {
+    "无意义的返回值"
+    FALSE
+    "无意义的返回值"
+    TRUE
+}
+
+
+"A file part in a multipart request"
+scalar Upload

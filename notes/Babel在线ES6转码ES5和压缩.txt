@@ -1,0 +1,7 @@
+1、Babel在线ES6转码ES5
+https://babeljs.io/repl/#?babili=false&browsers=iOS%20%3E%3D%2010%2C%20Safari%20%3E%3D%2010%2C%20Edge%20%3E%3D%2016%2C%20Opera%20%3E%3D%2047%2C%20Android%20%3E%3D%2056%2C%20Chrome%20%3E%3D%2056%2C%20ChromeAndroid%20%3E%3D%2056%2C%20Firefox%20ESR%2C%20Firefox%20%3E%3D%2054%2C%20FirefoxAndroid%20%3E%3D%2054%2C%20last%202%20OperaMobile%20major%20versions%2C%20last%202%20OperaMini%20major%20versions%2C%20last%202%20QQAndroid%20major%20versions%2C%20not%20ie%20%3C%3D%2011%2C%20not%20ie_mob%20%3C%3D%2011%2C%20not%20dead&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=true&circleciRepo=&evaluate=false&fileSize=true&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Ces2016%2Ces2017%2Cstage-0%2Cstage-1%2Cstage-2%2Cstage-3%2Cenv&prettier=true&targets=&version=7.4.3&externalPlugins=%40babel%2Fplugin-proposal-class-properties%407.4.0
+
+2、JS代码压缩
+https://jsmin.51240.com
+
+iOS >= 10, Safari >= 10, Edge >= 16, Opera >= 47, Android >= 56, Chrome >= 56, ChromeAndroid >= 56, Firefox ESR, Firefox >= 54, FirefoxAndroid >= 54, last 2 OperaMobile major versions, last 2 OperaMini major versions, last 2 QQAndroid major versions, not ie <= 11, not ie_mob <= 11, not dead

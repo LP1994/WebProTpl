@@ -1,0 +1,129 @@
+.appcache的使用说明
+
+必须是在HTTPS协议中才能正常使用生效
+
+CACHE MANIFEST
+# 在此标题下列出的文件将在首次下载后进行缓存
+# 2018-11-11 v1.0.0
+# Appcache跟RequireJS不能共存同一个页面
+# manifest = '${require("configDir/WebProTpl.appcache")}'
+# <html manifest="demo.appcache">
+# 如：写下“/theme.css”，则浏览器会从网站的根目录下载这个theme.css文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。
+
+
+NETWORK:
+# 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+# "*"，可以使用星号来指示所有其他资源/文件都需要因特网连接
+
+
+FALLBACK:
+# 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）
+# "/html5/ /404.html"(第一个URI是资源，第二个是替补。)，如果无法建立因特网连接，则用"offline.html"替代/html5/目录中的所有文件
+
+
+实例 - 完整的 Manifest 文件
+CACHE MANIFEST
+# 2012-02-21 v1.0.0
+/theme.css
+/logo.gif
+/main.js
+
+NETWORK:
+login.asp
+
+FALLBACK:
+/html5/ /404.html
+
+重要的提示：以 "#" 开头的是注释行，但也可满足其他用途。应用的缓存会在其 manifest 文件更改时被更新。
+如果您编辑了一幅图片，或者修改了一个 JavaScript 函数，这些改变都不会被重新缓存。
+更新注释行中的日期和版本号是一种使浏览器重新缓存文件的办法。
+一旦文件被缓存，则浏览器会继续展示已缓存的版本，即使您修改了服务器上的文件。为了确保浏览器更新缓存，您需要更新 manifest 文件。
+
+
+
+MIME type text/cache-manifest
+
+
+
+window.applicationCache;
+window.navigator.onLine;
+
+// 返回缓存的状态
+window.applicationCache.status // 返回数值
+UNCACHED: 0 // 一个特殊值，指示应用程序缓存对象未完全初始化。此文档没有缓存，或者缓存数据尚未被下载
+IDLE: 1 // 应用程序缓存当前未处于更新过程中。缓存没有执行任何操作
+CHECKING: 2 // 正在获取清单并检查更新。浏览器正在检查清单或清单所指定项目的更新
+DOWNLOADING: 3 // 由于资源清单已更改，正在下载资源以添加到缓存中。浏览器正在下载清单或内容的更新
+UPDATEREADY: 4 // 有一个新版本的应用程序缓存可用。有一个相应的updateready事件，cached当下载了一个新的更新但尚未使用该swapCache()方法激活时，会触发该事件而不是事件。
+// 有更新后的缓存数据可用
+OBSOLETE: 5 // 应用程序缓存组现已过时。缓存数据已被废弃，不应该再使用了，这是请求清单文件时返回HTTP状态码是4XX所造成的（通常表明清单文件已被移走/删除）
+
+// 更新缓存以确保清单里的项目都已下载了最新的版本
+window.applicationCache.update()
+// 交换当前缓存与较新的缓存
+window.applicationCache.swapCache()
+
+window.applicationCache.addEventListener: ƒ addEventListener()
+window.applicationCache.dispatchEvent: ƒ dispatchEvent()
+window.applicationCache.removeEventListener: ƒ removeEventListener()
+
+
+
+checking // 当用户代理检查更新或尝试首次下载缓存清单时，将触发checking事件。浏览器正在获取初始清单或检查清单更新
+属性	      类型	     描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+
+noupdate // 如果清单未更改，则在检查应用程序缓存更新后会触发noupdate事件。没有更新可用，当前的清单是最新版
+属性	      类型	   描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+
+downloading // 检查应用程序缓存更新后，如果用户代理已找到更新并正在获取更新，或者是第一次下载缓存清单列出的资源，则会触发downloading事件。
+属性     	类型	      描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+
+progress // 当用户代理下载清单列出的资源时，将触发progress事件。
+属性	    类型	       描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+lengthComputable	布尔	指定传输的总大小是否已知。只读。
+loaded	无符号长（长）	自操作开始以来传输的字节数。这不包括标头和其他开销，而只包括内容本身。只读。
+total	无符号长（长）	操作期间将传输的内容的总字节数。如果总大小未知，则此值为零。只读。
+
+cached // 下载应用程序缓存清单中列出的资源后，将触发缓存事件，现在缓存应用程序。清单里指定的所有内容都已被下载和缓存了
+属性	   类型	   描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+
+updateready // 当新应用程序缓存清单中列出的资源已重新加载时，将触发updateready事件，并且脚本可以使用swapCache()切换到新缓存。
+属性	    类型	   描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+
+obsolete // 当发现清单已成为404或410页时，会触发过时事件，因此正在删除应用程序缓存。缓存已被废弃
+属性	   类型	   描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。
+
+error // 下载缓存清单或更新应用程序内容时发生错误时会触发错误事件。
+属性	类型	描述
+target	EventTarget（DOM元素）	事件目标（DOM树中最顶层的目标）。只读。
+type	串	事件的类型。只读。
+canBubble	布尔	事件通常会冒泡吗？只读。
+cancelable	布尔	可以取消活动吗？只读。

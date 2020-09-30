@@ -1,0 +1,28 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+html.css-reset.xmQAQ {
+    background: #f3a1a2 url(~imgDir/iPhoneX_1125_2436.png) left top no-repeat;
+    background-size: 100% auto;
+
+    body.css-reset, #LocalRoll, #XMQAQ, main, .homePage {
+        background-color: transparent;
+    }
+
+    .homePage {
+        touch-action: pan-y;
+
+        // padding: 28px 15px;
+
+        grid-template-columns: repeat(auto-fit, 83px);
+        grid-auto-rows: 78px;
+        row-gap: 25px;
+        justify-content: space-between;
+    }
+
+}

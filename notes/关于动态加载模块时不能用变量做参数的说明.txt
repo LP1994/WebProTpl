@@ -1,0 +1,23 @@
+看https://webpack.js.org/guides/dependency-management关于require.context的使用说明
+看https://webpack.js.org/api/module-methods/#import-1关于import()的使用说明
+
+1、webpack编译ES6动态引入import()时不能传入变量，只能是直接字面量的字符串！！！
+2、webpack编译require()时不能传入变量，只能是直接字面量的字符串！！！
+3、但一定要用变量的时候，可以通过字符串模板来提供部分信息给webpack；例如import(`./path/${myFile}.js`),
+这样编译时会编译所有./path下的.js模块，但运行时确定myFile的值才会加载，从而实现懒加载。(require也是如是)
+4、import是静态的，必须在编译的时候即确定依赖关系！
+5、webpack是在编译时查找模块的，而用变量的方式保存路径是运行时执行的！
+6、根据es6module语法，由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。
+7、每个可能在import()调用上被请求的模块都包含在内。例如，import( `./locale/${ language }.json` )将导致./locale目录中的每个.json文件捆绑到新块中。
+在运行时，当计算变量语言时，任何文件（如english.json或german.json）都可以使用。
+
+
+require.context(
+  directory: String,
+  includeSubdirs: Boolean /* optional, default true */,
+  filter: RegExp /* optional, default /^\.\/.*$/, any file */,
+  mode: String  /* optional, 'sync' | 'eager' | 'weak' | 'lazy' | 'lazy-once', default 'sync' */
+)
+4个参数必须是直接字面量，不能是变量、常量，只能是如下格式的：
+require.context( 'jsonDir/manifest/', false, /\.json$/, 'lazy' )
+成功时返回一个函数(这个函数还有三个属性，具体看最上头的网址)，这个函数接受一个参数(如：'./qwe.json')

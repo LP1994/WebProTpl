@@ -1,0 +1,442 @@
+{
+    "compileOnSave": true,
+    "include": [
+        "./tsconfig.json",
+        "./src/components/**/*.ts",
+        "./src/components/**/*.tsx",
+        "./src/components/**/*.d.ts",
+        "./src/js/**/*.ts",
+        "./src/js/**/*.tsx",
+        "./src/js/**/*.d.ts",
+        "./src/vue/**/*.ts",
+        "./src/vue/**/*.tsx",
+        "./src/vue/**/*.ts.vue",
+        "./src/vue/**/*.d.ts",
+        "./src/webComponents/**/*.ts",
+        "./src/webComponents/**/*.tsx",
+        "./src/webComponents/**/*.d.ts"
+    ],
+    "exclude": [
+        "./node_modules",
+        "./bower_components",
+        "./jspm_packages"
+    ],
+    "typeAcquisition": {
+        "enable": true
+    },
+    "compilerOptions": {
+        "incremental": true,
+        "tsBuildInfoFile": "./test/TSBuildInfo.tsbuildinfo",
+        "target": "ES2020",
+        "module": "es2020",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "es2015",
+            "es2015.collection",
+            "es2015.core",
+            "es2015.generator",
+            "es2015.iterable",
+            "es2015.promise",
+            "es2015.proxy",
+            "es2015.reflect",
+            "es2015.symbol",
+            "es2015.symbol.wellknown",
+            "es2016",
+            "es2016.array.include",
+            "es2017",
+            "es2017.intl",
+            "es2017.object",
+            "es2017.sharedmemory",
+            "es2017.string",
+            "es2017.typedarrays",
+            "es2018",
+            "es2018.asyncgenerator",
+            "es2018.asynciterable",
+            "es2018.intl",
+            "es2018.promise",
+            "es2018.regexp",
+            "es2019",
+            "es2019.array",
+            "es2019.object",
+            "es2019.string",
+            "es2019.symbol",
+            "es2020",
+            "es2020.bigint",
+            "es2020.intl",
+            "es2020.promise",
+            "es2020.string",
+            "es2020.symbol.wellknown",
+            "es5",
+            "es6",
+            "es7",
+            "esnext",
+            "esnext.array",
+            "esnext.asynciterable",
+            "esnext.bigint",
+            "esnext.intl",
+            "esnext.promise",
+            "esnext.string",
+            "esnext.symbol",
+            "scripthost",
+            "webworker",
+            "webworker.importscripts"
+        ],
+        "allowJs": false,
+        "checkJs": false,
+        "jsx": "react",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": false,
+        "composite": true,
+        "removeComments": true,
+        "noEmit": false,
+        "importHelpers": true,
+        "downlevelIteration": true,
+        "isolatedModules": false,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "baseUrl": "./",
+        "paths": {
+            "echarts": [
+                "node_modules/echarts/dist/echarts.min.js"
+            ],
+            "ELEMENTCSS": [
+                "node_modules/element-ui/lib/theme-chalk/index.css"
+            ],
+            "ELEMENT": [
+                "node_modules/element-ui/lib/index.js"
+            ],
+            "jQuery": [
+                "node_modules/jquery/dist/jquery.min.js"
+            ],
+            "$": [
+                "node_modules/jquery/dist/jquery.min.js"
+            ],
+            "SwiperCSS": [
+                "node_modules/swiper/swiper-bundle.min.css"
+            ],
+            "Swiper": [
+                "node_modules/swiper/swiper-bundle.min.js"
+            ],
+            "Vue": [
+                "node_modules/vue/dist/vue.min.js"
+            ],
+            "VueRouter": [
+                "node_modules/vue-router/dist/vue-router.min.js"
+            ],
+            "Vuex": [
+                "node_modules/vuex/dist/vuex.min.js"
+            ],
+            "tslib": [
+                "node_modules/tslib/tslib.es6.js"
+            ],
+            "CompESM": [
+                "src/components/Components.esm.js"
+            ],
+            "CTESM": [
+                "src/js/tools/CurrencyTools.esm.js"
+            ],
+            "DecESM": [
+                "src/js/tools/Decorator4ES6.esm.js"
+            ],
+            "HTML2C4ESM": [
+                "src/js/tools/HTML2Canvas.esm.js"
+            ],
+            "WebCESM": [
+                "src/js/tools/WebComponents.esm.js"
+            ],
+            "WorkersESM": [
+                "src/js/tools/Workers4MT.esm.js"
+            ],
+            "configDir/*": [
+                "configures/*"
+            ],
+            "jsonDir/*": [
+                "src/assets/doc/json/*"
+            ],
+            "json5Dir/*": [
+                "src/assets/doc/json5/*"
+            ],
+            "txtDir/*": [
+                "src/assets/doc/txt/*"
+            ],
+            "xmlDir/*": [
+                "src/assets/doc/xml/*"
+            ],
+            "fontsDir/*": [
+                "src/assets/fonts/*"
+            ],
+            "imgDir/*": [
+                "src/assets/img/*"
+            ],
+            "musicDir/*": [
+                "src/assets/music/*"
+            ],
+            "videosDir/*": [
+                "src/assets/videos/*"
+            ],
+            "compDir/*": [
+                "src/components/*"
+            ],
+            "gQLAPIDir/*": [
+                "src/graphQL/api/*"
+            ],
+            "jsDir/*": [
+                "src/js/*"
+            ],
+            "jsMDir/*": [
+                "src/js/modules/*"
+            ],
+            "jsPDir/*": [
+                "src/js/pages/*"
+            ],
+            "jsPubDir/*": [
+                "src/js/public/*"
+            ],
+            "jsTDir/*": [
+                "src/js/tools/*"
+            ],
+            "manifestDir/*": [
+                "src/pwa4Manifest/*"
+            ],
+            "cssDir/*": [
+                "src/styles/css/*"
+            ],
+            "cssBDir/*": [
+                "src/styles/css/basic/*"
+            ],
+            "cssMDir/*": [
+                "src/styles/css/modules/*"
+            ],
+            "cssPDir/*": [
+                "src/styles/css/pages/*"
+            ],
+            "cssPubDir/*": [
+                "src/styles/css/public/*"
+            ],
+            "lessDir/*": [
+                "src/styles/less/*"
+            ],
+            "lessBDir/*": [
+                "src/styles/less/basic/*"
+            ],
+            "lessMDir/*": [
+                "src/styles/less/modules/*"
+            ],
+            "lessPDir/*": [
+                "src/styles/less/pages/*"
+            ],
+            "lessPubDir/*": [
+                "src/styles/less/public/*"
+            ],
+            "pcssDir/*": [
+                "src/styles/postcss/*"
+            ],
+            "pcssBDir/*": [
+                "src/styles/postcss/basic/*"
+            ],
+            "pcssMDir/*": [
+                "src/styles/postcss/modules/*"
+            ],
+            "pcssPDir/*": [
+                "src/styles/postcss/pages/*"
+            ],
+            "pcssPubDir/*": [
+                "src/styles/postcss/public/*"
+            ],
+            "sassDir/*": [
+                "src/styles/sass/*"
+            ],
+            "sassBDir/*": [
+                "src/styles/sass/basic/*"
+            ],
+            "sassMDir/*": [
+                "src/styles/sass/modules/*"
+            ],
+            "sassPDir/*": [
+                "src/styles/sass/pages/*"
+            ],
+            "sassPubDir/*": [
+                "src/styles/sass/public/*"
+            ],
+            "scssDir/*": [
+                "src/styles/scss/*"
+            ],
+            "scssBDir/*": [
+                "src/styles/scss/basic/*"
+            ],
+            "scssMDir/*": [
+                "src/styles/scss/modules/*"
+            ],
+            "scssPDir/*": [
+                "src/styles/scss/pages/*"
+            ],
+            "scssPubDir/*": [
+                "src/styles/scss/public/*"
+            ],
+            "stylDir/*": [
+                "src/styles/stylus/*"
+            ],
+            "stylBDir/*": [
+                "src/styles/stylus/basic/*"
+            ],
+            "stylMDir/*": [
+                "src/styles/stylus/modules/*"
+            ],
+            "stylPDir/*": [
+                "src/styles/stylus/pages/*"
+            ],
+            "stylPubDir/*": [
+                "src/styles/stylus/public/*"
+            ],
+            "tplEJSDir/*": [
+                "src/tplEJS/*"
+            ],
+            "tplEJSBDir/*": [
+                "src/tplEJS/basic/*"
+            ],
+            "tplEJSMLDir/*": [
+                "src/tplEJS/basic/metaLink/*"
+            ],
+            "tplEJSMDir/*": [
+                "src/tplEJS/modules/*"
+            ],
+            "tplEJSPDir/*": [
+                "src/tplEJS/pages/*"
+            ],
+            "tplEJSPubDir/*": [
+                "src/tplEJS/public/*"
+            ],
+            "tplHTMLDir/*": [
+                "src/tplHTML/*"
+            ],
+            "tplHTMLBDir/*": [
+                "src/tplHTML/basic/*"
+            ],
+            "tplHTMLMDir/*": [
+                "src/tplHTML/modules/*"
+            ],
+            "tplHTMLPDir/*": [
+                "src/tplHTML/pages/*"
+            ],
+            "tplHTMLPubDir/*": [
+                "src/tplHTML/public/*"
+            ],
+            "vueDir/*": [
+                "src/vue/*"
+            ],
+            "vueCompDir/*": [
+                "src/vue/components/*"
+            ],
+            "vueMDir/*": [
+                "src/vue/models/*"
+            ],
+            "vueRDir/*": [
+                "src/vue/routers/*"
+            ],
+            "vueSDir/*": [
+                "src/vue/stores/*"
+            ],
+            "vueStyDir/*": [
+                "src/vue/styles/*"
+            ],
+            "vueVDir/*": [
+                "src/vue/views/*"
+            ],
+            "wasmDir/*": [
+                "src/wasm/*"
+            ],
+            "wasmBDir/*": [
+                "src/wasm/basic/*"
+            ],
+            "wasmMDir/*": [
+                "src/wasm/modules/*"
+            ],
+            "wasmPDir/*": [
+                "src/wasm/pages/*"
+            ],
+            "wasmPubDir/*": [
+                "src/wasm/public/*"
+            ],
+            "webCDir/*": [
+                "src/webComponents/*"
+            ],
+            "serviceWorkersDir/*": [
+                "src/workers/serviceWorkers/*"
+            ],
+            "sWorkersDir/*": [
+                "src/workers/sharedWorkers/*"
+            ],
+            "tWorkersDir/*": [
+                "src/workers/tools/*"
+            ],
+            "wWorkersDir/*": [
+                "src/workers/webWorkers/*"
+            ]
+        },
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": [],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "preserveSymlinks": false,
+        "allowUmdGlobalAccess": true,
+        "mapRoot": "./test/",
+        "inlineSourceMap": false,
+        "inlineSources": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "listFiles": false,
+        "listEmittedFiles": false,
+        "traceResolution": false,
+        "extendedDiagnostics": true,
+        "assumeChangesOnlyAffectDirectDependencies": true,
+        "emitDeclarationOnly": false,
+        "importsNotUsedAsValues": "preserve",
+        "jsxFactory": "h",
+        "emitBOM": false,
+        "newLine": "crlf",
+        "noLib": false,
+        "noResolve": false,
+        "stripInternal": true,
+        "disableSizeLimit": true,
+        "disableSourceOfProjectReferenceRedirect": true,
+        "disableSolutionSearching": true,
+        "noImplicitUseStrict": false,
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
+        "preserveConstEnums": true,
+        "declarationDir": "./test/",
+        "skipLibCheck": true,
+        "allowUnusedLabels": false,
+        "allowUnreachableCode": true,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false,
+        "forceConsistentCasingInFileNames": true,
+        "maxNodeModuleJsDepth": 0,
+        "noStrictGenericChecks": false,
+        "useDefineForClassFields": true,
+        "preserveWatchOutput": false,
+        "pretty": true,
+        "watch": true,
+        "listFilesOnly": false,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "outDir": "./test/",
+        "rootDir": "./",
+        "jsxFragmentFactory": "Fragment",
+        "disableReferencedProjectLoad": false
+    }
+}

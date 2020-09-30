@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nodes>
+    <content attr = "属性1">这是个XML文件</content>
+    <info attr = "属性2">
+        2020
+        <name attr = "属性3">LMF</name>
+        <name attr = "属性4">LP</name>
+        2021
+    </info>
+</nodes>

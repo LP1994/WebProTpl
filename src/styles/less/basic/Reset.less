@@ -1,0 +1,775 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+/*
+使用说明！！！
+
+该CSS reset是安全的！！！
+
+建议，为每个标签添加"css-reset"CSS类选择器！这样既不影响别人的样式，又能启动自己的CSS reset！！！
+
+所谓的“安全”是只有在标签上添加“css-reset”CSS类选择器才会触发该标签对应的CSS reset！！！
+
+对于input[type="range"]这类的CSS reset则是添加“css-reset-range”CSS类选择器才会触发，CSS类选择器格式是“css-reset-range”
+特别的属性如：目前只有这三种特别的属性
+"css-reset-range"
+"css-reset-moz-number"
+"css-reset-file"
+以上是对于input标签的特殊属性，当然也需要加上“css-reset”CSS类选择器
+*/
+
+*[v-cloak] {
+    display: none !important;
+}
+
+/*如果一个标签添加了“css-reset”修饰类，则自身将触发默认的CSS reset！！！但内部标签却不触发默认的CSS reset！！！*/
+.css-reset {
+    padding: 0;
+    border: none;
+    margin: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: black;
+    line-height: 1;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a.css-reset {
+    text-decoration: none;
+}
+
+body.css-reset {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+span.css-reset {
+    display: block;
+}
+
+/*输入框类型的光标的颜色*/
+input.css-reset {
+    -khtml-caret-color: #1e90ff;
+    -o-caret-color: #1e90ff;
+    -ms-caret-color: #1e90ff;
+    -moz-caret-color: #1e90ff;
+    -webkit-caret-color: #1e90ff;
+    caret-color: #1e90ff;
+}
+
+meter.css-reset {
+    box-shadow: none;
+    border-radius: 10px;
+    background: #f2f2f2;
+    width: 130px;
+    height: 16px;
+}
+
+iframe.css-reset {
+    display: flex;
+}
+
+dialog.css-reset {
+    display: block;
+}
+
+button.css-reset {
+    background-color: white;
+}
+
+progress.css-reset {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+    box-shadow: none;
+    background: #f2f2f2;
+    width: 130px;
+    height: 16px;
+}
+
+ol.css-reset,
+ul.css-reset,
+li.css-reset,
+dl.css-reset,
+dt.css-reset,
+dd.css-reset {
+    list-style: none;
+}
+
+fieldset.css-reset {
+    display: block;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding-block-end: 0;
+    min-inline-size: min-content;
+    border-width: 1px;
+    border-style: groove;
+    border-color: black;
+    border-image: initial;
+}
+
+legend.css-reset {
+    display: block;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+
+/*全部区域所在的那个区域*/
+meter.css-reset::-webkit-meter-inner-element {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*全部区域的样式，填满区域的样式会盖在其上头*/
+meter.css-reset::-webkit-meter-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*绿色区域的样式*/
+meter.css-reset::-webkit-meter-optimum-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*黄色区域的样式*/
+meter.css-reset::-webkit-meter-suboptimum-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: yellow;
+}
+
+/*红色区域的样式*/
+meter.css-reset::-webkit-meter-even-less-good-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: red;
+}
+
+/*值区域的样式*/
+meter.css-reset::-moz-meter-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*全部区域所在的那个区域*/
+progress.css-reset::-webkit-progress-inner-element {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*全部区域的样式，填满区域的样式会盖在其上头*/
+progress.css-reset::-webkit-progress-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*值区域的样式*/
+progress.css-reset::-webkit-progress-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*值区域的样式*/
+progress.css-reset::-moz-progress-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*
+-ms-bar：长的动画进度条
+-ms-ring：圆的动画进度条
+*/
+progress.css-reset::-ms-fill {
+    animation-name: -ms-bar;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*input[type="range"]*/
+input.css-reset-range {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    box-shadow: none;
+    height: 16px;
+    width: 130px;
+}
+
+/*滑块轨道*/
+/*input[type="range"]*/
+input.css-reset-range::-webkit-slider-runnable-track {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    height: 16px;
+}
+
+/*滑块*/
+/*input[type="range"]*/
+input.css-reset-range::-webkit-slider-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff00;
+    color: #00ff00;
+    border: none;
+    outline: none;
+}
+
+/*滑块轨道*/
+/*input[type="range"]*/
+input.css-reset-range::-moz-range-track {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    height: 16px;
+}
+
+/*滑块*/
+/*input[type="range"]*/
+input.css-reset-range::-moz-range-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff00;
+    color: #00ff00;
+    border: none;
+}
+
+/*滑块进度条*/
+/*input[type="range"]*/
+input.css-reset-range::-moz-range-progress {
+    background: transparent;
+}
+
+/*滑块轨道*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-track {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: transparent;
+    height: 16px;
+}
+
+/*滑块*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff00;
+    color: #00ff00;
+    border: none;
+}
+
+/*滑块进度条前*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-fill-lower {
+    background: transparent;
+}
+
+/*滑块进度条后*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-fill-upper {
+    background: transparent;
+}
+
+/*滑块轨道刻度线上*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-ticks-before {
+    display: none;
+}
+
+/*滑块轨道刻度线下*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-ticks-after {
+    display: none;
+}
+
+/*input[type="range"]*/
+input.css-reset-range::-ms-tooltip {
+    display: block;
+    visibility: visible;
+}
+
+input.css-reset:disabled,
+input[disabled].css-reset,
+input[disabled='true'].css-reset,
+input[disabled='disabled'].css-reset,
+textarea.css-reset:disabled,
+textarea[disabled].css-reset,
+textarea[disabled='true'].css-reset,
+textarea[disabled='disabled'].css-reset {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+/*表单自动填充默认样式*/
+input.css-reset:-webkit-autofill {
+    background: transparent;
+    box-shadow: none;
+}
+
+/*去除搜狗浏览器中密码输入框那个虚拟机键盘*/
+input.css-reset::-webkit-input-safebox-button {
+    display: none;
+}
+
+/*侧边的上下小箭头*/
+input.css-reset::-webkit-inner-spin-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+    color: transparent; /*透明掉*/
+    background: transparent; /*透明掉*/
+}
+
+/*侧边的上下小箭头*/
+input.css-reset::-webkit-outer-spin-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+    color: transparent; /*透明掉*/
+    background: transparent; /*透明掉*/
+}
+
+/*隐藏取消按钮*/
+input.css-reset::-webkit-search-cancel-button {
+    display: none;
+}
+
+/*隐藏放大镜图标*/
+input.css-reset::-webkit-search-results-button {
+    display: none;
+}
+
+/*清除按钮*/
+input.css-reset::-webkit-clear-button {
+    display: none;
+}
+
+/*number类型input框的默认样式*/
+input.css-reset::-webkit-textfield-decoration-container {
+    background: transparent;
+}
+
+/*input[type="file"]*/
+input.css-reset-file::-webkit-file-upload-button {
+    padding: 0;
+    border: none;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: black;
+    text-fill-color: black;
+}
+
+/*input[type="file"]*/
+input.css-reset-file::-ms-browse {
+    padding: 0;
+    border: none;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: black;
+    text-fill-color: black;
+}
+
+/*IE、Edge的radio、checkbox选中状态的背景颜色*/
+input.css-reset::-ms-check {
+    background: transparent;
+}
+
+input.css-reset::-ms-clear {
+    display: none;
+}
+
+/*向下的三角形*/
+select.css-reset::-ms-expand {
+    display: none;
+    cursor: pointer;
+}
+
+/*IE、Edge的select的值的样式*/
+select.css-reset::-ms-value {
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+/*谷歌、火狐的向下的三角形*/
+select.css-reset {
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    color: black;
+    background-color: white;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+option.css-reset::-ms-expand {
+    cursor: pointer;
+    display: none;
+}
+
+option.css-reset {
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-weight: normal;
+    min-height: auto;
+    padding: 0;
+}
+
+option.css-reset:hover {
+    color: white !important;
+    background: #1e90ff !important;
+    cursor: pointer;
+}
+
+option.css-reset:checked {
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+/*IE的密码显示按钮*/
+input.css-reset::-ms-reveal {
+    display: none;
+}
+
+/*IE、Edge的input的值的样式*/
+input.css-reset::-ms-value {
+    background: transparent;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-khtml-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-o-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-ms-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-moz-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-webkit-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::input-speech-button {
+    display: none;
+}
+
+/*向下的三角形箭头，webkit浏览器点击它会开启选择工具，被透明掉了而且被去掉了*/
+input.css-reset::-webkit-calendar-picker-indicator {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: transparent; /*透明掉*/
+    background: transparent; /*透明掉*/
+    display: none; /*去掉*/
+}
+
+/*火狐去除上下箭头，会导致允许输入非number数据，尽量不用*/
+/*input[type="number"]*/
+input.css-reset-moz-number {
+    -moz-appearance: textfield;
+}
+
+.css-reset:not(:defined) {
+    display: none;
+}

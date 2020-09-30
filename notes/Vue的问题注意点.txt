@@ -1,0 +1,1004 @@
+1、具名插槽的命名中“name”的值只能是“kebab-case(短横线分隔命名)”
+
+2、动态参数(2.6.0 新增)
+有效的写法：
+在.html、.ejs中：
+<h1 class = 'css-reset' v-bind:[title_attr_key_name] = 'titleAttrKeyValue'>Hello World</h1>
+在.vue中：
+<p class = 'css-reset' v-bind:[titleAttrKeyName] = 'titleAttrKeyValue'>{{ textA }}</p>
+<h1 class = 'css-reset' v-bind:[title_attr_key_name] = 'titleAttrKeyValue'>Hello World</h1>
+注：
+也就是说在.vue中变量没有大小写、大驼峰写法的限制！
+但是，在.html、.ejs中变量只能用小写、小驼峰写法！
+在.vue中，变量大多不会有只能用小写、小驼峰写法的限制！但是.html、.ejs中却会有！
+titleAttrKeyName的值为null时，可以用于移除这个属性哦！！！
+
+3、.sync修饰符的使用注意
+父组件绑定同步更新的“attr3”：
+<vue-demo ref = 'VueDemo' class = 'css-reset' v-bind.sync = 'obj1' :attr3.sync = 'attr3'></vue-demo>
+子组件更新父组件的“attr3”：
+this.$emit( 'update:attr3', 'attr3_6' );
+
+4、slot插槽
+当被提供的内容只有默认插槽时，组件的标签才可以被当作插槽的模板来使用。这样我们就可以把 v-slot 直接用在组件上：
+<current-user v-slot:default="slotProps">
+  {{ slotProps.user.firstName }}
+</current-user>
+这种写法还可以更简单。就像假定未指明的内容对应默认插槽一样，不带参数的 v-slot 被假定对应默认插槽：
+<current-user v-slot="slotProps">
+  {{ slotProps.user.firstName }}
+</current-user>
+
+注意默认插槽的缩写语法不能和具名插槽混用，因为它会导致作用域不明确：
+<!-- 无效，会导致警告 -->
+<current-user v-slot="slotProps">
+  {{ slotProps.user.firstName }}
+  <template v-slot:other="otherSlotProps">
+    slotProps is NOT available here
+  </template>
+</current-user>
+
+只要出现多个插槽，请始终为所有的插槽使用完整的基于 <template> 的语法：
+<current-user>
+  <template v-slot:default="slotProps">
+    {{ slotProps.user.firstName }}
+  </template>
+
+  <template v-slot:other="otherSlotProps">
+    ...
+  </template>
+</current-user>
+
+5、全局组件的使用(异步组件)
+例子1：(差不多异步组件的写法就是如下例子里的这些了！！！)
+// 全局异步加载一个组件(包含处理加载状态)，标准写法！可以更改组件的相关配置属性！
+// 记得先深度拷贝再修改组件的属性，不然多次如下使用后会出现最后一个组件的修改会覆盖之前组件的修改
+// 不要复制完整对象的描述符(也就是不要执行CT.completeAssign)，不然会出现覆盖的情况！
+let Global4VueComponDemo = Vue.component( 'VueComponDemo', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( () => {
+            resolve( 'VueComponDemo的第二个参数(函数)' );
+        }, 1000 );
+
+        return {
+            // 需要加载的组件 (应该是一个 `Promise` 对象)
+            component: import( 'vueCompDir/VueComponDemo.vue' ).then( function resolve( arg ){
+                let arg1 = CT.deepCopy( arg );
+
+                Object.assign( arg1.VueComponDemo, {
+                    data(){
+                        return {
+                            textA: '2：期待2020年Vue 3的正式发布！！！',
+                        };
+                    },
+                } );
+                Object.assign( arg1.default, {
+                    data(){
+                        return {
+                            textA: '2：期待2020年Vue 3的正式发布！！！',
+                        };
+                    },
+                } );
+
+                return arg1;
+            }, function reject( error ){
+                console.error( error );
+            } ),
+
+            // 异步组件加载时使用的组件
+            // loading: LoadingComponent,
+
+            // 加载失败时使用的组件
+            // error: ErrorComponent,
+
+            // 展示加载时组件的延时时间。默认值是 200 (毫秒)
+            delay: 10000,
+
+            // 如果提供了超时时间且组件加载也超时了，
+            // 则使用加载失败时使用的组件。默认值是：`Infinity`
+            timeout: 10000,
+        };
+    } ),
+    Global4VueComponDemoA = Vue.component( 'VueComponDemoA', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( () => {
+            resolve( 'VueComponDemoA的第二个参数(函数)' );
+        }, 1000 );
+
+        return {
+            // 需要加载的组件 (应该是一个 `Promise` 对象)
+            component: import( 'vueCompDir/VueComponDemo.vue' ).then( function resolve( arg ){
+                let arg1 = CT.deepCopy( arg );
+
+                Object.assign( arg1.VueComponDemo, {
+                    data(){
+                        return {
+                            textA: '3：期待2020年Vue 3的正式发布！！！',
+                        };
+                    },
+                } );
+                Object.assign( arg1.default, {
+                    data(){
+                        return {
+                            textA: '3：期待2020年Vue 3的正式发布！！！',
+                        };
+                    },
+                } );
+
+                return arg1;
+            }, function reject( error ){
+                console.error( error );
+            } ),
+
+            // 异步组件加载时使用的组件
+            // loading: LoadingComponent,
+
+            // 加载失败时使用的组件
+            // error: ErrorComponent,
+
+            // 展示加载时组件的延时时间。默认值是 200 (毫秒)
+            delay: 10000,
+
+            // 如果提供了超时时间且组件加载也超时了，
+            // 则使用加载失败时使用的组件。默认值是：`Infinity`
+            timeout: 10000,
+        };
+    } ),
+    // 全局异步加载一个组件，例子1，标准写法！可以更改组件的相关配置属性！
+    // 记得先深度拷贝再修改组件的属性，不然多次如下使用后会出现最后一个组件的修改会覆盖之前组件的修改
+    // 不要复制完整对象的描述符(也就是不要执行CT.completeAssign)，不然会出现覆盖的情况！
+    Global4ExampleA = Vue.component( 'ExampleA', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( () => {
+            resolve( 'ExampleA的第二个参数(函数)' );
+        }, 2000 );
+
+        return import( 'vueVDir/ExampleA.vue' ).then( function resolve( arg ){
+            let arg1 = CT.deepCopy( arg );
+
+            Object.assign( arg1.ExampleA, {
+                data(){
+                    return {
+                        textA: '2：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+            Object.assign( arg1.default, {
+                data(){
+                    return {
+                        textA: '2：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+
+            return arg1;
+        }, function reject( error ){
+            console.error( error );
+        } );
+    } ),
+    Global4ExampleA1 = Vue.component( 'ExampleA1', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( () => {
+            resolve( 'ExampleA1的第二个参数(函数)' );
+        }, 2000 );
+
+        return import( 'vueVDir/ExampleA.vue' ).then( function resolve( arg ){
+            let arg1 = CT.deepCopy( arg );
+
+            Object.assign( arg1.ExampleA, {
+                data(){
+                    return {
+                        textA: '2_1：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+            Object.assign( arg1.default, {
+                data(){
+                    return {
+                        textA: '2_1：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+
+            return arg1;
+        }, function reject( error ){
+            console.error( error );
+        } );
+    } ),
+    // 全局异步加载一个组件，例子2，标准写法！可以更改组件的相关配置属性！
+    // 记得先深度拷贝再修改组件的属性，不然多次如下使用后会出现最后一个组件的修改会覆盖之前组件的修改
+    // 不要复制完整对象的描述符(也就是不要执行CT.completeAssign)，不然会出现覆盖的情况！
+    Global4ExampleA2 = Vue.component( 'ExampleA2', async function( resolve = () => {
+    }, reject = () => {
+    } ){
+        let { ExampleA, default: ExampleADef } = await import( 'vueVDir/ExampleA.vue' ).then( function resolve( arg ){
+            let arg1 = CT.deepCopy( arg );
+
+            Object.assign( arg1.ExampleA, {
+                data(){
+                    return {
+                        textA: '3：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+            Object.assign( arg1.default, {
+                data(){
+                    return {
+                        textA: '3：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+
+            return arg1;
+        }, function reject( error ){
+            console.error( error );
+        } );
+
+        resolve( ExampleADef );
+    } ),
+    Global4ExampleA21 = Vue.component( 'ExampleA21', async function( resolve = () => {
+    }, reject = () => {
+    } ){
+        let { ExampleA, default: ExampleADef } = await import( 'vueVDir/ExampleA.vue' ).then( function resolve( arg ){
+            let arg1 = CT.deepCopy( arg );
+
+            Object.assign( arg1.ExampleA, {
+                data(){
+                    return {
+                        textA: '3_1：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+            Object.assign( arg1.default, {
+                data(){
+                    return {
+                        textA: '3_1：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                    };
+                },
+            } );
+
+            return arg1;
+        }, function reject( error ){
+            console.error( error );
+        } );
+
+        resolve( ExampleADef );
+    } ),
+    // 全局异步加载一个组件，例子3，标准写法！可以更改组件的相关配置属性！
+    // 记得先深度拷贝再修改组件的属性，不然多次如下使用后会出现最后一个组件的修改会覆盖之前组件的修改！
+    // 不要复制完整对象的描述符(也就是不要执行CT.completeAssign)，不然会出现覆盖的情况！
+    Global4ExampleA3 = Vue.component( 'ExampleA3', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( async () => {
+            let { ExampleA, default: ExampleADef } = await import( 'vueVDir/ExampleA.vue' ).then( function resolve( arg ){
+                let arg1 = CT.deepCopy( arg );
+
+                Object.assign( arg1.ExampleA, {
+                    data(){
+                        return {
+                            textA: '4：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                        };
+                    },
+                } );
+                Object.assign( arg1.default, {
+                    data(){
+                        return {
+                            textA: '4：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                        };
+                    },
+                } );
+
+                return arg1;
+            }, function reject( error ){
+                console.error( error );
+            } );
+
+            resolve( ExampleA );
+        }, 3000 );
+    } ),
+    Global4ExampleA31 = Vue.component( 'ExampleA31', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( async () => {
+            let { ExampleA, default: ExampleADef } = await import( 'vueVDir/ExampleA.vue' ).then( function resolve( arg ){
+                let arg1 = CT.deepCopy( arg );
+
+                Object.assign( arg1.ExampleA, {
+                    data(){
+                        return {
+                            textA: '4_1：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                        };
+                    },
+                } );
+                Object.assign( arg1.default, {
+                    data(){
+                        return {
+                            textA: '4_1：“三权”分离的vue文件写法，以免单个vue文件很长很长！！！',
+                        };
+                    },
+                } );
+
+                return arg1;
+            }, function reject( error ){
+                console.error( error );
+            } );
+
+            resolve( ExampleA );
+        }, 3000 );
+    } ),
+    // 全局注册一个组件，标准写法！
+    Global4VueComponentA = Vue.component( 'Global4VueComponentA', {
+        data(){
+            return {
+                text1: 'This is a VueComponentA for Global!!!',
+            };
+        },
+        template: `
+            <p>{{ text1 }}</p>`,
+    } ),
+    // 全局异步加载一个来自服务器的组件，标准写法！
+    Global4VueComponentB = Vue.component( 'Global4VueComponentB', function( resolve = () => {
+    }, reject = () => {
+    } ){
+        setTimeout( () => {
+            resolve( {
+                data(){
+                    return {
+                        text1: 'This is a VueComponentB for Global!!!',
+                    };
+                },
+                template: `
+                    <p>{{ text1 }}</p>`,
+            } );
+        }, 4000 );
+    } );
+
+{
+    /*new Global4VueComponDemo( function resolve( arg ){
+     // VueComponDemo的第二个参数(函数)
+     console.log( arg );
+     }, function reject( error ){
+     console.error( error );
+     }, )
+     .component
+     .then( function resolve( { VueComponDemo, default: VueComponDemoDef } ){
+     // "期待2020年Vue 3的正式发布！！！"
+     console.log( VueComponDemoDef.data().textA );
+     }, function reject( error ){
+     console.error( error );
+     } );*/
+
+    /*new Global4ExampleA( function resolve( arg ){
+     // ExampleA的第二个参数(函数)
+     console.log( arg );
+     }, function reject( error ){
+     console.error( error );
+     } )
+     .then( function resolve( { ExampleA, default: ExampleADef } ){
+     // "“三权”分离的vue文件写法，以免单个vue文件很长很长！！！"
+     console.log( ExampleADef.data().textA );
+     }, function reject( error ){
+     console.error( error );
+     } );*/
+
+    /*new Global4ExampleA2( function resolve( arg ){
+     // “三权”分离的vue文件写法，以免单个vue文件很长很长！！！
+     console.log( arg.data().textA );
+     }, function reject( error ){
+     console.error( error );
+     } );*/
+
+    /*new Global4ExampleA3( function resolve( arg ){
+     // “三权”分离的vue文件写法，以免单个vue文件很长很长！！！
+     console.log( arg.data().textA );
+     }, function reject( error ){
+     console.error( error );
+     } );*/
+
+    /*
+     // This is a VueComponentA for Global!!!
+     // 必须得用new调用
+     console.log( new Global4VueComponentA().text1 );
+     */
+
+    /*
+     new Global4VueComponentB( function resolve( option ){
+     // This is a VueComponentB for Global!!!
+     console.log( option.data().text1 );
+     }, function reject( error ){
+     console.error( error );
+     } );
+     */
+}
+例子2：(局部组件的标准写法！可以更改组件的相关配置属性！记得先深度拷贝再修改组件的属性，不然多次如下使用后会出现最后一个组件的修改会覆盖之前组件的修改，不要复制完整对象的描述符(也就是不要执行CT.completeAssign)，不然会出现覆盖的情况！)
+let vue4Win = new Vue( {
+    el: '#HelloWorld',
+    data: {},
+    methods: {},
+    watch: {},
+    components: {
+        // 局部组件的标准写法！可以更改组件的相关配置属性！
+        // 记得先深度拷贝再修改组件的属性，不然多次如下使用后会出现最后一个组件的修改会覆盖之前组件的修改
+        // 不要复制完整对象的描述符(也就是不要执行CT.completeAssign)，不然会出现覆盖的情况！
+        VueDemo( resolve = () => {
+                        }, reject = () => {
+                        } ){
+                    return import( 'vueVDir/VueDemo.vue' ).then( function resolve( arg ){
+                        let arg1 = CT.deepCopy( arg );
+
+                        Object.assign( arg1.VueDemo, {
+                            computed: {
+                                fullName: {
+                                    get(){
+                                        return '2：' + this.firstName + this.lastName;
+                                    },
+                                    set( newValue ){
+                                        let names = newValue.split( ' ' );
+                                        this.firstName = names[ 0 ];
+                                        this.lastName = names[ names.length - 1 ];
+                                    },
+                                },
+                            },
+                        } );
+                        Object.assign( arg1.default, {
+                            computed: {
+                                fullName: {
+                                    get(){
+                                        return '2：' + this.firstName + this.lastName;
+                                    },
+                                    set( newValue ){
+                                        let names = newValue.split( ' ' );
+                                        this.firstName = names[ 0 ];
+                                        this.lastName = names[ names.length - 1 ];
+                                    },
+                                },
+                            },
+                        } );
+
+                        return arg1;
+                    }, function reject( error ){
+                        console.error( error );
+                    } );
+                },
+    },
+} );
+PS:
+第二个参数的类型是“普通function”还是“箭头函数”，这将决定要不要用以及能不能用new来调用注册后的返回值！！！
+
+6、异步加载完组件后，会出现再一次执行VueDemo中props里的validator函数
+PS：
+development模式下！！！再一次输出了validator函数里的日志！！！
+production模式下！！！validator函数里的都不执行了！！！
+
+7、单元素、单组件的过渡
+HTML:(transition的直接子元素必须只能是只有一个元素，transition的name值可以自由规定)
+<transition name = 'fadeToggle'>
+<div class = 'css-reset' v-if = 'isTransitionTest1'>
+// 建议多包裹一层
+<div class = 'css-reset'>...</div>
+</div>
+</transition>
+
+CSS:(各个类名的开头必须是跟transition的name值一样的)
+/*Vue transition过渡效果 Start*/
+
+.vueTVar {
+    /*单位：ms*/
+    --fade-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --fade-toggle-timing-function: linear;
+    --fade-toggle-opacity: 1;
+
+
+    /*单位：ms*/
+    --slide-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --slide-toggle-timing-function: linear;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --slide-toggle-height: calc(250 * 1px);
+
+
+    /*单位：ms*/
+    --show-hide-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --show-hide-toggle-timing-function: linear;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-width: calc(250 * 1px);
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-height: calc(250 * 1px);
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-padding: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-border-width: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-margin: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-outline-width: 0;
+    --show-hide-toggle-opacity: 1;
+
+
+    /*单位：ms*/
+    --scale-center-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --scale-center-toggle-timing-function: linear;
+    --scale-center-toggle-transform: scale(1);
+    --scale-center-toggle-opacity: 1;
+}
+
+
+/*元素的淡入淡出效果 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.fadeToggle-enter-active, .fadeToggle-leave-active {
+    transition: opacity calc(var(--fade-toggle-time) * 1ms) var(--fade-toggle-timing-function);
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.fadeToggle-enter-to, .fadeToggle-leave {
+    opacity: var(--fade-toggle-opacity);
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.fadeToggle-enter, .fadeToggle-leave-to {
+    opacity: 0;
+}
+
+/*元素的淡入淡出效果 End*/
+
+
+/*元素上下滑动 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.slideToggle-enter-active, .slideToggle-leave-active {
+    transition: height calc(var(--slide-toggle-time) * 1ms) var(--slide-toggle-timing-function);
+    overflow: hidden;
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.slideToggle-enter-to, .slideToggle-leave {
+    height: var(--slide-toggle-height);
+    overflow: hidden;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.slideToggle-enter, .slideToggle-leave-to {
+    height: 0;
+    overflow: hidden;
+}
+
+/*元素上下滑动 End*/
+
+
+/*元素隐藏、显示 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.showHideToggle-enter-active, .showHideToggle-leave-active {
+    transition: all calc(var(--show-hide-toggle-time) * 1ms) var(--show-hide-toggle-timing-function);
+    overflow: hidden;
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.showHideToggle-enter-to, .showHideToggle-leave {
+    width: var(--show-hide-toggle-width);
+    height: var(--show-hide-toggle-height);
+    padding: var(--show-hide-toggle-padding);
+    border-width: var(--show-hide-toggle-border-width);
+    margin: var(--show-hide-toggle-margin);
+    outline-width: var(--show-hide-toggle-outline-width);
+    opacity: var(--show-hide-toggle-opacity);
+    overflow: hidden;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.showHideToggle-enter, .showHideToggle-leave-to {
+    width: 0;
+    height: 0;
+    padding: 0;
+    border-width: 0;
+    margin: 0;
+    outline-width: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/*元素隐藏、显示 End*/
+
+
+/*元素中心缩小放大的隐藏、显示 Start*/
+
+/* x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程 */
+.scaleCenterToggle-enter-active, .scaleCenterToggle-leave-active {
+    transition: all calc(var(--scale-center-toggle-time) * 1ms) var(--scale-center-toggle-timing-function);
+    overflow: hidden;
+}
+
+/* x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果 */
+.scaleCenterToggle-enter-to, .scaleCenterToggle-leave {
+    transform: var(--scale-center-toggle-transform);
+    opacity: var(--scale-center-toggle-opacity);
+    overflow: hidden;
+}
+
+/* x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果 */
+.scaleCenterToggle-enter, .scaleCenterToggle-leave-to {
+    transform: scale(0);
+    opacity: 0;
+    overflow: hidden;
+}
+
+/*元素中心缩小放大的隐藏、显示 End*/
+
+/*Vue transition过渡效果 End*/
+
+8、深度作用选择器
+有些像 Sass 之类的预处理器无法正确解析 >>>。这种情况下你可以使用 /deep/ 或 ::v-deep 操作符取而代之——两者都是 >>> 的别名，同样可以正常工作。
+
+例子：
+<style scoped>
+.a >>> .b { /* ... */ }
+.a1 /deep/ .b1 { /* ... */ }
+</style>
+
+转为：
+.a[data-v-f3f3eg9] .b { /* ... */ }
+.a1[data-v-f3f3eg9] .b1 { /* ... */ }
+
+9、Vuex
+1、
+Vuex 使用单一状态树——是的，用一个对象就包含了全部的应用层级状态。
+至此它便作为一个“唯一数据源 (SSOT)”而存在。
+这也意味着，每个应用将仅仅包含一个 store 实例。
+单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。
+2、
+这个状态自管理应用包含以下几个部分：
+state，驱动应用的数据源；
+view，以声明方式将 state 映射到视图；
+actions，响应在 view 上的用户输入导致的状态变化。
+3、
+state：数据源、状态；
+getters：可以认为是 store 的计算属性(就像计算属性一样，getters 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。)；
+mutations：直接操作state的地方(Mutation 必须是同步函数，mutation 都是同步事务)；
+actions：响应在view上的用户输入导致state变化的操作(显式地提交 (commit) mutation)，不直接操作state，且actions可以处理异步操作，在另外一个 action 中也可以分发其他的action；
+PS：
+一个 store.dispatch 在不同模块中可以触发多个 action 函数。在这种情况下，只有当所有触发函数完成后，返回的 Promise 才会执行。
+modules: 模块，建议每个模块都用上(namespaced: true)，可以拥有以上4种；
+PS：
+对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象。
+同样，对于模块内部的 action，局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState。
+对于模块内部的 getter，根节点状态会作为第三个参数暴露出来：
+getters: {
+    sumWithRootCount (state, getters, rootState) {
+      return state.count + rootState.count
+    }
+  }
+
+10、Vuex中嵌套的modules的state的访问
+如：
+读取嵌套模块：
+moduleB--->moduleB_1--->moduleB_1_1
+moduleB_1_1这个嵌套模块它里头有一个state，就是moduleB_1_1，读取它就是：
+Store.state.moduleB.moduleB_1.moduleB_1_1.moduleB_1_1
+PS：
+无论模块上有无(namespaced: true)、(namespaced: false)，都是遵循嵌套的写法去读取state
+
+11、Vuex中嵌套的modules的getters的访问
+如：
+读取嵌套模块：
+moduleB--->moduleB_1--->moduleB_1_1
+moduleB_1_1这个嵌套模块它里头有一个getters，就是moduleB_1_1Getters1，读取它就是：
+this.$store.getters[ 'moduleB/moduleB_1/moduleB_1_1/moduleB_1_1Getters1' ]
+PS：
+当模块上无(namespaced: true)或者有(namespaced: false)，那么这个模块的getters就是：
+this.$store.getters[ 'moduleB/moduleB_1/moduleB_1_1Getters1' ]
+
+12、Vuex中嵌套的modules的actions的触发
+如：
+读取嵌套模块：
+moduleB--->moduleB_1--->moduleB_1_1
+moduleB_1_1这个嵌套模块它里头有一个actions，就是moduleB_1_1Actions1，触发它就是：
+this.$store.dispatch( 'moduleB/moduleB_1/moduleB_1_1/moduleB_1_1Actions1' )
+PS：
+当模块上无(namespaced: true)或者有(namespaced: false)，那么这个模块的actions就是：
+this.$store.dispatch( 'moduleB/moduleB_1/moduleB_1_1Actions1' )
+
+13、Vuex中嵌套的modules的mutations的触发
+如：
+读取嵌套模块：
+moduleB--->moduleB_1--->moduleB_1_1
+moduleB_1_1这个嵌套模块它里头有一个mutations，就是moduleB_1_1Mutations1，触发它就是：
+this.$store.commit( 'moduleB/moduleB_1/moduleB_1_1/moduleB_1_1Mutations1' )
+PS：
+当模块上无(namespaced: true)或者有(namespaced: false)，那么这个模块的mutations就是：
+this.$store.commit( 'moduleB/moduleB_1/moduleB_1_1Mutations1' )
+
+14、
+启用了命名空间的 getter 和 action 会收到局部化的 getter，dispatch 和 commit。
+换言之，你在使用模块内容（module assets）时不需要在同一模块内额外添加空间名前缀。更改 namespaced 属性后不需要修改模块内的代码。
+
+15、在带命名空间的模块内访问全局内容
+如果你希望使用全局 state 和 getter，rootState 和 rootGetters 会作为第三和第四参数传入 getter，也会通过 context 对象的属性传入 action。
+若需要在全局命名空间内分发 action 或提交 mutation，将 { root: true } 作为第三参数传给 dispatch 或 commit 即可。
+
+16、在带命名空间的模块注册全局 action
+若需要在带命名空间的模块注册全局 action，你可添加 root: true，并将这个 action 的定义放在函数 handler 中。例如：
+{
+  actions: {
+    someOtherAction ({dispatch}) {
+      dispatch('someAction')
+    }
+  },
+  modules: {
+    foo: {
+      namespaced: true,
+
+      actions: {
+        someAction: {
+          root: true,
+          handler (namespacedContext, payload) { ... } // -> 'someAction'
+        }
+      }
+    }
+  }
+}
+
+17、带命名空间的绑定函数
+繁琐：
+computed: {
+  ...mapState({
+    a: state => state.some.nested.module.a,
+    b: state => state.some.nested.module.b
+  })
+},
+methods: {
+  ...mapActions([
+    'some/nested/module/foo', // -> this['some/nested/module/foo']()
+    'some/nested/module/bar' // -> this['some/nested/module/bar']()
+  ])
+}
+---------------------------------------------
+简化：
+computed: {
+  ...mapState('some/nested/module', {
+    a: state => state.a,
+    b: state => state.b
+  })
+},
+methods: {
+  ...mapActions('some/nested/module', [
+    'foo', // -> this.foo()
+    'bar' // -> this.bar()
+  ])
+}
+-------------------------------
+而且，你可以通过使用 createNamespacedHelpers 创建基于某个命名空间辅助函数。它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数：
+import { createNamespacedHelpers } from 'vuex'
+
+const { mapState, mapActions } = createNamespacedHelpers('some/nested/module')
+
+export default {
+  computed: {
+    // 在 `some/nested/module` 中查找
+    ...mapState({
+      a: state => state.a,
+      b: state => state.b
+    })
+  },
+  methods: {
+    // 在 `some/nested/module` 中查找
+    ...mapActions([
+      'foo',
+      'bar'
+    ])
+  }
+}
+
+18、模块动态注册
+在 store 创建之后，你可以使用 store.registerModule 方法注册模块：
+// 注册模块 `myModule`
+store.registerModule('myModule', {
+  // ...
+})
+// 注册嵌套模块 `nested/myModule`
+store.registerModule(['nested', 'myModule'], {
+  // ...
+})
+之后就可以通过 store.state.myModule 和 store.state.nested.myModule 访问模块的状态。
+你也可以使用 store.unregisterModule(moduleName) 来动态卸载模块。注意，你不能使用此方法卸载静态模块（即创建 store 时声明的模块）。
+
+19、保留 state
+在注册一个新 module 时，你很有可能想保留过去的 state，例如从一个服务端渲染的应用保留 state。
+你可以通过 preserveState 选项将其归档：store.registerModule('a', module, { preserveState: true })。
+当你设置 preserveState: true 时，该模块会被注册，action、mutation 和 getter 会被添加到 store 中，但是 state 不会。
+这里假设 store 的 state 已经包含了这个 module 的 state 并且你不希望将其覆写。
+
+
+

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: CryptoAPI</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: CryptoAPI</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>CryptoAPI<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">加密算法Crypto API</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="CryptoAPI"><span class="type-signature"></span>new CryptoAPI<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line1431">line 1431</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getDigest2Hex4Blob"><span class="type-signature">(async) </span>getDigest2Hex4Blob<span class="signature">(dataBlob, algorithm)</span><span class="type-signature"> &rarr; {Promise.&lt;String>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    使用指定的哈希算法计算Blob类型数据的Hex(base16)编码的哈希值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dataBlob</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Blob，需要计算的Blob数据，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>algorithm</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    SHA-512
+                
+                </td>
+            
+
+            <td class="description last">String，可选值有：'SHA-1'、'SHA-256'、'SHA-384'、'SHA-512'，默认值：‘SHA-512'，可选<br />PS：<br />1、'SHA-1'已经跟'MD5'一样，不再安全了，强烈建议不用！<br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line1444">line 1444</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise<String>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;String></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getDigest2Hex4File"><span class="type-signature">(async) </span>getDigest2Hex4File<span class="signature">(dataFile, algorithm)</span><span class="type-signature"> &rarr; {Promise.&lt;String>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    使用指定的哈希算法计算File类型数据的Hex(base16)编码的哈希值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dataFile</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">File，需要计算的File数据，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>algorithm</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    SHA-512
+                
+                </td>
+            
+
+            <td class="description last">String，可选值有：'SHA-1'、'SHA-256'、'SHA-384'、'SHA-512'，默认值：‘SHA-512'，可选<br />PS：<br />1、'SHA-1'已经跟'MD5'一样，不再安全了，强烈建议不用！<br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line1483">line 1483</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise<String>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;String></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getDigest2Hex4String"><span class="type-signature">(async) </span>getDigest2Hex4String<span class="signature">(dataStr, algorithm)</span><span class="type-signature"> &rarr; {Promise.&lt;String>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    使用指定的哈希算法计算字符串的Hex(base16)编码的哈希值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dataStr</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">String，需要计算的字符串数据，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>algorithm</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    SHA-512
+                
+                </td>
+            
+
+            <td class="description last">String，可选值有：'SHA-1'、'SHA-256'、'SHA-384'、'SHA-512'，默认值：‘SHA-512'，可选<br />PS：<br />1、'SHA-1'已经跟'MD5'一样，不再安全了，强烈建议不用！<br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line1522">line 1522</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise<String>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;String></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getDigest2Hex4Uint8Array"><span class="type-signature">(async) </span>getDigest2Hex4Uint8Array<span class="signature">(dataUint8Array, algorithm)</span><span class="type-signature"> &rarr; {Promise.&lt;String>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    使用指定的哈希算法计算Uint8Array类型数据的Hex(base16)编码的哈希值<br />PS：<br />1、ArrayBufferView：<br />Int8Array、Uint8Array、Uint8ClampedArray、Int16Array、Uint16Array、<br />Int32Array、Uint32Array、Float32Array、Float64Array、BigInt64Array、<br />BigUint64Array、DataView。<br />2、只要是能成功的转换成有效(有效：转换过程中没出现精度取舍、丢失等一类的操作)的Uint8Array类型的数据，都可以作为参数使用，<br />但是需要先自行转换成Uint8Array类型。<br />
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dataUint8Array</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Uint8Array，需要计算的Uint8Array类型数据，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>algorithm</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    SHA-512
+                
+                </td>
+            
+
+            <td class="description last">String，可选值有：'SHA-1'、'SHA-256'、'SHA-384'、'SHA-512'，默认值：‘SHA-512'，可选<br />PS：<br />1、'SHA-1'已经跟'MD5'一样，不再安全了，强烈建议不用！<br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line1546">line 1546</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise<String>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;String></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Canvas2Others.html">Canvas2Others</a></li><li><a href="CopyAPI.html">CopyAPI</a></li><li><a href="CryptoAPI.html">CryptoAPI</a></li><li><a href="CT.html">CT</a></li><li><a href="DataFormat.html">DataFormat</a></li><li><a href="ElemClass.html">ElemClass</a></li><li><a href="ElemQuery.html">ElemQuery</a></li><li><a href="ES6Handle.html">ES6Handle</a></li><li><a href="FunHandle.html">FunHandle</a></li><li><a href="InputHandle.html">InputHandle</a></li><li><a href="IsDataType.html">IsDataType</a></li><li><a href="JS2Ajax.html">JS2Ajax</a></li><li><a href="JS2jQuery.html">JS2jQuery</a></li><li><a href="ObjHandle.html">ObjHandle</a></li><li><a href="OthersHandle.html">OthersHandle</a></li><li><a href="PermissionsAPI.html">PermissionsAPI</a></li><li><a href="RegExpHandle.html">RegExpHandle</a></li><li><a href="SSE4Client.html">SSE4Client</a></li><li><a href="StringHandle.html">StringHandle</a></li><li><a href="TouchEvent.html">TouchEvent</a></li><li><a href="Upload4GraphQL.html">Upload4GraphQL</a></li><li><a href="UrlHandle.html">UrlHandle</a></li><li><a href="WASMTool.html">WASMTool</a></li><li><a href="WebService4Proxy.html">WebService4Proxy</a></li><li><a href="WebSocket4Client.html">WebSocket4Client</a></li></ul><h3>Global</h3><ul><li><a href="global.html#aD">aD</a></li><li><a href="global.html#cD">cD</a></li><li><a href="global.html#dD">dD</a></li><li><a href="global.html#GetError">GetError</a></li><li><a href="global.html#IsHandle1">IsHandle1</a></li><li><a href="global.html#IsHandle10">IsHandle10</a></li><li><a href="global.html#IsHandle13">IsHandle13</a></li><li><a href="global.html#isKN">isKN</a></li><li><a href="global.html#Prompt">Prompt</a></li><li><a href="global.html#qD">qD</a></li><li><a href="global.html#RAnimationFFun">RAnimationFFun</a></li><li><a href="global.html#storageCE">storageCE</a></li><li><a href="global.html#uD">uD</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Sep 30 2020 14:46:05 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

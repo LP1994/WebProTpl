@@ -1,0 +1,15 @@
+waves(0.7.6)
+http://fian.my.id/Waves/#start
+
+waves-effect   波浪
+waves-ripple   波浪
+waves-light   白色波浪
+waves-classic   波浪
+waves-notransition   波浪
+waves-button   按钮
+waves-circle   椭圆波浪
+waves-button-input   按钮
+waves-input-wrapper   波浪
+waves-float   突出来的波浪
+waves-block   波浪
+waves-rippling   波浪

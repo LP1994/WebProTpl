@@ -1,0 +1,15 @@
+webpack-subresource-integrity插件不支持文件路径中带有"./"的前缀！！！具体如下说明！！！
+
+可以：
+output: {
+filename: 'js/[name]_[chunkhash:6].js',
+chunkFilename: 'js/[name]_chunk_[chunkhash:6].js'
+}
+
+不可以：
+output: {
+filename: './js/[name]_[chunkhash:6].js',
+chunkFilename: './js/[name]_chunk_[chunkhash:6].js'
+}
+
+Object.prototype.toString.call( source.indexOf ).includes( 'Function' ) && source.indexOf( 'webpackHotUpdate' ) >= 0

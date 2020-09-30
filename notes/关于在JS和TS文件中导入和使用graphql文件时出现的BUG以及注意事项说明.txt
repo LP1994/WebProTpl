@@ -1,0 +1,60 @@
+PS:
+1、
+优先使用如下两个插件(以下两个插件选其中一个插件启用就行，不要同时启用)：
+webpack-graphql-loader(已在项目中配置并使用了，建议优先使用它)
+babel-plugin-import-graphql-string(已在项目中配置了，但被注释掉了)
+2、
+不使用如下插件：
+graphql-import-loader
+import-graphql-string
+
+
+
+自己机子上的主要错误信息：
+The value "D:\NodeJS\" is invalid for option "options.paths"
+
+1、在Webpack的配置中设置一个别名：
+gQLAPIDir: path.resolve( __dirname, './src/graphQL/api/' ),
+
+2、然后在项目中如下使用，会报错！
+import SN_Alert from 'gQLAPIDir/SN_Alert.graphql';
+错误信息：
+The value "D:\NodeJS\" is invalid for option "options.paths"
+
+3、不报错，可以使用的导入方法！
+import SN_Alert from '../../../graphQL/api/SN_Alert.graphql';
+import('gQLAPIDir/SN_Alert.graphql');
+import('../../../graphQL/api/SN_Alert.graphql')
+
+4、使用动态导入时，修改“.graphql”是会触发重新编译的！但静态导入是不会的！
+PS:
+原因是启用了“babel-plugin-import-graphql”这个插件！
+
+5、启用“loader: 'graphql-tag/loader'”、“babel-plugin-graphql-tag”、“babel-plugin-import-graphql”时，可以模块化导出.graphql的各个查询API：
+// 例如：
+// .graphql的内容是：
+// query MyQuery1 {......}
+// query MyQuery2 {......}
+// query MyQuery3 {......}
+// 那么可以模块化导出MyQuery1、MyQuery2、MyQuery3三者中的任意一个，或者全导出来都行！
+if( true ){
+    ( async () => {
+        import('gQLAPIDir/SN_Alert.graphql').then( resultModule => {
+            // resultModule有如下属性字段：
+            // MyQuery1: definitions、kind、loc
+            // MyQuery2: definitions、kind、loc
+            // MyQuery3: definitions、kind、loc
+            // definitions
+            // kind
+            // loc
+            // default: 上面6个都包含了
+            console.dir( resultModule );
+            console.log( resultModule.loc.source.body );
+        } );
+    } )();
+}
+
+6、只启用“loader: 'graphql-tag/loader'”、“babel-plugin-graphql-tag”，不启用“babel-plugin-import-graphql”时，可以任意使用别名了！并且没有任何报错行为了！
+而且在主文件“.graphql”中的修改会自动重新编译工程！
+但是目前改动主文件“.graphql”中通过使用“#import”导入的“fragment”片段的“.graphql”文件时，虽然会自动重新编译工程！
+但“fragment”片段的“.graphql”文件更改后的内容并没进到重新编译后的文件中，必须让主文件改动才能触发“fragment”片段的“.graphql”文件的改动！

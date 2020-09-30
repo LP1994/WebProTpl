@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: CT</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: CT</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>CT<span class="signature">(opt)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">JS工具，其中的代码都是无关任何项目的代码(ES6，ESM模块写法)。<br />注：<br />1、都是在当时最新的谷歌浏览器PC版上测试。<br />2、注意默认的初始化操作带来的影响<br />3、该工具支持在浏览器、Node、Deno等多种支持JS的宿主环境中使用！<br /></div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="CT"><span class="type-signature"></span>new CT<span class="signature">(opt)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    构造函数，用于初始化工作
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opt</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON配置对象，可选<br />{<br />isSupportBrowser: 布尔值，如果要将CT工具用于浏览器环境，那么传true可以自动初始化浏览器环境的各种功能；<br />如果不是用于浏览器环境(如：用于NodeJS)，那么传false就不会初始化跟浏览器相关的操作功能。<br />可选，默认值true。<br /><br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line9984">line 9984</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="allElemHan"><span class="type-signature"></span>allElemHan<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    查找所有节点，处理所有节点，有返回值(存放在数组里)
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line9999">line 9999</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="allElemHan"><span class="type-signature"></span>allElemHan<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    查找所有节点，处理所有节点，有返回值(存放在数组里)
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10078">line 10078</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="allEStop"><span class="type-signature"></span>allEStop<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    停止所有类型的传播(捕获和冒泡)，禁止默认事件
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10007">line 10007</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="allEStop"><span class="type-signature"></span>allEStop<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    停止所有类型的传播(捕获和冒泡)，禁止默认事件
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10087">line 10087</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="firstElemHan"><span class="type-signature"></span>firstElemHan<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    查找节点，但只处理第一个节点，有返回值(任何类型数据)
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10018">line 10018</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="firstElemHan"><span class="type-signature"></span>firstElemHan<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    查找节点，但只处理第一个节点，有返回值(任何类型数据)
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10099">line 10099</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="gError"><span class="type-signature"></span>gError<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    自定义抛出错误、异常信息
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10024">line 10024</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="gError"><span class="type-signature"></span>gError<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    自定义抛出错误、异常信息
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10166">line 10166</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ls"><span class="type-signature"></span>ls<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    操作localStorage的工具<br />使用方法：<br />new CT().ls.aD()<br />{aD, dD, uD, qD, cD, isKN, storageCE等7个方法}
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10031">line 10031</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ls"><span class="type-signature"></span>ls<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    操作localStorage的工具<br />使用方法：<br />new CT().ls.aD()<br />{aD, dD, uD, qD, cD, isKN, storageCE等7个方法}
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10107">line 10107</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="readyS"><span class="type-signature"></span>readyS<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    ready加强版
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10038">line 10038</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="readyS"><span class="type-signature"></span>readyS<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    ready加强版
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10114">line 10114</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ss"><span class="type-signature"></span>ss<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    操作sessionStorage的工具<br />使用方法：<br />new CT().ss.aD()<br />{aD, dD, uD, qD, cD, isKN, storageCE等7个方法}
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10045">line 10045</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ss"><span class="type-signature"></span>ss<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    操作sessionStorage的工具<br />使用方法：<br />new CT().ss.aD()<br />{aD, dD, uD, qD, cD, isKN, storageCE等7个方法}
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10158">line 10158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="version"><span class="type-signature"></span>version<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    本类的版本号，如：2020.01.01.1
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10049">line 10049</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getClass"><span class="type-signature"></span>getClass<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取各个工具类
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line10180">line 10180</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    对象(里头是各个工具类)，这个对象的每一个键名是具体的工具类名，键值是具体的工具类。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Canvas2Others.html">Canvas2Others</a></li><li><a href="CopyAPI.html">CopyAPI</a></li><li><a href="CryptoAPI.html">CryptoAPI</a></li><li><a href="CT.html">CT</a></li><li><a href="DataFormat.html">DataFormat</a></li><li><a href="ElemClass.html">ElemClass</a></li><li><a href="ElemQuery.html">ElemQuery</a></li><li><a href="ES6Handle.html">ES6Handle</a></li><li><a href="FunHandle.html">FunHandle</a></li><li><a href="InputHandle.html">InputHandle</a></li><li><a href="IsDataType.html">IsDataType</a></li><li><a href="JS2Ajax.html">JS2Ajax</a></li><li><a href="JS2jQuery.html">JS2jQuery</a></li><li><a href="ObjHandle.html">ObjHandle</a></li><li><a href="OthersHandle.html">OthersHandle</a></li><li><a href="PermissionsAPI.html">PermissionsAPI</a></li><li><a href="RegExpHandle.html">RegExpHandle</a></li><li><a href="SSE4Client.html">SSE4Client</a></li><li><a href="StringHandle.html">StringHandle</a></li><li><a href="TouchEvent.html">TouchEvent</a></li><li><a href="Upload4GraphQL.html">Upload4GraphQL</a></li><li><a href="UrlHandle.html">UrlHandle</a></li><li><a href="WASMTool.html">WASMTool</a></li><li><a href="WebService4Proxy.html">WebService4Proxy</a></li><li><a href="WebSocket4Client.html">WebSocket4Client</a></li></ul><h3>Global</h3><ul><li><a href="global.html#aD">aD</a></li><li><a href="global.html#cD">cD</a></li><li><a href="global.html#dD">dD</a></li><li><a href="global.html#GetError">GetError</a></li><li><a href="global.html#IsHandle1">IsHandle1</a></li><li><a href="global.html#IsHandle10">IsHandle10</a></li><li><a href="global.html#IsHandle13">IsHandle13</a></li><li><a href="global.html#isKN">isKN</a></li><li><a href="global.html#Prompt">Prompt</a></li><li><a href="global.html#qD">qD</a></li><li><a href="global.html#RAnimationFFun">RAnimationFFun</a></li><li><a href="global.html#storageCE">storageCE</a></li><li><a href="global.html#uD">uD</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Sep 30 2020 14:46:05 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+watch4Compiler文件夹下都是监听ES6将其实时转换为ES5的bat命令！
+InESM.esm.js
+--->
+OutESM.compiler.esm.js

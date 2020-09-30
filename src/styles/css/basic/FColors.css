@@ -1,0 +1,462 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+/*中蓝色*/
+.middleBlue-fColor {
+    color: #0078d7;
+}
+
+/*紫红色*/
+.purpleRed-fColor {
+    color: #bf0077;
+}
+
+/*浅紫红色*/
+.lightPurpleRed-fColor {
+    color: #e3008c;
+}
+
+/*浅灰色*/
+.lightGray-fColor {
+    color: #9e9ea0;
+}
+
+/*蓝灰色*/
+.blueGray-fColor {
+    color: #8498a1;
+}
+
+/*锈玫瑰色*/
+.rustyRose-fColor {
+    color: #b89a9c;
+}
+
+/*空五倍子色*/
+.nullGallnut-fColor {
+    color: #9b876c;
+}
+
+/*灰汁色*/
+.lixivium-fColor {
+    color: #bdb292;
+}
+
+/*中灰色*/
+.middleGray-fColor {
+    color: #808082;
+}
+
+/*萨克斯蓝色*/
+.saxBlue-fColor {
+    color: #4f8ca9;
+}
+
+/*蓝绿色*/
+.blueGreen-fColor {
+    color: #018790;
+}
+
+/*深蓝色*/
+.deepBlue-fColor {
+    color: #006395;
+}
+
+/*水蓝色*/
+.waterBlue-fColor {
+    color: #70c6d3;
+}
+
+/*浓蓝色*/
+.thickBlue-fColor {
+    color: #005979;
+}
+
+/*铁青色*/
+.ironCyan-fColor {
+    color: #38416a;
+}
+
+/*砖青色*/
+.brickCyan-fColor {
+    color: #6683af;
+}
+
+/*蓝鼠色*/
+.blueRat-fColor {
+    color: #647996;
+}
+
+/*濡雨色*/
+.immersingRain-fColor {
+    color: #010800;
+}
+
+/*中黄黑色*/
+.middleYellowBlack-fColor {
+    color: #543e31;
+}
+
+/*消炭色*/
+.carbonElimination-fColor {
+    color: #524e4d;
+}
+
+/*鸠羽灰色*/
+.hatoyamaGray-fColor {
+    color: #9d8a8c;
+}
+
+/*青绿灰色*/
+.cyanGreenGray-fColor {
+    color: #97a691;
+}
+
+/*青灰色*/
+.cyanGray-fColor {
+    color: #6b776d;
+}
+
+/*肤黄色*/
+.skinYellow-fColor {
+    color: #f9c270;
+}
+
+/*黄褐色、黄棕色*/
+.yellowBrown-fColor {
+    color: #c28942;
+}
+
+/*咖啡色*/
+.coffee-fColor {
+    color: #713a13;
+}
+
+/*驼黄色*/
+.camelYellow-fColor {
+    color: #b58555;
+}
+
+/*正红色*/
+.positiveRed-fColor {
+    color: #d7210c;
+}
+
+/*薄红色*/
+.thinRed-fColor {
+    color: #f29b87;
+}
+
+/*浓粉色*/
+.thickPink-fColor {
+    color: #f09091;
+}
+
+/*蔷薇色*/
+.rose-fColor {
+    color: #e51863;
+}
+
+/*玫瑰粉色*/
+.rosePink-fColor {
+    color: #ee849a;
+}
+
+/*那不勒斯黄色*/
+.naplesYellow-fColor {
+    color: #d8cb49;
+}
+
+/*深咔叽布色*/
+.deepKhaki-fColor {
+    color: #887610;
+}
+
+/*土著黄色*/
+.aboriginalYellow-fColor {
+    color: #b8a735;
+}
+
+/*芥子色*/
+.mustard-fColor {
+    color: #d6c460;
+}
+
+/*含羞草色*/
+.mimosa-fColor {
+    color: #ecd343;
+}
+
+/*深褐色、深棕色*/
+.deepBrown-fColor {
+    color: #725a00;
+}
+
+/*紫藤色*/
+.wisteria-fColor {
+    color: #7b4f9c;
+}
+
+/*菖蒲色*/
+.calamus-fColor {
+    color: #b978b0;
+}
+
+/*紫水晶色*/
+.amethyst-fColor {
+    color: #7f4985;
+}
+
+/*铬绿色*/
+.chromeGreen-fColor {
+    color: #6bbc79;
+}
+
+/*孔雀石绿色*/
+.malachiteGreen-fColor {
+    color: #008d58;
+}
+
+/*翡翠绿色*/
+.emeraldGreen-fColor {
+    color: #0dad67;
+}
+
+/*青灰绿色*/
+.cyanGrayGreen-fColor {
+    color: #408c6e;
+}
+
+/*海洋绿色*/
+.marineGreen-fColor {
+    color: #17a084;
+}
+
+/*黄金色*/
+.gold-fColor {
+    color: #ffb900;
+}
+
+/*金色*/
+.golden-fColor {
+    color: #ff8c00;
+}
+
+/*亮橙黄色*/
+.brightOrangeYellow-fColor {
+    color: #f7630c;
+}
+
+/*深橙黄色*/
+.deepOrangeYellow-fColor {
+    color: #ca5010;
+}
+
+/*铁锈色*/
+.rust-fColor {
+    color: #da3b01;
+}
+
+/*浅铁锈色*/
+.lightRust-fColor {
+    color: #ef6950;
+}
+
+/*砖红色*/
+.brickRed-fColor {
+    color: #d13438;
+}
+
+/*中红色*/
+.middleRed-fColor {
+    color: #ff4343;
+}
+
+/*浅红色*/
+.lightRed-fColor {
+    color: #e74856;
+}
+
+/*亮玫红色*/
+.brightRoseRed-fColor {
+    color: #ea005e;
+}
+
+/*玫瑰红色*/
+.rosyRed-fColor {
+    color: #c30052;
+}
+
+/*浅兰花紫色*/
+.lightOrchidPurple-fColor {
+    color: #c239b3;
+}
+
+/*兰花紫色*/
+.orchidPurple-fColor {
+    color: #9a0089;
+}
+
+/*紫影色*/
+.purpleShade-fColor {
+    color: #8e8cd8;
+}
+
+/*深紫影色*/
+.deepPurpleShade-fColor {
+    color: #6b69d6;
+}
+
+/*柔和彩虹色*/
+.softIridescent-fColor {
+    color: #8764b8;
+}
+
+/*鸢尾花色*/
+.flowerDeLuce-fColor {
+    color: #744da9;
+}
+
+/*亮酷蓝色*/
+.brightCoolBlue-fColor {
+    color: #0099bc;
+}
+
+/*酷蓝色*/
+.coolBlue-fColor {
+    color: #2d7d9a;
+}
+
+/*海沫绿色*/
+.seaFoamGreen-fColor {
+    color: #00b7c3;
+}
+
+/*浅薄荷色*/
+.lightMint-fColor {
+    color: #00b294;
+}
+
+/*深薄荷色*/
+.deepMint-fColor {
+    color: #018574;
+}
+
+/*浅绿色*/
+.lightGreen-fColor {
+    color: #00cc6a;
+}
+
+/*运动绿色*/
+.sportsGreen-fColor {
+    color: #10893e;
+}
+
+/*灰色*/
+.gray-fColor {
+    color: #7a7574;
+}
+
+/*灰棕色、灰褐色*/
+.grayBrown-fColor {
+    color: #5d5a58;
+}
+
+/*钢蓝色*/
+.steelBlue-fColor {
+    color: #68768a;
+}
+
+/*金属蓝色*/
+.metalBlue-fColor {
+    color: #515c6b;
+}
+
+/*浅苔藓色*/
+.lightMoss-fColor {
+    color: #567c73;
+}
+
+/*苔藓色*/
+.moss-fColor {
+    color: #486860;
+}
+
+/*草绿色*/
+.grassGreen-fColor {
+    color: #498205;
+}
+
+/*绿色*/
+.green-fColor {
+    color: green;
+}
+
+/*天灰色*/
+.skyGray-fColor {
+    color: #767676;
+}
+
+/*雾灰色*/
+.foggyGray-fColor {
+    color: #4c4a48;
+}
+
+/*深灰色*/
+.deepGray-fColor {
+    color: #4a5459;
+}
+
+/*艳绿色*/
+.flamboyantGreen-fColor {
+    color: #647c64;
+}
+
+/*鼠尾草色*/
+.sage-fColor {
+    color: #525e54;
+}
+
+/*沙漠迷彩色*/
+.camoSand-fColor {
+    color: #847545;
+}
+
+/*保护色*/
+.protect-fColor {
+    color: #7e735f;
+}
+
+/*红色*/
+.red-fColor {
+    color: red;
+}
+
+/*黄色*/
+.yellow-fColor {
+    color: yellow;
+}
+
+/*蓝色*/
+.blue-fColor {
+    color: blue;
+}
+
+/*白色*/
+.white-fColor {
+    color: white;
+}
+
+/*黑色*/
+.black-fColor {
+    color: black;
+}
+
+/*透明色*/
+.transparent-fColor {
+    color: transparent;
+}

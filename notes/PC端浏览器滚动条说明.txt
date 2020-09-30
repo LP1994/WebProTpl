@@ -1,0 +1,78 @@
+PC端浏览器的垂直、水平滚动条的宽度
+
+PC for Win
+
+谷歌浏览器、火狐浏览器、IE浏览器、Yandex浏览器、360安全浏览器、360极速浏览器、QQ浏览器、傲游5浏览器、搜狗高速浏览器、猎豹安全浏览器、
+百度浏览器、UC浏览器、净网大师浏览器的垂直、水平滚动条的宽度是17px
+
+Edge浏览器的垂直、水平滚动条的宽度是16px
+
+Opera浏览器的垂直、水平滚动条的宽度是15px
+
+微信内置浏览器的垂直、水平滚动条的宽度是12px
+注：
+大多情况下是被微信美化过的滚动条，宽度是12px，特殊情况下是17px，但刷新一下就没有了，不那么容易出现这种情况
+
+
+火狐目前没有有效的美化滚动条的CSS
+
+
+webkit内核浏览器
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-track-piece {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+
+
+/* IE 滚动条 */
+html, body, main {
+  /*
+    scrollbar-arrow-color       // 三角箭头的颜色
+    scrollbar-face-color        // 立体滚动条的颜色
+    scrollbar-3dlight-color     // 立体滚动条亮边的颜色
+    scrollbar-highlight-color   // 滚动条空白部分的颜色
+    scrollbar-shadow-color      // 立体滚动条阴影的颜色
+    scrollbar-darkshadow-color  // 立体滚动条强阴影的颜色
+    scrollbar-track-color       // 立体滚动条背景颜色
+    scrollbar-base-color        // 滚动条的基本颜色
+    */
+
+  overflow: auto;
+
+  scrollbar-3dlight-color: yellow;
+  scrollbar-highlight-color: red;
+  scrollbar-dark-shadow-color: #ff4cb8;
+  scrollbar-base-color: maroon;
+  /*整条滚动条的背景色*/
+  scrollbar-track-color: blue;
+  /*滑块的颜色*/
+  scrollbar-face-color: green;
+  /*方向箭头颜色*/
+  scrollbar-arrow-color: red;
+  /*滑块的边框颜色*/
+  scrollbar-shadow-color: purple;
+}

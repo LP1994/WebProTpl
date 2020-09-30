@@ -1,0 +1,1 @@
+npx babel --config-file=../../../.babelrc.json ../../../../src/workers/serviceWorkers/ServiceWorkerTestA.js -w --no-comments --compact=true --minified -o ../../../../src/workers/serviceWorkers/ServiceWorkerTestA.compiler.js&pause

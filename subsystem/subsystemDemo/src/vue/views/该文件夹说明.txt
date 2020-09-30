@@ -1,0 +1,5 @@
+views文件夹下都是“微前端架构”中“子系统”的MVVM(Model-View-ViewModel)中的View(.vue)！
+采用了“三权”分离的vue文件写法，以免单个vue文件很长很长！！！
+
+style模块被分离提取在了“./src/vue/styles/”文件夹下！！！
+JS模块被分离提取在了“./src/vue/models/”文件夹下！！！

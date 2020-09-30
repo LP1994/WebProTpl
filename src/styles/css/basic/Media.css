@@ -1,0 +1,222 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+/*
+orientation	视口的方向
+PS：
+注意：
+此功能与设备方向不对应。在许多设备上以纵向打开软键盘将导致视区变得比高度更宽，从而导致浏览器使用横向样式而不是纵向样式。
+portrait
+视口为纵向方向，即高度大于或等于宽度。
+landscape
+视口处于横向方向，即宽度大于高度。
+笔记本电脑上的谷歌浏览器的模拟器由于设备没有方向传感器！！！
+“orientation”这个属性，更多的是通过宽高比来模拟所谓的方向！！！
+然而，真机有方向传感器！！！以下写法在真机上能保证竖屏和横屏的输出样式！！！
+// iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 1125x2436 458ppi)宽高 Start
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    #HelloWorld {
+        background-color: #ff23b0;
+    }
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    #HelloWorld {
+        background-color: #ff2d16;
+    }
+}
+// iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 1125x2436 458ppi)宽高 End
+*/
+
+/*iPhone 5/5S/SE系列宽高( 640x1136 ) Start*/
+
+@media only screen and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPhone 5/5S/SE系列宽高( 640x1136 ) End*/
+
+/*iPhone 6/6S/7/8系列宽高( 750x1334 ) Start*/
+
+@media only screen and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 375px) and (device-height: 667px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPhone 6/6S/7/8系列宽高( 750x1334 ) End*/
+
+/*iPhone 6Plus/6SPlus/7Plus/8Plus系列宽高( 1080x1920 ) Start*/
+/*PS:*/
+/*1242 x 2208(1080 x 1920): iPhone 6 Plus、iPhone 6S Plus、iPhone 7 Plus、iPhone 8 Plus*/
+/*PS：特别说明一下，以上设备的实际物理分辨率是(1080 x 1920)，它们的实际dpr是2.608695652173913。*/
+/*但是，渲染、计算却是按分辨率(1242 x 2208)、dpr是3。所以，APP的启动图片也是按这些个来的(1242 x 2208、dpr是3)。*/
+
+@media only screen and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+
+}
+
+@media only screen and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+}
+
+/*iPhone 6Plus/6SPlus/7Plus/8Plus系列宽高( 1080x1920 ) End*/
+
+/*iPhone XR/11(6.1英寸 828x1792 326ppi)宽高 Start*/
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPhone XR/11(6.1英寸 828x1792 326ppi)宽高 End*/
+
+/*iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 1125x2436 458ppi)宽高 Start*/
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+}
+
+/*iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 1125x2436 458ppi)宽高 End*/
+
+/*iPhone XS Max、iPhone 11 Pro Max(6.5英寸 1242x2688 458ppi)宽高 Start*/
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (device-width: 414px) and (device-height: 896px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+}
+
+/*iPhone XS Max、iPhone 11 Pro Max(6.5英寸 1242x2688 458ppi)宽高 End*/
+
+/*手机系列宽高 Start*/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: portrait) and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: portrait) and (min--moz-device-pixel-ratio: 2), only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: portrait) and (min-device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: landscape) and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: landscape) and (min--moz-device-pixel-ratio: 2), only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-width: 320px) and (max-device-width: 425px) and (orientation: landscape) and (min-device-pixel-ratio: 2) {
+
+}
+
+/*手机系列宽高 End*/
+
+/*以上是手机系列*/
+
+/*iPad(1536x2048)系列宽高(Tablet)(7.9 英寸 iPad mini 326ppi) Start*/
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPad(1536x2048)系列宽高(Tablet)(7.9 英寸 iPad mini 326ppi) End*/
+
+/*iPad Pro 12.9英寸(2048x2732)系列宽高(Laptop)(12.9 英寸 iPad Pro 264ppi) Start*/
+
+@media only screen and (device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 1024px) and (device-height: 1366px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 1024px) and (device-height: 1366px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 1024px) and (device-height: 1366px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPad Pro 12.9英寸(2048x2732)系列宽高(Laptop)(12.9 英寸 iPad Pro 264ppi) End*/
+
+/*10.2 英寸 iPad(1620x2160) 264ppi宽高(Laptop) Start*/
+
+@media only screen and (device-width: 810px) and (device-height: 1080px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 810px) and (device-height: 1080px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 810px) and (device-height: 1080px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 810px) and (device-height: 1080px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 810px) and (device-height: 1080px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 810px) and (device-height: 1080px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*10.2 英寸 iPad(1620x2160) 264ppi宽高(Laptop) End*/
+
+/*iPad Pro 10.5英寸(1668x2224)宽高(10.5 英寸 iPad Air 264ppi) Start*/
+/*这个必须在“iPad Pro 12.9英寸(2048x2732)”之后*/
+
+@media only screen and (device-width: 834px) and (device-height: 1112px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1112px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1112px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 834px) and (device-height: 1112px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1112px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1112px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPad Pro 10.5英寸(1668x2224)宽高(10.5 英寸 iPad Air 264ppi) End*/
+
+/*iPad Pro 11英寸(1668x2388 264ppi)宽高 Start*/
+
+@media only screen and (device-width: 834px) and (device-height: 1194px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1194px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1194px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (device-width: 834px) and (device-height: 1194px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1194px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (device-width: 834px) and (device-height: 1194px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*iPad Pro 11英寸(1668x2388 264ppi)宽高 End*/
+
+/*不超过 Laptop L系列宽高 Start*/
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1440px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (min-device-width: 1025px) and (max-device-width: 1440px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (min-device-width: 1025px) and (max-device-width: 1440px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1440px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (min-device-width: 1025px) and (max-device-width: 1440px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (min-device-width: 1025px) and (max-device-width: 1440px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*不超过 Laptop L系列宽高 End*/
+
+/*平板系列宽高 Start*/
+
+@media only screen and (min-device-width: 426px) and (max-device-width: 1440px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (min-device-width: 426px) and (max-device-width: 1440px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (min-device-width: 426px) and (max-device-width: 1440px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+
+}
+
+@media only screen and (min-device-width: 426px) and (max-device-width: 1440px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (min-device-width: 426px) and (max-device-width: 1440px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (min-device-width: 426px) and (max-device-width: 1440px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+
+}
+
+/*平板系列宽高 End*/
+
+/*以上是平板系列*/
+
+/*电脑系列宽高 Start*/
+
+@media only screen and (min-device-width: 1366px) and (min-device-height: 768px) and (-moz-device-pixel-ratio: 1), only screen and (min-device-width: 1366px) and (min-device-height: 768px) and (-webkit-device-pixel-ratio: 1), only screen and (min-device-width: 1366px) and (min-device-height: 768px) and (device-pixel-ratio: 1) {
+
+}
+
+/*电脑系列宽高 End*/

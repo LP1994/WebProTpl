@@ -1,0 +1,5 @@
+es6Compiler文件夹下都是用于将“微前端架构”中“子系统”的ES6转为ES5的bat命令！
+如：
+CurrencyTools.esm.js
+--->
+CurrencyTools.compiler.esm.js

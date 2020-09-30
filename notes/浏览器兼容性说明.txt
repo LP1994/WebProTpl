@@ -1,0 +1,67 @@
+1、关于浏览器滚动BUG说明
+不支持HTML元素滚到顶部，也不支持body元素滚到顶部(不支持全局滚动)
+Edge、2345、搜狗、百度、猎豹、UC、微信内置
+注：强烈建议将所有滚动全都伪装为局部滚动！！！
+但jQuery可以通过$('html,body').animate({scrollTop:'100'},1000)来操作滚动;
+
+
+
+Edge浏览器BUG
+
+1、关于console.dir(object)
+console.dir(object)
+打印出该对象的所有属性和属性值
+例如：
+let nameList = document.getElementsByName('n1');
+    console.dir(nameList.length);
+    let elem1 = document.createElement('input');
+    elem1.setAttribute('name', 'n1');
+    document.body.appendChild(elem1);
+    console.dir(nameList.length);
+报错信息：
+SCRIPT257: 由于出现错误 80020101 而导致此项操作无法完成。
+改成：
+let nameList = document.getElementsByName('n1');
+    console.log(nameList.length);
+    let elem1 = document.createElement('input');
+    elem1.setAttribute('name', 'n1');
+    document.body.appendChild(elem1);
+    console.log(nameList.length);
+就不会报错了
+因为console.dir要求传入的实参必须是对象！！！
+console.dir(nameList.length);
+传入的不是对象，所以会报错！！！
+
+
+
+火狐浏览器 BUG
+<button class = 'fileBtn middleBlue-bgColor white-fColor middleBlue-bsColor'>
+    <label for = '<%= id %>' class = 'ofh flexBox flexC flexDC fileBtn-label'>
+        <span class = 'fileBtn-typeText'><%= type %></span>
+        <span class = 'fileBtn-quantityText'><%= quantity %></span>
+    </label>
+    <input type = 'file' name = '<%= name %>' id = '<%= id %>'
+           hidden = 'hidden' <%= accept %> <%= multiple %> <%= capture %> <%= webkitdirectory %> />
+</button>
+注意，button嵌套label后，点击button无法触发label，继而无法触发input！！！
+
+
+
+IE9兼容说明：
+IE9(window.location)
+hash       ""
+host       "localhost:8082"
+hostname       "localhost"
+href       "http://localhost:8082/guizhou-enterprise-manage-vue/apps/localServer/pages/index.html"
+pathname       "/guizhou-enterprise-manage-vue/apps/localServer/pages/index.html"
+port       "8082"
+protocol       "http:"
+search       ""
+
+PS：
+IE9没有“window.location.origin”！！！
+所以只能通过字符串拼接：
+`${ window.location.protocol }//${ window.location.host }`
+
+
+

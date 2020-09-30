@@ -1,0 +1,30 @@
+fragment Alert_Fragment_IAlarm on IBMS_IAlarm{
+    id,
+    url,
+    title,
+    deviceId,
+    deviceName,
+    #设备厂家名称
+    devieceFacturerName,
+    #设备分类
+    deviceCategory,
+    #报警原因
+    message,
+    #警报级别
+    alarmLevel,
+    #设备子系统名称
+    subsystemName,
+    #设备所在地点
+    regionName,
+    #警报分类
+    alarmType,
+}
+
+fragment Alert_Fragment_SimilarAlarmTotal on IBMS_SimilarAlarmTotal{
+    #警报总数
+    alarmTotal,
+    #误报次数
+    misinformationTotal,
+    #故障次数
+    malfunctionTotal,
+}

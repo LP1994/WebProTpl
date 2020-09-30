@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: OthersHandle</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: OthersHandle</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>OthersHandle<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">7788</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="OthersHandle"><span class="type-signature"></span>new OthersHandle<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7343">line 7343</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="deviceInfo"><span class="type-signature"></span>deviceInfo<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取设备信息以及浏览器信息<br />navigator.userAgent.match( new RegExp( 'Chrome/[\\d\\.]+', 'g' ) )[ 0 ].split( '/' )[1]<br />上头返回字符串'73.0.3683.86'
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7352">line 7352</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {pf: string, ua: string, dpr: number, is_PC: boolean, is_Mobile: boolean, is_PCMac: boolean, is_iPad: boolean, is_iPhone: boolean, is_PCWin: boolean, is_WP: boolean, is_BB: boolean, is_MeeGo: boolean, is_Android: boolean, is_WX: boolean, is_UC: boolean, is_BDB: boolean, is_2345: boolean, is_LB: boolean, is_SGB: boolean, is_AY: boolean, is_QQB: boolean, is_360: boolean, is_YB: boolean, is_OperaB: boolean, is_Edge: boolean, is_FF: boolean, is_QQAPP: boolean, is_MIB: boolean, is_SGAPP: boolean, is_QQ: boolean, is_WBAPP: boolean, is_TMAPP: boolean, is_AlipayC: boolean, is_IE: boolean, is_TaoB: boolean, is_iOSChrome: boolean, is_Safari: boolean, is_Chrome: boolean}
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="download4Blob"><span class="type-signature"></span>download4Blob<span class="signature">(blob, fileName)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    以“Blob”的形式下载文件<br />PS：<br />Blob构造函数的第一个参数得是数组，里头成员的数据类型可以是：<br />ArrayBuffer，ArrayBufferView，Blob，USVString(编码为UTF-8)。<br />第二个参数是一个对象(可选的)：<br />{<br />type: 将存储到Blob中的数据的MIME类型。默认值为空字符串（“”）。<br />endings: 如果数据是文本，如何解释内容中的换行符（“\n”）。默认值“transparent”将换行符复制到blob中，而不更改它们。要将换行符转换为主机系统的本机约定，请指定“endings”。
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>blob</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Blob实例(new Blob( [ ArrayBuffer ], { type: 'application/msword',  ))，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fileName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    这是一个默认文件名(允许修改文件名和后缀)
+                
+                </td>
+            
+
+            <td class="description last">字符串，文件名(最好包括文件的后缀名)，默认值是："这是一个默认文件名(允许修改文件名和后缀)"，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7459">line 7459</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="dynamicREM"><span class="type-signature"></span>dynamicREM<span class="signature">(size_num)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    动态计算rem，建议尽量早的执行该代码，最好是在html标签加载完之后以及head标签加载之前就执行<br />iPhone 5S/SE DPR为2 (css像素320*568) 4英寸 (设备实际像素640*1136)<br />iPhone 6/6S/7/8 DPR为2 (css像素375*667) 4.7英寸 (设备实际像素750*1334)<br />iPhone 6/6S/7/8 Plus DPR为3(其实为2.608695652173913更准确) (css像素414*736) 5.5英寸 (设备实际像素1080*1920)<br />iPhone X DPR为3 (css像素375*812) 5.8英寸 (设备实际像素1125*2436)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>size_num</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    375
+                
+                </td>
+            
+
+            <td class="description last">number，默认是以iPhone 6的设计稿尺寸作为基准值(375)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7481">line 7481</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="equal"><span class="type-signature"></span>equal<span class="signature">(x, y)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    部署“三种相等算法”中的第三种(-0全等+0，NaN全等NaN)<br />PS：<br />1、第一种：===<br />-0全等+0，NaN不全等NaN<br />2、第二种：Object.is<br />-0不全等+0，NaN全等NaN<br />3、第三种：目前未部署具体API<br />-0全等+0，NaN全等NaN<br />
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">any data，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">any data，必须</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7504">line 7504</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    boolean，x、y如果全等则为true，否则为false，-0全等+0，NaN全等NaN。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isStandalone"><span class="type-signature"></span>isStandalone<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断网页是否是从设备的桌面主屏幕打开的<br /><br />注：<br />1、“window.navigator.standalone”貌似是iOS中的浏览器(如：Safari等浏览器)独有的！<br />2、用CSS3媒体查询检测(值有：fullscreen、standalone、minimal-ui、browser)<br />@ media all and (display-mode: standalone) {}<br />3、用JS检测(值有：fullscreen、standalone、minimal-ui、browser)<br />if (window.matchMedia('(display-mode: standalone)').matches) {}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7525">line 7525</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    true(是从设备的桌面主屏幕打开的)、false(不是从设备的桌面主屏幕打开的)
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="offLineE"><span class="type-signature"></span>offLineE<span class="signature">(elem, f)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    断网不在线时，会触发的事件，该事件最好挂载在body上
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件函数，有一个event参数，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7539">line 7539</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="onLineE"><span class="type-signature"></span>onLineE<span class="signature">(elem, f)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    联网在线时，会触发的事件，该事件最好挂载在body上
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件函数，有一个event参数，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7558">line 7558</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="oriChange"><span class="type-signature"></span>oriChange<span class="signature">(sFun, hFun)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    执行这个函数时，先给“window”注册“orientationchange”事件，<br />但触发该事件时，横屏执行横屏所要执行的函数，竖屏执行竖屏所要执行的函数<br />注：<br />window.orientation和screen.orientation.angle都为undefined时，<br />会给“window”注册“resize”事件，触发该事件时，会根据设备的宽高来判断横竖屏
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sFun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">切换到竖屏状态时执行的函数，会有一个事件对象event参数，可选</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hFun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">切换到横屏状态时执行的函数，会有一个事件对象event参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7580">line 7580</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Function 一个已经注册的“resize”或者“orientationchange”事件函数，可用于解除这个事件。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="preloadImg"><span class="type-signature"></span>preloadImg<span class="signature">(imgA, f1, f2)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    在预加载图片的时候做一些事情比如加载动画等等
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imgA</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">一个图片地址数组，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f1</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">函数，会有一个progress参数表示当前加载了百分之几的一个浮点数，可选</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f2</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">函数，图片全部加载完后执行的函数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7640">line 7640</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="preloadTools"><span class="type-signature"></span>preloadTools<span class="signature">(arr)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    预加载的脚本化
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">数组，成员是一个个JSON对象，必须<br />成员JSON对象的格式是<br />{<br />  href: 资源的url 字符串，必须<br /><br />  as： 'font' 字符串，可选<br /><br />  type: 'font/ttf' 字符串，可选<br /><br />  crossorigin: 'anonymous' 字符串，可选<br /><br />  isExecute: false 布尔值，是否立即执行.js脚本，默认false，不立即执行，true立即执行，可选<br /><br />  attrs: JSON对象{}，用于配置标签的属性，键名是属性名，键值是属性值，可选<br /><br />  onLoad: 节点的onload事件函数(会有一个event的事件参数)，当需要立即执行.js脚本时，<br />  为了保证被立即执行的.js脚本代码确确实实全部下载完了，再执行后续的依赖其代码的操作时就用上了这个事件函数，可选<br/><br />as的值:<br />支持不填写“as”属性，那么链接地址就是资源任何地址<br />audio(音频文件)、<br />document(用于嵌入<frame>或中的HTML文档<iframe>)、<br />embed(要嵌入<embed>元素内的资源)、<br />fetch(要由fetch或XHR请求访问的资源，例如ArrayBuffer或JSON文件)、<br />font(字体文件)、<br />image(图像文件、SVG)、<br />object(要嵌入<embed>元素内的资源)、<br />script(JavaScript文件)、<br />style(样式表)、<br />track(WebVTT文件)、<br />worker(Web Worker或Shared Worker)、<br />video(视频文件)、<br />report(不需要链接地址)、<br />audioworklet、<br />paintworklet、<br />serviceworker、<br />manifest、<br />xslt<br /><br />type值:(链接查找)<br />http://www.w3school.com.cn/media/media_mimeref.asp</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7740">line 7740</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="scrollFix"><span class="type-signature"></span>scrollFix<span class="signature">(elem)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    解决iOS上的滚动出界(尤其是在iOS上的微信内置浏览器上进行滚动操作)<br />PS：<br />返回值是一个已经注册的“touchstart”事件函数，可用于解除这个事件。
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(节点选择器、节点选择器组)，以便批量处理，但只处理第一个节点，(就是子元素内容超过父容器的那个父容器)，必需<br />注：建议将所有滚动都伪装成局部滚动，也就是滚动条不出现在body、html上，body、html全都禁止滚动。如：把滚动条挂在main标签上。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7777">line 7777</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Function 一个已经注册的“touchstart”事件函数，可用于解除这个事件。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="timeF"><span class="type-signature"></span>timeF<span class="signature">(t, m)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    从时间戳中提取年、月、日、时、分、秒、周，可以用变量的解构赋值来提取返回值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>t</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">时间戳的字符串表示、number 时间戳，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">number 周的表示方式，0表示中文，1表示数字，默认1，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7805">line 7805</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    {y(年) : number, m(月) : number, d(日): number, h(时) : number, min(分) : number, s(秒) : number, day(周) : string|number}
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="vibrate"><span class="type-signature"></span>vibrate<span class="signature">(option, fun1, fun2)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    振动效果
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>option</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+
+            <td class="description last">单个数字(如：100、200之类的，表示振动时间是100ms)，数组[单个数字(如：100、200之类的)]，默认100，可选<br />'SOS'：<br />[100,30,100,30,100,30,200,30,200,30,200,30,100,30,100,30,100]<br />奇数位表示振动多久，偶数位表示暂停的时间间隔</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun1</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">不支持该API时，执行的函数，会有一个event参数，可选</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun2</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">无论何种情况都会执行的函数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line7857">line 7857</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Canvas2Others.html">Canvas2Others</a></li><li><a href="CopyAPI.html">CopyAPI</a></li><li><a href="CryptoAPI.html">CryptoAPI</a></li><li><a href="CT.html">CT</a></li><li><a href="DataFormat.html">DataFormat</a></li><li><a href="ElemClass.html">ElemClass</a></li><li><a href="ElemQuery.html">ElemQuery</a></li><li><a href="ES6Handle.html">ES6Handle</a></li><li><a href="FunHandle.html">FunHandle</a></li><li><a href="InputHandle.html">InputHandle</a></li><li><a href="IsDataType.html">IsDataType</a></li><li><a href="JS2Ajax.html">JS2Ajax</a></li><li><a href="JS2jQuery.html">JS2jQuery</a></li><li><a href="ObjHandle.html">ObjHandle</a></li><li><a href="OthersHandle.html">OthersHandle</a></li><li><a href="PermissionsAPI.html">PermissionsAPI</a></li><li><a href="RegExpHandle.html">RegExpHandle</a></li><li><a href="SSE4Client.html">SSE4Client</a></li><li><a href="StringHandle.html">StringHandle</a></li><li><a href="TouchEvent.html">TouchEvent</a></li><li><a href="Upload4GraphQL.html">Upload4GraphQL</a></li><li><a href="UrlHandle.html">UrlHandle</a></li><li><a href="WASMTool.html">WASMTool</a></li><li><a href="WebService4Proxy.html">WebService4Proxy</a></li><li><a href="WebSocket4Client.html">WebSocket4Client</a></li></ul><h3>Global</h3><ul><li><a href="global.html#aD">aD</a></li><li><a href="global.html#cD">cD</a></li><li><a href="global.html#dD">dD</a></li><li><a href="global.html#GetError">GetError</a></li><li><a href="global.html#IsHandle1">IsHandle1</a></li><li><a href="global.html#IsHandle10">IsHandle10</a></li><li><a href="global.html#IsHandle13">IsHandle13</a></li><li><a href="global.html#isKN">isKN</a></li><li><a href="global.html#Prompt">Prompt</a></li><li><a href="global.html#qD">qD</a></li><li><a href="global.html#RAnimationFFun">RAnimationFFun</a></li><li><a href="global.html#storageCE">storageCE</a></li><li><a href="global.html#uD">uD</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Sep 30 2020 14:46:05 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

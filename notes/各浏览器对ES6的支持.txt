@@ -1,0 +1,117 @@
+在线检测浏览器对ES6的支持度
+http://ruanyf.github.io/es-checker/index.cn.html
+
+一、桌面端浏览器对ES2015的支持情况
+Chrome：51 版起便可以支持 97% 的 ES6 新特性。
+Firefox：53 版起便可以支持 97% 的 ES6 新特性。
+Safari：10 版起便可以支持 99% 的 ES6 新特性。
+IE：Edge 15可以支持 96% 的 ES6 新特性。Edge 14 可以支持 93% 的 ES6 新特性。（IE7~11 基本不支持 ES6）
+
+二、移动端浏览器对ES2015的支持情况
+iOS：10.0 版起便可以支持 99% 的 ES6 新特性。
+Android：基本不支持 ES6 新特性（5.1 仅支持 25%）
+
+三、服务器对ES2015的支持情况
+Node.js：6.5 版起便可以支持 97% 的 ES6 新特性。（6.0 支持 92%）
+
+
+
+IE 11 支持的(14%)
+✓     let 和 const 命令
+✓     let命令的暂时性死区
+✓     不允许再次用const声明同一变量
+✓     不再支持八进制的前缀零表示法（例如01）
+✓     类型化数组（Uint8Array, ArrayBuffer, Int8Array(), Int32Array(), Float64Array()）
+✓     对象的__proto__属性
+
+
+
+Google Chrome(70.0.3538.67) 支持以及不支持的(92%)
+✓     let 和 const 命令
+✓     let命令的暂时性死区
+✓     不允许再次用const声明同一变量
+✓     解构赋值
+✓     扩展（...）运算符
+✓     for...of循环
+✓     Map, Set, WeakMap, WeakSet
+✓     Symbol类型
+✓     Symbol值不能用于运算
+✓     数值的八进制（例如 0o1）和二进制（例如 0b10）表示法
+✓     不再支持八进制的前缀零表示法（例如01）
+✓     Math对象的静态方法（例如 Math.hypot(), Math.acosh(), Math.imul()）
+✓     Number对象的静态方法（Number.isNaN(), Number.isInteger()）
+✓     字符串的实例方法（String.prototype.includes(), String.prototype.repeat()）
+✓     Unicode字符的大括号表示法（例如 \u{20BB7}）
+✓     Unicode字符是否可用作标识名（例如 \u{20BB7} = 42;）
+✓     正则表达式的u修饰符（例如 var regexp = /\u{20BB7}/u;）
+✓     正则表达式的y修饰符（例如 /b/y）
+✓     模板字符串
+✓     箭头函数
+✓     函数的默认参数
+✓     函数参数的解构
+✓     匿名函数的name属性推断函数名
+✖     尾调用优化
+✓     数组的实例方法（[].fill(), [].find(), [].findIndex(), [].entries(), [].keys(), [].values()）
+✓     数组的静态方法（Array.from(), Array.of()）
+✓     类型化数组（Uint8Array, ArrayBuffer, Int8Array(), Int32Array(), Float64Array()）
+✓     类型化数组的实例方法（例如 Int8Array.prototype.slice(), Int8Array.prototype.join(), Int8Array.prototype.forEach()）
+✓     类型化数组的静态方法（例如 Uint32Array.from(), Uint32Array.of()）
+✓     对象的__proto__属性
+✓     Object的静态方法（Object.getOwnPropertySymbols(), Object.assign()）
+✓     对象属性名使用表达式
+✓     对象属性的简洁表示法
+✓     Proxy对象
+✓     Reflect对象
+✓     Generator函数
+✓     Promise对象
+✓     类（class）
+✓     对象方法是否可以使用super
+✓     原生类型的扩展
+✖     模块的export命令
+✖     模板的import命令
+
+
+
+Microsoft EdgeHTML 17.17134(42.17134.1.0) 支持以及不支持的(95%)
+✓     let 和 const 命令
+✓     let命令的暂时性死区
+✓     不允许再次用const声明同一变量
+✓     解构赋值
+✓     扩展（...）运算符
+✓     for...of循环
+✓     Map, Set, WeakMap, WeakSet
+✓     Symbol类型
+✓     Symbol值不能用于运算
+✓     数值的八进制（例如 0o1）和二进制（例如 0b10）表示法
+✓     不再支持八进制的前缀零表示法（例如01）
+✓     Math对象的静态方法（例如 Math.hypot(), Math.acosh(), Math.imul()）
+✓     Number对象的静态方法（Number.isNaN(), Number.isInteger()）
+✓     字符串的实例方法（String.prototype.includes(), String.prototype.repeat()）
+✓     Unicode字符的大括号表示法（例如 \u{20BB7}）
+✓     Unicode字符是否可用作标识名（例如 \u{20BB7} = 42;）
+✓     正则表达式的u修饰符（例如 var regexp = /\u{20BB7}/u;）
+✓     正则表达式的y修饰符（例如 /b/y）
+✓     模板字符串
+✓     箭头函数
+✓     函数的默认参数
+✓     函数参数的解构
+✓     匿名函数的name属性推断函数名
+✓     尾调用优化
+✓     数组的实例方法（[].fill(), [].find(), [].findIndex(), [].entries(), [].keys(), [].values()）
+✓     数组的静态方法（Array.from(), Array.of()）
+✓     类型化数组（Uint8Array, ArrayBuffer, Int8Array(), Int32Array(), Float64Array()）
+✓     类型化数组的实例方法（例如 Int8Array.prototype.slice(), Int8Array.prototype.join(), Int8Array.prototype.forEach()）
+✓     类型化数组的静态方法（例如 Uint32Array.from(), Uint32Array.of()）
+✓     对象的__proto__属性
+✓     Object的静态方法（Object.getOwnPropertySymbols(), Object.assign()）
+✓     对象属性名使用表达式
+✓     对象属性的简洁表示法
+✓     Proxy对象
+✓     Reflect对象
+✓     Generator函数
+✓     Promise对象
+✓     类（class）
+✓     对象方法是否可以使用super
+✓     原生类型的扩展
+✖     模块的export命令
+✖     模板的import命令

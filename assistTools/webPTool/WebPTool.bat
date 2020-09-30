@@ -1,0 +1,1 @@
+rd /s /q img2WebP_Out&rd /s /q webP2PNG_Out&rd /s /q gif2WebP_Out&md img2WebP_Out&md webP2PNG_Out&md gif2WebP_Out&node --experimental-import-meta-resolve --experimental-json-modules --experimental-repl-await --experimental-wasi-unstable-preview1 --experimental-vm-modules --experimental-wasm-modules WebPTool.js&pause

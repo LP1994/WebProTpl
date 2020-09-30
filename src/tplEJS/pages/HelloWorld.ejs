@@ -1,0 +1,107 @@
+<!--
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+-->
+<%
+let options_obj = htmlWebpackPlugin.options,
+        publicPath_str = htmlWebpackPlugin.files.publicPath,
+        data_obj = options_obj.data,
+        isOpen_boo = data_obj.appCache_obj.open_boo,
+        path1_str = `others/${ data_obj.appCache_obj.name_str }`,
+        assets_obj = compilation[ 'assets' ],
+        metaLink = require( 'tplEJSMLDir/HelloWorld.ejs' ),
+        manifest = require( 'manifestDir/HelloWorld.manifest.json' ),
+        sriTool_fun = require( 'configDir/SRITool.js' ),
+        outAssets_fun = require( 'configDir/OutAssets.js' ),
+        preloadTool_fun = require( 'configDir/PreloadTool.js' ),
+        appCacheTool_fun = require( 'configDir/AppCacheTool.js' );
+%>
+<% isOpen_boo && appCacheTool_fun( {
+    assets_arr: Object.keys( assets_obj ),
+    publicPath_str,
+    data_obj,
+    path1_str
+} ); %>
+<!DOCTYPE html>
+<html class = 'css-reset fullS usN ofh helloWorld'
+      lang = 'zh-CN' <%= isOpen_boo
+                         ? `manifest='${ publicPath_str + path1_str }'`
+                         : `` %> >
+<head>
+    <%= metaLink( data_obj.metaLinkData ) %>
+    <%= isPro && data_obj.preloadTool_obj.open_boo
+        ? preloadTool_fun( {
+                isPro_boo: isPro,
+                preload_arr: data_obj.preloadTool_obj.preload_arr,
+                assets_obj,
+                publicPath_str
+            } )
+        : `` %>
+    <% if( data_obj.startAppleTSI_boo ){ %>
+        <% for( const item of
+                require( 'configDir/StartAppleTSI_Arr.js' ).startAppleTSI_arr ){ %>
+            <link rel = 'apple-touch-startup-image'
+                  type = '<%= item.type %>'
+                  sizes = '<%= item.attrs.sizes %>'
+                  media = '<%= item.attrs.media %>'
+                  href = '<%= item.href %>'
+                  crossorigin = '<%= item.crossorigin %>' />
+        <% } %>
+    <% } %>
+    <%= data_obj.dynamicREM_str %>
+    <%= data_obj.outAssets_obj.open_boo
+        ? outAssets_fun( {
+                publicPath_str,
+                assets_arr: Object.keys( assets_obj ),
+                other_arr: data_obj.outAssets_obj.other_arr
+            } )
+        : `` %>
+    <title><%= options_obj.title %></title>
+    <link rel = 'manifest'
+          type = 'application/manifest+json'
+          href = '<%= manifest %>' <%= sriTool_fun( {
+        isPro_boo: isPro,
+        assets_obj,
+        fileName_str: 'HelloWorld.manifest'
+    } ) %> />
+    <link rel = 'stylesheet'
+          href = '<%= require( 'lessBDir/Basic.less' ) %>' <%= sriTool_fun( {
+        isPro_boo: isPro,
+        assets_obj,
+        fileName_str: 'Basic'
+    } ) %> />
+    <link rel = 'stylesheet'
+          href = '<%= require( 'lessBDir/XSA.less' ) %>' <%= sriTool_fun( {
+        isPro_boo: isPro,
+        assets_obj,
+        fileName_str: 'XSA'
+    } ) %> />
+</head>
+<body class = 'css-reset fullS usN ofh'>
+<!--LocalRoll节点说明：局部滚动容器，用于避免全局滚动下出现的滚动穿透BUG！！！-->
+<div id = 'LocalRoll'
+     class = 'css-reset fullS usN ofa'>
+    <!--HelloWorld节点说明：保证PC端下标准的最小尺寸(对于“pcMin”因为在相关样式中写好了媒体查询所以保持这样就行了)！！！请在这个节点里写HTML元素！！！-->
+    <div id = 'HelloWorld'
+         class = 'css-reset pcMin usN ofh'>
+        <!--***************************************弹窗一类的元素Start***************************************-->
+        <!--说明：这里可以写对话框、提示框、警告框等弹窗一类的元素！！！建议使用定位为“position: absolute”！！！-->
+        <!--这样就算这些元素中有可滚动的节点，也不会出现滚动穿透！！！-->
+        <!--<dialog>例子！！！</dialog>-->
+        <!--***************************************弹窗一类的元素End***************************************-->
+        <!--在这个节点里写主体HTML！！！-->
+        <div class = 'css-reset usN'
+             id = 'RefreshBtnTest'></div>
+        <main class = 'css-reset fullS usN ofXhYa'>
+            <article class = 'css-reset usN'>
+                <h1 class = 'css-reset usN ofh flexBox flexC title'>期待2020年年中Vue 3.0的正式版发布！！！</h1>
+            </article>
+        </main>
+    </div>
+</div>
+<!--<%= data_obj.weinreDevTool_str %>-->
+</body>
+</html>

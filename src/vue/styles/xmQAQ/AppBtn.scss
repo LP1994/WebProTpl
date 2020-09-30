@@ -1,0 +1,36 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+@font-face {
+    font-family: 'Font_Helvetica';
+    src: url(~fontsDir/Helvetica.otf);
+}
+
+div.root.appBtn {
+    width: 83px;
+    height: 78px;
+    background-color: transparent;
+    line-height: 0;
+
+    > img.css-reset {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        line-height: 0;
+    }
+
+    > label.css-reset {
+        width: 100%;
+        line-height: 1.1;
+        text-align: center;
+        color: white;
+        font-size: 12px;
+        font-family: 'Font_Helvetica';
+    }
+
+}

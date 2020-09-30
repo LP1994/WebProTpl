@@ -1,0 +1,13160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: JS2jQuery</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: JS2jQuery</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>JS2jQuery<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">原生JS代替jQuery的部分节点操作</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="JS2jQuery"><span class="type-signature"></span>new JS2jQuery<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4294">line 4294</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="aCE"><span class="type-signature"></span>aCE<span class="signature">(elem, f, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    绑定click点击事件，当支持触屏事件时，会自动切换到tap事件，否则继续是click事件
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">点击事件所要执行的函数，会传入event，它也是解除绑定事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4314">line 4314</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="aClassN"><span class="type-signature"></span>aClassN<span class="signature">(elem, classN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    给节点增加类名<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>classN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个类名('t1')或类名组('t1,t2,t3')，都是字符串类型的数据，不能是''、' ',必需<br />DOMTokenList.length 数组长度<br />DOMTokenList.value 一个类名集合的字符串，如：'a b c d'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4339">line 4339</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [DOMTokenList]，DOMTokenList.length(数组长度)，DOMTokenList.value(一个类名集合的字符串，如：'a b c d')
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="animate"><span class="type-signature"></span>animate<span class="signature">(elem, initialProps, initialParams)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    原生JS封装jQuery的animate()，效果一模一样！
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>initialProps</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">样式对象()，key是样式名(不能用驼峰命名法)，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>initialParams</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">动画效果的配置对象，可选<br />如：<br />{<br />  duration: 300, // 表示动画要多久执行完，单位是ms，默认300ms<br /><br />  easing: 'linear', // 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值<br /><br />  begin: elements => {}, // 动画开始时执行的函数，会有一个'elements'参数，节点数组([Element])<br /><br />  complete: elements => {}, // 动画完成时执行的函数，会有一个'elements'参数，节点数组([Element])<br /><br />  // 动画正在进行中执行的函数，会有四个函数参数<br />  // elements(节点数组[Element])<br />  // complete(number，当前动画完成的百分比，作为小数值，范围是'0'到'1'，'0'表示动画刚开始，'1'表示动画刚执行结束)<br />  // remaining(number，动画还有多少时间结束，以'ms'为单位，'0'表示动画刚执行结束)<br />  // start(number，回调函数开始执行的绝对时间，以'ms'为单位，如：1538238132659这样的时间戳)<br />  progress: (elements, complete, remaining, start) => {}<br /><br />注：complete处理函数在多个节点('#div_p > p, input')时无法触发！可以嵌套处理！得到每一个元素后再把该元素进行animate处理<br />节点的顺序是根据文档中节点位置而定的前后！最前的先执行</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4374">line 4374</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="animateCancel"><span class="type-signature"></span>animateCancel<span class="signature">(elem, fun, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    动画被取消、中断时触发<br />注：<br />1、只有火狐浏览器(PC、Android、iOS、iOS的Safari浏览器(而且不是从主屏幕启动的))支持，其他浏览器不支持<br />2、动画被任何操作中断(不包括动画的暂停(animation-play-state: paused)和继续(animation-play-state: running)这两个操作)<br />3、触发的情况：<br />任何时候它停止运行而不发送animationend事件时发送此事件<br />例如当animation-name更改、移除动画、动画节点被隐藏(display:none)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除"animationcancel"事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4555">line 4555</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="animateEnd"><span class="type-signature"></span>animateEnd<span class="signature">(elem, fun, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    动画完成后触发<br />前提是动画没被任何操作中断，正常完成动画
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除"animationend"事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4583">line 4583</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="animateIteration"><span class="type-signature"></span>animateIteration<span class="signature">(elem, fun, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    动画迭代事件<br />如果只有一次那就不会触发，每一次迭代重复完成后触发，(animation-iteration-count: 3)，会触发(3 - 1)次
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除"animationiteration"事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4611">line 4611</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="animateStart"><span class="type-signature"></span>animateStart<span class="signature">(elem, fun, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    绑定动画的开始事件<br />在动画延迟(如果有的话)完成之后触发
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除"animationstart"事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4639">line 4639</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="cElem"><span class="type-signature"></span>cElem<span class="signature">(arg_obj)</span><span class="type-signature"> &rarr; {Element|Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    创建非文本节点
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arg_obj</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON对象，配置对象，tagName属性必须！<br />{<br />tagName: 单个标签名、数组[单个标签名]，必需<br /><br />data: 单个节点、单个节点List、单个文本字符串、单个数组(节点、节点List、文本字符串)，可选，默认''<br /><br />fun: 处理节点的函数，会把新建的节点作为参数传入，用于节点的各种操作，可选<br /><br />isText: 布尔值，true表示'文本字符串'类型的数据以纯文本方式(传什么就是什么)添加，false表示'文本字符串'类型的数据以HTML片段方式添加，<br />默认false，可选<br /><br />is: 字符串，使用customElements.define()定义的自定义元素的标签名称(有效的自定义元素名的格式必须是：小写字母开头，并且一定得有连字符，然后可以由小写字母、数字、下划线、连字符组成)，默认值是null(表示不传)，可选<br /><br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4666">line 4666</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Element(非文本节点)|[Element(非文本节点)]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="change"><span class="type-signature"></span>change<span class="signature">(elem, fun, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素的change事件，当元素失去焦点时并且值发生变化时触发
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除"change"事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4736">line 4736</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="cTextN"><span class="type-signature"></span>cTextN<span class="signature">(text)</span><span class="type-signature"> &rarr; {TextNode|Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    创建文本节点
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个文本内容、数组[文本内容]，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4707">line 4707</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    TextNode|[TextNode]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">TextNode</span>
+|
+
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="data"><span class="type-signature"></span>data<span class="signature">(elem, dataO)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    在节点上读写data的方法，模拟jQuery的data()<br />注意：<br />如果要把undefined、null设置成数据，请把这两个以字符串形式设置，就是：'undefined'、'null'<br />ctoElemDataStoragew未定义！返回undefined<br />属性名不在ctoElemDataStoragew中定义！返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dataO</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串的时候表示get(只能是单个data属性名)，JSON对象时表示set(key是属性名，value是属性值，任何数据类型的属性值都行)，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4759">line 4759</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [get时是各种数据|set时是执行操作的Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="empty"><span class="type-signature"></span>empty<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    清空节点内的所有<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4800">line 4800</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="fadeHide"><span class="type-signature"></span>fadeHide<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素淡出隐藏动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4827">line 4827</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="fadeShow"><span class="type-signature"></span>fadeShow<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素淡入显示动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4881">line 4881</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="fadeTo"><span class="type-signature"></span>fadeTo<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素淡入到指定的opacity值的动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  opacity: 0.5, number，0(包括0)到1(包括1)的透明度，默认0.5，可选<br /><br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line4965">line 4965</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="fadeToggle"><span class="type-signature"></span>fadeToggle<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素fadeToggle动画(fadeHide和fadeShow之间切换)(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5047">line 5047</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="focus"><span class="type-signature"></span>focus<span class="signature">(elem, fun, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素的focus事件，当元素获取到焦点时触发
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除"focus"事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5083">line 5083</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gAttr"><span class="type-signature"></span>gAttr<span class="signature">(elem, attrN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取单个属性值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个属性名,字符串，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5102">line 5102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [属性值]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gAttrAll"><span class="type-signature"></span>gAttrAll<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点所有的属性名和属性值，以JSON对象表示法返回，key是属性名，value是属性值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5121">line 5121</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [JSON Object({})]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gChildren"><span class="type-signature"></span>gChildren<span class="signature">(elem, selector)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    返回全部的直接子节点(HTMLCollection实时的节点集合)，没有文本节点<br />注：<br />1、“window”会被先转换为“document”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">elem 单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)，用于过滤结果节点，满足这个选择器的节点将被采用返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5149">line 5149</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [HTMLCollection(实时的节点集合)]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gChildrenAll"><span class="type-signature"></span>gChildrenAll<span class="signature">(elem, selector)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取所有子节点(实时节点集合HTMLCollection)，没有文本节点<br />注：<br />1、“window”会被先转换为“document”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)，用于过滤结果节点，满足这个选择器的节点将被采用返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5178">line 5178</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [HTMLCollection(实时的节点集合)]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gChildrenL"><span class="type-signature"></span>gChildrenL<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    返回全部的直接子节点的个数，没有文本节点
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">elem 单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5203">line 5203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [number]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gClassN"><span class="type-signature"></span>gClassN<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    返回节点的所有类名<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需<br />DOMTokenList.length 数组长度<br />DOMTokenList.value 一个类名集合的字符串，如：'a b c d'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5226">line 5226</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [DOMTokenList]，DOMTokenList.length(数组长度)，DOMTokenList.value(一个类名集合的字符串，如：'a b c d')
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gCSSPro"><span class="type-signature"></span>gCSSPro<span class="signature">(elem, attrN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点的CSS，如：“style.getPropertyValue( cssNameString )”<br />注：<br />1、如果未设置，则返回值中的value是空字符串。<br />2、返回值中的priority是一个DOMString代表优先级（例如  "important"）（如果存在）的。如果不存在，则返回空字符串。
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个CSS属性名(如：'border-width')，字符串，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5250">line 5250</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [ { value: '', priority: '' } ]，如：[ { value: '10px', priority: 'important' } ]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gFEChild"><span class="type-signature"></span>gFEChild<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点的直接第一个子节点，不包括文本节点
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">elem 单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5279">line 5279</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]，如果没有会返回[null]，也就是数组里头会有null的子元素存在
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gLEChild"><span class="type-signature"></span>gLEChild<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点的直接最后一个子节点，不包括文本节点
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">elem 单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5298">line 5298</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]，如果没有会返回[null]，也就是数组里头会有null的子元素存在
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gNextAll"><span class="type-signature"></span>gNextAll<span class="signature">(elem, selector)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    向下查找所有的同胞节点(不包括文本节点)，没有的话，返回null<br />注：<br />1、当elem是“document”、“window”、第一个结果就是null、所有结果节点都不满足“selector”的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)，用于过滤结果节点，满足这个选择器的节点将被采用返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5321">line 5321</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [[Element]]|[null]，一个二维数组，第一维的数据类型是数组，第二维的数据类型是Element
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gNextOne"><span class="type-signature"></span>gNextOne<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    查找下一个同胞节点(不包括文本节点)，没有的话，返回null<br />注：<br />1、当elem是“document”、“window”、结果是null的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5356">line 5356</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]|[null]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gPElem"><span class="type-signature"></span>gPElem<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取直接的父亲节点，只有一个<br />注：<br />1、当elem是“document”、“window”的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5377">line 5377</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]|[null]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gPElemAll"><span class="type-signature"></span>gPElemAll<span class="signature">(elem, selector)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取所有的父亲节点<br />注：<br />1、当elem是“document”、“window”、“HTML”、所有结果节点都不满足“selector”的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)，用于过滤结果节点，满足这个选择器的节点将被采用返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5400">line 5400</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [[Element]]|[null]，一个二维数组，第一维的数据类型是数组，第二维的数据类型是Element
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gPrevAll"><span class="type-signature"></span>gPrevAll<span class="signature">(elem, selector)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    向上查找所有的同胞节点(不包括文本节点)，没有的话，返回null<br />注：<br />1、当elem是“document”、“window”、第一个结果就是null、所有结果节点都不满足“selector”的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)，用于过滤结果节点，满足这个选择器的节点将被采用返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5437">line 5437</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [[Element]]|[null]，一个二维数组，第一维的数据类型是数组，第二维的数据类型是Element
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gPrevOne"><span class="type-signature"></span>gPrevOne<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    查找上一个同胞节点(不包括文本节点)，没有的话，返回null<br />注：<br />1、当elem是“document”、“window”、结果是null的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5472">line 5472</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]|[null]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gRootN"><span class="type-signature"></span>gRootN<span class="signature">(elem, composed)</span><span class="type-signature"> &rarr; {*|Node}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    返回上下文对象的根，该根对象可选地包括"shadow root"(如果有的话)。<br />PS:<br />1、在标准网页内的某个元素上调用它会返回一个HTMLDocument代表整个页面的对象。<br />2、在影子DOM内的元素上调用它会返回关联的ShadowRoot对象。<br />
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需，但只处理第一个节点。</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>composed</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Boolean，默认值是false，可选。<br />PS:<br />1、true：卷影根以外的根节点(HTMLDocument代表整个页面的对象)。<br />1、false：返回卷影根(关联的ShadowRoot对象)。<br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5499">line 5499</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    返回上下文对象的根，该根对象可选地包括"shadow root"(如果有的话)。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+|
+
+<span class="param-type">Node</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gSibElem"><span class="type-signature"></span>gSibElem<span class="signature">(elem, selector)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点的所有同胞节点(不包括文本节点)<br />注：<br />1、当elem是“document”、“window”、“HTML”、所有结果节点都不满足“selector”的会直接返回null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)，用于过滤结果节点，满足这个选择器的节点将被采用返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5517">line 5517</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [[Element]]|[null]，一个二维数组，第一维的数据类型是数组，第二维的数据类型是Element
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="gStyle"><span class="type-signature"></span>gStyle<span class="signature">(elem, styleN, pseudoElt)</span><span class="type-signature"> &rarr; {String|Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    根据元素样式名获取元素样式值<br /><br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，但只处理第一个节点，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>styleN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">一个样式名(字符串)或者数组(里头是样式名(字符串))，驼峰命名法，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pseudoElt</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">字符串，获取伪元素的样式，默认null，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5545">line 5545</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    string|[string]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="hasAttr"><span class="type-signature"></span>hasAttr<span class="signature">(elem, attrN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断是否有指定的属性
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个字符串属性名，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5576">line 5576</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [布尔值]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="hasClass"><span class="type-signature"></span>hasClass<span class="signature">(elem, classN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    节点是否存在指点的类名<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>classN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个字符串单个类名，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5599">line 5599</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [boolean]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="hasData"><span class="type-signature"></span>hasData<span class="signature">(elem, dataName)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断节点上是否有指定的data键名，模拟jQuery的hasData()<br />注意：<br />ctoElemDataStoragew未定义！返回undefined
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dataName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个字符串data键名，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5622">line 5622</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [boolean]，存在true，不存在false
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="height"><span class="type-signature"></span>height<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点的渲染高度<br />PS:<br />如果值不能有效的转换成数字，那么会返回原本的字符串值。
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5650">line 5650</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Float|String]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="hide"><span class="type-signature"></span>hide<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素隐藏动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 0, number，多久完成，单位ms，默认0，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5690">line 5690</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="html"><span class="type-signature"></span>html<span class="signature">(elem, htmlS)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    原生JS代替jQuery的html()方法<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>htmlS</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有它的时候是设置(HTML片段、字符串)，没有的时候是返回(HTML片段、字符串)，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5751">line 5751</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element|HTML片段]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="iInsertA"><span class="type-signature"></span>iInsertA<span class="signature">(elem, data, isText)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    在节点内部，把参数添加成最后一个直接子元素
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点、单个节点List、单个数组(节点、节点List、文本字符串)、单个文本字符串，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isText</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">布尔值，true表示'文本字符串'类型的数据以纯文本方式(传什么就是什么)添加，false表示'文本字符串'类型的数据以HTML片段方式添加，<br />默认false，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5785">line 5785</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="iInsertB"><span class="type-signature"></span>iInsertB<span class="signature">(elem, data, isText)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    在节点内部，把参数添加成第一个直接子元素
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点、单个节点List、单个数组(节点、节点List、文本字符串)、单个文本字符串，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isText</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">布尔值，true表示'文本字符串'类型的数据以纯文本方式(传什么就是什么)添加，false表示'文本字符串'类型的数据以HTML片段方式添加，<br />默认false，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5804">line 5804</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="insertRule"><span class="type-signature"></span>insertRule<span class="signature">(cssRuleO, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    往一个样式表里或页面的一个style标签里添加一个样式规则(如：#xxx{color:white;})，也可以是@keyframes规则<br />注：<br />1、默认往第一个CSSStyleSheet(document.styleSheets[0])里添加样式规则，如果没有的话(document.styleSheets.length=0)，<br />会往页面的head标签内部的最后面新增一个style标签，然后把样式规则添加到这个新增的style标签里<br />2、火狐浏览器有点特殊“BUG”！<br />InvalidAccessError: A parameter or an operation is not supported by the underlying object<br />InvalidAccessError：基础对象不支持参数或操作<br />let index = document.styleSheets.length - 1;<br />document.styleSheets.item( index ).cssRules;会报错！<br />但document.styleSheets.item( 0 ).cssRules就不会报错！
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cssRuleO</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON对象，键名是样式规则名(字符串)，如：'#blanc'，键值是样式规则(字符串)，如：'#blanc { color: white '，必须</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON对象，配置参数，可选<br />{<br /> cssStyleSheet：数据类型是CSSStyleSheet，一个CSSStyleSheet或页面的一个style标签，默认是null<br /><br /> index：数据类型是number，插入的位置，默认是null，添加在最后，范围：0(包括)到CSSStyleSheet.cssRules.length(包括)<br /><br /> isR：数据类型是布尔值，是否替换已有的同名的样式规则，默认是false不替换<br /><br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5832">line 5832</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isContains"><span class="type-signature"></span>isContains<span class="signature">(elem, childE)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断是否包含指定的节点(文本不能算节点)<br />注：<br />1、“window”会被先转换为“document”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>childE</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象(文本不能算节点)、单个节点List、单个jQuery节点对象，只取第一个，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5895">line 5895</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [boolean]，包含true，否则false
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isNoChild"><span class="type-signature"></span>isNoChild<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断节点是否存在子元素(文本、空格也算子元素)<br />注：<br />1、“window”会被先转换为“document”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5917">line 5917</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [boolean]，没有子元素(文本、空格也算子元素)返回true，有子节点返回false
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isNoEChild"><span class="type-signature"></span>isNoEChild<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断节点是否存在子节点(文本、空格不算子节点)<br />注：<br />1、“window”会被先转换为“document”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5938">line 5938</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [boolean]，没有子节点(文本、空格不算子节点)返回true，有子节点返回false
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isScrollBottom"><span class="type-signature"></span>isScrollBottom<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    判断是否滚动到了底部
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需，但只会取第一个元素</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5957">line 5957</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    boolean，是返回true，否则false
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="off"><span class="type-signature"></span>off<span class="signature">(elem, eType, f, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    解除事件
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eType</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件名的字符串，多个可以用一个空格隔开，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">函数，会传入event，必须跟绑定事件时所要执行的函数一模一样，即同一个函数变量，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">布尔值，true表示捕获，false表示不捕获，可选<br />如果同一个监听事件分别为“事件捕获”和“事件冒泡”注册了一次，一共两次，这两次事件需要分别移除。两者不会互相干扰。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6964">line 6964</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="oHTML"><span class="type-signature"></span>oHTML<span class="signature">(elem, htmlS)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    把这个节点以HTML字符串输出，有第二个参数的时候，表示用参数替换这个节点<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>htmlS</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有它的时候是设置(HTML片段、字符串)，没有的时候是返回(HTML片段、字符串)，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line5975">line 5975</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element|HTML片段]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="oInsertA"><span class="type-signature"></span>oInsertA<span class="signature">(elem, data, isText)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    在节点外部，把参数添加到这个节点之后(直接、紧邻)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点、单个节点List、单个数组(节点、节点List、文本字符串)、单个文本字符串，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isText</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">布尔值，true表示'文本字符串'类型的数据以纯文本方式(传什么就是什么)添加，false表示'文本字符串'类型的数据以HTML片段方式添加，<br />默认false，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6009">line 6009</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="oInsertB"><span class="type-signature"></span>oInsertB<span class="signature">(elem, data, isText)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    在节点外部，把参数添加到这个节点之前(直接、紧邻)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点、单个节点List、单个数组(节点、节点List、文本字符串)、单个文本字符串，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isText</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">布尔值，true表示'文本字符串'类型的数据以纯文本方式(传什么就是什么)添加，false表示'文本字符串'类型的数据以HTML片段方式添加，<br />默认false，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6028">line 6028</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="on"><span class="type-signature"></span>on<span class="signature">(elem, eType, f, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    绑定事件
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eType</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件名的字符串，多个可以用一个空格隔开，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件所要执行的函数，会传入event，它也是解除绑定事件的函数，而且它的配置选项默认是false，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">有两种数据类型，options参数的默认值是false，可选<br />第一种是布尔值，true表示捕获，false表示不捕获<br />第二种是JSON对象，里头有capture、once、passive、mozSystemGroup等这几个属性，<br />capture布尔值，是否捕获，默认为false，不捕获<br />once布尔值，表示事件执行函数在添加之后最多只调用一次。如果是 true，事件执行函数会在其被调用之后自动移除。默认false<br />passive布尔值，表示事件执行函数永远不会调用preventDefault()。如果事件执行函数仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。<br />mozSystemGroup只能在 XBL 或者是 Firefox' chrome 使用，这是个 Boolean，表示 listener 被添加到 system group。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6938">line 6938</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="rAttr"><span class="type-signature"></span>rAttr<span class="signature">(elem, attrN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    移除属性
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个字符串属性名、数组[单个字符串属性名]，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6044">line 6044</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="rCE"><span class="type-signature"></span>rCE<span class="signature">(elem, f, options)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    解除click点击事件，当支持触屏事件时，会自动切换到tap事件，否则继续是click事件
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">函数，会传入event，必须跟绑定click点击事件时所要执行的函数一模一样，即同一个函数变量，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">布尔值，true表示捕获，false表示不捕获，可选<br />如果同一个监听事件分别为“事件捕获”和“事件冒泡”注册了一次，一共两次，这两次事件需要分别移除。两者不会互相干扰。</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6081">line 6081</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="rClassN"><span class="type-signature"></span>rClassN<span class="signature">(elem, classN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    给节点删除类名<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>classN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个类名('t1')或类名组('t1,t2,t3')，都是字符串类型的数据，不能是''、' ',必需<br />DOMTokenList.length 数组长度<br />DOMTokenList.value 一个类名集合的字符串，如：'a b c d'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6106">line 6106</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [DOMTokenList]，DOMTokenList.length(数组长度)，DOMTokenList.value(一个类名集合的字符串，如：'a b c d')
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="rCSSPro"><span class="type-signature"></span>rCSSPro<span class="signature">(elem, attrN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    移除节点的CSS，如：“style.removeProperty( cssNameString )”<br />注：<br />1、请注意，多字属性名称是带连字符的，而不是驼峰式的。<br />2、返回值是DOMString等于CSS属性的值被移除之前。但是自己封装的这个方法不做该值的返回
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个字符串CSS样式名(如：'border-width')、数组[单个字符串CSS样式名]，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6125">line 6125</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="ready"><span class="type-signature"></span>ready<span class="signature">(fn)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    ready方法，当文档加载完就会执行，不需要等待图片等网络资源加载完<br />注意：文档加载完时，意味着<img>等标签也加载完了！但并不意味着<img>等代表的网络资源也加载完了！
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">所要执行的函数，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6178">line 6178</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="rElem"><span class="type-signature"></span>rElem<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    移除节点<br />注：<br />1、当elem是“document”、“window”的会被转换为document.documentElement处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6159">line 6159</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="removeData"><span class="type-signature"></span>removeData<span class="signature">(elem, dataName)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    移除节点上指定的data键名，模拟jQuery的removeData()<br />注意：<br />ctoElemDataStoragew未定义！返回undefined
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dataName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个字符串data键名，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6205">line 6205</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="replaceWith"><span class="type-signature"></span>replaceWith<span class="signature">(elem, data)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    节点替换操作<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data就是用A替换B中的A，单个节点、单个文本，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6236">line 6236</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element(被替换掉的节点)]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sAttr"><span class="type-signature"></span>sAttr<span class="signature">(elem, attrO)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    根据属性名设置属性值
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrO</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON对象，key是属性名，value是属性值，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6259">line 6259</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="scrollE"><span class="type-signature"></span>scrollE<span class="signature">(elem, f, num, h)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    监听滚动事件
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需，但只会取第一个元素</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">处理函数 事件所要执行的函数，会传入两个参数，event和Element(具体的执行的元素对象)，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>num</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">数字 当scrollTop的值大于等于这个值的时候，执行f，否则执行h，可选</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>h</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">处理函数2 事件所要执行的函数，会传入两个参数，event和Element(具体的执行的元素对象)，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6362">line 6362</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    function 它是解除"scroll"事件的函数，而且它的配置选项默认是false
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="scrollTop"><span class="type-signature"></span>scrollTop<span class="signature">(elem, fun)</span><span class="type-signature"> &rarr; {Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    滚到顶部(强烈建议将全局滚动伪装为局部滚动，就是不把滚动条挂在body或html上)<br />注：Edge、2345、搜狗、百度、猎豹、UC、微信内置等不支持HTML元素滚到顶部，也不支持body元素滚到顶部(不支持全局滚动)！<br />但jQuery可以通过$('html,body').animate({scrollTop:'100'},1000)来操作滚动;
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需，但只会取第一个元素</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fun</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">回调函数，当滚到顶部后要执行的函数，有一个Element参数，可选！</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6395">line 6395</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Element
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sCSSPro"><span class="type-signature"></span>sCSSPro<span class="signature">(elem, attrO)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    设置节点的CSS，如：“style.setProperty( cssNameString, cssValueString, priority )”<br />注：<br />1、cssNameString是一个DOMString代表要修改的CSS属性名称（连字符）。<br />2、cssValueString可选的是DOMString包含新属性值的。如果未指定，则视为空字符串。不得包含"!important"，如果要包含"!important"应该使用priority参数设置。<br />3、priority可选的是DOMString允许设置"important"CSS优先级。如果未指定，则视为空字符串。接受以下值：<br />字符串值: "important"<br />关键词: undefined<br />字符串空值: ""
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attrO</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON对象，key是样式名(如：'border-width')，value是样式值配置对象，必需<br />格式如：<br />{<br />'border-width': {<br />value: '10px'<br />priority: 'important'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6298">line 6298</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="serialize"><span class="type-signature"></span>serialize<span class="signature">(elem)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    代替jQuery的serialize方法<br />如下标签要是没有name属性，就不会被处理！<br /><br />注：<br />只处理如下标签<br />select标签<br />textarea标签<br />input标签的如下type类型<br />checkbox<br />color<br />date<br />datetime-local<br />email<br />hidden<br />month<br />number<br />password<br />radio<br />range<br />search<br />tel<br />text<br />time<br />url<br />week<br />datetime(已经被标准删除了，过时，不建议用！)<br />input标签的type类型以下5种不被处理！<br />file<br />submit<br />button<br />image<br />reset<br /><br />不支持的input标签的type类型：<br />iOS 12.2 移动端不支持<br />week<br /><br />火狐PC不支持<br />datetime-local<br />month<br />week
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，但只处理第一个节点，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6456">line 6456</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    节点的name属性的属性值(被encodeURIComponent处理过了)
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="serializeArray"><span class="type-signature"></span>serializeArray<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    代替jQuery的serializeArray方法<br />如下标签要是没有name属性，就不会被处理！<br /><br />注：<br />只处理如下标签<br />select标签<br />textarea标签<br />input标签的如下type类型<br />checkbox<br />color<br />date<br />datetime-local<br />email<br />hidden<br />month<br />number<br />password<br />radio<br />range<br />search<br />tel<br />text<br />time<br />url<br />week<br />datetime(已经被标准删除了，过时，不建议用！)<br />input标签的type类型以下5种不被处理！<br />file<br />submit<br />button<br />image<br />reset<br /><br />不支持的input标签的type类型：<br />iOS 12.2 移动端不支持<br />week<br /><br />火狐PC不支持<br />datetime-local<br />month<br />week
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，但只处理第一个节点，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6510">line 6510</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [ { name: '节点的name属性的属性值', value: '节点的value属性的属性值' } ]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="show"><span class="type-signature"></span>show<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素显示动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 0, number，多久完成，单位ms，默认0，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6574">line 6574</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="slideHide"><span class="type-signature"></span>slideHide<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素向上滑动隐藏动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6629">line 6629</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="slideShow"><span class="type-signature"></span>slideShow<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素向下滑动显示动画(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6689">line 6689</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="slideToggle"><span class="type-signature"></span>slideToggle<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素slideToggle动画(slideHide和slideShow之间切换)(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 300, number，多久完成，单位ms，默认300，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6750">line 6750</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sStyle"><span class="type-signature"></span>sStyle<span class="signature">(elem, StyleO)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    设置样式 样式名用驼峰命名法(如：fontSize)<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>StyleO</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON对象，key是样式名，用驼峰命名法(fontSize)，value是样式值，如：{ fontSize: '16px' ，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6331">line 6331</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="tClassN"><span class="type-signature"></span>tClassN<span class="signature">(elem, classN)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    给节点增加或删除类名，存在这个类名，就会删除这个类名；不存在，就会添加这个类名<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>classN</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个类名('t1')或类名组('t1,t2,t3')，都是字符串类型的数据，不能是''、' ',必需<br />DOMTokenList.length 数组长度<br />DOMTokenList.value 一个类名集合的字符串，如：'a b c d'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6782">line 6782</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [DOMTokenList]，DOMTokenList.length(数组长度)，DOMTokenList.value(一个类名集合的字符串，如：'a b c d')
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="text"><span class="type-signature"></span>text<span class="signature">(elem, textC)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    原生JS代替jQuery的text()方法，返回值都是去除标签了的纯本文<br />注：<br />1、“document”、“window”会被先转换为“document.documentElement”处理
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>textC</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">文本字符串，有它的时候，是设置(以纯文本设置)，没有的时候是返回，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6800">line 6800</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element|文本字符串]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="toggle"><span class="type-signature"></span>toggle<span class="signature">(elem, para)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    元素toggle动画(hide和show之间切换)(专一性！)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>para</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">配置对象，，可选<br />{<br />  time: 0, number，多久完成，单位ms，默认0，可选<br /><br />  easing: 'linear', 动画缓动，默认为'linear'线性匀速，也可以是'swing'(摇摆)，支持函数，会传入一个number类型的参数progress，但需要返回一个number数值，可选<br /><br />  fun: element => {}, 动画结束后执行的函数，会有一个elemO节点对象的参数，可选</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6835">line 6835</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="triggerE"><span class="type-signature"></span>triggerE<span class="signature">(elem, eventName)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    原生JS代替jQuery的trigger()方法
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">事件名，单个字符串、数组[字符串]，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6863">line 6863</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Element]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="width"><span class="type-signature"></span>width<span class="signature">(elem)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    获取节点的渲染宽度<br />PS:<br />如果值不能有效的转换成数字，那么会返回原本的字符串值。
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">单个节点选择器(字符串)、单个节点选择器组(字符串)、单个节点对象、单个节点List、单个jQuery节点对象，<br />支持一个数组(以上提到的任何数据类型)，以便批量处理，必需</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line6892">line 6892</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    [Float|String]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Canvas2Others.html">Canvas2Others</a></li><li><a href="CopyAPI.html">CopyAPI</a></li><li><a href="CryptoAPI.html">CryptoAPI</a></li><li><a href="CT.html">CT</a></li><li><a href="DataFormat.html">DataFormat</a></li><li><a href="ElemClass.html">ElemClass</a></li><li><a href="ElemQuery.html">ElemQuery</a></li><li><a href="ES6Handle.html">ES6Handle</a></li><li><a href="FunHandle.html">FunHandle</a></li><li><a href="InputHandle.html">InputHandle</a></li><li><a href="IsDataType.html">IsDataType</a></li><li><a href="JS2Ajax.html">JS2Ajax</a></li><li><a href="JS2jQuery.html">JS2jQuery</a></li><li><a href="ObjHandle.html">ObjHandle</a></li><li><a href="OthersHandle.html">OthersHandle</a></li><li><a href="PermissionsAPI.html">PermissionsAPI</a></li><li><a href="RegExpHandle.html">RegExpHandle</a></li><li><a href="SSE4Client.html">SSE4Client</a></li><li><a href="StringHandle.html">StringHandle</a></li><li><a href="TouchEvent.html">TouchEvent</a></li><li><a href="Upload4GraphQL.html">Upload4GraphQL</a></li><li><a href="UrlHandle.html">UrlHandle</a></li><li><a href="WASMTool.html">WASMTool</a></li><li><a href="WebService4Proxy.html">WebService4Proxy</a></li><li><a href="WebSocket4Client.html">WebSocket4Client</a></li></ul><h3>Global</h3><ul><li><a href="global.html#aD">aD</a></li><li><a href="global.html#cD">cD</a></li><li><a href="global.html#dD">dD</a></li><li><a href="global.html#GetError">GetError</a></li><li><a href="global.html#IsHandle1">IsHandle1</a></li><li><a href="global.html#IsHandle10">IsHandle10</a></li><li><a href="global.html#IsHandle13">IsHandle13</a></li><li><a href="global.html#isKN">isKN</a></li><li><a href="global.html#Prompt">Prompt</a></li><li><a href="global.html#qD">qD</a></li><li><a href="global.html#RAnimationFFun">RAnimationFFun</a></li><li><a href="global.html#storageCE">storageCE</a></li><li><a href="global.html#uD">uD</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Sep 30 2020 14:46:05 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

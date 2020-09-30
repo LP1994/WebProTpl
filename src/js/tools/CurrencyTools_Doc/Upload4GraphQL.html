@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Upload4GraphQL</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Upload4GraphQL</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>Upload4GraphQL<span class="signature">(ctIns)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">用于GraphQL的各种资源上传请求的工具类</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="Upload4GraphQL"><span class="type-signature"></span>new Upload4GraphQL<span class="signature">(ctIns)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    本类的构造函数
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ctIns</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">一个CT类的实例(new CT())，必须的</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line8712">line 8712</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="batching"><span class="type-signature"></span>batching<span class="signature">(opeArr)</span><span class="type-signature"> &rarr; {FormData}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    文件上传的“批操作”，不同于“多文件上传”，具体请看下面的规范说明地址<br />PS:<br />1、GraphQL上传请求(批操作)的规范<br />https://github.com/jaydenseric/graphql-multipart-request-spec#batching
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opeArr</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">数组，必须，里头的成员都是一个个对象，对象里头的具体字段如下：<br />{<br />operationName,<br />query,<br />variables,<br />file4KeyName,<br />// 默认值是true，必须，布尔值，用于说明该操作是单文件操作还是多文件操作，默认是单文件操作。<br />isSingleFile,<br /><br />PS：<br />1、“isSingleFile”为true时，表示该操作是单文件操作，那么其他字段的说明请查阅“singleFile”函数的说明。<br />2、“isSingleFile”为false时，表示该操作是多文件操作，那么其他字段的说明请查阅“multipleFiles”函数的说明。<br /></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line8904">line 8904</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    FormData，该FormData已经封装好了请求所需要的所有数据，可以直接使用在具体请求中了。<br />主要有两个规范必须要传的字段：operations、map，以及要上传的各个文件。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">FormData</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="multipleFiles"><span class="type-signature"></span>multipleFiles<span class="signature">(operationName, query, variables, file4KeyName)</span><span class="type-signature"> &rarr; {FormData}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    多文件上传<br />PS:<br />1、GraphQL上传请求(多文件)的规范<br />https://github.com/jaydenseric/graphql-multipart-request-spec#file-list
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>operationName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串，默认值null(表示不传)，可选，这个字段的使用遵循GraphQL中的“operationName”的使用方法</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串，字符串形式的GraphQL语句，必传</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>variables</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">对象，里头的数据格式是key-value形式的，其中涉及用于存放文件的那个key所对应的值必须是FormData的数据类型，<br />该FormData里头只允许接受三种数据类型的值：File、Blob、ArrayBuffer，必传。<br />如：<br />variables: {<br />filesA: formData,<br /><br />PS：该工具在处理“formData”过程中的规范说明！请使用者注意看说明再使用！<br />1、在“formData”中的各个“key”都必须是唯一的！<br />3、在“formData”中，如果同一个“key”存放了多个文件，那也只取其第一个文件。<br /></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file4KeyName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串，用于说明在上面“variables”字段中用于存放文件的那个key的名字，必传</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line8867">line 8867</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    FormData，该FormData已经封装好了请求所需要的所有数据，可以直接使用在具体请求中了。<br />主要有两个规范必须要传的字段：operations、map，以及要上传的各个文件。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">FormData</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="singleFile"><span class="type-signature"></span>singleFile<span class="signature">(operationName, query, variables, file4KeyName)</span><span class="type-signature"> &rarr; {FormData}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    单文件上传<br />PS:<br />1、GraphQL上传请求(单文件)的规范<br />https://github.com/jaydenseric/graphql-multipart-request-spec#single-file
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>operationName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串，默认值null(表示不传)，可选，这个字段的使用遵循GraphQL中的“operationName”的使用方法</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串，字符串形式的GraphQL语句，必传</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>variables</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">对象，里头的数据格式是key-value形式的，其中涉及用于存放文件的那个key所对应的值必须是FormData的数据类型，<br />该FormData里头只允许接受三种数据类型的值：File、Blob、ArrayBuffer，必传。<br />如：<br />variables: {<br />filesA: formData,<br /><br />PS：该工具在处理“formData”过程中的规范说明！请使用者注意看说明再使用！<br />1、在“单文件上传”的操作中，只取“formData”中第一个文件，其他都不取。<br />2、在“formData”中的各个“key”都必须是唯一的！<br />3、在“formData”中，如果同一个“key”存放了多个文件，那也只取其第一个文件。<br /></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file4KeyName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">字符串，用于说明在上面“variables”字段中用于存放文件的那个key的名字，必传</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="CurrencyTools.esm.js.html">CurrencyTools.esm.js</a>, <a href="CurrencyTools.esm.js.html#line8827">line 8827</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    FormData，该FormData已经封装好了请求所需要的所有数据，可以直接使用在具体请求中了。<br />主要有两个规范必须要传的字段：operations、map，以及要上传的文件。
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">FormData</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Canvas2Others.html">Canvas2Others</a></li><li><a href="CopyAPI.html">CopyAPI</a></li><li><a href="CryptoAPI.html">CryptoAPI</a></li><li><a href="CT.html">CT</a></li><li><a href="DataFormat.html">DataFormat</a></li><li><a href="ElemClass.html">ElemClass</a></li><li><a href="ElemQuery.html">ElemQuery</a></li><li><a href="ES6Handle.html">ES6Handle</a></li><li><a href="FunHandle.html">FunHandle</a></li><li><a href="InputHandle.html">InputHandle</a></li><li><a href="IsDataType.html">IsDataType</a></li><li><a href="JS2Ajax.html">JS2Ajax</a></li><li><a href="JS2jQuery.html">JS2jQuery</a></li><li><a href="ObjHandle.html">ObjHandle</a></li><li><a href="OthersHandle.html">OthersHandle</a></li><li><a href="PermissionsAPI.html">PermissionsAPI</a></li><li><a href="RegExpHandle.html">RegExpHandle</a></li><li><a href="SSE4Client.html">SSE4Client</a></li><li><a href="StringHandle.html">StringHandle</a></li><li><a href="TouchEvent.html">TouchEvent</a></li><li><a href="Upload4GraphQL.html">Upload4GraphQL</a></li><li><a href="UrlHandle.html">UrlHandle</a></li><li><a href="WASMTool.html">WASMTool</a></li><li><a href="WebService4Proxy.html">WebService4Proxy</a></li><li><a href="WebSocket4Client.html">WebSocket4Client</a></li></ul><h3>Global</h3><ul><li><a href="global.html#aD">aD</a></li><li><a href="global.html#cD">cD</a></li><li><a href="global.html#dD">dD</a></li><li><a href="global.html#GetError">GetError</a></li><li><a href="global.html#IsHandle1">IsHandle1</a></li><li><a href="global.html#IsHandle10">IsHandle10</a></li><li><a href="global.html#IsHandle13">IsHandle13</a></li><li><a href="global.html#isKN">isKN</a></li><li><a href="global.html#Prompt">Prompt</a></li><li><a href="global.html#qD">qD</a></li><li><a href="global.html#RAnimationFFun">RAnimationFFun</a></li><li><a href="global.html#storageCE">storageCE</a></li><li><a href="global.html#uD">uD</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Sep 30 2020 14:46:06 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

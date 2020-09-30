@@ -1,0 +1,30 @@
+stores文件夹下都是“微前端架构”中“子系统”的vue的状态管理文件(.js)！
+MutationsEventName.esm.js用于存放整个应用的mutation事件类型的常量字符串
+推荐目录结构：
+├── Store.esm.js                 # 我们组装模块并导出 store 的地方
+├── MutationsEventName.esm.js    # 用于存放整个应用的mutation事件类型的常量字符串
+├── GettersRoot.esm.js           # 根级别的 getter
+├── MutationsRoot.esm.js         # 根级别的 mutation
+├── ActionsRoot.esm.js           # 根级别的 action
+└── modules                      # 存放各个子模块store的文件夹
+    ├── cart.js                  # 购物车模块
+    └── products.js              # 产品模块
+
+注：
+1、
+state：数据源、状态；
+getters：可以认为是 store 的计算属性(就像计算属性一样，getters 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。)；
+mutations：直接操作state的地方(Mutation 必须是同步函数，mutation 都是同步事务)；
+actions：响应在view上的用户输入导致state变化的操作(显式地提交 (commit) mutation)，不直接操作state，且actions可以处理异步操作，在另外一个 action 中也可以分发其他的action；
+PS：
+一个 store.dispatch 在不同模块中可以触发多个 action 函数。在这种情况下，只有当所有触发函数完成后，返回的 Promise 才会执行。
+modules: 模块，建议每个模块都用上(namespaced: true)，可以拥有以上4种；
+PS：
+对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象。
+同样，对于模块内部的 action，局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState。
+对于模块内部的 getter，根节点状态会作为第三个参数暴露出来：
+getters: {
+    sumWithRootCount (state, getters, rootState) {
+      return state.count + rootState.count
+    }
+  }

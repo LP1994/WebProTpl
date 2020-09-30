@@ -1,0 +1,25 @@
+pwa4Manifest文件夹下都是.json格式的用于PWA的Manifest配置文件！
+命名的末尾格式是“.manifest.json”
+
+
+"serviceworker": {
+"src": "../js/ServiceWorker.js",
+"scope": "/",
+"type": "",
+"update_via_cache": "yes"
+},
+
+"iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+
+"related_applications": [
+{
+"platform": "play",
+"url": "https://play.google.com/store/apps/details?id=com.android.chrome",
+"id": "com.android.chrome"
+},
+{
+"platform": "itunes",
+"url": "https://itunes.apple.com/cn/app/chrome-%E7%94%B1google%E5%BC%80%E5%8F%91%E7%9A%84%E7%BD%91%E7%BB%9C%E6%B5%8F%E8%A7%88%E5%99%A8/id535886823",
+"id": "id535886823"
+}
+],

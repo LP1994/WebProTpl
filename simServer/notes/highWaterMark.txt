@@ -1,0 +1,6 @@
+fs.createReadStream( htmlPath_str, {
+// highWaterMark: _this.#bufferSize_num,
+} );
+
+highWaterMark设置为：buffer.constants.MAX_LENGTH - 7
+会导致内存、CPU狂增！！！10G左右！！！

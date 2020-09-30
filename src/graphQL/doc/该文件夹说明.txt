@@ -1,0 +1,15 @@
+doc文件夹下是类型文档，一般是后端给的.graphql。现在很少用了！
+
+PS：
+1、
+src/**/avlfd/*.graphql
+
+src/**/{snort,yara}/*.graphql
+
+src/app/graphql/{yara,snort}/*.graphql
+
+src/app/graphql/avlfd/*.graphql
+
+*.graphql
+
+temp/**

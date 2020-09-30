@@ -1,0 +1,49 @@
+配置都在如下中：
+webpack.BaseConfig.js里头的moduleRules_fun函数的返回值里！！！
+具体可以去详细看看！！！
+这里就不做细说了！！！
+
+关于样式的loader处理：
+1、
+.css、.scss、.styl、.stylus、.pcss、.postcss在.js中导入使用，或者是.vue中的<style lang = 'css' scoped></style>、<style lang = 'scss' scoped></style>、<style lang = 'stylus' scoped></style>、<style lang = 'postcss' scoped></style>的使用方式！
+但是无法在.ejs中以link标签引入！也无法require导入！
+最后会被提取到一个.css文件中，最后把这个.css文件以link标签引入到页面中！
+
+2、
+.less只能在.ejs中以link标签引入！
+在.js中导入，会导出编译后的.less文件的路径(如：'../styles/Demo1_LESS.css')！
+
+3、
+.sass在.js中导入使用，或者是.vue中的<style lang = 'sass' scoped></style>的使用方式！
+但是无法在.ejs中以link标签引入！也无法require导入！
+最后会被提取到一个<style>标签中，并且把这个<style>标签加到页面中！
+
+4、
+./src/pwa4Manifest下的.json文件会被“file-loader”处理，其他文件夹中的.json会被webpack默认加载器自动处理为JS模块。
+PS：
+加载这里的json文件，返回的是编译后的文件路径。
+
+5、
+src/workers下的.js文件会被“file-loader”处理，除了tools文件夹里的，它里面的会被直接拷贝到编译后的dist/test/workers下的tools文件夹里
+加载这里的js文件，返回的是编译后的文件路径。
+PS：
+使用：
+在主线程的JS代码里通过“import WebWorkerTestA from 'wWorkersDir/WebWorkerTestA.js'”来获取编译后的Worker线程中JS的文件路径，然后就能
+在主线程的JS代码里new Worker( WebWorkerTestA )了。
+而在Worker线程中，如果需要加载其他的Worker线程中的JS，只需要在Worker线程中的JS里写：
+self.importScripts( './tools/WWorker4CT.js' )就能使用了。
+还有，bats/watch4Compiler里的bat命令可以时时编译“src/workers”下的.js文件，以便编译ES6代码到目标JS版本，如编译到ES5。
+不过得为里头的每个.js文件写对应的bat命令。
+转码编译后的.js文件的命名会以.compiler.js结尾，所以使用的地方也要改哦！！！
+
+6、
+src/wasm下的.wasm文件会被“file-loader”处理
+PS：
+加载这里的wasm文件，返回的是编译后的文件路径。
+
+PS：
+Beware, if you already define loader(s) for extension(s) in webpack.config.js you should use:
+import css from '!!raw-loader!./file.txt';
+// Adding `!!` to a request will disable all loaders specified in the configuration
+请注意，如果您已经在webpack.config.js中为扩展定义了加载器，则应使用：
+在请求中添加`!!`将禁用配置中指定的所有加载程序

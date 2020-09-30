@@ -1,0 +1,60 @@
+用于从图像文件中读取EXIF元数据的 JavaScript库。
+
+PS：
+只能用于浏览器端！！！服务器端(NodeJS)得用“fast-exif”
+
+您可以在浏览器中的图像上使用它，可以是图像或文件输入元素。检索EXIF和IPTC元数据。该软件包也可用于AMD或CommonJS环境。
+
+注意：EXIF标准仅适用于.jpg和.tiff图像。此软件包中的EXIF逻辑基于EXIF标准v2.2（JEITA CP-3451，包含在此repo中）。
+
+
+
+用法
+该包添加了一个全局EXIF变量（或AMD或CommonJS等价物）。
+
+从调用EXIF.getData函数开始。您将图像作为参数传递给它：
+
+来自a的图像 <img src="image.jpg">
+或者用户在<file type="input">页面上的元素中选择的图像。
+作为第二个参数，您可以指定回调函数。在回调函数中，您应该使用this上述元数据访问图像，然后可以根据需要使用它。该图像现在有一个额外的exifdata属性，它是一个带有EXIF元数据的Javascript对象。您可以访问它的属性以获取图像标题，拍摄照片的日期或方向等数据。
+
+你可以得到所有的tages EXIF.getTag。或者获取单个标记EXIF.getTag，您可以将标记指定为第二个参数。要使用的标记名称列EXIF.Tags在exif.js。
+
+
+
+重要说明：请注意，在调用getData或任何其他功能之前，您必须等待图像完全加载。否则它会默默地失败。您可以通过在window.onLoad函数上运行exif-extraction逻辑来实现此等待。或者在图像自身的onLoad功能上。对于jQuery用户，请注意您不能（可靠地）使用jQuery的ready事件。因为它在加载图像之前触发。您可以使用$（window）.load（）而不是$（document.ready（）（请注意`exif-js对jQuery或任何其他外部库没有依赖性）。
+
+
+
+JavaScript:
+window.onload=getExif;
+
+function getExif() {
+    var img1 = document.getElementById("img1");
+    EXIF.getData(img1, function() {
+        var make = EXIF.getTag(this, "Make");
+        var model = EXIF.getTag(this, "Model");
+        var makeAndModel = document.getElementById("makeAndModel");
+        makeAndModel.innerHTML = `${make} ${model}`;
+    });
+
+    var img2 = document.getElementById("img2");
+    EXIF.getData(img2, function() {
+        var allMetaData = EXIF.getAllTags(this);
+        var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+        allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+    });
+}
+
+HTML:
+<img src="image1.jpg" id="img1" />
+<pre>Make and model: <span id="makeAndModel"></span></div>
+<br/>
+<img src="image2.jpg" id="img2" />
+<pre id="allMetaDataSpan"></pre>
+<br/>
+
+注意还有备用标签，例如EXIF.TiffTags。有关完整定义和使用，请参阅源代码。您还可以使用相应打印的图像中的所有EXIF信息返回一个字符串EXIF.pretty。检查包含的index.html。
+
+有关更高级的用法，请参阅源代码，例如从File / Blob对象获取图像数据（EXIF.readFromBinaryFile）。
+

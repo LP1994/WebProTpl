@@ -1,0 +1,187 @@
+https://developers.google.com/web/fundamentals/app-install-banners/
+
+Chrome将在您的应用符合以下条件时自动显示横幅：
+1、拥有一个网络应用清单文件，该文件具有：
+2、一个 short_name（用于主屏幕）
+3、一个 name（用于横幅中）
+4、一个 192x192 png 图标（图标声明必须包含一个 mime 类型的 image/png）
+5、一个加载的 start_url
+6、拥有一个在您的网站上注册的服务工作线程。
+7、通过 HTTPS 提供（这是使用服务工作线程的一项要求）。
+8、被访问至少两次，这两次访问至少间隔五分钟。
+
+为了使用户能够安装Progressive Web App，它需要满足以下条件：
+1、Web应用程序尚未安装。
+2、而prefer_related_applications 不是true。
+2、满足用户参与启发式（当前，用户与域进行了交互至少30秒）
+3、包括 Web应用程序清单，其中包括：
+3、short_name 要么 name
+4、icons 必须包含192px和512px大小的图标
+5、start_url
+6、display 必须是一个： fullscreen， standalone或minimal-ui
+7、通过HTTPS 服务（服务人员需要）
+8、已向 服务工作者注册了fetch事件处理程序
+满足这些条件时，将触发一个beforeinstallprompt 事件，您可以使用该事件提示用户安装Progressive Web App，并可能显示一个 迷你信息栏。请听beforeinstallprompt。
+
+
+
+注意1：
+警告：如果用户单击应用程序中导航 scope的链接，则链接将在现有PWA窗口中打开并呈现。如果要在浏览器选项卡中打开链接，则必须添加target="_blank" 到<a>标记。在Android上，链接target="_blank"将在Chrome自定义标签中打开。
+
+
+
+一、手动添加到主屏幕的代码示例：
+添加安装按钮Section
+为了使我们的PWA可以安装在桌面上，我们首先在文档中添加了一个按钮，允许用户进行安装 - 这不会在桌面应用程序上自动提供，并且安装需要由用户手势触发：
+<button class="add-button">Add to home screen</button>
+然后我们给它一些简单的样式：
+.add-button {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
+用于处理安装的JavaScriptSection
+在我们index.js文件的底部，我们添加了一些JavaScript来处理安装。首先，我们声明一个deferredPrompt变量（稍后我们会解释），获取对我们的安装按钮的引用，并将其设置为display: none最初：
+let deferredPrompt;
+const addBtn = document.querySelector('.add-button');
+addBtn.style.display = 'none';
+听着 beforeinstallprompt
+如果符合添加到主屏幕条件，Chrome将触发一个beforeinstallprompt事件，您可以使用该 事件指示您的应用可以“安装”，然后提示用户进行安装。
+当beforeinstallprompt事件已触发，保存到事件的引用，并更新用户界面，以表明用户可以将应用添加到他们的主屏幕。
+我们最初隐藏按钮是因为PWA在遵循A2HS标准之前无法安装。发生这种情况时，支持浏览器将触发beforeinstallprompt事件。然后我们可以使用类似下面的处理程序来处理安装：
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI to notify the user they can add to home screen
+  addBtn.style.display = 'block';
+  addBtn.addEventListener('click', (e) => {
+    // hide our user interface that shows our A2HS button
+    addBtn.style.display = 'none';
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+  });
+});
+所以我们在这里：
+致电Event.preventDefault()停止Chrome 67及更早版本自动调用安装提示（此行为在Chrome 68中已更改）。
+将事件对象存储在deferredPrompt变量中，以便稍后可以使用它来执行实际安装。
+将按钮设置为display: block显示在用户界面中以供用户单击。
+设置click按钮的处理程序。
+点击处理程序包含以下步骤：
+再次隐藏按钮display: none- 安装应用程序后不再需要它。
+使用事件对象（存储在）prompt()上的可用方法触发显示安装提示。beforeinstallpromptdeferredPrompt
+使用userChoice属性响应用户与提示的交互，该属性在beforeinstallprompt事件对象上再次可用。
+设置deferredPrompt为null，因为不再需要它。
+因此，单击该按钮时，将显示安装提示。
+如果用户选择“ 安装”，则会安装该应用程序（作为独立桌面应用程序提供），并且不再显示“安装”按钮（onbeforeinstallprompt如果已安装该应用程序，则不再触发该事件）。当您打开应用程序时，它将显示在自己的窗口中：
+如果用户选择“ 取消”，则应用程序的状态将恢复为单击按钮之前的状态。
+
+
+
+二、确定应用程序是否已成功安装
+要确定应用程序在 接受提示后是否已成功添加到用户主屏幕，您可以侦听该appinstalled事件。
+window.addEventListener('appinstalled', (evt) => {
+  app.logEvent('a2hs', 'installed');
+});
+
+
+
+三、检测您的应用是否从主屏幕启动
+display-mode 媒体查询
+该display-mode媒体查询能够根据应用程序是如何推出的应用样式，或确定它是如何使用JavaScript启动。
+要从主屏幕启动时为上面的应用程序应用不同的背景颜色"display": "standalone"，请使用条件CSS：
+@media all and (display-mode: standalone) {
+  body {
+    background-color: yellow;
+  }
+}
+该display-mode功能被指定为从下面的列表中选择的关键字值：
+显示模式      描述      后备显示模式
+fullscreen	使用所有可用的显示区域，并且不显示用户代理chrome。	standalone
+standalone	该应用程序的外观和感觉就像一个独立的应用程序。这可以包括具有不同窗口的应用程序，应用程序启动器中的其自己的图标等。在该模式中，用户代理将排除用于控制导航的UI元素，但是可以包括诸如状态栏之类的其他UI元素。	minimal-ui
+minimal-ui	该应用程序看起来和感觉就像一个独立的应用程序，但将有一组用于控制导航的UI元素。元素因浏览器而异。
+(此模式类似于fullscreen，但为用户提供了一些方法来访问用于控制导航的最小UI元素集（即，后退，前进，重新加载等）。注意：仅限移动版Chrome支持。)	browser
+browser	应用程序在传统的浏览器选项卡或新窗口中打开，具体取决于浏览器和平台。	（没有）
+也可以display-mode通过JavaScript 检测它是否是独立的：(PC和移动端支持的都很好，几乎都支持，PC上的Edge不支持)
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  console.log('display-mode is standalone');
+}
+苹果浏览器
+要确定应用程序是否standalone在Safari中以模式启动，您可以使用JavaScript来检查：
+if (window.navigator.standalone === true) {
+  console.log('display-mode is standalone');
+}
+
+
+
+window.onappinstalled说明：
+当在浏览器上完成添加到主屏幕的时候会触发这个事件！否则不触发该事件！有的浏览器在完成添加到主屏幕的时候，会直接退出浏览器，导致没法进行触发后的其他处理！
+https://developer.mozilla.org/en-US/docs/Web/Events/appinstalled
+PC和移动端兼容性都有所不同！！！用的时候注意些！！！
+iOS上的浏览器目前都不行！但可以使用“window.navigator.standalone”来判断是不是从主屏幕打开的
+Android设备上的谷歌浏览器支持的很好！其他基于谷歌浏览器内核开发的第三方浏览器兼容的不同，有的可以有的不行！Edge浏览器可以！
+PC的Windows上，谷歌浏览器和QQ浏览器支持！
+有的浏览器虽然显示支持该事件，但不触发！
+
+window.onbeforeinstallprompt说明：
+PC和移动端兼容性都有所不同！！！用的时候注意些！！！目前只有Windows 、Android上的谷歌浏览器支持！！！
+Windows 、Android上的基于谷歌浏览器内核开发的第三方浏览器支持不一，Android上的Edge浏览器支持！Android上的Opera浏览器却不支持(虽然显示支持该事件，但不触发)！
+PC上的QQ浏览器支持！
+有的浏览器虽然显示支持该事件，但不触发！
+它需要满足以下条件才能触发：
+1、Web应用程序尚未安装。
+2、而prefer_related_applications 不是true。
+2、满足用户参与启发式（当前，用户与域进行了交互至少30秒）
+3、包括 Web应用程序清单，其中包括：
+3、short_name 要么 name
+4、icons 必须包含192px和512px大小的图标
+5、start_url
+6、display 必须是一个： fullscreen， standalone或minimal-ui
+7、通过HTTPS 服务（服务人员需要）
+8、已向 服务工作者注册了fetch事件处理程序
+window.addEventListener( 'beforeinstallprompt', event => {});
+event:
+event.platforms 数组，如：[ 'web' ]，返回调用该事件的平台的字符串数组。这是为向用户提供版本选择的用户代理，例如“web”或“play”，允许用户在web版本或android版本之间进行选择。
+'web'表示当前是在web平台打开的，'play'表示在谷歌的原生应用平台打开的！
+event.userChoice Promise，
+未执行“event.prompt()”但触发了该事件时(也是第一次触发这个事件)，[[PromiseStatus]]: "pending"，[[PromiseValue]]: undefined
+执行“event.prompt()”并且确定添加到主屏幕时，[[PromiseStatus]]: "resolved"，[[PromiseValue]]: { outcome: 'accepted', platform: 'web' }
+执行“event.prompt()”并且取消添加到主屏幕时，[[PromiseStatus]]: "resolved"，[[PromiseValue]]: { outcome: 'dismissed', platform: '' }
+执行“event.prompt()”并且既没取消也没确定添加到主屏幕时，[[PromiseStatus]]: "resolved"，[[PromiseValue]]: { outcome: 'dismissed', platform: '' }
+例子：
+window.addEventListener( 'beforeinstallprompt', event => {
+  event.preventDefault();
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+  beforeInstallPrompt_eve = event;
+  event.userChoice.then( userChoiceResult => {
+    userChoiceResult_Obj = userChoiceResult;
+    if( userChoiceResult.outcome == 'accepted' ){
+      beforeInstallPrompt_eve = undefined;
+      userChoiceResult_Obj = undefined;
+    }
+    else if( userChoiceResult.outcome == 'dismissed' ){
+      beforeInstallPrompt_eve = event;
+      userChoiceResult_Obj = userChoiceResult;
+    }
+    else if( userChoiceResult_Obj == undefined ){
+      beforeInstallPrompt_eve = event;
+      userChoiceResult_Obj = userChoiceResult;
+    }
+  }, error => {
+    console.log( 'error--->Start' );
+    console.error( error.message );
+    console.log( 'error--->End' );
+  } );
+} );
+CTO.aCE( '#A2HS', event => ( ( ( beforeInstallPrompt_eve && userChoiceResult_Obj == undefined ) || ( beforeInstallPrompt_eve && userChoiceResult_Obj != undefined && userChoiceResult_Obj.outcome == 'dismissed' ) ) && ( beforeInstallPrompt_eve.prompt() ) ) );

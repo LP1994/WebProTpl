@@ -1,0 +1,104 @@
+Deno笔记
+
+
+
+1、--reload
+远程代码是在第一次执行时获取并缓存的，并且直到代码与该--reload标志一起运行时才更新。（因此，这仍然可以在飞机上使用。）
+从远程URL加载的模块/文件旨在保持不变和可缓存。
+PS:
+deno run --reload http://localhost:8081/WebProTpl/dist/Deno4TestA.js
+
+
+2、deno upgrade
+要更新Deno的先前安装的版本，可以运行deno upgrade。这将从github.com/denoland/deno/releases获取最新版本 ，解压缩并用它替换当前的可执行文件。
+
+
+3、权限
+--allow-read：打开读权限，可以指定可读的目录，比如--allow-read=/temp。
+--allow-write：打开写权限。
+--allow-net=google.com：允许网络通信，可以指定可请求的域，比如--allow-net=google.com。
+--allow-env：允许读取环境变量。
+--unstable:由于 Deno.dir API 不稳定
+-A 或 --allow-all 参数允许所有权限
+
+
+4、模块的加载路径的格式原则
+绝对的URL地址(http://localhost:8081/WebProTpl/dist/Deno4TestA.js)、相对路径(可行：'./qwe.js'，不可行：'qwe.js'、'qwe')
+PS:
+由于 Deno 只支持从 URL 加载模块，导致 Node.js 的模块加载写法都会失效。
+import React from "react";
+import { Box, Grid } from "@material-ui/core";
+import { initializeApp } from "firebase/app";
+上面的写法在 Deno 里面都是非法的。
+
+
+5、命令
+deno bundle：将脚本和依赖打包
+deno eval：执行代码
+deno fetch：将依赖抓取到本地
+deno fmt：代码的格式美化
+deno help：等同于-h参数
+deno info：显示本地的依赖缓存
+deno install：将脚本安装为可执行文件
+deno repl：进入 REPL 环境
+deno run：运行脚本
+deno test：运行测试
+
+
+6、编译提示
+如果要导入JavaScript模块，并且知道该模块的类型定义位于何处，则可以在导入时指定类型定义。这采用编译器提示的形式。
+PS:
+// @deno-types="./foo.d.ts"
+import * as foo from "./foo.js";
+
+
+7、JavaScript文件中的三斜杠参考指令
+如果您托管要由Deno使用的模块，并且想通知Deno类型定义的位置，则可以在实际代码中使用三斜杠指令。例如，如果您有一个JavaScript模块，并且想为Deno提供恰好在该文件旁边的类型定义的位置，则名为JavaScript的模块 foo.js可能看起来像这样：
+/// <reference types="./foo.d.ts" />
+export const foo = "foo";
+Deno会看到这一点，foo.d.ts尽管foo.js会在运行时加载，但编译器将在对文件进行类型检查时使用。指令值的解析遵循与导入模块相同的解析逻辑，这意味着文件需要具有扩展名，并且相对于当前文件。也允许使用远程说明符。
+
+
+8、自定义TypeScript编译器选项
+您需要通过-c在执行应用程序时设置参数来明确告诉Deno在哪里寻找此配置。
+deno run -c tsconfig.json mod.ts
+以下是Deno中当前允许的设置及其默认值：
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowUmdGlobalAccess": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "assumeChangesOnlyAffectDirectDependencies": false,
+    "checkJs": false,
+    "disableSizeLimit": false,
+    "generateCpuProfile": "profile.cpuprofile",
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "lib": [],
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveConstEnums": false,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "suppressExcessPropertyErrors": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "useDefineForClassFields": false
+  }
+}
+注意：Deno不支持上面未列出的任何选项，或者在TypeScript文档中以不推荐/实验性列出。
+
+
+9、

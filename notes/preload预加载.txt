@@ -1,0 +1,53 @@
+脚本化与预加载
+
+<!--预加载资源 Start-->
+<!--
+crossorigin="anonymous"跨域加载资源
+as的值
+支持不填写“as”属性，那么链接地址就是资源任何地址
+report(不需要链接地址)、document(不需要链接地址)、document(<iframe>、<frame>)、object、embed、audio、font、image(<img>、背景图、SVG)、
+audioworklet、paintworklet、script、serviceworker、sharedworker、worker、style、track、video、manifest、xslt
+许多不同类型的内容都可以被预加载，一些主要可用的as 属性值列举如下：
+audio(音频文件)、
+document(用于嵌入<frame>或中的HTML文档<iframe>)、
+embed(要嵌入<embed>元素内的资源)、
+fetch(要由fetch或XHR请求访问的资源，例如ArrayBuffer或JSON文件)、
+font(字体文件)、
+image(图像文件、SVG)、
+object(要嵌入<embed>元素内的资源)、
+script(JavaScript文件)、
+style(样式表)、
+track(WebVTT文件)、
+worker(Web Worker或Shared Worker)、
+video(视频文件)、
+report(不需要链接地址)、
+audioworklet、
+paintworklet、
+serviceworker、
+manifest、
+xslt、
+
+具体的type值从以下链接查找
+http://www.w3school.com.cn/media/media_mimeref.asp
+-->
+<link rel="preload" type="image/png" as="image" crossorigin="anonymous" href="pictures/ico/compressed/logo338_338.png"/>
+<!--预加载资源 End-->
+<link rel='preload' href='../static/fonts/MicrosoftYahei.ttf' as='font' type='font/ttf' crossorigin='anonymous' />
+<link rel='preload' href='../static/fonts/SimSun.ttf' as='font' type='font/ttf' crossorigin='anonymous' />
+<link rel='preload' href='../static/fonts/Helvetica.ttf' as='font' type='font/ttf' crossorigin='anonymous' />
+
+var preloadLink = document.createElement("link");
+preloadLink.href = "myscript.js";
+preloadLink.rel = "preload";
+preloadLink.as = "script";
+document.head.appendChild(preloadLink);
+
+这意味着浏览器将预加载这个JavaScript文件，但并不实际执行它。
+
+如果要对其加以执行，在需要的时候，你可以执行：
+
+var preloadedScript = document.createElement("script");
+preloadedScript.src = "myscript.js";
+document.body.appendChild(preloadedScript);
+
+当你需要预加载一个脚本，但需要推迟到需要的时候才令其执行时，这种方式会特别有用。

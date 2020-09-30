@@ -1,0 +1,47 @@
+应用图标、启动图片，Android不同浏览器都不一样，同样浏览器刷新之后也不一样！！！
+PS:
+1242 x 2208(1080 x 1920): iPhone 6 Plus、iPhone 6S Plus、iPhone 7 Plus、iPhone 8 Plus
+PS：特别说明一下，以上设备的实际物理分辨率是(1080 x 1920)，它们的实际dpr是2.608695652173913。
+但是，渲染、计算却是按分辨率(1242 x 2208)、dpr是3。所以，APP的启动图片也是按这些个来的(1242 x 2208、dpr是3)。
+
+1125*2436的iPhoneX使用的是120px的应用图标,启动图片用的是1125*2436的iPhoneX大小的图片
+iPhone 5S系列到iPhoneX的用的是120px的应用图标
+iPad系列用152px
+
+apple-touch-startup-image，iOS中！！！切记需要为每个类型的设备添加媒体查询！！！否则会被最后一个替换掉
+
+iOS对启动图片(apple-touch-startup-image)的支持是从iOS 11开始
+不支持(只是不会动就是了)动图.gif(image/gif)
+
+2019年12月02日，发现各种设备的CSS的多媒体匹配写法发生了变法！！！需要更新！！！
+./configures/StartAppleTSI_Arr.js里已经更新了写法！！！
+// 这次更新的写法，会奇怪的导致横竖屏的图片都被下载！！！但是不影响PWA的启动画面展示，竖屏时自动展示竖屏的图片，横屏时自动展示横屏的图片。
+
+
+ orientation	视口的方向
+ PS：
+ 注意：
+ 此功能与设备方向不对应。在许多设备上以纵向打开软键盘将导致视区变得比高度更宽，从而导致浏览器使用横向样式而不是纵向样式。
+ portrait
+ 视口为纵向方向，即高度大于或等于宽度。
+ landscape
+ 视口处于横向方向，即宽度大于高度。
+ 笔记本电脑上的谷歌浏览器的模拟器由于设备没有方向传感器！！！
+ “orientation”这个属性，更多的是通过宽高比来模拟所谓的方向！！！
+ 然而，真机有方向传感器！！！以下写法在真机上能保证竖屏和横屏的输出样式！！！
+ // iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 2436x1125 458ppi)宽高 Start
+ @media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3),
+ only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3),
+ only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+ #HelloWorld {
+ background-color: #ff23b0;
+ }
+ }
+ @media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3),
+ only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3),
+ only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+ #HelloWorld {
+ background-color: #ff2d16;
+ }
+ }
+ // iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 2436x1125 458ppi)宽高 End

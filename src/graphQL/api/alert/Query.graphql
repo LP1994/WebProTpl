@@ -1,0 +1,65 @@
+#import "./Alert.fragment.graphql"
+
+#$is2NotReviewed4Total为true时，只返回“notReviewed4Total”这个字段，为false时，只返回“notReviewedList”、“reviewedList”这两个字段，默认值是false。
+query Alert_Query( $pageIndex: Int = 1, $pageSize: Int = 20, $beginStamptime: String = "2000-10-01 00:00:00", $endStamptime: String = "2100-10-01 00:00:00", $alarmLevel: String = "", $deviceCategory: String = "", $content: String = "", $is2NotReviewed4Total: Boolean = false ){
+    #获取所有未复核的总数
+    notReviewed4Total: ibms_alarm_getAlarmByContent( pageIndex: 1, pageSize: 1, beginStamptime: $beginStamptime, endStamptime: $endStamptime ) @include( if: $is2NotReviewed4Total ){
+        unCheckedCount,
+    },
+
+    #获取未复核，包括搜索和初始化
+    notReviewedList: ibms_alarm_getAlarmByContent( pageIndex: $pageIndex, pageSize: $pageSize, beginStamptime: $beginStamptime, endStamptime: $endStamptime, alarmLevel: $alarmLevel, deviceCategory: $deviceCategory, content: $content ) @skip( if: $is2NotReviewed4Total ){
+        #根据条件搜索到的总数
+        count,
+        #未复核的所有总数
+        unCheckedCount,
+        data{
+            ...Alert_Fragment_IAlarm,
+
+            #报警时间
+            unCheckedAlarmTime,
+
+            #过往同类事件发生次数
+            similarAlarmTotal{
+                ...Alert_Fragment_SimilarAlarmTotal,
+            },
+        },
+    },
+
+    #获取已复核，包括搜索和初始化
+    reviewedList: ibms_alarm_getMisinformationByContent( pageIndex: $pageIndex, pageSize: $pageSize, beginStamptime: $beginStamptime, endStamptime: $endStamptime, alarmLevel: $alarmLevel, deviceCategory: $deviceCategory, content: $content ) @skip( if: $is2NotReviewed4Total ){
+        #根据条件搜索到的总数
+        count,
+        #已复核的所有总数
+        checkedCount,
+        data{
+            ...Alert_Fragment_IAlarm,
+
+            #报警时间
+            checkedAlarmTime,
+            #复核人编号
+            checkedAccountId,
+            #设备误报原因
+            misinformationMessage,
+            #复核时间/处理时间
+            reviewTime,
+            #复核人报告(故障处理)
+            report,
+            #复核类型
+            reviewType,
+
+            #过往同类事件发生次数
+            similarAlarmTotal{
+                ...Alert_Fragment_SimilarAlarmTotal,
+            },
+        },
+    },
+}
+
+#根据ID查找未复核的，用于验证是否将该ID的未复核状态成功变为已复核状态
+query Alert_Query4ID( $pageIndex: Int = 1, $pageSize: Int = 1, $beginStamptime: String = "2000-10-01 00:00:00", $endStamptime: String = "2100-10-01 00:00:00", $content: String = "" ){
+    notReviewed4ID: ibms_alarm_getAlarmByContent( pageIndex: $pageIndex, pageSize: $pageSize, beginStamptime: $beginStamptime, endStamptime: $endStamptime, content: $content ){
+        #根据条件搜索到的总数
+        count,
+    },
+}

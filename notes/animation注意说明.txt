@@ -1,0 +1,205 @@
+animationstart: 在动画延迟完成之后触发，大多浏览器都能支持
+
+animationiteration: 如果只有一次那就不会触发，每一次迭代重复完成后触发，(animation-iteration-count: 3)，会触发(3 - 1)次
+，只有火狐浏览器(PC、Android、iOS、iOS的Safari浏览器(而且不是从主屏幕启动的))支持，其他浏览器不支持
+
+animationend: 动画完成后触发，前提是动画没被任何操作中断，大多浏览器都能支持
+
+animationcancel: 只有火狐浏览器(PC、Android、iOS、iOS的Safari浏览器(而且不是从主屏幕启动的))支持，其他浏览器不支持，
+动画被任何操作中断(不包括动画的暂停(animation-play-state: paused;)和继续(animation-play-state: running;)这两个操作)，
+触发的情况：
+任何时候它停止运行而不发送animationend事件）时发送此事件，
+例如当animation-name更改动画或移除动画时，或者动画节点被隐藏时 - 直接或因为它的任何包含节点都是隐藏的 - 使用CSS。
+
+
+iOS 12中，要是没开启Safari的浏览器实验性API，会无效，开启后，也只在Safari中有效，添加到主屏幕的也无效，其他浏览器也都无效
+其实经过测试！！！这种BUG，时好时坏！！！真奇葩！！！无语！！！
+animation-play-state: paused;
+animation-play-state: running;
+
+
+
+#test5 {
+  width: calc(100% - 20px);
+  height: 100px;
+  font-size: 16px;
+  color: white;
+  overflow: hidden;
+  background-color: green;
+  padding: 10px;
+  border: 10px red solid;
+  margin: 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-wrap: unrestricted;
+
+  animation-duration: 3000ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+  0% {
+    width: calc(100% - 20px);
+    height: 100px;
+    font-size: 16px;
+    padding: 10px;
+    border-width: 10px;
+    margin: 10px;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    padding: 0;
+    border-width: 0;
+    margin: 0;
+    outline-width: 0;
+    opacity: 0;
+  }
+}
+
+.hide {
+  animation-name: hide;
+}
+
+.show {
+  animation-name: hide;
+  animation-direction: reverse;
+}
+
+.animationPaused {
+  animation-play-state: paused;
+}
+
+.animationRunning {
+  animation-play-state: running;
+}
+
+
+
+<div id = 'test1' class = 'flexBox flexC'>开始动画</div>
+<div id = 'test2' class = 'flexBox flexC'>暂停动画</div>
+<div id = 'test3' class = 'flexBox flexC'>继续动画</div>
+<div id = 'test4' class = 'flexBox flexC'>取消动画</div>
+<div id = 'test5' class = 'flexBox flexC bgC'>动啊动</div>
+<div id = 'test6' class = 'flexBox flexC'>动画循环了</div>
+<div id = 'test7' class = 'flexBox flexC'>动画完结了</div>
+
+
+
+let i1 = 0,
+        i2 = 0,
+        i3 = 0,
+        i4 = 0,
+        isStart = false,
+        isEnd = false,
+        animationDOM = CTO.gById( '#test5' );
+    CTO.on( animationDOM, 'animationstart', event => {
+        let html = CTO.html( '#test1' ),
+            j = ++i1;
+        isStart = true;
+        isEnd = false;
+        if( j == 1 ){
+            CTO.html( '#test1', html + '-' + event.type + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.type + '-' + event.animationName + '-' + j );
+        }
+        else{
+            CTO.html( '#test1', html + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.animationName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );
+    CTO.on( animationDOM, 'animationiteration', event => {
+        let html = CTO.html( '#test6' ),
+            j = ++i2;
+        if( j == 1 ){
+            CTO.html( '#test6', html + '-' + event.type + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.type + '-' + event.animationName + '-' + j );
+        }
+        else{
+            CTO.html( '#test6', html + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.animationName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );
+    CTO.on( animationDOM, 'animationend', event => {
+        let html = CTO.html( '#test7' ),
+            j = ++i3;
+        isStart = false;
+        isEnd = true;
+        if( j == 1 ){
+            CTO.html( '#test7', html + '-' + event.type + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.type + '-' + event.animationName + '-' + j );
+        }
+        else{
+            CTO.html( '#test7', html + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.animationName + '-' + j );
+        }
+        if( CTO.hasClass( animationDOM, 'hide' )[ 0 ] ){
+            CTO.sStyle( animationDOM, {
+                display: 'none'
+            } );
+        }
+        CTO.rClassN( animationDOM, 'animationPaused, animationRunning, show, hide' );
+        CTO.allEStop( event );
+    } );
+    CTO.on( animationDOM, 'animationcancel', event => {
+        let html = CTO.html( '#test4' ),
+            j = ++i4;
+        isStart = false;
+        isEnd = false;
+        if( j == 1 ){
+            CTO.html( '#test4', html + '-' + event.type + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.type + '-' + event.animationName + '-' + j );
+        }
+        else{
+            CTO.html( '#test4', html + '-' + event.animationName + '-' + j );
+            console.log( html + '-' + event.animationName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );
+
+    CTO.aCE( '#test1', event => {
+        if( ( !isStart && !isEnd ) || ( !isStart && isEnd ) ){
+            console.log( '------开始动画------' );
+            if( CTO.gStyle( animationDOM, 'display' ) == 'none' ){
+                CTO.rAttr( animationDOM, 'style' );
+                CTO.aClassN( animationDOM, 'show' );
+            }
+            else{
+                CTO.aClassN( animationDOM, 'hide' );
+            }
+        }
+    } );
+    CTO.aCE( '#test2', event => {
+        console.log( '------暂停动画------' );
+        if( CTO.hasClass( animationDOM, 'hide' )[ 0 ] || CTO.hasClass( animationDOM, 'show' )[ 0 ] ){
+            CTO.rClassN( animationDOM, 'animationRunning' );
+            CTO.aClassN( animationDOM, 'animationPaused' );
+        }
+    } );
+    CTO.aCE( '#test3', event => {
+        console.log( '------继续动画------' );
+        if( CTO.hasClass( animationDOM, 'hide' )[ 0 ] || CTO.hasClass( animationDOM, 'show' )[ 0 ] ){
+            CTO.rClassN( animationDOM, 'animationPaused' );
+            CTO.aClassN( animationDOM, 'animationRunning' );
+        }
+    } );
+    CTO.aCE( '#test4', event => {
+        console.log( '------取消动画------' );
+        isStart = false;
+        isEnd = false;
+        CTO.sStyle( animationDOM, {
+            display: 'none'
+        } );
+        CTO.rClassN( animationDOM, 'animationPaused, animationRunning, show, hide' );
+    } );
+    CTO.aCE( animationDOM, event => {
+        console.log( '------动啊动------' );
+        console.log( 'appendRule-' + ( 'appendRule' in document.styleSheets[ 1 ].cssRules.item( 8 ) ) + '-deleteRule-' + ( 'deleteRule' in document.styleSheets[ 1 ].cssRules.item( 8 ) ) + '-findRule-' + ( 'findRule' in document.styleSheets[ 1 ].cssRules.item( 8 ) ) );
+        CTO.html( animationDOM, 'appendRule-' + ( 'appendRule' in document.styleSheets[ 1 ].cssRules.item( 8 ) ) + '-deleteRule-' + ( 'deleteRule' in document.styleSheets[ 1 ].cssRules.item( 8 ) ) + '-findRule-' + ( 'findRule' in document.styleSheets[ 1 ].cssRules.item( 8 ) ) );
+    } );

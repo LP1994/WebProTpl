@@ -1,0 +1,130 @@
+jqueryNiceScroll(3.7.6)
+阅读网站获取详细的使用说明
+https://www.npmjs.com/package/jquery.nicescroll
+https://github.com/inuyaksa/jquery.nicescroll
+最好将nicescroll添加到body元素，对于旧浏览器或稀有页面布局，您必须添加到html元素。
+使用缩放功能时，请将图像“zoomico.png”复制到jquery.nicescroll.js的同一文件夹中。
+
+当您的div大小或位置因为使用动态布局而不断变化时，最好使用包装div。
+在正常情况下，您可以将nicescroll添加到可滚动的div。
+Nicescroll添加自定义滚动条作为页面的绝对元素（或主绝对容器），实际DOM非常有限，以检测元素调整大小和重新定位，因此可能导致滚动条位置不匹配。
+您可以使用包装器div解决此问题，然后滚动条具有关于内容div的绝对定位。
+
+1、初始化nicescroll总是在(document)ready语句中。
+$(function() {
+    $("body").niceScroll();
+});
+2、返回对象的实例。
+var nice = false;
+$(function() {
+    nice = $("body").niceScroll();
+});
+3、DIV带有“包装”，由两个div组成，第一个是vieport，后者是内容：
+$(function() {
+    $("#viewportdiv").niceScroll("#wrapperdiv",{cursorcolor:"#00F"});
+});
+<div id='viewportdiv'> // 容器
+<div id='wrapperdiv'> // 内容
+内容
+</div>
+</div>
+4、获取nicescroll对象
+var nice = $("#mydiv").getNiceScroll();
+5、隐藏滚动条
+$("#mydiv").getNiceScroll().hide();
+6、检查滚动条调整大小（内容或位置发生变化时）：
+$("#mydiv").getNiceScroll().resize();
+7、滚动到某个位置：
+$("#mydiv").getNiceScroll(0).doScrollLeft(x, duration); // 滚动X轴，x距离，duration(持续时间)
+$("#mydiv").getNiceScroll(0).doScrollTop(y, duration); // 滚动Y轴，y距离，duration(持续时间)
+8、配置参数
+$("#thisdiv").niceScroll({
+    cursorcolor: "#424242", // 以十六进制更改光标颜色
+    cursoropacitymin: 0, // 当光标处于非活动状态时（滚动条“隐藏”状态）更改不透明度，范围从1到0
+    cursoropacitymax: 1, // 当光标处于活动状态时（滚动条“可见”状态）更改不透明度，范围从1到0
+    cursorwidth: "5px", // 光标宽度以像素为单位（你也可以写“5px”）
+    cursorborder: "1px solid #fff", // 光标边框的css定义
+    cursorborderradius: "5px", // 光标像素的边界半径
+    zindex: "auto" | [number], // 更改滚动条div的z-index
+    scrollspeed: 60, // 滚动速度
+    mousescrollstep: 40, // 用鼠标滚轮滚动速度（像素）
+    touchbehavior: false, // 已弃用!! 使用“emulatetouch”
+    emulatetouch: false, // 启用光标拖动滚动，如桌面计算机中的触摸设备
+    hwacceleration: true, // 支持时使用硬件加速滚动
+    boxzoom: false, // 启用缩放框内容
+    dblclickzoom: true, // （仅当boxzoom = true时）双击框时激活缩放
+    gesturezoom: true, // （仅当boxzoom = true且使用触摸设备时）在插入/插入框时激活缩放
+    grabcursorenabled: true // （仅当touchbehavior = true时）显示“抓取”图标
+    autohidemode: true, // 如何隐藏滚动条的工作原理，可能的值：
+      true | // 不滚动时隐藏
+      "cursor" | // 只有光标隐藏
+      false | // 不要隐藏
+      "leave" | // 仅在指针离开内容时隐藏
+      "hidden" | // 始终隐藏
+      "scroll", // 仅在滚动上显示
+    background: "", // 更改钢轨背景的CSS
+    iframeautoresize: true, // 在load事件上自动调整iframe
+    cursorminheight: 32, // 设置最小光标高度（像素）
+    preservenativescrolling: true, // 您可以使用鼠标，冒泡鼠标滚轮事件滚动原生可滚动区域
+    railoffset: false, // 您可以为轨道位置添加偏移顶部/左侧
+    bouncescroll: false, // （仅限hw accell）启用内容末尾的滚动弹跳为类似移动设备
+    spacebarenabled: true, // 按空格键时启用向下滚动页面
+    railpadding: { top: 0, right: 0, left: 0, bottom: 0 }, // set padding for rail bar
+    disableoutline: true, // 对于chrome浏览器，在使用nicescroll选择div时禁用轮廓（橙色突出显示）
+    horizrailenabled: true, // nicescroll可以管理水平滚动
+    railalign: right, // 垂直轨道的对齐
+    railvalign: bottom, // 水平轨道的对齐
+    enabletranslate3d: true, // nicescroll可以使用css translate来滚动内容
+    enablemousewheel: true, //  nicescroll可以管理鼠标滚轮事件
+    enablekeyboard: true, // nicescroll可以管理键盘事件
+    smoothscroll: true, // 滚动轻松运动
+    sensitiverail: true, // 点击轨道滚动
+    enablemouselockapi: true, // 可以使用鼠标标题锁API（对象拖动时同样的问题）
+    cursorfixedheight: false, // 在像素中设置光标的固定高度
+    hidecursordelay: 400, // 设置延迟（以微秒为单位）淡出滚动条
+    directionlockdeadzone: 6, // 用于方向锁定激活的像素死区
+    nativeparentscrolling: true, // 检测内容的底部并让父级滚动，就像本机滚动一样
+    enablescrollonselection: true, // 选择文本时启用内容自动滚动
+    cursordragspeed: 0.3, // 用光标拖动时的选择速度
+    rtlmode: "auto", // 水平div滚动从左侧开始
+    cursordragontouch: false, // 也可以在触摸/触摸行为模式下拖动光标
+    oneaxismousemode: "auto", // 它允许水平滚动鼠标滚轮仅在水平内容上，如果为false（仅垂直）鼠标滚轮不水平滚动，如果值为自动检测双轴鼠标
+    scriptpath: "" // 为boxmode图标定义自定义路径（“”=>相同的脚本路径）
+    preventmultitouchscrolling: true // 防止在多点触控事件上滚动
+    disablemutationobserver: false // 强制MutationObserver禁用
+    enableobserver: true // 启用DOM更改观察者，它会尝试在父或内容div更改时调整大小/隐藏/显示
+    scrollbarid: false // 为nicescroll bars设置自定义ID
+});
+
+// This is an IFrame (iPad compatible)
+// 对iframe的优化使用方法
+$("#boxframe").niceScroll("#boxscroll3", {
+cursorcolor: "#0F0",
+cursoropacitymax: 0.7,
+boxzoom: true,
+touchbehavior: true
+});
+
+貌似水平滚动需要这些css，才能起效，作用在容器上
+.vertical-rl {
+writing-mode: tb-rl;
+writing-mode: vertical-rl;
+-ms-writing-mode: vertical-rl;
+-moz-writing-mode: vertical-rl;
+-webkit-writing-mode: vertical-rl;
+}
+.vertical-lr {
+writing-mode: tb-lr;
+writing-mode: vertical-lr;
+-ms-writing-mode: vertical-lr;
+-moz-writing-mode: vertical-lr;
+-webkit-writing-mode: vertical-lr;
+}
+
+
+注1：
+需要在节点发生显示、隐藏、宽高等变化以及节点发生重绘时,都调用一次$(".sidebar").getNiceScroll().resize();
+比如，让节点显示出来之类的任何操作之后，都得调用一次$(".sidebar").getNiceScroll().resize();
+注2：
+touchbehavior: true // 已弃用!! 使用“emulatetouch”
+会导致内部有使用某些插件失效(如：wavesJS)

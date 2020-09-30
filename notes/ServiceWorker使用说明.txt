@@ -1,0 +1,147 @@
+ServiceWorker(ServiceWorker主线程)https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker
+继承
+EventTarget(https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)
+------
+ServiceWorkerGlobalScope(ServiceWorker子线程)https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope
+继承
+WorkerGlobalScope(https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope)
+继承
+EventTarget(https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)
+继承
+Object
+
+ServiceWorkerGlobalScope不支持localStorage和sessionStorage！
+ServiceWorkerGlobalScope不支持XMLHttpRequest！但是支持fetch！
+
+WorkerGlobalScope不支持localStorage和sessionStorage！
+WorkerGlobalScope不支持XMLHttpRequest！但是支持fetch！
+
+ServiceWorkerGlobalScope、WorkerGlobalScope不支持同步功能的API！
+
+但是可以使用IndexedDB进行存储！
+
+ServiceWorker本质上是充当Web应用程序、浏览器和网络（如果可用）之间的代理服务器。除其他外，它们旨在创建有效的离线体验、拦截网络请求并根据网络是否可用采取适当的措施，
+以及更新服务器上的资产。它们还允许访问推送通知和后台同步API。
+
+Service worker运行在worker上下文，因此它不能访问DOM。并且运行在为应用程序供电的主JavaScript的不同线程上，因此它不会阻塞。
+它被设计成完全异步的；因此，同步XHR和本地存储等API不能在服务工作者内部使用。
+
+出于安全考量，Service workers只能由HTTPS承载，毕竟修改网络请求的能力暴露给中间人攻击会非常危险。在Firefox浏览器的用户隐私模式，Service Worker不可用。
+
+注意：Service workers之所以优于以前同类尝试（如AppCache），是因为它们无法支持当操作出错时终止操作。Service workers可以更细致地控制每一件事情。
+注意：Service workers大量使用Promise，因为通常它们会等待响应后继续，并根据响应返回一个成功或者失败的操作。Promise非常适合这种场景。
+注意：注册Service workers时，scope值只能是ServiceWorkerChildThread.js所在的路径以及子路径，如果想要设置这些之外的路径，可以用如下方法在服务器的响应头添加如下响应头
+'Service-Worker-Allowed': '/'
+注意：ServiceWorker接口从其父级Worker继承方法，但Worker.terminate除外(这不应该从服务工作者访问它)。
+
+使用 ServiceWorkerContainer.register() 方法首次注册service worker。如果注册成功，service worker就会被下载到客户端并尝试安装或激活（见下文），这将作用于整个域内用户可访问的URL，或者其特定子集。
+
+ServiceWorkerRegistration，注册成功后会在resolved中有这么一个参数对象
+https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration
+
+navigator.serviceworker只读属性返回关联文档的serviceWorkerContainer对象，该对象提供注册、删除、升级和与serviceworker通信的访问。
+navigator.serviceWorker返回ServiceWorkerContainer实例对象
+
+ServiceWorker对象
+
+1、属性
+onerror
+onstatechange
+scriptURL
+state
+
+2、事件
+statechange
+updatefound
+controllerchange
+error
+message
+install
+activate
+fetch
+
+
+
+ extendableEvent.waitUntil(promise)
+
+ 1、
+ extendableEvent.waitUntil(promise)方法告诉事件调度程序工作正在进行。它还可以用来检测该工作是否成功。在ServiceWorkers中，waitUntil(promise)
+ 告诉浏览器工作一直在进行，直到promise完成，如果它希望完成工作，就不应该终止服务工作者。
+
+ 2、
+ ServiceWorkers中的安装事件( install events )使用waitUntil(promise)将ServiceWorker保持在安装阶段，直到任务完成。如果传递给waitUntil(promise)
+ 的promise被拒绝，则安装将被视为失败，安装服务工作者将被丢弃。这主要用于确保在成功填充所依赖的所有核心缓存之前，不会考虑安装服务工作者(installed)。
+
+ 3、
+ ServiceWorkers中的activate事件( activate events )使用waitUntil(promise)来缓冲函数事件，如fetch和push，直到传递给waitUntil(promise)的promise结束。
+ 这为服务工作人员提供了更新数据库架构和删除过时缓存的时间，因此其他事件可以依赖于完全升级的状态。
+
+ 4、
+ waitUntil(promise)方法最初必须在事件回调中调用，但之后可以多次调用它，直到传递给它的所有承诺都解决为止。
+
+ addEventListener('install', event => {
+ const preCache = async () => {
+ const cache = await caches.open('static-v1');
+ return cache.addAll([
+ '/',
+ '/about/',
+ '/static/styles.css'
+ ]);
+ };
+ event.waitUntil(preCache());
+ });
+
+
+
+  Service​Worker​Global​Scope​.skip​Waiting()
+  Returns:
+  A Promise that immediately resolves with undefined.
+  self.skipWaiting().then(function resolves() {
+  // resolves函数没有参数
+  // Do something
+  });
+
+  1、
+  ServiceWorkerGlobalScope.skipWaiting()方法强制等待的服务工作进程成为活动的服务工作进程。
+
+  2、
+  将此方法与Clients.claim()一起使用，以确保对基础服务工作线程的更新立即对当前客户端和所有其他活动客户端生效。
+
+  3、
+  虽然self.skipWaiting()可以在服务工作者执行过程中的任何时间点调用，但只有在新安装的服务工作者可能仍处于等待状态时，它才会起作用。
+  因此，通常从InstallEvent处理程序内部调用self.skipWaiting()。
+  self.addEventListener('install', function(event) {
+  // The promise that skipWaiting() returns can be safely ignored.
+  self.skipWaiting();
+  // Perform any other actions required for your
+  // service worker to install, potentially inside
+  // of event.waitUntil();
+  });
+
+  self.skipWaiting().then(function resolves() {
+  // resolves函数没有参数
+  // Do something
+  });
+
+
+
+ Clients​.claim()
+ Parameters:
+ None.
+ Returns:
+ A Promise for void
+
+ The claim() method of the Clients允许活动服务工作人员(active)将自己设置为其作用域内所有客户机的控制器。
+ 这将在受此服务工作者控制的任何客户机中的navigator.serviceWorker上触发“controllerchange”事件。
+
+ 当服务工作者最初注册时，页面将在下次加载之前不使用它。claim()方法会立即控制这些页。
+ 请注意，这会导致服务工作者控制定期通过网络加载的页面，或者可能通过其他服务工作者加载的页面。
+
+ 下面的示例在服务工作者的“activate”事件侦听器中使用claim()，这样在相同作用域中加载的客户机通过此服务工作者之前就不需要重新加载它们。
+
+ self.addEventListener('activate', event => {
+ event.waitUntil(clients.claim());
+ });
+
+
+

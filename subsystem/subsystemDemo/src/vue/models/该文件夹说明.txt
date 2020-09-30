@@ -1,0 +1,9 @@
+models文件夹下都是“微前端架构”中“子系统”的MVVM(Model-View-ViewModel)中的Model，可用JS(.js)表示！
+用于分离提取出“三权”分离的vue文件写法中的JS模块，以免单个vue文件很长很长！！！
+主要是被“./src/vue/views/”文件夹下的.vue文件引用！！！
+如：
+<script type = 'module'>
+    'use strict';
+
+    export { default } from 'vueMDir/ExampleA.esm.js';
+</script>

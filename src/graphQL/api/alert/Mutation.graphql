@@ -1,0 +1,8 @@
+#$is2EquipmentMisinformation为“true”时，走“设备误报”，为“false”时，走“设备故障之现场处理”，默认走“设备误报”。
+mutation Alert_Mutation( $alarmId: String!, $misinformationMessage: String!, $is2EquipmentMisinformation: Boolean = true ){
+    #设备误报
+    ibms_alarm_reviewAlarm( alarmId: $alarmId, misinformationMessage: $misinformationMessage ) @include( if: $is2EquipmentMisinformation ),
+
+    #设备故障之现场处理
+    ibms_alarm_siteTreatment( alarmId: $alarmId, misinformationMessage: $misinformationMessage ) @skip( if: $is2EquipmentMisinformation ),
+}

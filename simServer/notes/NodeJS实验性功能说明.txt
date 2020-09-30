@@ -1,0 +1,14 @@
+--frozen-intrinsics会报错
+internal/process/warning.js:111
+    Error.stackTraceLimit = 0;
+                          ^
+TypeError <Object <Object <[Object: null prototype] {}>>>: Cannot assign to read only property 'stackTraceLimit' of function 'function Error() { [native code] }'
+    at process.emitWarning (internal/process/warning.js:111:27)
+    at enrichCJSError (internal/modules/cjs/loader.js:109:13)
+    at wrapSafe (internal/modules/cjs/loader.js:1002:7)
+    at Module._compile (internal/modules/cjs/loader.js:1033:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1103:10)
+    at Module.load (internal/modules/cjs/loader.js:914:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:822:14)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:1143:12)
+    at internal/main/run_main_module.js:16:11

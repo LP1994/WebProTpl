@@ -1,0 +1,12 @@
+routers文件夹下都是“微前端架构”中“子系统”的vue的路由控制文件(.js)！
+
+1、关于to的使用说明
+<router-link class = 'css-reset' to = '/foo'>Go to Foo </router-link>
+"to"属性的值“/for”最终会被用在渲染后的HTML中：
+<a href="#/foo" class="css-reset">Go to Foo</a>
+"#/foo"中的“/foo”就是"to"属性的值。
+还会被用于URL的锚点：
+http://localhost:8082/WebProTpl/dist/devServer/pages/HelloWorld.html#/bar
+“/bar”就是"to"属性的值。
+
+2、

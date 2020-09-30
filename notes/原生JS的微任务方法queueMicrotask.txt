@@ -1,0 +1,35 @@
+Window 或 Worker 接口的 queueMicrotask() 方法
+
+scope.queueMicrotask(function);
+
+参数
+function
+当浏览器引擎确定调用代码是安全的时要执行的函数。排队的微任务在所有挂起的任务完成之后，但在对浏览器的事件循环产生控制之前执行。
+
+返回值
+undefined。
+
+
+
+if (typeof window.queueMicrotask !== "function") {
+  window.queueMicrotask = function (callback) {
+    Promise.resolve()
+      .then(callback)
+      .catch(e => setTimeout(() => { throw e; }));
+  };
+}
+
+
+
+支持：
+PC：
+Chrome 71
+Firefox 69
+Opera 58
+Safari 12.1
+
+Mobile：
+Android webview 71
+Chrome for Android 71
+Opera for Android 50
+Safari on iOS 12.2

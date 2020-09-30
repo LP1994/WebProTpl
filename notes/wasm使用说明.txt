@@ -1,0 +1,215 @@
+Emscripten SDK创建命令(Windows版本)
+建议用C++写！！！
+
+
+
+1、获取emsdk存储库(这个用Git命令)
+git clone https://github.com/emscripten-core/emsdk.git
+PS：
+会在执行如上命令的文件夹下生成一个“emsdk”文件夹
+
+2、输入该目录(这个用Git命令)
+cd emsdk
+
+3、获取最新版本的emsdk（首次克隆时不需要，先进入“emsdk”文件夹）(这个用Git命令)
+git pull
+
+4、下载并安装最新的SDK工具。(先进入“emsdk”文件夹)(这个用Windows命令)
+emsdk install latest
+
+5、使当前用户的“最新” SDK“活动”。 （写入〜/ .emscripten文件，先进入“emsdk”文件夹）(这个用Windows命令)
+emsdk activate latest
+
+6、在当前终端中激活PATH和其他环境变量(先进入“emsdk”文件夹)(这个用Windows命令)
+运行emsdk_env.bat
+
+7、git pull将获取标签的当前列表，但是那里可能还没有最新的标签。您可以运行"emsdk update-tags"直接更新标签列表。(这个用Windows命令)
+emsdk update-tags
+
+8、在Windows上，使用"emcc"、"em++"。
+显信息示版本：emcc -v、em++ -v
+
+9、执行转换命令
+emcc MathTool.cpp --std=c++2a -Os -s WASM=1 -s SIDE_MODULE=1 -o ../../basic/MathTool.wasm
+注：
+note: use 'c++98' or 'c++03' for 'ISO C++ 1998 with amendments' standard
+note: use 'gnu++98' or 'gnu++03' for 'ISO C++ 1998 with amendments and GNU extensions' standard
+note: use 'c++11' for 'ISO C++ 2011 with amendments' standard
+note: use 'gnu++11' for 'ISO C++ 2011 with amendments and GNU extensions' standard
+note: use 'c++14' for 'ISO C++ 2014 with amendments' standard
+note: use 'gnu++14' for 'ISO C++ 2014 with amendments and GNU extensions' standard
+note: use 'c++17' for 'ISO C++ 2017 with amendments' standard
+note: use 'gnu++17' for 'ISO C++ 2017 with amendments and GNU extensions' standard
+note: use 'c++2a' for 'Working draft for ISO C++ 2020' standard
+note: use 'gnu++2a' for 'Working draft for ISO C++ 2020 with GNU extensions' standard
+
+note: use 'c89', 'c90', or 'iso9899:1990' for 'ISO C 1990' standard
+note: use 'iso9899:199409' for 'ISO C 1990 with amendment 1' standard
+note: use 'gnu89' or 'gnu90' for 'ISO C 1990 with GNU extensions' standard
+note: use 'c99' or 'iso9899:1999' for 'ISO C 1999' standard
+note: use 'gnu99' for 'ISO C 1999 with GNU extensions' standard
+note: use 'c11' or 'iso9899:2011' for 'ISO C 2011' standard
+note: use 'gnu11' for 'ISO C 2011 with GNU extensions' standard
+note: use 'c17', 'iso9899:2017', 'c18', or 'iso9899:2018' for 'ISO C 2017' standard
+note: use 'gnu17' or 'gnu18' for 'ISO C 2017 with GNU extensions' standard
+note: use 'c2x' for 'Working Draft for ISO C2x' standard
+note: use 'gnu2x' for 'Working Draft for ISO C2x with GNU extensions' standard
+
+emcc就是Emscripten编译器，test.c是我们的输入文件，-Os表示这次编译需要优化，-s WASM=1表示输出wasm的文件，因为默认的是输出asm.js，
+-s SIDE_MODULE=1表示就只要这一个模块，不要给我其他乱七八糟的代码，-o test.wasm是我们的输出文件。
+--std=c++2a用于.cpp文件，--std=c2x用于.c文件
+
+
+
+PS：
+如果你尝试调用一个接受或返回一个i64类型值的导出的wasm函数，目前它会抛出一个错误，因为JavaScript当前没有精确的方式来表示一个i64。
+不过，这在将来可能会改变——在将来的标准中，新的int64类型正在考虑之中。
+到那时，wasm可以使用它。
+这就可以解释在C语言中声明"long long int"、"long double"等数据类型的值时，并编译为.wasm文件时，只能生成“i32”，因为还不支持“i64”。
+建议在C语言用“double”(8字节的大小)代替"long long int"。
+
+
+第一种：
+import('wasmBDir/HelloWorld.wasm').then( modules => {
+                                      const { Add } = modules;
+
+                                      console.log( Add( 2019, 1 ) );
+                                  } )
+                                  .catch( error => {
+                                      console.error( error );
+                                  } );
+
+第二种：
+( async () => {
+    await fetch( '../wasm/basic/MathTool.wasm' )
+        .then( response => response.arrayBuffer() )
+        .then( bufferSource => WebAssembly.validate( bufferSource )
+                               ? WebAssembly.instantiate( bufferSource, importObject )
+                               : undefined )
+        .then( ( {
+                     module,
+                     instance: {
+                         exports: {
+                             Add, Sub, Mul, Div, Mod, Fib,
+                         },
+                     }
+                 } = throw new Error( '这是一个无效的“wasm”模块！！！' ) ) => {
+            // console.dir( WebAssembly.Module.imports( module ) );
+            // console.dir( WebAssembly.Module.exports( module ) );
+
+            console.log( '<--------------------fetch WASM Start-------------------->' );
+
+            const startTime = performance.now();
+
+            const fibValue = BigInt( Fib( FibX ) );
+
+            const endTime = performance.now();
+
+            console.log( `WASM_Fib_${ FibX }：${ fibValue }` );
+            console.log( `WASM：${ ( endTime - startTime ) / 1000 }秒、${ ( endTime - startTime ) / 60000 }分钟` );
+
+            console.log( '<--------------------fetch WASM End-------------------->' );
+        } )
+        .catch( error => console.error( error ) );
+} )();
+
+
+
+这个 loadWebAssembly 函数还接受第二个参数，表示要传递给 wasm 的变量，在初始化 WebAssembly 实例的时候，可以把一些接口传递给 wasm 代码。
+/**
+ * @param {String} path wasm 文件路径
+ * @param {Object} imports 传递到 wasm 代码中的变量
+ */
+function loadWebAssembly (path, imports = {}) {
+  return fetch(path)
+    .then(response => response.arrayBuffer())
+    .then(buffer => WebAssembly.compile(buffer))
+    .then(module => {
+      imports.env = imports.env || {}
+
+      // 开辟内存空间
+      imports.env.memoryBase = imports.env.memoryBase || 0
+      if (!imports.env.memory) {
+        imports.env.memory = new WebAssembly.Memory({ initial: 256 })
+      }
+
+      // 创建变量映射表
+      imports.env.tableBase = imports.env.tableBase || 0
+      if (!imports.env.table) {
+        // 在 MVP 版本中 element 只能是 "anyfunc"
+        imports.env.table = new WebAssembly.Table({ initial: 0, element: 'anyfunc' })
+      }
+
+      // 创建 WebAssembly 实例
+      return new WebAssembly.Instance(module, imports)
+    })
+}
+
+
+
+// 相差 9 倍的分钟数！！！
+     WASM_1_Fib_50：12586269025
+     WASM_1：149.3764399999995秒、2.489607333333325分钟
+
+     WASM_2_Fib_50：12586269025
+     WASM_2：139.6250150000006秒、2.3270835833333434分钟
+
+     WASM_3_Fib_50：12586269025
+     WASM_3：155.12461000000312秒、2.5854101666667186分钟
+
+     WASM_4_Fib_50：12586269025
+     WASM_4：140.31488499999978秒、2.338581416666663分钟
+
+     WASM_5_Fib_50：12586269025
+     WASM_5：142.73362999999895秒、2.378893833333316分钟
+
+     WASM_6_Fib_50：12586269025
+     WASM_6：137.31656500000133秒、2.288609416666689分钟
+
+     WASM_7_Fib_50：12586269025
+     WASM_7：124.1439050000012秒、2.0690650833333533分钟
+
+     WASM_8_Fib_50：12586269025
+     WASM_8：133.98235500000044秒、2.2330392500000076分钟
+
+     WASM_9_Fib_50：12586269025
+     WASM_9：138.56914000000245秒、2.3094856666667076分钟
+
+     WASM_10_Fib_50：12586269025
+     WASM_10：120.37309000000171秒、2.006218166666695分钟
+
+     除去最高值和最低值后，平均值为：2.3042956979166753分钟
+
+
+
+     queueMicrotask_1_Fib_50：12586269025
+     queueMicrotask_1：671.6353750000017秒、11.193922916666693分钟
+
+     queueMicrotask_2_Fib_50：12586269025
+     queueMicrotask_2：1097.747835秒、18.29579725分钟
+
+     queueMicrotask_3_Fib_50：12586269025
+     queueMicrotask_3：1209.5707449999989秒、20.15951241666665分钟
+
+     queueMicrotask_4_Fib_50：12586269025
+     queueMicrotask_4：1440.9109099999987秒、24.015181833333312分钟
+
+     queueMicrotask_5_Fib_50：12586269025
+     queueMicrotask_5：1468.1971899999985秒、24.46995316666664分钟
+
+     queueMicrotask_6_Fib_50：12586269025
+     queueMicrotask_6：1415.3139899999983秒、23.588566499999974分钟
+
+     queueMicrotask_7_Fib_50：12586269025
+     queueMicrotask_7：1268.990945000002秒、21.14984908333337分钟
+
+     queueMicrotask_8_Fib_50：12586269025
+     queueMicrotask_8：1270.0881799999997秒、21.16813633333333分钟
+
+     queueMicrotask_9_Fib_50：12586269025
+     queueMicrotask_9：1283.5370100000034秒、21.392283500000058分钟
+
+     queueMicrotask_10_Fib_50：12586269025
+     queueMicrotask_10：1389.2201299999972秒、23.153668833333285分钟
+
+     除去最高值和最低值后，平均值为：21.615374468749994分钟

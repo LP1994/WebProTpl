@@ -1,0 +1,45 @@
+int* point1 = new int;
+*point1 = 14;
+// 输出的是这个变量所存储的值，一个“内存地址”，这个“内存地址”是一个只能存储int类型数值的“内存地址”，这个“内存地址”具体指向的值是14。
+cout << "point1：" << point1 << endl;
+// 输出的是int类型数值14，也就是变量“point1”所存储的“内存地址”具体指向的值。
+cout << "*point1：" << *point1 << endl;
+// 输出的是变量“point1”自己的“内存地址”，也就是这个变量自己的内存地址。
+cout << "&point1：" << &point1 << endl;
+
+delete point1;
+point1 = nullptr;
+cout << point1 << endl;
+会输出：00000000
+
+PS：
+解除指针后切记要删除指针，以便释放内存空间！！！避免内存溢出！！！
+如：
+1、
+delete point1;
+point1 = nullptr;
+2、
+int* arr2 = new int[4]{ 2019, 2020, 2021 };
+for (auto i = 0; i < arr1.size(); ++i) {
+cout << "arr2：" << arr2[i] << endl;
+}
+delete[] arr2;
+
+
+
+智能指针：
+// 智能指针
+auto point2 = make_unique<int>(15);
+cout << "point2：" << point2 << endl;
+cout << "*point2：" << *point2 << endl;
+cout << "&point2：" << &point2 << endl;
+
+auto point3 = make_unique<array<int, 3>>();
+*point3 = { 999, 888, 777 };
+for (unsigned int i = 0; i < point3->size(); ++i) {
+cout << "point3[ " << i << " ]：" << (*point3)[i] << endl;
+}
+for (auto i : *point3) {
+cout << "point3：" << i << endl;
+}
+

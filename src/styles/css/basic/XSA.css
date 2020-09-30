@@ -1,0 +1,1158 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+.xSAT {
+    top: constant(safe-area-inset-top);
+    top: env(safe-area-inset-top);
+}
+
+.xSAR {
+    right: constant(safe-area-inset-right);
+    right: env(safe-area-inset-right);
+}
+
+.xSAB {
+    bottom: constant(safe-area-inset-bottom);
+    bottom: env(safe-area-inset-bottom);
+}
+
+.xSAL {
+    left: constant(safe-area-inset-left);
+    left: env(safe-area-inset-left);
+}
+
+.xSAPT {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+
+.xSAPR {
+    padding-right: constant(safe-area-inset-right);
+    padding-right: env(safe-area-inset-right);
+}
+
+.xSAPB {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.xSAPL {
+    padding-left: constant(safe-area-inset-left);
+    padding-left: env(safe-area-inset-left);
+}
+
+.xSAMT {
+    margin-top: constant(safe-area-inset-top);
+    margin-top: env(safe-area-inset-top);
+}
+
+.xSAMR {
+    margin-right: constant(safe-area-inset-right);
+    margin-right: env(safe-area-inset-right);
+}
+
+.xSAMB {
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+}
+
+.xSAML {
+    margin-left: constant(safe-area-inset-left);
+    margin-left: env(safe-area-inset-left);
+}
+
+.xSAT44px {
+    top: 44px;
+}
+
+.xSAR44px {
+    right: 44px;
+}
+
+.xSAB34px {
+    bottom: 34px;
+}
+
+.xSAB21px {
+    bottom: 21px;
+}
+
+.xSAL44px {
+    left: 44px;
+}
+
+.xSAPT44px {
+    padding-top: 44px;
+}
+
+.xSAPR44px {
+    padding-right: 44px;
+}
+
+.xSAPB34px {
+    padding-bottom: 34px;
+}
+
+.xSAPB21px {
+    padding-bottom: 21px;
+}
+
+.xSAPL44px {
+    padding-left: 44px;
+}
+
+.xSAMT44px {
+    margin-top: 44px;
+}
+
+.xSAMR44px {
+    margin-right: 44px;
+}
+
+.xSAMB34px {
+    margin-bottom: 34px;
+}
+
+.xSAMB21px {
+    margin-bottom: 21px;
+}
+
+.xSAML44px {
+    margin-left: 44px;
+}
+
+/*
+orientation	视口的方向
+PS：
+注意：
+此功能与设备方向不对应。在许多设备上以纵向打开软键盘将导致视区变得比高度更宽，从而导致浏览器使用横向样式而不是纵向样式。
+portrait
+视口为纵向方向，即高度大于或等于宽度。
+landscape
+视口处于横向方向，即宽度大于高度。
+笔记本电脑上的谷歌浏览器的模拟器由于设备没有方向传感器！！！
+“orientation”这个属性，更多的是通过宽高比来模拟所谓的方向！！！
+然而，真机有方向传感器！！！以下写法在真机上能保证竖屏和横屏的输出样式！！！
+// iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 1125x2436 458ppi)宽高 Start
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    #HelloWorld {
+        background-color: #ff23b0;
+    }
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    #HelloWorld {
+        background-color: #ff2d16;
+    }
+}
+// iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 1125x2436 458ppi)宽高 End
+*/
+
+/*iPhone X、iPhone XS、iPhone 11 Pro   20200508测试通过！！！ Start*/
+
+/*Safari 添加到主屏幕 Start*/
+
+@media only screen and (width: 375px) and (height: 768px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 768px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: calc(-1 * constant(safe-area-inset-bottom) + -10px) !important;
+        bottom: calc(-1 * env(safe-area-inset-bottom) + -10px) !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: constant(safe-area-inset-top) !important;
+        top: env(safe-area-inset-top) !important;
+        right: 0;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+@media only screen and (width: 812px) and (height: 375px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 375px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 375px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: constant(safe-area-inset-right) !important;
+        right: env(safe-area-inset-right) !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: constant(safe-area-inset-left) !important;
+        left: env(safe-area-inset-left) !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+/*Safari 添加到主屏幕 End*/
+
+/*Safari 横屏(有状态栏的情况) Start*/
+
+@media only screen and (width: 812px) and (height: 325px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 325px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 325px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: constant(safe-area-inset-right) !important;
+        right: env(safe-area-inset-right) !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: constant(safe-area-inset-left) !important;
+        left: env(safe-area-inset-left) !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+/*Safari 横屏(有状态栏的情况) End*/
+
+/*微信、QQ内置浏览器(竖屏)、新浪微博内置浏览器(竖屏)、支付宝内置浏览器(竖屏) Start*/
+
+@media only screen and (width: 375px) and (height: 724px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 724px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 724px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+@media only screen and (width: 812px) and (height: 343px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 343px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 343px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: constant(safe-area-inset-right) !important;
+        right: env(safe-area-inset-right) !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: constant(safe-area-inset-left) !important;
+        left: env(safe-area-inset-left) !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+/*微信、QQ内置浏览器(竖屏)、新浪微博内置浏览器(竖屏)、支付宝内置浏览器(竖屏) End*/
+
+/*新浪微博内置浏览器 横屏 Start*/
+
+@media only screen and (width: 812px) and (height: 287px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 287px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 287px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: constant(safe-area-inset-right) !important;
+        right: env(safe-area-inset-right) !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: constant(safe-area-inset-left) !important;
+        left: env(safe-area-inset-left) !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+/*新浪微博内置浏览器 横屏 End*/
+
+/*谷歌浏览器 横屏 Start*/
+
+@media only screen and (width: 724px) and (height: 325px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 724px) and (height: 325px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 724px) and (height: 325px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: constant(safe-area-inset-right) !important;
+        right: env(safe-area-inset-right) !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: constant(safe-area-inset-left) !important;
+        left: env(safe-area-inset-left) !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+/*谷歌浏览器 横屏 End*/
+
+/*火狐浏览器 横屏 Start*/
+
+@media only screen and (width: 812px) and (height: 319px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 319px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 319px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+
+    html.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /*奇怪！！！当html滚动出界时，其出界的背景色竟然不是html控制的，而是body控制的！！！*/
+    body.css-reset {
+        position: absolute !important;
+        top: 0 !important;
+        right: constant(safe-area-inset-right) !important;
+        right: env(safe-area-inset-right) !important;
+        bottom: constant(safe-area-inset-bottom) !important;
+        bottom: env(safe-area-inset-bottom) !important;
+        left: constant(safe-area-inset-left) !important;
+        left: env(safe-area-inset-left) !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+}
+
+/*火狐浏览器 横屏 End*/
+
+/*Opera Touch Start*/
+
+/*@media only screen and (width: 812px) and (height: 331px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 331px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 331px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}*/
+
+/*Opera Touch End*/
+
+/*傲游 Start*/
+
+/*@media only screen and (width: 812px) and (height: 272px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 272px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 272px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}*/
+
+/*傲游 End*/
+
+/*QQ浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 724px) and (height: 375px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 724px) and (height: 375px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 724px) and (height: 375px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        !*特殊处理*!
+        padding-bottom: 21px;
+    }
+}
+
+@media only screen and (width: 724px) and (height: 323px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 724px) and (height: 323px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 724px) and (height: 323px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        !*特殊处理*!
+        padding-bottom: 21px;
+    }
+}
+*/
+
+/*QQ浏览器 横屏 End*/
+
+/*360浏览器 Start*/
+
+/*@media only screen and (width: 375px) and (height: 664px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 664px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 664px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    html.css-reset {
+        position: absolute;
+        bottom: 7px;
+        height: auto;
+    }
+}*/
+
+/*全屏*/
+/*
+@media only screen and (width: 375px) and (height: 765px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 765px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 765px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+@media only screen and (width: 812px) and (height: 323px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 323px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 323px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*360浏览器 End*/
+
+/*百度浏览器 奇葩比较多 Start*/
+
+/*
+@media only screen and (width: 375px) and (height: 770px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 770px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 770px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        !*特殊处理*!
+        padding-bottom: 34px;
+    }
+}
+
+@media only screen and (width: 375px) and (height: 771px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 771px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 375px) and (height: 771px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        !*特殊处理*!
+        padding-bottom: 34px;
+    }
+}
+
+@media only screen and (width: 812px) and (height: 326px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 326px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 326px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+        !*百度浏览器特殊处理*!
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+
+@media only screen and (width: 812px) and (height: 376px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 376px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 812px) and (height: 376px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+        !*百度浏览器特殊处理*!
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*百度浏览器 End*/
+
+/*iPhone X、iPhone XS、iPhone 11 Pro   20200508测试通过！！！ End*/
+
+/*iPhone XR、iPhone 11 Start*/
+
+/*Safari 添加到主屏幕 Start*/
+
+/*
+@media only screen and (width: 414px) and (height: 852px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 852px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 852px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+    html.css-reset {
+        position: absolute;
+        bottom: -10px;
+        height: auto;
+    }
+
+    body.css-reset {
+        padding-top: constant(safe-area-inset-top);
+        padding-top: env(safe-area-inset-top);
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 414px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 414px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 414px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*Safari 添加到主屏幕 End*/
+
+/*微信 横屏 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 382px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 382px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 382px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*微信 横屏 End*/
+
+/*QQ内置浏览器、新浪微博内置浏览器、支付宝内置浏览器、微信 竖屏 Start*/
+
+/*
+@media only screen and (width: 414px) and (height: 808px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 808px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 808px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 34px;
+    }
+}
+*/
+
+/*QQ内置浏览器、新浪微博内置浏览器、支付宝内置浏览器、微信 竖屏 End*/
+
+/*新浪微博内置浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 326px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 326px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 326px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*新浪微博内置浏览器 横屏 End*/
+
+/*谷歌浏览器 Egde浏览器 横屏 Start*/
+
+/*以下是谷歌浏览器特殊情况，很难重现*/
+/*
+@media only screen and (width: 896px) and (height: 366px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 366px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 366px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 364px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 364px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 364px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 21px;
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*谷歌浏览器 Egde浏览器 横屏 End*/
+
+/*火狐浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 358px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 358px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 358px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*火狐浏览器 横屏 End*/
+
+/*Opera Touch Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 370px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 370px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 370px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*Opera Touch End*/
+
+/*傲游 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 311px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 311px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 311px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*傲游 End*/
+
+/*QQ浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 808px) and (height: 414px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 808px) and (height: 414px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 808px) and (height: 414px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 21px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 808px) and (height: 362px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 808px) and (height: 362px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 808px) and (height: 362px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 21px;
+    }
+}
+*/
+
+/*QQ浏览器 横屏 End*/
+
+/*360浏览器 End*/
+
+/*
+@media only screen and (width: 414px) and (height: 748px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 748px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 748px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+    html.css-reset {
+        position: absolute;
+        bottom: 7px;
+        height: auto;
+    }
+}
+*/
+
+/*全屏*/
+/*
+@media only screen and (width: 414px) and (height: 849px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 849px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 849px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 362px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 362px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 362px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*360浏览器 End*/
+
+/*百度浏览器 奇葩比较多 Start*/
+
+/*
+@media only screen and (width: 414px) and (height: 854px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 854px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 854px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 34px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 414px) and (height: 855px) and (orientation: portrait) and (-moz-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 855px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2), only screen and (width: 414px) and (height: 855px) and (orientation: portrait) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 34px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 365px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 365px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 365px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 415px) and (orientation: landscape) and (-moz-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 415px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2), only screen and (width: 896px) and (height: 415px) and (orientation: landscape) and (device-pixel-ratio: 2) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*百度浏览器 End*/
+
+/*iPhone XR、iPhone 11 End*/
+
+/*iPhone XS Max、iPhone 11 Pro Max Start*/
+
+/*Safari 添加到主屏幕 Start*/
+
+/*
+@media only screen and (width: 414px) and (height: 852px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 852px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 852px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    html.css-reset {
+        position: absolute;
+        bottom: -10px;
+        height: auto;
+    }
+
+    body.css-reset {
+        padding-top: constant(safe-area-inset-top);
+        padding-top: env(safe-area-inset-top);
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 414px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 414px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 414px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*Safari 添加到主屏幕 End*/
+
+/*微信 横屏 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 382px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 382px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 382px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*微信 横屏 End*/
+
+/*QQ内置浏览器、新浪微博内置浏览器、支付宝内置浏览器、微信 竖屏 Start*/
+
+/*
+@media only screen and (width: 414px) and (height: 808px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 808px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 808px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 34px;
+    }
+}
+*/
+
+/*QQ内置浏览器、新浪微博内置浏览器、支付宝内置浏览器、微信 竖屏 End*/
+
+/*新浪微博内置浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 326px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 326px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 326px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*新浪微博内置浏览器 横屏 End*/
+
+/*谷歌浏览器 Egde浏览器 横屏 Start*/
+
+/*以下是谷歌浏览器特殊情况，很难重现*/
+/*
+@media only screen and (width: 896px) and (height: 366px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 366px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 366px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 364px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 364px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 364px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 21px;
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*谷歌浏览器 Egde浏览器 横屏 End*/
+
+/*火狐浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 358px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 358px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 358px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*火狐浏览器 横屏 End*/
+
+/*Opera Touch Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 370px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 370px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 370px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*Opera Touch End*/
+
+/*傲游 Start*/
+
+/*
+@media only screen and (width: 896px) and (height: 311px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 311px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 311px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*傲游 End*/
+
+/*QQ浏览器 横屏 Start*/
+
+/*
+@media only screen and (width: 808px) and (height: 414px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 808px) and (height: 414px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 808px) and (height: 414px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 21px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 808px) and (height: 362px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 808px) and (height: 362px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 808px) and (height: 362px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 21px;
+    }
+}
+*/
+
+/*QQ浏览器 横屏 End*/
+
+/*360浏览器 End*/
+
+/*
+@media only screen and (width: 414px) and (height: 748px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 748px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 748px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    html.css-reset {
+        position: absolute;
+        bottom: 7px;
+        height: auto;
+    }
+}
+*/
+
+/*全屏*/
+/*
+@media only screen and (width: 414px) and (height: 849px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 849px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 849px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 362px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 362px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 362px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+    }
+}
+*/
+
+/*360浏览器 End*/
+
+/*百度浏览器 奇葩比较多 Start*/
+
+/*
+@media only screen and (width: 414px) and (height: 854px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 854px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 854px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 34px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 414px) and (height: 855px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 855px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3), only screen and (width: 414px) and (height: 855px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        padding-bottom: 34px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 365px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 365px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 365px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*
+@media only screen and (width: 896px) and (height: 415px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 415px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3), only screen and (width: 896px) and (height: 415px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    body.css-reset {
+        padding-right: constant(safe-area-inset-right);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: constant(safe-area-inset-left);
+        padding-left: env(safe-area-inset-left);
+
+        padding-right: 44px;
+        padding-bottom: 21px;
+        padding-left: 44px;
+    }
+}
+*/
+
+/*百度浏览器 End*/
+
+/*iPhone XS Max、iPhone 11 Pro Max End*/

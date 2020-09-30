@@ -1,0 +1,3 @@
+static文件夹下都是静态的外部资源！这些不会被webpack识别处理的！
+但可以被静态的使用！！！
+webpack编译结束后，static文件夹整个会被复制到如：dist/devServer下，这样就可以静态的使用它们了！

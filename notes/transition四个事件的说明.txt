@@ -1,0 +1,165 @@
+兼容性不是很好！！！！
+
+transitionrun: CSS转换已开始运行（在任何延迟(transition-delay)开始之前触发）。
+transitionstart: 实际上已经开始了CSS转换（在任何延迟(transition-delay)之后触发）。
+transitionend: CSS转换已完成会触发。
+transitioncancel: CSS转换已取消，因为任何行为而中断的了过度的执行会触发。
+
+如：
+#test1 {
+  transition-property: font-size, background-color;
+  transition-duration: 5s;
+  transition-delay: 3s;
+}
+#test1:hover {
+  font-size: 30px;
+  background-color: red;
+}
+
+
+
+PC for Win:
+
+谷歌(代表基于谷歌内核开发的浏览器)支持的: transitionend
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+延迟(transition-delay)完成之后，也就是transitionstart被执行了，虽然谷歌不支持这个(transitionstart)，
+就一定会执行transitionend，无论过度是否正常完成还是被中途中断(中断会回退回去，回退完成也会触发transitionend)
+
+火狐(基于火狐内核开发的浏览器)支持的：transitionrun、transitionstart、transitionend、transitioncancel
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+过度没执行完就中断就会触发transitioncancel
+火狐的中断情况可以看成: transitionrun > transitioncancel
+火狐的中断并且完全回退回去(无再次中断的情况发生)的情况可以看成: transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去，无再次中断的情况发生)，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去)，但又再次需要执行这个过度(就是中断了正在中断的过程，但是是在第一次中断的transitionstart开始前就又发生了第二次中断，并且让第二次中断完成)，并且让它执行完，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去)，但又再次需要执行这个过度(就是中断了正在中断的过程，但是是在第一次中断的transitionstart开始后，但没执行完第一次中断，就又发生了第二次中断，并且让第二次中断完成)，并且让它执行完，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionstart > transitionrun > transitioncancel > transitionstart > transitionend
+
+Edge、IE支持的：transitionstart、transitionend
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+transitionstart触发之后，结束之前中断了，会回退回去，并且触发transitionend
+transitionstart > 结束之前中断，回退回去完成 > transitionend
+
+
+
+Mobile for iOS 12
+
+iPhone X的Safari浏览器(不是从主屏幕打开的)支持的：transitionrun、transitionstart、transitionend、transitioncancel
+基于webkit内核开发的浏览器
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+过度没执行完就中断就会触发transitioncancel
+中断情况可以看成: transitionrun > transitioncancel
+中断并且完全回退回去(无再次中断的情况发生)的情况可以看成: transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去，无再次中断的情况发生)，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去)，但又再次需要执行这个过度(就是中断了正在中断的过程，但是是在第一次中断的transitionstart开始前就又发生了第二次中断，并且让第二次中断完成)，并且让它执行完，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去)，但又再次需要执行这个过度(就是中断了正在中断的过程，但是是在第一次中断的transitionstart开始后，但没执行完第一次中断，就又发生了第二次中断，并且让第二次中断完成)，并且让它执行完，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionstart > transitionrun > transitioncancel > transitionstart > transitionend
+
+iPhone X的Safari浏览器(从主屏幕打开的)支持的：transitionend
+iPhone X上的其他浏览器与此相同情况
+几个样式属性就会执行几次，padding这种的不会分解成4个(上下左右)
+只要有触发，期间无论发生何种情况，最后就一定会执行一次transitionend
+
+
+
+Mobile for Android
+
+MI2 Android 5.0.2 LRX22G，MIUI 9 7.11.16开发版
+
+火狐支持的：transitionrun、transitionstart、transitionend、transitioncancel
+火狐浏览器每次刷新以及首次加载都会执行一次支持的全部事件(样式属性只会执行第一个样式)
+过度没执行完就中断就会触发transitioncancel
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+火狐的中断情况可以看成: transitionrun > transitioncancel
+火狐的中断并且完全回退回去(无再次中断的情况发生)的情况可以看成: transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去，无再次中断的情况发生)，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去)，但又再次需要执行这个过度(就是中断了正在中断的过程，但是是在第一次中断的transitionstart开始前就又发生了第二次中断，并且让第二次中断完成)，并且让它执行完，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionrun > transitioncancel > transitionstart > transitionend
+transitionstart触发后，但transitionend还没触发，就中断了(会回退回去)，但又再次需要执行这个过度(就是中断了正在中断的过程，但是是在第一次中断的transitionstart开始后，但没执行完第一次中断，就又发生了第二次中断，并且让第二次中断完成)，并且让它执行完，这时事件的全过程是：
+transitionrun > transitionstart > transitionrun > transitioncancel > transitionstart > transitionrun > transitioncancel > transitionstart > transitionend
+
+谷歌浏览器支持的：transitionend
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+首次加载都会执行一次支持的全部事件(样式属性只会执行前两个样式)
+第二次刷新只自动执行了第一个样式属性
+第三次以及之后的刷新后就不会了自动执行了
+当过度的延迟完成之后发生的中断会触发回退，并且回退到初始状态而后触发transitionend，
+过度的延迟完成之前，就不会因为中断而触发transitionend
+从主屏幕启动后，自动执行了第一个样式属性
+
+Edge浏览器、Opera浏览器、MIUI内置浏览器支持的：transitionend
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+首次加载都会执行一次支持的全部事件(自动执行了第一个样式属性)，
+刷新之后就不会了
+当过度的延迟完成之后发生的中断会触发回退，并且回退到初始状态而后触发transitionend，
+过度的延迟完成之前，就不会因为中断而触发transitionend
+
+微信内置浏览器支持的：transitionend
+几个样式属性就会执行几次，padding这种的会分解成4个(上下左右)
+每次刷新以及首次加载都会执行一次支持的全部事件(自动执行了第一个样式属性)，
+当过度的延迟完成之后发生的中断会触发回退，并且回退到初始状态而后触发transitionend，
+过度的延迟完成之前，就不会因为中断而触发transitionend
+
+
+
+    let i1 = 0,
+        i2 = 0,
+        i3 = 0,
+        i4 = 0;
+    CTO.on( '#test1', 'transitionrun', event => {
+        let html = CTO.html( '#test2' ),
+            j = ++i1;
+        if( j == 1 ){
+            CTO.html( '#test2', event.type + '-' + event.propertyName + '-' + j );
+            console.log( event.type + '-' + event.propertyName + '-' + j );
+        }
+        else{
+            CTO.html( '#test2', html + '-' + event.propertyName + '-' + j );
+            console.log( html + '-' + event.propertyName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );
+    CTO.on( '#test1', 'transitionstart', event => {
+        let html = CTO.html( '#test3' ),
+            j = ++i2;
+        if( j == 1 ){
+            CTO.html( '#test3', event.type + '-' + event.propertyName + '-' + j );
+            console.log( event.type + '-' + event.propertyName + '-' + j );
+        }
+        else{
+            CTO.html( '#test3', html + '-' + event.propertyName + '-' + j );
+            console.log( html + '-' + event.propertyName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );
+    CTO.on( '#test1', 'transitionend', event => {
+        let html = CTO.html( '#test4' ),
+            j = ++i3;
+        if( j == 1 ){
+            CTO.html( '#test4', event.type + '-' + event.propertyName + '-' + j );
+            console.log( event.type + '-' + event.propertyName + '-' + j );
+        }
+        else{
+            CTO.html( '#test4', html + '-' + event.propertyName + '-' + j );
+            console.log( html + '-' + event.propertyName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );
+    CTO.on( '#test1', 'transitioncancel', event => {
+        let html = CTO.html( '#test5' ),
+            j = ++i4;
+        if( j == 1 ){
+            CTO.html( '#test5', event.type + '-' + event.propertyName + '-' + j );
+            console.log( event.type + '-' + event.propertyName + '-' + j );
+        }
+        else{
+            CTO.html( '#test5', html + '-' + event.propertyName + '-' + j );
+            console.log( html + '-' + event.propertyName + '-' + j );
+        }
+        CTO.allEStop( event );
+    } );

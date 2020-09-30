@@ -1,0 +1,91 @@
+webpack的htmlWebpackPlugin对象信息
+JS:
+<% let htmlWebpackPluginFiles = htmlWebpackPlugin.files %>
+<% for(const keyName in htmlWebpackPluginFiles) { %>
+<div><%= keyName %>：<%= Object.prototype.toString.call( htmlWebpackPluginFiles[ keyName ] ) %></div>
+<br />
+<% } %>
+输出：
+publicPath：[object String]   ../
+chunks：[object Object]
+js：[object Array]
+css：[object Array]
+manifest：[object Undefined]
+
+
+
+files ---:--- [object Object]
+{
+publicPath ---:--- [object String] "../"
+
+chunks ---:--- [object Object]
+{
+app ---:--- [object Object]
+{
+size ---:--- 11318
+entry ---:--- .././js/app_chunk_da3776a2.js
+hash ---:--- da3776a20ac1041b0866
+css ---:---
+}
+
+commons ---:--- [object Object]
+{
+size ---:--- 454273
+entry ---:--- .././js/commons_chunk_c13919d4.js
+hash ---:--- c13919d48b208ed62020
+css ---:---
+}
+
+manifest ---:--- [object Object]
+{
+size ---:--- 0
+entry ---:--- .././js/manifest_d41d8cd9.js
+hash ---:--- d41d8cd98f00b204e980
+css ---:---
+}
+
+tools ---:--- [object Object]
+{
+size ---:--- 164109
+entry ---:--- .././js/tools_chunk_3a7b4617.js
+hash ---:--- 3a7b4617abf93ca0508a
+css ---:---
+}
+}
+
+js ---:--- [object Array]
+[
+0 ---:--- [object String] ".././js/app_chunk_da3776a2.js"
+1 ---:--- [object String] ".././js/commons_chunk_c13919d4.js"
+2 ---:--- [object String] ".././js/manifest_d41d8cd9.js"
+3 ---:--- [object String] ".././js/tools_chunk_3a7b4617.js"
+]
+
+css ---:--- [object Array]
+[]
+
+manifest ---:--- [object Undefined]
+}
+
+
+
+options ---:--- [object Object]
+{
+template ---:--- [object String]
+templateParameters ---:--- [object Function]
+filename ---:--- [object String] "./pages/webProTpl.html"
+hash ---:--- [object Boolean]
+inject ---:--- [object String]
+compile ---:--- [object Boolean]
+favicon ---:--- [object Boolean]
+minify ---:--- [object Object]
+cache ---:--- [object Boolean]
+showErrors ---:--- [object Boolean]
+chunks ---:--- [object String]
+excludeChunks ---:--- [object Array]
+chunksSortMode ---:--- [object String]
+meta ---:--- [object Object]
+title ---:--- [object String]
+xhtml ---:--- [object Boolean]
+data ---:--- [object Object]
+}

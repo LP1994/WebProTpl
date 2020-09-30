@@ -1,0 +1,16 @@
+let dom = document.createElement( 'input' ), url = window.location.href;
+
+document.body.appendChild( dom );
+dom.setAttribute( 'type', 'text' );
+dom.value = url;
+dom.focus();
+dom.select();
+dom.setSelectionRange( 0, url.length, 'backward' );
+document.execCommand( 'copy' );
+document.body.removeChild( dom );
+
+
+PS：
+以上代码在“长按”的操作中竟然无法复制成功！！！
+但是，一般的“tap”点击却可以成功！！！
+奇怪！！！奇怪！！！奇怪！！！

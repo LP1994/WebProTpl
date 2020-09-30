@@ -1,0 +1,730 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+/*
+一招让网站灰色
+PS：
+1、以下写法，在IE10和IE11中不起作用，但是在IE9以及IE9以下是可以的。
+2、如果不是svg的图片格式，filter在ie浏览器上都不支持。
+3、如果是svg的话，filter也只是在ie10和11上支持。
+*/
+.grayscale {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1) !important;
+    -webkit-filter: grayscale(100%) !important;
+    -khtml-filter: grayscale(100%) !important;
+    -moz-filter: grayscale(100%) !important;
+    -ms-filter: grayscale(100%) !important;
+    -o-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+    /*这种写法专门用于IE9以及IE9以下*/
+    filter: gray !important;
+}
+
+.pcMin {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 1300px) and (-moz-device-pixel-ratio: 1), only screen and (max-width: 1300px) and (-webkit-device-pixel-ratio: 1), only screen and (max-width: 1300px) and (device-pixel-ratio: 1) {
+
+    .pcMin {
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-width: 1300px;
+        height: 100%;
+        min-height: 600px;
+    }
+
+}
+
+.fullS {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.usN {
+    user-select: none;
+}
+
+.boxSC {
+    box-sizing: content-box;
+}
+
+.boxSB {
+    box-sizing: border-box;
+}
+
+.bgC {
+    background-clip: content-box !important;
+    background-origin: content-box !important;
+}
+
+.bgP {
+    background-clip: padding-box !important;
+    background-origin: padding-box !important;
+}
+
+.bgB {
+    background-clip: border-box !important;
+    background-origin: border-box !important;
+}
+
+.ofa {
+    overflow: auto;
+}
+
+.ofh {
+    overflow: hidden;
+}
+
+.ofXa {
+    overflow-x: auto;
+}
+
+.ofYa {
+    overflow-y: auto;
+}
+
+.ofXh {
+    overflow-x: hidden;
+}
+
+.ofYh {
+    overflow-Y: hidden;
+}
+
+.ofXaYh {
+    overflow-x: auto;
+    overflow-Y: hidden;
+}
+
+.ofXhYa {
+    overflow-x: hidden;
+    overflow-Y: auto;
+}
+
+.dC {
+    display: contents;
+}
+
+.dB {
+    display: block;
+}
+
+.dBI {
+    display: block !important;
+}
+
+.dILB {
+    display: inline-block;
+}
+
+.dN {
+    display: none;
+}
+
+.dNI {
+    display: none !important;
+}
+
+.cP {
+    cursor: pointer;
+}
+
+.fL {
+    float: left;
+}
+
+.fR {
+    float: right;
+}
+
+.cB {
+    clear: both;
+}
+
+.cf1 {
+    zoom: 1;
+}
+
+.cf1::after {
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    content: '';
+    line-height: 0;
+    clear: both;
+}
+
+.cf2 {
+    overflow: auto;
+    line-height: 0;
+    zoom: 1;
+}
+
+.cf3 {
+    overflow: hidden;
+    line-height: 0;
+    zoom: 1;
+}
+
+.sLTextE {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.mL2TextE {
+    display: -webkit-box !important;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.mL3TextE {
+    display: -webkit-box !important;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.mL4TextE {
+    display: -webkit-box !important;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.touchAN {
+    touch-action: none;
+    pointer-events: none;
+}
+
+.resizeN {
+    resize: none;
+}
+
+.resizeB {
+    resize: both;
+    overflow: auto;
+}
+
+.resizeH {
+    resize: horizontal;
+    overflow: auto;
+}
+
+.resizeV {
+    resize: vertical;
+    overflow: auto;
+}
+
+.css3HS {
+    transform: translate3d(0, 0, 0);
+    z-index: 2020;
+}
+
+.css3HS1 {
+    backface-visibility: hidden;
+    perspective: 2020px;
+    z-index: 2020;
+}
+
+.WillCC {
+    will-change: contents;
+}
+
+.WillCT {
+    will-change: transform;
+}
+
+.WillCO {
+    will-change: opacity;
+}
+
+.WillCCT {
+    will-change: contents, transform;
+}
+
+.WillCCO {
+    will-change: contents, opacity;
+}
+
+.WillCTO {
+    will-change: transform, opacity;
+}
+
+.rWillC {
+    will-change: auto;
+}
+
+.textI2em {
+    text-indent: 2em;
+}
+
+.tSCircle {
+    -webkit-text-security: circle;
+    text-security: circle;
+}
+
+.tSDisc {
+    -webkit-text-security: disc;
+    text-security: disc;
+}
+
+.tSSquare {
+    -webkit-text-security: square;
+    text-security: square;
+}
+
+.wM-H, .wM-VR *, .wM-VL *, .wM-SR *, .wM-SL * {
+    writing-mode: horizontal-tb;
+}
+
+.wM-VR {
+    writing-mode: vertical-lr;
+}
+
+.wM-VL {
+    writing-mode: vertical-rl;
+}
+
+.wM-SR {
+    writing-mode: sideways-lr;
+}
+
+.wM-SL {
+    writing-mode: sideways-rl;
+}
+
+.dir-LTR {
+    direction: ltr;
+}
+
+.dir-RTL {
+    direction: rtl;
+}
+
+.vwC1 {
+    width: calc(100% / 12);
+    width: calc(100vw / 12);
+}
+
+.vwC2 {
+    width: calc(100% / 12 * 2);
+    width: calc(100vw / 12 * 2);
+}
+
+.vwC3 {
+    width: 25%;
+    width: 25vw;
+}
+
+.vwC4 {
+    width: calc(100% / 12 * 4);
+    width: calc(100vw / 12 * 4);
+}
+
+.vwC5 {
+    width: calc(100% / 12 * 5);
+    width: calc(100vw / 12 * 5);
+}
+
+.vwC6 {
+    width: 50%;
+    width: 50vw;
+}
+
+.vwC7 {
+    width: calc(100% / 12 * 7);
+    width: calc(100vw / 12 * 7);
+}
+
+.vwC8 {
+    width: calc(100% / 12 * 8);
+    width: calc(100vw / 12 * 8);
+}
+
+.vwC9 {
+    width: 75%;
+    width: 75vw;
+}
+
+.vwC10 {
+    width: calc(100% / 12 * 10);
+    width: calc(100vw / 12 * 10);
+}
+
+.vwC11 {
+    width: calc(100% / 12 * 11);
+    width: calc(100vw / 12 * 11);
+}
+
+.vwC12 {
+    width: 100%;
+    width: 100vw;
+}
+
+/*Vue transition过渡效果 Start*/
+
+.vueTVar {
+    /*单位：ms*/
+    --fade-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --fade-toggle-timing-function: linear;
+    --fade-toggle-opacity: 1;
+
+
+    /*单位：ms*/
+    --slide-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --slide-toggle-timing-function: linear;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --slide-toggle-height: calc(250 * 1px);
+
+
+    /*单位：ms*/
+    --show-hide-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --show-hide-toggle-timing-function: linear;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-width: calc(250 * 1px);
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-height: calc(250 * 1px);
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-padding: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-border-width: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-margin: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-outline-width: 0;
+    --show-hide-toggle-opacity: 1;
+
+
+    /*单位：ms*/
+    --scale-center-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --scale-center-toggle-timing-function: linear;
+    --scale-center-toggle-transform: scale(1);
+    --scale-center-toggle-opacity: 1;
+}
+
+
+/*元素的淡入淡出效果 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.fadeToggle-enter-active, .fadeToggle-leave-active {
+    transition: opacity calc(var(--fade-toggle-time) * 1ms) var(--fade-toggle-timing-function);
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.fadeToggle-enter-to, .fadeToggle-leave {
+    opacity: var(--fade-toggle-opacity) !important;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.fadeToggle-enter, .fadeToggle-leave-to {
+    opacity: 0 !important;
+}
+
+/*元素的淡入淡出效果 End*/
+
+
+/*元素上下滑动 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.slideToggle-enter-active, .slideToggle-leave-active {
+    transition: height calc(var(--slide-toggle-time) * 1ms) var(--slide-toggle-timing-function);
+    overflow: hidden;
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.slideToggle-enter-to, .slideToggle-leave {
+    height: var(--slide-toggle-height) !important;
+    overflow: hidden;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.slideToggle-enter, .slideToggle-leave-to {
+    height: 0 !important;
+    overflow: hidden;
+}
+
+/*元素上下滑动 End*/
+
+
+/*元素隐藏、显示 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.showHideToggle-enter-active, .showHideToggle-leave-active {
+    transition: all calc(var(--show-hide-toggle-time) * 1ms) var(--show-hide-toggle-timing-function);
+    overflow: hidden;
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.showHideToggle-enter-to, .showHideToggle-leave {
+    width: var(--show-hide-toggle-width) !important;
+    height: var(--show-hide-toggle-height) !important;
+    padding: var(--show-hide-toggle-padding) !important;
+    border-width: var(--show-hide-toggle-border-width) !important;
+    margin: var(--show-hide-toggle-margin) !important;
+    outline-width: var(--show-hide-toggle-outline-width) !important;
+    opacity: var(--show-hide-toggle-opacity) !important;
+    overflow: hidden;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.showHideToggle-enter, .showHideToggle-leave-to {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    border-width: 0 !important;
+    margin: 0 !important;
+    outline-width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden;
+}
+
+/*元素隐藏、显示 End*/
+
+
+/*元素中心缩小放大的隐藏、显示 Start*/
+
+/* x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程 */
+.scaleCenterToggle-enter-active, .scaleCenterToggle-leave-active {
+    transition: all calc(var(--scale-center-toggle-time) * 1ms) var(--scale-center-toggle-timing-function);
+    overflow: hidden;
+}
+
+/* x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果 */
+.scaleCenterToggle-enter-to, .scaleCenterToggle-leave {
+    transform: var(--scale-center-toggle-transform) !important;
+    opacity: var(--scale-center-toggle-opacity) !important;
+    overflow: hidden;
+}
+
+/* x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果 */
+.scaleCenterToggle-enter, .scaleCenterToggle-leave-to {
+    transform: scale(0) !important;
+    opacity: 0 !important;
+    overflow: hidden;
+}
+
+/*元素中心缩小放大的隐藏、显示 End*/
+
+/*Vue transition过渡效果 End*/

@@ -1,0 +1,8 @@
+1、
+在“G:\WebStormWS\WebProTpl”右键，选中“Git Bash Here”，输入：
+"find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;"(双引号以内的)
+然后会在空文件夹内创建一个名为.gitignore的空文件
+2、
+在“G:\WebStormWS\WebProTpl”右键，选中“Git Bash Here”，输入：
+"find ./ -type f -name '.gitignore' -delete;"(双引号以内的)
+然后会删除所有的.gitignore文件

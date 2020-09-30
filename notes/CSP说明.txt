@@ -1,0 +1,198 @@
+CSP说明：
+1、内容安全策略（CSP），其核心思想十分简单：网站通过发送一个 CSP 头部，来告诉浏览器什么是被授权执行的与什么是需要被禁止的。
+其被誉为专门为解决XSS攻击而生的神器。
+2、内容安全策略 (CSP) 是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (XSS) 和数据注入攻击等。
+无论是数据盗取、网站内容污染还是散发恶意软件，这些攻击都是主要的手段。
+3、CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
+4、CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
+
+
+关键字'self'：当前域名，需要加单引号，也只能是单引号的字符串'self'！！！
+
+
+CSP作用：
+1、限制资源获取
+2、报告资源获取越权
+
+
+
+CSP分类：
+1、Content-Security-Policy
+配置好并启用后，不符合 CSP 的外部资源就会被阻止加载。
+2、Content-Security-Policy-Report-Only
+表示不执行限制选项，只是记录违反限制的行为。它必须与report-uri选项配合使用。
+
+
+
+限制方式：
+1、default-src：
+default-src用来设置上面各个选项的默认值。
+Content-Security-Policy: default-src 'self'
+上面代码限制所有的外部资源，都只能从当前域名加载。如果同时设置某个单项限制（比如font-src）和default-src，前者会覆盖后者，即字体文件会采用font-src的值，
+其他资源依然采用default-src的值。
+
+2、制定限制类型：
+资源类型有：connect-src、mainfest-src、img-src、font-src、media-src、style-src、frame-src、script-src、......
+script-src：外部脚本
+style-src：样式表
+img-src：图像
+media-src：媒体文件（音频和视频）
+font-src：字体文件
+object-src：插件（比如 Flash）
+child-src：框架
+frame-ancestors：嵌入的外部资源（比如<frame>、<iframe>、<embed>和<applet>）
+connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等）
+worker-src：worker脚本
+manifest-src：manifest 文件
+
+3、URL限制：
+有时，网页会跟其他 URL 发生联系，这时也可以加以限制。
+frame-ancestors：限制嵌入框架的网页
+base-uri：限制 <base#href>
+form-action：限制 <form#action>
+
+4、其他限制：
+其他一些安全相关的功能，也放在了 CSP 里面。
+block-all-mixed-content：HTTPS 网页不得加载 HTTP 资源（浏览器已经默认开启）
+upgrade-insecure-requests：自动将网页上所有加载外部资源的 HTTP 链接换成 HTTPS 协议
+plugin-types：限制可以使用的插件格式
+sandbox：浏览器行为的限制，比如不能有弹出窗口等。
+
+5、 report-uri
+有时，我们不仅希望防止 XSS，还希望记录此类行为。report-uri就用来告诉浏览器，应该把注入行为报告给哪个网址。
+Content-Security-Policy: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
+上面代码指定，将注入行为报告给/my_amazing_csp_report_parser这个 URL。
+浏览器会使用POST方法，发送一个JSON对象，下面是一个例子。
+{
+  "csp-report": {
+    "document-uri": "http://example.org/page.html",
+    "referrer": "http://evil.example.com/",
+    "blocked-uri": "http://evil.example.com/evil.js",
+    "violated-directive": "script-src 'self' https://apis.google.com",
+    "original-policy": "script-src 'self' https://apis.google.com; report-uri http://example.org/my_amazing_csp_report_parser"
+  }
+}
+
+
+
+CSP的使用：
+1、在HTTP Header上使用（首选）
+"Content-Security-Policy:" 策略
+"Content-Security-Policy-Report-Only:" 策略
+2、在HTML上使用
+<meta http-equiv="content-security-policy" content="策略">
+<meta http-equiv="content-security-policy-report-only" content="策略">
+Meta 标签与 HTTP 头只是行式不同而作用是一致的，如果 HTTP 头与 Meta 定义同时存在，则优先采用 HTTP 中的定义。
+如果用户浏览器已经为当前文档执行了一个 CSP 的策略，则会跳过 Meta 的定义。如果 META 标签缺少 content 属性也同样会跳过。
+
+
+
+Content-Security-Policy-Report-Only
+除了Content-Security-Policy，还有一个Content-Security-Policy-Report-Only字段，表示不执行限制选项，只是记录违反限制的行为。它必须与report-uri选项配合使用。
+Content-Security-Policy-Report-Only: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
+
+
+
+选项值
+每个限制选项可以设置以下几种值，这些值就构成了白名单。
+
+主机名：example.org，https://example.com:443
+
+路径名：example.org/resources/js/
+
+通配符：*.example.org，*://*.example.com:*（表示任意协议、任意子域名、任意端口）
+
+协议名：https:、data:
+
+关键字'self'：当前域名，需要加单引号
+
+关键字'none'：禁止加载任何外部资源，需要加引号
+
+多个值也可以并列，用空格分隔。
+
+Content-Security-Policy: script-src 'self' https://apis.google.com
+如果同一个限制选项使用多次，只有第一次会生效。
+
+# 错误的写法 script-src https://host1.com; script-src https://host2.com
+# 正确的写法 script-src https://host1.com https://host2.com
+如果不设置某个限制选项，就是默认允许任何值。
+
+
+
+script-src 的特殊值
+除了常规值，script-src还可以设置一些特殊值。注意，下面这些值都必须放在单引号里面。
+
+'unsafe-inline'：允许执行页面内嵌的<script>标签和事件监听函数
+
+unsafe-eval：允许将字符串当作代码执行，比如使用eval、setTimeout、setInterval和Function等函数。
+
+nonce值：每次HTTP回应给出一个授权token，页面内嵌脚本必须有这个token，才会执行
+
+hash值：列出允许执行的脚本代码的Hash值，页面内嵌脚本的哈希值只有吻合的情况下，才能执行。
+
+nonce值的例子如下，服务器发送网页的时候，告诉浏览器一个随机生成的token。
+
+Content-Security-Policy: script-src 'nonce-EDNnf03nceIOfn39fn3e9h3sdfa'
+页面内嵌脚本，必须有这个token才能执行。
+
+<script nonce=EDNnf03nceIOfn39fn3e9h3sdfa> // some code </script>
+hash值的例子如下，服务器给出一个允许执行的代码的hash值。
+
+Content-Security-Policy: script-src 'sha256-qznLcsROx4GACP2dm0UCKCzCG-HiZ1guq6ZZDob_Tng='
+下面的代码就会允许执行，因为hash值相符。
+
+<script>alert('Hello, world.');</script>
+注意，计算hash值的时候，<script>标签不算在内。
+
+除了script-src选项，nonce值和hash值还可以用在style-src选项，控制页面内嵌的样式表。
+
+
+
+注意点
+（1）script-src和object-src是必设的，除非设置了default-src。
+
+因为攻击者只要能注入脚本，其他限制都可以规避。而object-src必设是因为 Flash 里面可以执行外部脚本。
+
+（2）script-src不能使用unsafe-inline关键字（除非伴随一个nonce值），也不能允许设置data:URL。
+
+下面是两个恶意攻击的例子。
+
+<img src="x" onerror="evil()"> <script src="data:text/javascript,evil()"></script>
+（3）必须特别注意 JSONP 的回调函数。
+
+<script src="/path/jsonp?callback=alert(document.domain)//"> </script>
+上面的代码中，虽然加载的脚本来自当前域名，但是通过改写回调函数，攻击者依然可以执行恶意代码。
+
+
+
+CSP使用实例：
+1、一个网站管理者想要所有内容均来自站点的同一个源 (不包括其子域名)
+Content-Security-Policy: default-src 'self'
+
+2、一个网站管理者允许内容来自信任的域名及其子域名 (域名不必须与CSP设置所在的域名相同)
+Content-Security-Policy: default-src 'self' *.trusted.com
+
+3、一个网站管理者允许网页应用的用户在他们自己的内容中包含来自任何源的图片, 但是限制音频或视频需从信任的资源提供者(获得)，所有脚本必须从特定主机服务器获取可信的代码.
+Content-Security-Policy: default-src 'self'; img-src *; media-src media1.com media2.com; script-src userscripts.example.com
+在这里，各种内容默认仅允许从文档所在的源获取, 但存在如下例外:
+图片可以从任何地方加载(注意 “*” 通配符)。
+多媒体文件仅允许从 media1.com 和 media2.com 加载(不允许从这些站点的子域名)。
+可运行脚本仅允许来自于userscripts.example.com。
+
+4、一个线上银行网站的管理者想要确保网站的所有内容都要通过SSL方式获取，以避免攻击者窃听用户发出的请求。
+Content-Security-Policy: default-src https://onlinebanking.jumbobank.com
+该服务器仅允许通过HTTPS方式并仅从onlinebanking.jumbobank.com域名来访问文档。
+
+5、一个在线邮箱的管理者想要允许在邮件里包含HTML，同样图片允许从任何地方加载，但不允许JavaScript或者其他潜在的危险内容(从任意位置加载)。
+Content-Security-Policy: default-src 'self' *.mailsite.com; img-src *
+注意这个示例并未指定script-src。在此CSP示例中，站点通过 default-src 指令的对其进行配置，这也同样意味着脚本文件仅允许从原始服务器获取。
+
+6、CSP的报告(report-only)模式
+为降低部署成本，CSP可以部署为报告(report-only)模式。在此模式下，CSP策略不是强制性的，但是任何违规行为将会报告给一个指定的URI地址。此外，一个报告模式的头部可以用来测试一个修订后的未来将应用的策略而不用实际部署它。
+你可以用Content-Security-Policy-Report-Only HTTP 头部来指定你的策略，像这样：
+Content-Security-Policy-Report-Only: policy
+如果Content-Security-Policy-Report-Only 头部和 Content-Security-Policy 同时出现在一个响应中，两个策略均有效。在Content-Security-Policy 头部中指定的策略有强制性 ，而Content-Security-Policy-Report-Only中的策略仅产生报告而不具有强制性。
+支持CSP的浏览器将始终对于每个企图违反你所建立的策略都发送违规报告，如果策略里包含一个有效的report-uri 指令。
+默认情况下，违规报告并不会发送。为启用发送违规报告，你需要指定 report-uri 策略指令，并提供至少一个URI地址去递交报告：
+Content-Security-Policy: default-src 'self'; report-uri http://reportcollector.example.com/collector.cgi
+然后你需要设置你的服务器能够接收报告，使其能够以你认为恰当的方式存储并处理这些报告。

@@ -1,0 +1,7 @@
+类的实例.constructor === 类.prototype.constructor === 类
+类的实例.__proto__ === 类.prototype
+
+子类.__proto__ === 父类 === 父类.prototype.constructor
+子类.prototype.__proto__ === 父类.prototype
+
+子类实例.__proto__.__proto__ === 子类.prototype.__proto__ === 父类实例.__proto__ === 父类.prototype

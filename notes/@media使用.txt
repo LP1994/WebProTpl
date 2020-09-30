@@ -1,0 +1,84 @@
+媒体类型:
+all
+适用于所有设备。
+print
+适用于在打印预览模式下在屏幕上查看的分页材料和文档。（有关这些格式特定的格式问题的信息，请参阅分页媒体。）
+screen
+主要用于屏幕。
+speech
+用于语音合成器。
+
+
+
+逻辑运算符:
+and
+的and运算符用于组合多个媒体功能在一起成为一个单一的媒体的查询，要求每个链特征，以便返回true为查询是真实的。它还用于加入媒体功能和媒体类型。
+not
+该not运算符用于否定媒体查询，如果查询否则将返回false返回true。如果存在于以逗号分隔的查询列表中，则它将仅取消应用它的特定查询。如果使用not运算符，则还必须指定媒体类型。
+注：该not关键字不能用来否定个人媒体特征的表达，仅在整个媒体查询。
+only
+该only操作仅用于如果整个查询匹配应用样式，并且是防止旧的浏览器应用从选定的样式很有用。如果使用only运算符，则还必须指定媒体类型。
+, （逗号）
+逗号用于将多个媒体查询组合到单个规则中。逗号分隔列表中的每个查询都与其他查询分开处理。因此，如果列表中的任何查询为true，则整个media语句返回true。换句话说，列表的行为类似于逻辑or运算符。
+
+
+
+媒体功能:
+width	视口的宽度(会变，比如：拉伸浏览器窗口)
+height	视口的高度(会变，比如：拉伸浏览器窗口)
+aspect-ratio	视口的宽高比宽高比
+
+orientation	视口的方向
+PS：
+注意：
+此功能与设备方向不对应。在许多设备上以纵向打开软键盘将导致视区变得比高度更宽，从而导致浏览器使用横向样式而不是纵向样式。
+portrait
+视口为纵向方向，即高度大于或等于宽度。
+landscape
+视口处于横向方向，即宽度大于高度。
+笔记本电脑上的谷歌浏览器的模拟器由于设备没有方向传感器！！！
+“orientation”这个属性，更多的是通过宽高比来模拟所谓的方向！！！
+然而，真机有方向传感器！！！以下写法在真机上能保证竖屏和横屏的输出样式！！！
+/*iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 2436x1125 458ppi)宽高 Start*/
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-moz-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait) and (device-pixel-ratio: 3) {
+    #HelloWorld {
+        background-color: #ff23b0;
+    }
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-moz-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (device-pixel-ratio: 3) {
+    #HelloWorld {
+        background-color: #ff2d16;
+    }
+}
+/*iPhone X、iPhone XS、iPhone 11 Pro(5.8英寸 2436x1125 458ppi)宽高 End*/
+// 这次更新的写法，会奇怪的导致横竖屏的图片都被下载！！！但是不影响PWA的启动画面展示，竖屏时自动展示竖屏的图片，横屏时自动展示横屏的图片。
+
+resolution	输出设备的像素密度
+scan	扫描输出设备的过程
+grid	设备是否使用网格或位图屏幕？
+update	输出设备修改内容外观的频率	在媒体查询级别4中添加。
+overflow-block	输出设备如何处理沿块轴溢出视口的内容？	在媒体查询级别4中添加。
+overflow-inline	可以滚动沿着内联轴溢出视口的内容吗？	在媒体查询级别4中添加。
+color	输出设备的每个颜色分量的位数，如果设备不是彩色，则为零
+color-gamut	用户代理和输出设备支持的近似颜色范围	在媒体查询级别4中添加。
+color-index	输出设备的颜色查找表中的条目数，如果设备不使用此类表，则为零
+display-mode	应用程序的显示模式，如Web应用程序清单的display成员中所指定	在Web App Manifest规范中定义。
+monochrome	输出设备的单色帧缓冲区​​中的每像素位数，如果设备不是单色，则为零
+inverted-colors	用户代理或底层操作系统是否反转颜色？	延迟到媒体查询级别5。
+pointer	主要输入机制是指针设备吗？如果是，它的准确程度如何？	在媒体查询级别4中添加。
+hover	主输入机制是否允许用户将鼠标悬停在元素上？	在媒体查询级别4中添加。
+any-pointer	任何可用的输入机制都是指针设备，如果是，它的准确度如何？	在媒体查询级别4中添加。
+any-hover	是否有任何可用的输入机制允许用户将鼠标悬停在元素上？	在媒体查询级别4中添加。
+light-level	环境光线明亮	延迟到媒体查询级别5。
+scripting	脚本（例如，JavaScript）是否可用？	延迟到媒体查询级别5。
+device-width 	(固定的，不变的)输出设备的渲染表面的宽度	媒体查询级别4中不推荐使用。
+device-height 	(固定的，不变的)输出设备的渲染表面的高度	媒体查询级别4中不推荐使用。
+device-aspect-ratio 	输出设备的宽高比	媒体查询级别4中不推荐使用。
+
+iPad Pro 10.5英寸(1668x2224)系列宽高(Tablet)必须在“iPad Pro 12.9英寸(2048x2732)”之后
+
+

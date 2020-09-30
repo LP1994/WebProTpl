@@ -1,0 +1,25 @@
+Edge浏览器BUG
+
+1、关于console.dir(object)
+console.dir(object)
+打印出该对象的所有属性和属性值
+例如：
+let nameList = document.getElementsByName('n1');
+    console.dir(nameList.length);
+    let elem1 = document.createElement('input');
+    elem1.setAttribute('name', 'n1');
+    document.body.appendChild(elem1);
+    console.dir(nameList.length);
+报错信息：
+SCRIPT257: 由于出现错误 80020101 而导致此项操作无法完成。
+改成：
+let nameList = document.getElementsByName('n1');
+    console.log(nameList.length);
+    let elem1 = document.createElement('input');
+    elem1.setAttribute('name', 'n1');
+    document.body.appendChild(elem1);
+    console.log(nameList.length);
+就不会报错了
+因为console.dir要求传入的实参必须是对象！！！
+console.dir(nameList.length);
+传入的不是对象，所以会报错！！！

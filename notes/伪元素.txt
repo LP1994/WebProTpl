@@ -1,0 +1,45 @@
+标准的伪元素的索引节
+::after (:after)
+::backdrop
+::before (:before)
+::cue (:cue)
+::first-letter (:first-letter)
+::first-line (:first-line)
+::grammar-error
+::marker
+::placeholder
+::selection
+
+::-moz-progress-bar
+::-moz-range-progress
+::-moz-range-thumb
+::-moz-range-track
+::-ms-browse
+::-ms-check
+::-ms-clear
+::-ms-expand
+::-ms-fill
+::-ms-fill-lower
+::-ms-fill-upper
+::-ms-reveal
+::-ms-thumb
+::-ms-ticks-after
+::-ms-ticks-before
+::-ms-tooltip
+::-ms-track
+::-ms-value
+::-webkit-progress-bar
+::-webkit-progress-value
+::-webkit-slider-runnable-track
+::-webkit-slider-thumb
+::after (:after)
+::backdrop
+::before (:before)
+::cue (:cue)
+::first-letter (:first-letter)
+::first-line (:first-line)
+::grammar-error
+::placeholder
+::selection
+::slotted()
+::spelling-error

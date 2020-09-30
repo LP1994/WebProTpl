@@ -1,0 +1,147 @@
+facebookexternalhit/1.1 Facebot Twitterbot/1.0
+这两个都是脸书和推特的搜索引擎蜘蛛的UA信息！！！
+
+
+
+------------------------------------------------------------Start
+客户端的请求URL--->/apple-touch-icon.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  'upgrade-insecure-requests': '1',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0',
+  'accept-language': 'zh-cn',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive'
+}
+------------------------------------------------------------End
+------------------------------------------------------------Start
+客户端的请求URL--->/favicon.ico
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  'upgrade-insecure-requests': '1',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0',
+  'accept-language': 'zh-cn',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive'
+}
+------------------------------------------------------------End
+服务器接受到客户端请求！！！
+------------------------------------------------------------Start
+客户端的请求URL--->/SimServer/WebPro/test/static/ico/compressed/ico_192_192.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  'upgrade-insecure-requests': '1',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0',
+  'accept-language': 'zh-cn',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive'
+}
+------------------------------------------------------------End
+服务器接受到客户端请求！！！
+------------------------------------------------------------Start
+客户端的请求URL--->/apple-touch-icon-precomposed.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  'upgrade-insecure-requests': '1',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0',
+  'accept-language': 'zh-cn',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive'
+}
+------------------------------------------------------------End
+
+
+
+------------------------------------------------------------Start
+客户端的请求URL--->/SimServer/WebPro/test/static/ico/startup/iPhoneX_2436_1125.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  accept: '*/*',
+  'accept-language': 'zh-cn',
+  connection: 'keep-alive',
+  'accept-encoding': 'gzip, deflate',
+  'user-agent': 'MobileSafari/604.1 CFNetwork/1120 Darwin/19.0.0'
+}
+------------------------------------------------------------End
+
+CFNetwork
+是ISO中一个比较底层的网络框架，C语言编写，可以控制一些更底层的东西，如各种常用网络协议、socket通讯等，
+我们通常使用的NSURL则更倾向于API数据请求等，虽然框架也提供了一些操作，但是远不如CFNetwork丰富。
+CFNetwork已经接近于UNIX系统的socket通信了，使用CFHttpMessageRef进行HTTP连接的好处就是控制的粒度更细了，
+例如你可以设置SSL连接的PeerName，证书验证的方式，还可以控制每个响应包的接收。不过CFNetwork本质上还是应用层上的封装的通用API。
+使用者可以不用关心底层协议的实际细节。
+目前iOS的网络编程分四层(从上至下)：
+WebKit：属于Cocoa层，苹果很多地方用到的页面渲染引擎WKWebview；
+
+NSURL：也属于Cocoa层，对各类URL请求的封装(NSURLRequest)；
+
+CFNetwork：属于Core Foundation层，基于C的封装，同样的还有CFNetServices(write/readstream)；
+
+BSD sockets：属于OS层，也是基于C的封装；
+
+
+
+Darwin
+是由苹果电脑于2000年所释出的一个开放原始码操作系统。Darwin 是MacOSX 操作环境的操作系统成份。苹果电脑于2000年把Darwin 释出给开放原始码社群。
+现在的Darwin皆可以在苹果电脑的PowerPC 架构和X86 架构下执行，而后者的架构只有有限的驱动程序支援。
+
+
+
+分享到微信时
+客户端的请求URL--->/SimServer/WebPro/test/static/ico/compressed/ico_192_192.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  accept: '*/*',
+  'accept-language': 'zh-cn',
+  connection: 'keep-alive',
+  'accept-encoding': 'gzip, deflate',
+  'user-agent': 'WeChatShareExtensionNew/7.0.8.32 CFNetwork/1121.2.2 Darwin/19.2.0'
+}
+客户端的请求URL--->/SimServer/WebPro/test/pages/HelloWorld.html
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  accept: '*/*',
+  'accept-language': 'zh-cn',
+  connection: 'keep-alive',
+  'accept-encoding': 'gzip, deflate',
+  'user-agent': 'WeChatShareExtensionNew/7.0.8.32 CFNetwork/1121.2.2 Darwin/19.2.0'
+}
+
+
+
+分享到QQ时
+客户端的请求URL--->/SimServer/WebPro/test/static/ico/compressed/ico_192_192.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  accept: 'image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5',
+  'accept-language': 'zh-cn',
+  connection: 'keep-alive',
+  'accept-encoding': 'gzip, deflate',
+  'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 QQShare/8.2.0.617'
+}
+
+
+
+分享到支付宝时
+客户端的请求URL--->/SimServer/WebPro/test/static/ico/compressed/ico_192_192.png
+客户端的请求方法--->GET
+{
+  host: 'localhost:9999',
+  accept: '*/*',
+  'accept-language': 'zh-cn',
+  connection: 'keep-alive',
+  'accept-encoding': 'gzip, deflate',
+  'user-agent': 'ShareExtension/10.1.82.9010 CFNetwork/1121.2.2 Darwin/19.2.0'
+}

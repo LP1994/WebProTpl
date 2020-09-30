@@ -1,0 +1,80 @@
+StyleSheetList
+类数组，每一个成员都是CSSStyleSheet
+item方法，一个number参数，返回对应的CSSStyleSheet
+document.styleSheets获取所有的CSSStyleSheet
+
+
+
+CSSStyleSheet，表示一个样式表或style标签
+对象
+
+addRule方法(IE8)，三个参数
+(selector, rule [, index])
+Example:
+addRule('pre', 'font: 14px verdana')
+// add rule at end
+
+deleteRule方法，一个number参数
+
+insertRule方法，两个参数
+(rule[, index])
+
+removeRule方法(IE9)，一个number参数
+Example:
+removeRule();
+// remove first rule
+
+cssRules属性，返回CSSRuleList(类数组)
+CSSRuleList里头就是样式表或style标签里所有样式规则
+item方法，一个number参数，返回对应的CSSStyleRule(对象)
+
+CSSStyleRule就是具体的一个样式规则
+如：
+main { background-color: transparent; }
+
+cssText属性:
+"main { background-color: transparent; }"
+
+selectorText属性:
+"main"
+
+name属性(火狐浏览器只拥有这个，没有selectorText):
+"main"
+
+
+
+CSSKeyframesRule，一个具体的动画帧
+如：
+@-webkit-keyframes ttt { 100% { opacity: 0; } }
+对象
+
+appendRule方法，一个字符串参数，
+如：
+'30%{width:5px}'
+会把它添加到这个具体的动画帧的末尾
+
+deleteRule方法，一个字符串参数
+如：
+'20%'
+
+findRule方法，一个字符串参数
+如：
+'30%'
+返回：CSSKeyframeRule，动画帧中具体的阶段样式规则
+如：
+30% { width: 5px; }
+
+cssText属性:
+"@-webkit-keyframes ttt { 100% { opacity: 0; } 10% { width: 5px; } 30% { width: 5px; } }"
+
+name属性:动画帧名
+"ttt"
+
+cssRules属性：放回CSSRuleList(类数组)，里头是这个动画帧的所有阶段样式规则
+里头每一个都是CSSKeyframeRule，也就是一个具体的阶段样式规则
+cssText属性:
+"100% { opacity: 0; }"
+
+keyText属性:
+"100%"
+

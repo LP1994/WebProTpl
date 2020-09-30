@@ -1,0 +1,51 @@
+1、Promise.any()
+Promise.any()方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。
+只要参数实例有一个变成fulfilled状态，包装实例就会变成fulfilled状态；
+如果所有参数实例都变成rejected状态，包装实例就会变成rejected状态。
+该方法目前是一个第三阶段的提案 。
+
+Promise.any()抛出的错误，不是一个一般的错误，而是一个 AggregateError 实例。
+它相当于一个数组，每个成员对应一个被rejected的操作所抛出的错误。
+
+PS：
+1、跟Promise.all()恰恰相反！！！
+
+例子(AggregateError)：
+        let resolve1 = Promise.resolve( 'resolve1' ),
+            resolve2 = Promise.resolve( 'resolve2' ),
+            reject1 = Promise.reject( 'reject1' ),
+            reject2 = Promise.reject( 'reject2' );
+
+        Promise.any( [
+                   resolve1,
+                   resolve2,
+                   reject1,
+                   reject2,
+               ] )
+               .then( result => {
+                   // resolve1
+                   console.log( result );
+               } );
+
+        Promise.any( [
+                   reject1,
+                   reject2,
+               ] )
+               .then( result => {
+                   console.dir( result );
+               } )
+               .catch( ( result/*{ errors, stack, message }*/ ) => {
+                   // result的数据类型是AggregateError，继承于Error
+                   console.dir( result );
+
+                   // [ 'reject1', 'reject2' ]
+                   // console.dir( errors );
+
+                   // AggregateError: No one promise resolved
+                   // at new AggregateError (webpack:///./node_modules/core-js/modules/esnext.aggregate-error.js?:20:27)
+                   // at eval (webpack:///./node_modules/core-js/modules/esnext.promise.any.js?:38:33)
+                   // console.log( stack );
+
+                   // No one promise resolved
+                   // console.log( `message--->${ message }` );
+               } );

@@ -1,0 +1,40 @@
+用于iOS就好！！！
+Android用谷歌内置的调试工具就好！！！
+
+启动
+weinre --boundHost localhost --httpPort 8888 --verbose true --debug true
+
+进入浏览器访问
+http://localhost:8888/
+
+成功的话，会看到
+Access Points
+debug client user interface:	http://localhost:8888/client/#anonymous
+documentation:	http://localhost:8888/doc/
+
+在需要调试的页面写入
+<script src = 'http://localhost:8888/target/target-script-min.js#自己起一个唯一的ID'></script>
+如：
+<script src = 'http://localhost:8888/target/target-script-min.js#LMFiOS'></script>
+
+在浏览器访问，开始远程调试
+http://localhost:8888/client/#LMFiOS
+
+
+
+不在用一局域网也能进行调试！！！设置如下
+218.85.24.42
+218.85.24.145
+
+将
+http://localhost:8888/
+映射到公网
+http://218.85.24.42:2444/
+这一步需要路由器或是光猫支持并设置上头的映射
+
+在需要调试的页面写入
+<script src = 'http://218.85.24.42:2444/target/target-script-min.js#LMFiOS'></script>
+
+浏览器访问
+http://218.85.24.42:2444/client/#LMFiOS
+就能开始远程调试

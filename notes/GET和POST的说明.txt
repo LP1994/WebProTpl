@@ -1,0 +1,41 @@
+一、GET请求
+1、请求类型(query)，数据将会以查询字符串的形式拼接到url尾部！！！用jQuery的Ajax发送请求的话，
+不用设置请求头：
+{
+'Content-Type': 'application/json',
+}
+data直接用JSON对象存储需要发给后端的数据
+
+2、请求类型(body)，也就是FormData，用FormData的append方法添加key-value，最后将FormData直接设置给data！！！
+请求头默认就行
+
+
+
+二、POST请求
+1、请求类型(body)
+设置请求头
+{
+'Content-Type': 'application/json',
+}
+需要把传给后端的数据对象进行"JSON字符串化"
+
+2、请求类型(query)
+不用设置请求头：
+{
+'Content-Type': 'application/json',
+}
+data直接用JSON对象存储需要发给后端的数据
+
+
+
+post请求content-type,即数据请求的格式主要设置方式：
+1、application/x-www-form-urlencoded（大多数请求可用：eg：'name=Denzel&age=18'）
+2、multipart/form-data
+3、application/json（json格式对象，eg：{'name':'Denzel','age':'18'}）
+4、text/xml(现在用的很少了，发送xml格式文件或流,webservice请求用的较多)
+
+当用“POST”请求将“FormData”类型的数据传给服务器时，千万别设置请求头"Content-type": "multipart/form-data"，不然会报错！
+
+而且使用jQuery中的Ajax时，还需要：
+contentType: false,
+processData: false,

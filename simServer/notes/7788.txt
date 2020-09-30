@@ -1,0 +1,10 @@
+"type": "module",
+
+输出log
+1>simServer/log/SimServerLog.log
+
+输出error
+2>simServer/log/SimServerError.log
+
+--max-old-space-size=6144
+

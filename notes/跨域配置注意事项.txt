@@ -1,0 +1,8 @@
+当 Access-Control-Allow-Origin:* 时
+不允许使用凭证(即 withCredentials:true)
+
+当 Access-Control-Allow-Origin:* 时，
+只需确保客户端在发出CORS请求时凭据标志的值为false就可以了。
+1、如果请求使用XMLHttpRequest发出，请确保withCredentials为false。
+2、如果使用服务器发送事件，确保EventSource.withCredentials是false（这是默认值）。
+3、如果使用Fetch API，请确保Request.credentials是"omit"。

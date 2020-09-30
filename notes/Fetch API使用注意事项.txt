@@ -1,0 +1,194 @@
+fetch规范与jQuery.ajax()有两种主要区别：
+1、
+当接收到一个代表错误的HTTP状态码时，从fetch()返回的Promise不会被标记为reject，即使该HTTP响应的状态码是404或500。
+相反，它会将Promise状态标记为resolve（但是会将resolve的返回值的ok属性设置为false），仅当网络故障时或请求被阻止时，才会标记为reject。
+
+2、
+默认情况下，fetch不会从服务端发送或接收任何cookies，如果站点依赖于用户session，则会导致未经认证的请求（要发送cookies，必须设置credentials选项）。
+自2017年8月25日起。规范将凭据（“credentials”）的默认值更改为“same-origin”同一源。火狐从61.0B13年开始改变。
+
+
+
+fetch的mode配置项有3个值，如下：
+same-origin：该模式是不允许跨域的，它需要遵守同源策略，否则浏览器会返回一个error告知不能跨域；其对应的response type为basic。
+cors: 该模式支持跨域请求，顾名思义它是以CORS的形式跨域；当然该模式也可以同域请求不需要后端额外的CORS支持；其对应的response 
+type为cors。
+no-cors: 该模式用于跨域请求但是服务器不带CORS响应头，也就是服务端不支持CORS；这也是fetch的特殊跨域请求方式；其对应的response 
+type为opaque。
+针对跨域请求，cors模式是常见跨域请求实现，但是fetch自带的no-cors跨域请求模式则较为陌生，该模式有一个比较明显的特点：
+该模式允许浏览器发送本次跨域请求，但是不能访问响应返回的内容，这也是其response type为opaque透明的原因。
+注意： cors 支持 三种content-type 不支持 application/json
+application/x-www-form-urlencoded
+multipart/form-data
+text/plain
+
+
+
+fetch( 'http://localhost:8081/WebProTpl/assets/doc/json/test/JSONA.json' )
+.then(
+function resolved( response ){
+console.log( 'resolved解决JSON------>Start' );
+console.dir( response );
+console.log( 'resolved解决JSON------>End' );
+return response.text();
+},
+function rejected( error ){
+console.log( 'rejected拒绝JSON------>Start' );
+console.dir( error );
+console.log( 'rejected拒绝JSON------>End' );
+} )
+.then( resJSON => {
+console.log( 'resJSON------>Start' );
+console.dir( JSON.parse( resJSON ) );
+console.log( 'resJSON------>End' );
+} );
+
+
+
+Body类定义了以下方法(这些方法都被Request和Response所实现)以获取body内容，这些方法都会返回一个被解析后的Promise对象和数据。
+
+arrayBuffer()
+// 该方法接收Response流并将其读取完成。它返回一个以一个解析的promise ArrayBuffer。
+// response.arrayBuffer().then(function(buffer) {
+// do something with buffer
+// });
+
+blob()
+// 该方法接受一个Response流并将其读取完成。它返回一个用Blob解析的promise。
+// response.blob().then(function(myBlob) {
+// do something with myBlob
+// var objectURL = URL.createObjectURL(myBlob);
+// myImage.src = objectURL;
+// });
+
+json()
+
+text()
+
+formData()
+// formData()方法Body接收Response流并将其读取完成。它返回一个用FormData对象解析的promise 。
+// 这主要与服务人员有关。如果用户提交表单并且服务工作者截获该请求，您可以例如调用formData()它来获取键值映射，修改某些字段，
+// response.formData()
+// .then(function(formdata) {
+// do something with your formdata
+// });
+
+然后将表单向前发送到服务器（或在本地使用它）。
+
+比起XHR来，这些方法让非文本化的数据使用起来更加简单。
+
+
+
+response说明：
+
+1、response.text()也就是Body.text()
+Body混入的text()方法提供了一个可供读取的"返回流"<Response Stream>, ——它返回一个包含USVString对象(text)的Promise对象，返回结果的编码为UTF-8。
+用来读取文本流！！！
+例子：
+fetch( 'http://localhost:8081/WebProTpl/assets/doc/json/test/JSONA.json' )
+// 使用response.text()会输出返回流“Response Stream”，因为请求的是标准的“.json”文件，可以通过JSON.parse可以转换成JSON对象。
+fetch( 'http://localhost:8081/WebProTpl/assets/doc/json/test/JSON5A.json5' )
+// 使用response.text()会输出返回流“Response Stream”，因为响应头中是“Content-Type: application/octet-stream”，但请求的是标准的“.json5”文件，
+// 通过JSON5.parse可以转换成JSON对象。
+fetch( 'http://127.0.0.1:9999/JSONTestA/' )
+// 使用response.text()会输出返回流“Response Stream”，因为响应头中是“Content-Type: application/json”，通过JSON.parse可以转换成JSON对象。
+// 像这种请求的不是标准文件，只是请求，但是响应头中是“Content-Type: application/json”，只要响应值是标准的JSON的字符串文本，就可以通过JSON.parse可以转换成JSON对象。
+
+2、response.json()也就是Body.json()
+Body混入的json()方法接受一个Response流并将其读取完成。它返回一个promise，它以将正文解析为JSON的结果解析。
+成功的时候返回标准的JSON对象
+注：
+fetch( 'http://localhost:8081/WebProTpl/assets/doc/json/test/JSONA.json' )
+// 使用response.json()会输出标准的JSON对象，因为请求的是标准的“.json”文件，所以response.json()才会成功生效。
+fetch( 'http://localhost:8081/WebProTpl/assets/doc/json/test/JSON5A.json5' )
+// 使用response.json()会报错，因为响应头中是“Content-Type: application/octet-stream”，但请求的是标准的“.json5”文件，
+// 还是得用response.text()然后再通过JSON5.parse可以转换成JSON对象。
+// 即使是“Content-Type: application/json”，但是response.json()貌似还不支持标准的“.json5”文件，只支持标准的“.json”文件
+fetch( 'http://127.0.0.1:9999/JSONTestA/' )
+// 使用response.json()会输出标准的JSON对象，因为响应头中是“Content-Type: application/json”
+// 像这种请求的不是标准文件，只是请求，但是响应头中是“Content-Type: application/json”，只要响应值是标准的JSON的字符串文本，使用response.json()会输出标准的JSON对象
+
+3、response.status
+整数(默认值为200)为response的状态码。
+
+4、response.statusText
+字符串(默认值为'OK')，该值与HTTP状态码消息对应。
+
+5、response.ok
+该属性是来检查response的状态是否在200-299(包括200和299)这个范围内，该属性返回一个Boolean值。
+
+
+
+Headers说明：
+1、
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+myHeaders.append("Content-Length", content.length.toString());
+myHeaders.append("X-Custom-Header", "ProcessThisImmediately");
+2、
+myHeaders = new Headers({
+  "Content-Type": "text/plain",
+  "Content-Length": content.length.toString(),
+  "X-Custom-Header": "ProcessThisImmediately",
+});
+3、
+console.log(myHeaders.has("Content-Type")); // true
+console.log(myHeaders.has("Set-Cookie")); // false
+myHeaders.set("Content-Type", "text/html");
+myHeaders.append("X-Custom-Header", "AnotherValue");
+console.log(myHeaders.get("Content-Length")); // 11
+console.log(myHeaders.getAll("X-Custom-Header")); // ["ProcessThisImmediately", "AnotherValue"]
+myHeaders.delete("X-Custom-Header");
+console.log(myHeaders.getAll("X-Custom-Header")); // [ ]
+方法：
+append() // set()则将使用新值覆盖现有值，而append()将新值附加到值集的末尾。
+
+delete() // 从当前Headers对象中删除标头。
+
+entries() // 返回iterator允许遍历此对象中包含的所有键/值对
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'text/xml');
+myHeaders.append('Vary', 'Accept-Language');
+// Display the key/value pairs
+for (var pair of myHeaders.entries()) {
+   console.log(pair[0]+ ': '+ pair[1]);
+}
+// content-type: text/xml
+// vary: Accept-Language
+
+get() // 返回Headers具有给定名称的对象内标头的所有值的字节字符串。如果Headers对象中不存在请求的标头，则返回null。
+// 函数参数不区分大小写。
+
+getAll() // 自Gecko 52以来已过时（Firefox 52 / Thunderbird 52 / SeaMonkey 2.49）
+
+has() // 返回一个布尔值，说明Headers对象是否包含某个头。
+myHeaders.append('Content-Type', 'image/jpeg');
+myHeaders.has('Content-Type'); // Returns true
+myHeaders.has('Accept-Encoding'); // Returns false
+
+keys() // 返回iterator允许遍历此对象中包含的所有键。
+// Create a test Headers object
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'text/xml');
+myHeaders.append('Vary', 'Accept-Language');
+// Display the keys
+for(var key of myHeaders.keys()) {
+   console.log(key);
+}
+// content-type
+// vary
+
+set()
+set()和append()之间的区别在于，如果指定的标头已存在并接受多个值，set()则使用新值覆盖现有值，而append()将新值附加到值集的末尾。
+
+values() // 返回一个iterator。允许遍历此对象中包含的所有值
+// Create a test Headers object
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'text/xml');
+myHeaders.append('Vary', 'Accept-Language');
+// Display the values
+for (var value of myHeaders.values()) {
+   console.log(value);
+}
+// text/xml
+// Accept-Language

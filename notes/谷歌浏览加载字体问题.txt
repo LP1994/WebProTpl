@@ -1,0 +1,5 @@
+.ttf会报错
+failed to decode downloaded font......
+OTS parsing error: glyf: Failed to parse table
+
+.otf就不会了

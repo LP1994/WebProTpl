@@ -1,0 +1,683 @@
+webp的官方工具使用说明
+
+PS：
+亲测已解决iOS的旋转BUG！！！
+“iPhoneX(兼容模式)顺时针180度”、“iPhoneX(兼容模式)逆时针180度”会出现顺时针旋转90度
+(处理方法：使用fast-exif.js读出Orientation属性为8，然后我们逆时针旋转90度就会使它变为原图的方向)
+
+“iPhoneX(兼容模式)顺时针90度”、“iPhoneX(兼容模式)逆时针270度”会出现旋转180度
+(处理方法：使用fast-exif.js读出Orientation属性为3，然后我们旋转180度就会使它变为原图的方向)
+
+“iPhoneX(兼容模式)顺时针270度”、“iPhoneX(兼容模式)逆时针90度”不会旋转
+(使用fast-exif.js读出Orientation属性为1，不需要转)
+
+“iPhoneX(兼容模式)正竖”会出现逆时针旋转90度
+(处理方法：使用fast-exif.js读出Orientation属性为6，然后我们顺时针旋转90度就会使它变为原图的方向)
+
+
+
+一、cwebp(将图像文件压缩为WebP文件)
+描述：
+输入格式可以是PNG，JPEG，TIFF，WebP或raw Y'CbCr样本。
+注：
+在将大分辨率的jpg转换成webp时，转换后的webp会出现逆时针90度的旋转！！！
+解决方案是命令参数添加"-metadata all"
+以上方案在iPhone X拍出的大分辨率的jpg无用！！！它包含ICC！！！哪怕是添加"-metadata icc"、"-alpha_filter best"也无用！！！
+安卓机上拍出的大分辨率的jpg，它不包含ICC！！！也没出现逆时针90度的旋转！！！
+Windows 10 X64只能使用"-metadata icc"，使用"-metadata all"会报无效警告！
+
+命令格式：
+cwebp [options] input_file -o output_file.webp
+如：
+无损压缩：
+cwebp -lossless -near_lossless 100 -q 100 -z 9 -alpha_q 100 -m 6 -mt -alpha_filter best -exact -metadata icc -o 1.png.webp -- 1.png
+
+
+选项参数说明：
+
+基本选项是：
+
+1、-o string
+指定输出WebP文件的名称。如果省略，cwebp将执行压缩但仅报告统计信息。使用“ - ”作为输出名称将输出定向到'stdout'。
+如：
+-o 1.png.webp
+
+2、-- string
+明确指定输入文件。如果输入文件以“ - ”开头，则此选项很有用。此选项必须出现在命令的最后。否则，它之后的任何其他选项都将被忽略。
+如：
+cwebp -o 1.png.webp -- 1.png
+
+3、-h, -help
+简短的使用摘要。
+如：
+cwebp -h
+
+4、-H, -longhelp
+所有可能选项的摘要。
+如：
+cwebp -H
+
+5、-version
+打印版本号（作为major.minor.revision）并退出。
+如：
+cwebp -version
+
+6、-lossless
+对图像进行编码而不会有任何损失。对于具有完全透明区域的图像，仅当使用该-exact选项时，才会保留不可见像素值（R / G / B或Y / U / V） 。
+如：
+cwebp -lossless
+
+7、-near_lossless int
+指定近无损图像预处理的级别。此选项可调整像素值以帮助压缩，但对视觉质量的影响最小。它会自动触发无损压缩模式。范围是0（最大预处理）到100（没有预处理，默认值）。典型值约为60.请注意，使用-q 100时有损可能会产生更好的结果。
+如：
+cwebp -near_lossless 100
+
+8、-q float
+指定0到100之间RGB通道的压缩因子。默认值为75。
+在有损压缩（默认）的情况下，较小的因子会产生质量较低的较小文件。使用100的值可以获得最佳质量。
+在无损压缩的情况下（由-lossless选项指定），一个小因子可以实现更快的压缩速度，但会产生更大的文件。使用值100可实现最大压缩。
+如：
+cwebp -q 100
+
+9、-z int
+打开无损压缩模式，指定级别在0到9之间，级别0是最快的，9是最慢的。快速模式产生的文件大小比慢速模式大。一个好的默认值是-z 6。此选项实际上是一些质量和方法的预定义设置的快捷方式。如果随后使用选项-q或-m，它们将使此选项的效果无效。
+如：
+cwebp -z 9
+
+10、-alpha_q int
+指定0到100之间的alpha压缩的压缩因子。使用值100实现alpha的无损压缩，而较低的值导致有损压缩。默认值为100。
+如：
+cwebp -alpha_q 100
+
+11、-preset string
+指定一组预定义参数以适合特定类型的源材料。可能的值包括：default, photo, picture, drawing, icon, text.
+由于-preset会覆盖其他参数的值（-q除外），因此该选项最好首先按参数的顺序出现。
+如：
+cwebp -preset 100
+
+12、-m int
+指定要使用的压缩方法。此参数控制编码速度与压缩文件大小和质量之间的权衡。可能的值范围是0到6。默认值为4。当使用更高的值时，编码器将花费更多的时间检查额外的编码可能性并决定质量增益。值越低，处理时间越快，而文件大小越大，压缩质量越低。
+如：
+cwebp -m 6
+
+13、-resize width height
+将源大小调整为width x height的矩形。如果宽度或高度参数中的任何一个（但不是两个）都是0，则将在保留纵横比的情况下计算该值。
+如：
+cwebp -resize 100 100
+
+14、-crop x_position y_position width height
+将源裁剪为位于坐标（x_position，y_position）和尺寸(width x height)的左上角的矩形。此裁剪区域必须完全包含在源矩形内。
+如：
+cwebp -crop 96 96 96 96
+
+15、-mt
+如果可能，使用多线程进行编码。
+如：
+cwebp -mt
+
+16、-low_memory
+通过节省4倍的压缩大小（通常），减少有损编码的内存使用。这将使编码速度变慢，并且输出在大小和失真方面略有不同。此标志仅对方法3和更高版本有效，默认情况下处于关闭状态。请注意，关闭此标志将对位流产生一些副作用：它强制某些位流特性，如分区数（强制为1）。请注意，使用此选项时，cWebP将打印更详细的位流大小报告。
+如：
+cwebp -low_memory
+
+有损选项：
+这些选项仅在进行有损编码时有效（默认情况下，有或没有alpha）。
+
+17、-size int
+指定尝试达到压缩输出的目标大小（以字节为单位）。压缩器将进行多次部分编码，以便尽可能接近该目标。如果同时使用-size和-psnr，则以-size值为准。
+如：
+cwebp -size 10240
+
+18、-psnr float
+指定目标PSNR（以dB为单位）以尝试达到压缩输出。压缩器将进行多次部分编码，以便尽可能接近该目标。如果同时使用-size和-psnr，则以-size值为准。
+如：
+cwebp -psnr 100
+
+19、-pass int
+设置选项-size或-psnr使用的二分法期间要使用的最大传递次数。最大值为10，默认值为1.如果使用选项-size或-psnr，但未指定-pass，则将使用默认值“6”。
+如：
+cwebp -pass 10
+
+20、-af
+打开自动过滤器。该算法将花费额外的时间来优化滤波强度以达到良好平衡的质量。
+如：
+cwebp -af
+
+21、-jpeg_like
+更改内部参数映射以更好地匹配JPEG压缩的预期大小。此标志通常会生成一个与其JPEG等效大小相似的输出文件（对于相同的-q设置），但视觉失真较小。
+如：
+cwebp -jpeg_like
+
+高级选项：
+
+22、-f int
+指定去块过滤器的强度，介于0（无过滤）和100（最大过滤）之间。值为0将关闭任何筛选。较高的值将增加解码图片后应用的过滤过程的强度。值越高，图片显示越平滑。典型值通常在20到50之间。
+如：
+cwebp -f 100
+
+23、-sharpness int
+指定过滤的清晰度（如果使用）。范围是0（最锐利）到7（最不尖锐）。默认值为0。
+如：
+cwebp -sharpness 7
+
+24、-strong
+使用强过滤（如果使用-f选项，则使用过滤）。默认情况下启用强滤波。
+如：
+cwebp -strong
+
+25、-nostrong
+禁用强过滤（如果由于-f选项而使用过滤）并使用简单过滤。
+如：
+cwebp -nostrong
+
+26、-sharp_yuv
+如果需要，使用更准确和更清晰的RGB-> YUV转换。请注意，此过程比默认的“快速”RGB-> YUV转换慢。
+如：
+cwebp -sharp_yuv
+
+27、-sns int
+指定空间噪波造型的振幅。空间噪声整形（简称SNS）是指内置算法的一般集合，用于确定图片的哪个区域应使用相对较少的位，以及在哪里更好地传输这些位。可能的范围从0（算法关闭）到100（最大效果）。默认值为50。
+如：
+cwebp -sns 100
+
+28、-segments int
+更改sns算法分段期间要使用的分区数。段应在1到4的范围内。默认值为4.除非使用-low_memory，否则此选项对方法3及向上没有影响。
+如：
+cwebp -segments 4
+
+29、-partition_limit int
+通过限制某些宏块使用的位的数量来降低质量。范围是0（无降级，默认值）到100（完全降级）。对于中等大的图像，有用的值通常在30-70左右。在vp8格式中，所谓的控制分区限制为512K，用于存储以下信息：宏块是否被跳过，它属于哪个段，它是被编码为intra 4x4还是intra 16x16模式，最后是每个子块要使用的预测模式。对于一个非常大的图像，512K每16x16宏块只留下很少的空间。绝对最小值为每个宏块4位。跳过、分段和模式信息几乎可以使用所有这4位（尽管这种情况不太可能），这对于非常大的图像来说是有问题的。分区限制因子控制最昂贵的模式（4x4内部）的使用频率。这在达到512K限制并显示以下消息时很有用：错误代码：6（分区0_溢出：分区0 0太大，无法容纳512K）。如果使用-partition_限制不足以满足512K约束，则应该使用较少的段，以便为每个宏块保存更多的头位。请参见-segments选项。
+如：
+cwebp -partition_limit 0
+
+记录选项：
+这些选项控制输出级别：
+
+30、-v
+打印额外信息（特别是编码时间）。
+如：
+cwebp -v
+
+31、-print_psnr
+计算并报告平均PSNR（峰值信噪比）。
+如：
+cwebp -print_psnr
+
+32、-print_ssim
+计算并报告平均SSIM（结构相似性度量，有关其他详细信息，请参阅http://en.wikipedia.org/wiki/SSIM）。
+如：
+cwebp -print_ssim
+
+33、-print_lsim
+计算并报告局部相似性度量（并置像素邻居之间的最低误差之和）。
+如：
+cwebp -print_lsim
+
+34、-progress
+报告编码进度百分比。
+如：
+cwebp -progress
+
+35、-quiet
+不要打印任何东西。
+如：
+cwebp -quiet
+
+36、-short
+仅出于测试目的打印简要信息（输出文件大小和PSNR）。
+如：
+cwebp -short
+
+37、-map int
+输出编码信息的附加ASCII映射。可能的映射值范围为1到6.这仅用于帮助调试。
+如：
+cwebp -map 6
+
+其他选项：
+更高级的选项是：
+
+38、-s width height
+指定输入文件实际上包含遵循ITU-R BT.601建议的原始Y'CbCr样本，采用4：2：0线性格式。亮度平面的尺寸宽度为width x height。
+如：
+cwebp -s 100 100
+
+39、-pre int
+指定一些预处理步骤。使用值2将在RGBA-> YUVA转换期间触发与质量相关的伪随机抖动（仅限有损压缩）。
+如：
+cwebp -pre 2
+
+40、-alpha_filter string
+指定α平面的预测过滤方法。在复杂度和缓慢度增加的情况下，fast or best。Default is fast。在内部，使用四个可能的预测（none, horizontal, vertical, gradient）执行alpha过滤。最佳模式将依次尝试每种模式，并选择一种尺寸较小的模式。快速模式只会尝试在不测试所有模式的情况下形成一个先验的猜测。
+如：
+cwebp -alpha_filter best
+
+41、-alpha_method int
+指定用于alpha压缩的算法：0或1.算法0表示无压缩，1表示使用WebP无损格式进行压缩。默认值为1。
+如：
+cwebp -alpha_method 1
+
+42、-exact
+保留透明区域中的RGB值。默认为关闭，以帮助压缩。
+如：
+cwebp -exact
+
+43、-blend_alpha int
+此选项使用十六进制指定的背景颜色将alpha通道（如果存在）与源混合为0xrrggbb。之后将alpha通道重置为不透明值255。
+如：
+cwebp -blend_alpha 255
+
+44、-noalpha
+使用此选项将丢弃Alpha通道。
+如：
+cwebp -noalpha
+
+45、-hint string
+指定有关输入图像类型的提示。可能的值有：photo, picture or graph.
+如：
+cwebp -hint photo
+
+46、-metadata string
+以逗号分隔的元数据列表，用于从输入复制到输出（如果存在）。有效值：all, none, exif, icc, xmp. The default is none.
+请注意，每种输入格式可能不支持所有组合。
+注：
+在将大分辨率的jpg转换成webp时，转换后的webp会出现逆时针90度的旋转！！！
+解决方案是命令参数添加"-metadata all"
+以上方案在iPhone X拍出的大分辨率的jpg无用！！！它包含ICC！！！哪怕是添加"-metadata icc"、"-alpha_filter best"也无用！！！
+安卓机上拍出的大分辨率的jpg，它不包含ICC！！！也没出现逆时针90度的旋转！！！
+Windows 10 X64只能使用"-metadata icc"，使用"-metadata all"会报无效警告！
+如：
+cwebp -metadata all
+
+47、-noasm
+禁用所有程序集优化。
+如：
+cwebp -noasm
+
+
+
+
+
+
+二、dwebp(将WebP文件解压缩为图像文件)
+描述：
+将WebP文件解压缩为PNG，PAM，PPM或PGM图像。
+
+命令格式：
+dwebp [options] input_file.webp
+如：
+dwebp -mt -o 1.webp.png -- 1.webp
+
+
+选项参数说明：
+
+基本选项是：
+
+1、-h
+打印使用摘要。
+如：
+dwebp -h
+
+2、-version
+打印版本号（作为major.minor.revision）并退出。
+如：
+dwebp -version
+
+3、-o string
+指定输出文件的名称（默认为PNG格式）。使用“ - ”作为输出名称将输出定向到'stdout'。
+如：
+dwebp -o 1.webp.png
+
+4、-- string
+明确指定输入文件。如果输入文件以“ - ”开头，则此选项很有用。此选项必须出现在命令的最后。否则，它之后的任何其他选项都将被忽略。
+如：
+cwebp -o 1.webp.png -- 1.webp
+
+5、-bmp
+将输出格式更改为未压缩的BMP。
+如：
+cwebp -bmp
+
+6、-tiff
+将输出格式更改为未压缩的TIFF。
+如：
+cwebp -tiff
+
+7、-pam
+将输出格式更改为PAM（保留alpha）。
+如：
+cwebp -pam
+
+8、-ppm
+将输出格式更改为PPM（丢弃alpha）。
+如：
+cwebp -ppm
+
+9、-pgm
+将输出格式更改为PGM。使用IMC4布局，输出由亮度/色度样本而不是RGB组成。此选项主要用于验证和调试目的。
+如：
+cwebp -pgm
+
+10、-yuv
+将输出格式更改为原始YUV。输出由亮度/色度-U /色度-V样本而不是RGB组成，按顺序保存为单独的平面。此选项主要用于验证和调试目的。
+如：
+cwebp -yuv
+
+11、-nofancy
+不要使用YUV420的花式升级器。这可能会导致锯齿状边缘（尤其是红色边缘），但应该更快。
+如：
+cwebp -nofancy
+
+12、-nofilter
+即使比特流需要，也不要使用环路滤波过程。这可能会在非兼容输出上产生可见块，但它会使解码更快。
+如：
+cwebp -nofilter
+
+13、-dither strength
+指定0到100之间的抖动强度。抖动是应用于有损压缩中的色度分量的后处理效果。它有助于平滑渐变并避免条带伪影。
+如：
+cwebp -dither 100
+
+14、-nodither
+禁用所有抖动（默认）。
+如：
+cwebp -nodither
+
+15、-mt
+如果可能，使用多线程进行解码。
+如：
+cwebp -mt
+
+16、-crop x_position y_position width height
+将解码后的图片裁剪为一个矩形，左上角位于坐标（x_位置，y_位置）和大小（宽度x高度）。此裁剪区域必须完全包含在源矩形中。如果需要，左上角将捕捉到偶数坐标。此选项旨在减少裁剪大型图像所需的内存。注意：裁剪在任何缩放之前应用。
+如：
+cwebp -crop 96 96 96 96
+
+17、-flip(就是以前数学里头的相对于X轴对称)
+垂直翻转解码图像（例如，对于OpenGL纹理很有用）。
+如：
+cwebp -flip
+
+18、-scale width height
+将解码图片重新缩放为尺寸宽x高。此选项主要用于减少解码大图像所需的内存，只需要一个小版本（缩略图，预览等）。注意：裁剪后应用缩放。
+width：最后要指定的宽度
+height：最后要指定的高度
+如：
+cwebp -scale 100 100
+
+19、-v
+打印额外信息（特别是解码时间）。
+如：
+cwebp -v
+
+20、-noasm
+禁用所有程序集优化。
+如：
+cwebp -noasm
+
+
+
+
+
+
+三、gif2webp(将GIF图像转换为WebP)
+描述：
+原来WebP格式也是能保持GIF的动态效果！！！
+
+命令格式：
+gif2webp [options] input_file.gif -o output_file.webp
+如：
+gif2webp -q 100 -m 6 -mt -o 6.gif.webp -- 6.gif
+
+
+选项参数说明：
+
+基本选项是：
+
+1、-o string
+指定输出WebP文件的名称。如果省略，gif2webp将执行转换但仅报告统计信息。使用“ - ”作为输出名称将输出定向到'stdout'。
+如：
+gif2webp -o 2.gif.webp -- 2.gif
+
+2、-- string
+显式指定输入文件。例如，如果输入文件以“-”开头，则此选项很有用。此选项必须出现在最后。以后的任何其他选项都将被忽略。如果输入文件为“-”，则将从“stdin”而不是文件读取数据。
+如：
+gif2webp -o 2.gif.webp -- 2.gif
+
+3、-h, -help
+使用信息
+如：
+gif2webp -h
+
+4、-version
+打印版本号（作为major.minor.revision）并退出。
+如：
+gif2webp -version
+
+5、-lossy
+使用有损压缩对图像进行编码。
+如：
+gif2webp -lossy
+
+6、-mixed
+混合压缩模式：通过启发式地为每个帧选择有损或无损压缩来优化图像压缩。
+如：
+gif2webp -mixed
+
+7、-q float
+为介于0和100之间的RGB通道指定压缩因子。默认值为75。在无损压缩（默认）的情况下，一个小的因素可以加快压缩速度，但会生成一个更大的文件。最大压缩是通过使用值100来实现的。在有损压缩（由-lossy选项指定）的情况下，一个小因素会产生一个质量较低的较小文件。最好的质量是通过使用值100来实现的。
+如：
+gif2webp -q 100
+
+8、-min_size
+尝试通过删除额外的关键帧尽可能地减小输出文件的大小（以在解码过程中可能使用更多资源为代价）。
+如：
+gif2webp -min_size
+
+9、-m int
+指定要使用的压缩方法。此参数控制编码速度与压缩文件大小和质量之间的权衡。可能的值范围是0到6。默认值为4。当使用更高的值时，编码器将花费更多的时间检查额外的编码可能性并决定质量增益。值越低，处理时间越快，而文件大小越大，压缩质量越低。
+如：
+gif2webp -m 6
+
+10、-kmin int, -kmax int
+指定输出动画中连续关键帧（可独立解码的帧）之间的最小和最大距离。该工具将根据需要将一些关键帧插入到输出动画中，以满足此条件。
+kmax值为0将关闭关键帧的插入。kmax值为1将导致所有帧都是关键帧。在这两种特殊情况下都不考虑kmin值。典型值在3到30之间。无损压缩的默认值为kmin=9，kmax=17，无损压缩的默认值为kmin=3，kmax=5。
+这两个选项仅适用于具有大量帧（>50）的动画图像。
+当使用较低的值时，更多的帧将转换为关键帧。这可能导致平均解码一帧所需的帧数减少，从而提高解码性能。但这可能导致文件大小稍大。值越大，解码性能越差，但文件大小越小。
+一些限制：
+kmin < kmax,
+kmin >= kmax / 2 + 1; and
+kmax - kmin <= 30.
+如果不满足任何这些限制，将自动强制执行。
+
+11、-metadata string
+以逗号分隔的元数据列表，用于从输入复制到输出（如果存在）。有效值：all, none, icc, xmp. The default is xmp.
+如：
+gif2webp -metadata all
+
+12、-f int
+仅用于有损编码（由-lossy选项指定）。指定去块过滤器的强度，介于0（无过滤）和100（最大过滤）之间。值为0将关闭任何筛选。较高的值将增加解码图片后应用的过滤过程的强度。值越高，图片显示越平滑。典型值通常在20到50之间。
+如：
+gif2webp -f 100
+
+13、-mt
+如果可能，使用多线程进行编码。
+如：
+gif2webp -mt
+
+14、-loop_compatibility
+如果启用，请以兼容的方式处理M62（含）和Firefox之前的Chrome版本的循环信息。
+如：
+gif2webp -loop_compatibility
+
+15、-v
+打印额外信息。
+如：
+gif2webp -v
+
+16、-quiet
+不要打印任何东西。
+如：
+gif2webp -quiet
+
+
+
+
+
+
+四、img2webp(从一系列输入图像创建动画WebP文件)
+多张图片合成为一张动图的时候，这些多张图片的宽高要一样！！！
+描述：
+img2webp使用动画webp格式压缩图像序列。输入图像可以是png、jpeg、tiff或webp。如果提供单个文件名（不是以字符“-”开头）作为参数，则命令行参数实际上是从此文件标记的。这样可以方便地编写脚本或使用大量参数。
+
+命令格式：
+img2webp [file_level_options] [files] [per_frame_options...]
+img2webp argument_file_name
+如：
+img2webp -loop 0 -d 1000 1.gif.webp -d 1000 -lossless -q 100 -m 6 2.gif.webp -d 1000 -lossless -q 100 -m 6 3.gif.webp -d 1000 -lossless -q 100 -m 6 -o out1.webp
+
+
+选项参数说明：
+
+文件级选项：
+在读取输入帧之前，在压缩过程开始时应用文件级选项。
+
+1、-o string
+指定输出WebP文件的名称。
+如：
+img2webp -o 1.webp
+
+2、-min_size
+对图像进行编码以实现最小尺寸。这将禁用关键帧插入并选择导致每帧最小输出的参数。它默认使用无损压缩，但可以与-q，-m，-lossy或-mixed选项组合使用。
+如：
+img2webp -min_size
+
+3、-kmin int、-kmax int
+指定输出动画中连续关键帧（可独立解码的帧）之间的最小和最大距离。该工具将根据需要将一些关键帧插入到输出动画中，以满足此条件。
+如：
+img2webp -kmin 1
+
+4、-mixed
+混合压缩模式：通过启发式地为每个帧选择有损或无损压缩来优化图像压缩。此全局选项禁用本地选项-lossy和-lossless。
+如：
+img2webp -mixed
+
+5、-loop int
+指定动画应循环的次数。使用0意味着'无限循环'。
+如：
+img2webp -loop 2
+
+6、-v
+更加冗长。
+如：
+img2webp -v
+
+7、-h, -help
+简短的使用摘要。
+如：
+img2webp -h
+
+8、-version
+打印所用相关库的版本号。
+如：
+img2webp -version
+
+每帧选项：
+每帧选项适用于命令行中作为参数的图像。它们可以在每个特定输入图像之前修改任意次数。
+
+9、-d int
+指定图像持续时间（以毫秒为单位）。
+如：
+img2webp -d 3000
+
+10、-lossless(无损), -lossy(有损)
+使用无损或有损压缩模式压缩下一个图像。默认模式是无损的。
+如：
+img2webp -lossless
+
+11、-q float
+指定0到100之间的压缩因子。默认值为75。
+如：
+img2webp -q 100
+
+12、-m int
+指定要使用的压缩方法。此参数控制编码速度与压缩文件大小和质量之间的折衷。可能的值范围为0到6.默认值为4。
+如：
+img2webp -m 6
+
+
+
+
+
+
+五、vwebp(解压缩WebP文件并将其显示在窗口中)
+
+描述：
+解压缩WebP文件并使用OpenGL在窗口中显示它。
+
+命令格式：
+vwebp [options] input_file.webp
+如：
+vwebp -mt -- out1.webp
+
+
+选项参数：
+
+1、-h
+打印使用摘要。
+如：
+vwebp -h
+
+2、-version
+打印版本号并退出。
+如：
+vwebp -version
+
+3、-noicc
+如果存在，请勿使用ICC配置文件。
+如：
+vwebp -noicc
+
+4、-nofancy
+不要使用花哨的YUV420升级版。
+如：
+vwebp -nofancy
+
+5、-nofilter
+禁用环路内过滤。
+如：
+vwebp -nofilter
+
+6、-dither strength
+指定0到100之间的抖动强度。抖动是应用于有损压缩中的色度分量的后处理效果。它有助于平滑渐变并避免条带伪影。默认值：50。
+如：
+vwebp -dither 100
+
+7、-mt
+如果可能，使用多线程进行解码。
+如：
+vwebp -mt
+
+8、-info
+在解码图像的顶部显示图像信息。
+如：
+vwebp -info
+
+9、-- string
+显式指定输入文件。例如，如果输入文件以“-”开头，则此选项很有用。此选项必须出现在最后。以后的任何其他选项都将被忽略。如果输入文件为“-”，则将从stdin而不是文件读取数据。
+如：
+vwebp -- out1.webp
+
+
+键盘快捷键：
+
+10、c
+切换使用颜色配置文件
+
+11、i
+覆盖文件信息
+
+12、d
+禁用混合和处理过程，以进行调试。
+
+13、q / Q / Esc
+退出

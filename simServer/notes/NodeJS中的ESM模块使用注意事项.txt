@@ -1,0 +1,107 @@
+NodeJS中的ESM模块使用注意事项！！！
+
+
+
+data:url的使用：
+“data:url”支持使用以下MIME类型导入：
+1、text/javascript for ES Modules
+2、application/json for JSON
+3、application/wasm for WASM.
+
+PS：
+“data:url”只解析内置模块和绝对说明符的裸说明符。解析相对说明符将不起作用，因为“data:”不是特殊方案。例如，尝试从“data:text/javascript,import './foo';”加载“./foo”将无法解析，因为“data:url”没有相对解析的概念。使用“data:url”的示例如下：
+
+import * as DataURLTest1 from 'data:text/javascript, export let obj1 = { a: "import for data:url Test!!!", };';
+console.dir( DataURLTest1.obj1.a );
+// 输出字符串：'import for data:url Test!!!'
+
+import * as DataURLTest2 from 'data:application/json, { "q": "qqq" }';
+console.dir( DataURLTest2 );
+// 报错了！！！
+internal/modules/run_main.js:54
+    internalBinding('errors').triggerUncaughtException(
+                              ^
+TypeError [ERR_INVALID_RETURN_PROPERTY_VALUE]: Expected string to be returned for the "format" from the "loader getFormat" function but got type object.
+    at Loader.getFormat (internal/modules/esm/loader.js:110:13)
+    at async Loader.getModuleJob (internal/modules/esm/loader.js:192:20)
+    at async ModuleWrap.<anonymous> (internal/modules/esm/module_job.js:44:17)
+    at async Promise.all (index 1)
+    at async link (internal/modules/esm/module_job.js:48:9) {
+  code: 'ERR_INVALID_RETURN_PROPERTY_VALUE'
+}
+
+
+
+import.meta的使用：
+import.meta元属性是一个包含以下属性的对象：
+url <string> 绝对文件：模块的URL。
+
+PS：
+// 'import.meta.url--->file:///G:/WebStormWS/WebProTpl/dist/1.mjs'
+console.dir( `import.meta.url--->${ import.meta.url }` );
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = dirname( __filename );
+// __filename--->G:\WebStormWS\WebProTpl\dist\1.mjs
+console.log( `__filename--->${ __filename }` );
+// __dirname--->G:\WebStormWS\WebProTpl\dist
+console.log( `__dirname--->${ __dirname }` );
+
+
+
+旧版本require.resolve的新的替代用法：
+依靠require.resolve确定模块的解析路径的旧用例可以通过import.meta.resolve来支持，import.meta.resolve是实验性的，并通过--experimental-import-meta-resolve标志来支持：
+(async () => {
+  // 等效于 import.meta.resolve('./dep')
+  await import.meta.resolve('./dep', import.meta.url);
+})();
+PS：
+该功能是异步的，因为Node.js中的ES模块解析器是异步的。通过引入顶级等待，这些用例将变得更容易，因为它们不需要异步函数包装器。
+
+
+
+基于URL的路径：
+ES模块根据URL语义进行解析和缓存。这意味着文件包含特殊字符，例如＃和？。需要逃脱。
+如果用于解析模块的导入说明符具有不同的查询或片段，则模块将被多次加载。
+
+import './foo.mjs?query=1'; // loads ./foo.mjs with query of "?query=1"
+import './foo.mjs?query=2'; // loads ./foo.mjs with query of "?query=2"
+
+目前，只能加载使用file：协议的模块。
+
+
+
+例子：
+import * as DataURLTest1 from 'data:text/javascript, export let obj1 = { a: "import for data:url Test!!!", };';
+
+// 'import for data:url Test!!!'
+console.dir( DataURLTest1.obj1.a );
+
+// import * as DataURLTest2 from 'data:application/json, { "q": "qqq" }';
+// console.dir( DataURLTest2 );
+// 报错！！！
+
+// 'import.meta.url--->file:///G:/WebStormWS/WebProTpl/dist/1.mjs'
+console.log( `import.meta.url--->${ import.meta.url }` );
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = dirname( __filename );
+
+// __filename--->G:\WebStormWS\WebProTpl\dist\1.mjs
+console.log( `__filename--->${ __filename }` );
+// __dirname--->G:\WebStormWS\WebProTpl\dist
+console.log( `__dirname--->${ __dirname }` );
+
+import {
+    createRequire,
+} from 'module';
+
+let fun1 = createRequire( 'file:///G:/WebStormWS/WebProTpl/dist/1.mjs' );
+
+// '[object Function]'
+console.log( Object.prototype.toString.call( fun1 ) );

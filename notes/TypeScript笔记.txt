@@ -1,0 +1,37 @@
+TypeScript笔记
+PS:
+1、function createWatchFactory
+writeLog = function(){};
+
+一、枚举
+知道某个枚举的具体成员数值，但是不确定它映射到枚举里的哪个名字，要想知道这个名字，可以这么做：
+PS：
+1、这种只能用于数字值的枚举。
+例子：
+enum Color { Red = 1, Green, Blue }
+let colorName: string = Color[ 2 ];
+// 显示'Green'因为上面代码里它的值是2
+console.log( colorName );
+
+二、元组
+解构元组，元组可以像数组一样解构；解构后的变量获得对应元组“元素的值”。
+PS：
+虽然文档说是"元素的类型"，但是实际输出的却是"元素的值"。
+
+三、函数参数的解构的默认值
+PS：
+1、在使用模式的函数参数解构及其默认值的设置。
+例子：
+function Fun1( { a: a1 = 0, b: b1 = 1, }: { a: number, b?: number, } = {
+            a: -1,
+            b: -2,
+        } ): object{
+            return {
+                a1,
+                b1,
+            };
+        }
+
+四、不能给类的构造函数的返回值设置数据类型！！！
+
+五、

@@ -1,0 +1,26 @@
+1、
+'use strict'严格模式会在函数内部自动深度的传递严格模式的效果。
+PS：
+function Fun1( x ){
+'use strict';
+function Fun2( y = 1 ){
+console.log( y );
+}
+Fun2();
+}
+说明：
+Fun1里的'use strict'严格模式的效果会传递到Fun2内部！！！
+但是，Fun1里的'use strict'严格模式却不会作用于Fun2的默认函数参数！！！
+所以，Fun1不可以设置默认函数参数，Fun2可以设置默认函数参数！！！
+但是，严格模式下的this还是可以通过call、bind等等来设置的！！！
+
+2、
+只要函数参数使用了默认值、解构赋值、或者扩展运算符，那么函数内部就不能显式设定为严格模式，否则会报错。
+
+3、
+webpack编译后的JS代码会去掉多余的'use strict'，只保留编译前每个文件的顶级'use strict'。
+
+4、
+class内部的方法中存在的'use strict'，在webpack编译后会被删除。
+
+5、

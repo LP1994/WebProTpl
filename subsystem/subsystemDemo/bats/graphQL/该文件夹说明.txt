@@ -1,0 +1,1 @@
+graphQL文件夹下都是用于“微前端架构”中“子系统”动态更新“GraphQL.Schema.json”的bat命令！

@@ -1,0 +1,3 @@
+metaLink文件夹下都是“微前端架构”中“子系统”的HTML文件中<head>标签中公共<meta>标签、<link>标签的提取归纳的.ejs模板文件！
+PS：
+里头变量的具体值由“configures/HTMLConfig.js”中每个“htmlWebpackPlugin”实例的配置项中的“data.metaLinkData”提供！

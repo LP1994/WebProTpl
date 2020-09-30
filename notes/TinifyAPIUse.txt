@@ -1,0 +1,25 @@
+要使用API​​，您必须提供API密钥。您可以通过注册您的姓名和电子邮件地址来 获取API密钥。始终保密API密钥！
+const tinify = require("tinify");
+tinify.key = "0s9wNbBqccdXS2z9x45Z92MLy0t2J6ln";
+
+您可以指示API客户端通过HTTP代理发出所有请求。设置代理服务器的URL，可以选择包含凭据。
+tinify.proxy = "http://user:pass@192.168.0.1:8080";
+
+您可以将任何JPEG或PNG图像上传到Tinify API以进行压缩。我们将自动检测图像类型并相应地使用TinyPNG或TinyJPG引擎进行优化。只要您上传文件或提供图片的URL，就会开始压缩。
+您可以选择本地文件作为源，并将其写入另一个文件。
+const source = tinify.fromFile("unoptimized.jpg");
+source.toFile("optimized.jpg");
+
+您还可以从缓冲区（带二进制的字符串）上传图像并获取压缩的图像数据。
+const fs = require("fs");
+fs.readFile("unoptimized.jpg", function(err, sourceData) {
+  if (err) throw err;
+  tinify.fromBuffer(sourceData).toBuffer(function(err, resultData) {
+    if (err) throw err;
+    // ...
+  });
+});
+
+您可以为图片提供网址，而不必上传图片。
+const source = tinify.fromUrl("https://tinypng.com/images/panda-happy.png");
+source.toFile("optimized.jpg");

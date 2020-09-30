@@ -1,0 +1,462 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+/*中蓝色*/
+.middleBlue-bgColor {
+    background-color: #0078d7;
+}
+
+/*紫红色*/
+.purpleRed-bgColor {
+    background-color: #bf0077;
+}
+
+/*浅紫红色*/
+.lightPurpleRed-bgColor {
+    background-color: #e3008c;
+}
+
+/*浅灰色*/
+.lightGray-bgColor {
+    background-color: #9e9ea0;
+}
+
+/*蓝灰色*/
+.blueGray-bgColor {
+    background-color: #8498a1;
+}
+
+/*锈玫瑰色*/
+.rustyRose-bgColor {
+    background-color: #b89a9c;
+}
+
+/*空五倍子色*/
+.nullGallnut-bgColor {
+    background-color: #9b876c;
+}
+
+/*灰汁色*/
+.lixivium-bgColor {
+    background-color: #bdb292;
+}
+
+/*中灰色*/
+.middleGray-bgColor {
+    background-color: #808082;
+}
+
+/*萨克斯蓝色*/
+.saxBlue-bgColor {
+    background-color: #4f8ca9;
+}
+
+/*蓝绿色*/
+.blueGreen-bgColor {
+    background-color: #018790;
+}
+
+/*深蓝色*/
+.deepBlue-bgColor {
+    background-color: #006395;
+}
+
+/*水蓝色*/
+.waterBlue-bgColor {
+    background-color: #70c6d3;
+}
+
+/*浓蓝色*/
+.thickBlue-bgColor {
+    background-color: #005979;
+}
+
+/*铁青色*/
+.ironCyan-bgColor {
+    background-color: #38416a;
+}
+
+/*砖青色*/
+.brickCyan-bgColor {
+    background-color: #6683af;
+}
+
+/*蓝鼠色*/
+.blueRat-bgColor {
+    background-color: #647996;
+}
+
+/*濡雨色*/
+.immersingRain-bgColor {
+    background-color: #010800;
+}
+
+/*中黄黑色*/
+.middleYellowBlack-bgColor {
+    background-color: #543e31;
+}
+
+/*消炭色*/
+.carbonElimination-bgColor {
+    background-color: #524e4d;
+}
+
+/*鸠羽灰色*/
+.hatoyamaGray-bgColor {
+    background-color: #9d8a8c;
+}
+
+/*青绿灰色*/
+.cyanGreenGray-bgColor {
+    background-color: #97a691;
+}
+
+/*青灰色*/
+.cyanGray-bgColor {
+    background-color: #6b776d;
+}
+
+/*肤黄色*/
+.skinYellow-bgColor {
+    background-color: #f9c270;
+}
+
+/*黄褐色、黄棕色*/
+.yellowBrown-bgColor {
+    background-color: #c28942;
+}
+
+/*咖啡色*/
+.coffee-bgColor {
+    background-color: #713a13;
+}
+
+/*驼黄色*/
+.camelYellow-bgColor {
+    background-color: #b58555;
+}
+
+/*正红色*/
+.positiveRed-bgColor {
+    background-color: #d7210c;
+}
+
+/*薄红色*/
+.thinRed-bgColor {
+    background-color: #f29b87;
+}
+
+/*浓粉色*/
+.thickPink-bgColor {
+    background-color: #f09091;
+}
+
+/*蔷薇色*/
+.rose-bgColor {
+    background-color: #e51863;
+}
+
+/*玫瑰粉色*/
+.rosePink-bgColor {
+    background-color: #ee849a;
+}
+
+/*那不勒斯黄色*/
+.naplesYellow-bgColor {
+    background-color: #d8cb49;
+}
+
+/*深咔叽布色*/
+.deepKhaki-bgColor {
+    background-color: #887610;
+}
+
+/*土著黄色*/
+.aboriginalYellow-bgColor {
+    background-color: #b8a735;
+}
+
+/*芥子色*/
+.mustard-bgColor {
+    background-color: #d6c460;
+}
+
+/*含羞草色*/
+.mimosa-bgColor {
+    background-color: #ecd343;
+}
+
+/*深褐色、深棕色*/
+.deepBrown-bgColor {
+    background-color: #725a00;
+}
+
+/*紫藤色*/
+.wisteria-bgColor {
+    background-color: #7b4f9c;
+}
+
+/*菖蒲色*/
+.calamus-bgColor {
+    background-color: #b978b0;
+}
+
+/*紫水晶色*/
+.amethyst-bgColor {
+    background-color: #7f4985;
+}
+
+/*铬绿色*/
+.chromeGreen-bgColor {
+    background-color: #6bbc79;
+}
+
+/*孔雀石绿色*/
+.malachiteGreen-bgColor {
+    background-color: #008d58;
+}
+
+/*翡翠绿色*/
+.emeraldGreen-bgColor {
+    background-color: #0dad67;
+}
+
+/*青灰绿色*/
+.cyanGrayGreen-bgColor {
+    background-color: #408c6e;
+}
+
+/*海洋绿色*/
+.marineGreen-bgColor {
+    background-color: #17a084;
+}
+
+/*黄金色*/
+.gold-bgColor {
+    background-color: #ffb900;
+}
+
+/*金色*/
+.golden-bgColor {
+    background-color: #ff8c00;
+}
+
+/*亮橙黄色*/
+.brightOrangeYellow-bgColor {
+    background-color: #f7630c;
+}
+
+/*深橙黄色*/
+.deepOrangeYellow-bgColor {
+    background-color: #ca5010;
+}
+
+/*铁锈色*/
+.rust-bgColor {
+    background-color: #da3b01;
+}
+
+/*浅铁锈色*/
+.lightRust-bgColor {
+    background-color: #ef6950;
+}
+
+/*砖红色*/
+.brickRed-bgColor {
+    background-color: #d13438;
+}
+
+/*中红色*/
+.middleRed-bgColor {
+    background-color: #ff4343;
+}
+
+/*浅红色*/
+.lightRed-bgColor {
+    background-color: #e74856;
+}
+
+/*亮玫红色*/
+.brightRoseRed-bgColor {
+    background-color: #ea005e;
+}
+
+/*玫瑰红色*/
+.rosyRed-bgColor {
+    background-color: #c30052;
+}
+
+/*浅兰花紫色*/
+.lightOrchidPurple-bgColor {
+    background-color: #c239b3;
+}
+
+/*兰花紫色*/
+.orchidPurple-bgColor {
+    background-color: #9a0089;
+}
+
+/*紫影色*/
+.purpleShade-bgColor {
+    background-color: #8e8cd8;
+}
+
+/*深紫影色*/
+.deepPurpleShade-bgColor {
+    background-color: #6b69d6;
+}
+
+/*柔和彩虹色*/
+.softIridescent-bgColor {
+    background-color: #8764b8;
+}
+
+/*鸢尾花色*/
+.flowerDeLuce-bgColor {
+    background-color: #744da9;
+}
+
+/*亮酷蓝色*/
+.brightCoolBlue-bgColor {
+    background-color: #0099bc;
+}
+
+/*酷蓝色*/
+.coolBlue-bgColor {
+    background-color: #2d7d9a;
+}
+
+/*海沫绿色*/
+.seaFoamGreen-bgColor {
+    background-color: #00b7c3;
+}
+
+/*浅薄荷色*/
+.lightMint-bgColor {
+    background-color: #00b294;
+}
+
+/*深薄荷色*/
+.deepMint-bgColor {
+    background-color: #018574;
+}
+
+/*浅绿色*/
+.lightGreen-bgColor {
+    background-color: #00cc6a;
+}
+
+/*运动绿色*/
+.sportsGreen-bgColor {
+    background-color: #10893e;
+}
+
+/*灰色*/
+.gray-bgColor {
+    background-color: #7a7574;
+}
+
+/*灰棕色、灰褐色*/
+.grayBrown-bgColor {
+    background-color: #5d5a58;
+}
+
+/*钢蓝色*/
+.steelBlue-bgColor {
+    background-color: #68768a;
+}
+
+/*金属蓝色*/
+.metalBlue-bgColor {
+    background-color: #515c6b;
+}
+
+/*浅苔藓色*/
+.lightMoss-bgColor {
+    background-color: #567c73;
+}
+
+/*苔藓色*/
+.moss-bgColor {
+    background-color: #486860;
+}
+
+/*草绿色*/
+.grassGreen-bgColor {
+    background-color: #498205;
+}
+
+/*绿色*/
+.green-bgColor {
+    background-color: green;
+}
+
+/*天灰色*/
+.skyGray-bgColor {
+    background-color: #767676;
+}
+
+/*雾灰色*/
+.foggyGray-bgColor {
+    background-color: #4c4a48;
+}
+
+/*深灰色*/
+.deepGray-bgColor {
+    background-color: #4a5459;
+}
+
+/*艳绿色*/
+.flamboyantGreen-bgColor {
+    background-color: #647c64;
+}
+
+/*鼠尾草色*/
+.sage-bgColor {
+    background-color: #525e54;
+}
+
+/*沙漠迷彩色*/
+.camoSand-bgColor {
+    background-color: #847545;
+}
+
+/*保护色*/
+.protect-bgColor {
+    background-color: #7e735f;
+}
+
+/*红色*/
+.red-bgColor {
+    background-color: red;
+}
+
+/*黄色*/
+.yellow-bgColor {
+    background-color: yellow;
+}
+
+/*蓝色*/
+.blue-bgColor {
+    background-color: blue;
+}
+
+/*白色*/
+.white-bgColor {
+    background-color: white;
+}
+
+/*黑色*/
+.black-bgColor {
+    background-color: black;
+}
+
+/*透明色*/
+.transparent-bgColor {
+    background-color: transparent;
+}

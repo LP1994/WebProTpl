@@ -1,0 +1,7 @@
+tplEJS文件夹下都是“微前端架构”中“子系统”的.ejs模板文件！
+src/tplEJS/basic/metaLink文件夹下都是HTML文件中<head>标签中公共<meta>标签、<link>标签的提取归纳的.ejs模板文件！
+
+PS：
+src/tplEJS/pages/HelloWorld.ejs是个参考的模板！实际开发时只要先复制后！
+改完文件名再修改里面的几个变量就能使用了！！！
+src/tplEJS/basic/metaLink/HelloWorld.ejs同上！！！

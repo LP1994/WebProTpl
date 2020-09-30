@@ -1,0 +1,89 @@
+使得animation与transition更加顺畅
+
+
+
+开启硬件加速
+-khtml-transform: translate3d(0, 0, 0);
+-o-transform: translate3d(0, 0, 0);
+-ms-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0);
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+
+
+
+使用3D硬件加速提升动画性能时，最好给元素增加一个z-index属性，人为干扰复合层的排序，
+可以有效减少chrome创建不必要的复合层，提升渲染性能，移动端优化效果尤为明显。
+z-index: 1;  // 可以设大点，尽量设得比后面元素的z-index值高
+
+
+
+最近浏览器提出了一个 will-change 属性，该属性允许开发者告知浏览器哪一个属性即将发生变化，从而为浏览器对该属性进行优化提供了时间。
+CSS 属性 will-change 为web开发者提供了一种告知浏览器该元素会有哪些变化的方法，
+这样浏览器可以在元素属性真正发生变化之前提前做好对应的优化准备工作。
+这种优化可以将一部分复杂的计算工作提前准备好，使页面的反应更为快速灵敏。
+will-change: transform;
+用好这个属性并不是很容易：
+1、不要将 will-change 应用到太多元素上：
+浏览器已经尽力尝试去优化一切可以优化的东西了。有一些更强力的优化，如果与 will-change 结合在一起的话，有可能会消耗很多机器资源，
+如果过度使用的话，可能导致页面响应缓慢或者消耗非常多的资源。
+2、有节制地使用：
+通常，当元素恢复到初始状态时，浏览器会丢弃掉之前做的优化工作。但是如果直接在样式表中显式声明了 will-change 属性，
+则表示目标元素可能会经常变化，浏览器会将优化工作保存得比之前更久。所以最佳实践是当元素变化之前和之后通过脚本来切换 will-change 的值。
+3、不要过早应用 will-change 优化：
+如果你的页面在性能方面没什么问题，则不要添加 will-change 属性来榨取一丁点的速度。
+will-change 的设计初衷是作为最后的优化手段，用来尝试解决现有的性能问题。它不应该被用来预防性能问题。
+过度使用 will-change 会导致大量的内存占用，并会导致更复杂的渲染过程，因为浏览器会试图准备可能存在的变化过程。这会导致更严重的性能问题。
+4、给它足够的工作时间：
+这个属性是用来让页面开发者告知浏览器哪些属性可能会变化的。然后浏览器可以选择在变化发生前提前去做一些优化工作。
+所以给浏览器一点时间去真正做这些优化工作是非常重要的。使用时需要尝试去找到一些方法提前一定时间获知元素可能发生的变化，
+然后为它加上 will-change 属性。
+样式表中直接添加了 will-change 属性，会导致浏览器将对应的优化工作一直保存在内存中，这其实是不必要的，
+前面我们已经看过为什么应该避免这样的做法。
+下面是另一个展示如何使用脚本正确地应用 will-change 属性的示例，在大部分的场景中，你都应该这样做。
+var el = document.getElementById('element');
+// 当鼠标移动到该元素上时给该元素设置 will-change 属性
+el.addEventListener('mouseenter', hintBrowser);
+// 当 CSS 动画结束后清除 will-change 属性
+el.addEventListener('animationEnd', removeHint);
+function hintBrowser() {
+  // 填写上那些你知道的，会在 CSS 动画中发生改变的 CSS 属性名们
+  this.style.willChange = 'transform, opacity';
+}
+function removeHint() {
+  this.style.willChange = 'auto';
+}
+will-change: contents
+表示作者希望在不久的将来对元素的内容进行动画处理或更改。
+如：
+will-change: contents,opacity,transform
+
+
+
+使用这个时
+-khtml-transform: translateZ(0);
+-o-transform: translateZ(0);
+-ms-transform: translateZ(0);
+-moz-transform: translateZ(0);
+-webkit-transform: translateZ(0);
+transform: translateZ(0);
+对于safari以及chrome，可能会在使用animation或者transition时出现闪烁的问题，可以使用以下的解决方法:
+-khtml-backface-visibility: hidden;
+-o-backface-visibility: hidden;
+-ms-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+-khtml-perspective: 1000px;
+-o-perspective: 1000px;
+-ms-perspective: 1000px;
+-moz-perspective: 1000px;
+-webkit-perspective: 1000px;
+perspective: 1000px;
+webkit上也可以用以下语句
+-khtml-transform: translate3d(0, 0, 0);
+-o-transform: translate3d(0, 0, 0);
+-ms-transform: translate3d(0, 0, 0);
+-moz-transform: translate3d(0, 0, 0);
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);

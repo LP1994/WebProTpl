@@ -1,0 +1,33 @@
+JS代码中请求的写法，如：
+目标请求：
+http://sjjx.qqplayerjx.com/m3u8/index.php?url=https://cdn.letv-cdn.com/20181010/OKIYLmGF/index.m3u8
+JS运行的域名：
+http://localhost:8082
+
+CTO.getJSONAjax( '/m3u8/index.php?url=https://cdn.letv-cdn.com/20181010/OKIYLmGF/index.m3u8', {
+success: ( event, xhr, response ) => {
+console.dir( xhr );
+console.dir( response );
+}
+} );
+
+配置中对应的写法：
+'/m3u8/*': {
+target: 'http://sjjx.qqplayerjx.com',
+changeOrigin: true,
+router: {
+'http://localhost:8082': 'http://sjjx.qqplayerjx.com'
+},
+onProxyReq: function( proxyReq, req, res ){
+},
+onProxyRes: function( proxyRes, req, res ){
+},
+onError: function( err, req, res ){
+},
+onProxyReqWs: function( proxyReq, req, socket, options, head ){
+},
+onOpen: function( proxySocket ){
+},
+onClose: function( res, socket, head ){
+}
+}

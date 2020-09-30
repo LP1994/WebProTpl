@@ -1,0 +1,2 @@
+pwa4Manifest文件夹下都是“微前端架构”中“子系统”的.json格式的用于PWA的Manifest配置文件！
+命名的末尾格式是“.manifest.json”

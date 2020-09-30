@@ -1,0 +1,91 @@
+{
+    "projects": {
+        "SN_ProA": {
+            "name": "SN_ProA",
+            "schemaPath": "./src/graphQL/GraphQL.Schema.json",
+            "includes": [
+                "./src/graphQL/api/**",
+                "./src/graphQL/test/**"
+            ],
+            "excludes": [
+                "./src/graphQL/doc/**"
+            ],
+            "extensions": {
+                "endpoints": {
+                    "devURL": {
+                        "url": "http://192.168.1.144:8081/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "devURL8099": {
+                        "url": "http://192.168.1.144:8099/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL8099",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "devURL8099A": {
+                        "url": "http://192.168.137.135:8099/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL8099A",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "testURL": {
+                        "url": "http://192.168.1.101:8080/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for testURL",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "devURL2Natapp": {
+                        "url": "http://sn2020a.nat300.top/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL2Natapp",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "devURL4DLG1": {
+                        "url": "http://192.168.137.77:8090/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL4DLG1",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "devURL4LX1": {
+                        "url": "http://192.168.137.217:8090/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL4LX1",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    },
+                    "devURL4DHT": {
+                        "url": "http://192.168.1.147:8081/graphql",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "user-agent": "SN_ProA JS GraphQL for devURL4DHT",
+                            "Accept-Encoding": "gzip"
+                        },
+                        "introspect": false
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,633 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+.gridBox {
+    display: grid;
+}
+
+.gridILBox {
+    display: inline-grid;
+}
+
+.gridS {
+    justify-items: start;
+    align-items: start;
+}
+
+.gridSC {
+    justify-items: start;
+    align-items: center;
+}
+
+.gridSE {
+    justify-items: start;
+    align-items: end;
+}
+
+.gridSBL {
+    justify-items: start;
+    align-items: baseline;
+}
+
+.gridSStr {
+    justify-items: start;
+    align-items: stretch;
+}
+
+.gridCS {
+    justify-items: center;
+    align-items: start;
+}
+
+.gridC {
+    justify-items: center;
+    align-items: center;
+}
+
+.gridCE {
+    justify-items: center;
+    align-items: end;
+}
+
+.gridCBL {
+    justify-items: center;
+    align-items: baseline;
+}
+
+.gridCStr {
+    justify-items: center;
+    align-items: stretch;
+}
+
+.gridES {
+    justify-items: end;
+    align-items: start;
+}
+
+.gridEC {
+    justify-items: end;
+    align-items: center;
+}
+
+.gridE {
+    justify-items: end;
+    align-items: end;
+}
+
+.gridEBL {
+    justify-items: end;
+    align-items: baseline;
+}
+
+.gridEStr {
+    justify-items: end;
+    align-items: stretch;
+}
+
+.gridBLS {
+    justify-items: baseline;
+    align-items: start;
+}
+
+.gridBLC {
+    justify-items: baseline;
+    align-items: center;
+}
+
+.gridBLE {
+    justify-items: baseline;
+    align-items: end;
+}
+
+.gridBL {
+    justify-items: baseline;
+    align-items: baseline;
+}
+
+.gridBLStr {
+    justify-items: baseline;
+    align-items: stretch;
+}
+
+.gridStrS {
+    justify-items: stretch;
+    align-items: start;
+}
+
+.gridStrC {
+    justify-items: stretch;
+    align-items: center;
+}
+
+.gridStrE {
+    justify-items: stretch;
+    align-items: end;
+}
+
+.gridStrBL {
+    justify-items: stretch;
+    align-items: baseline;
+}
+
+.gridStr {
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.gridIS {
+    justify-self: start;
+    align-self: start;
+}
+
+.gridISC {
+    justify-self: start;
+    align-self: center;
+}
+
+.gridISE {
+    justify-self: start;
+    align-self: end;
+}
+
+.gridISBL {
+    justify-self: start;
+    align-self: baseline;
+}
+
+.gridISStr {
+    justify-self: start;
+    align-self: stretch;
+}
+
+.gridICS {
+    justify-self: center;
+    align-self: start;
+}
+
+.gridIC {
+    justify-self: center;
+    align-self: center;
+}
+
+.gridICE {
+    justify-self: center;
+    align-self: end;
+}
+
+.gridICBL {
+    justify-self: center;
+    align-self: baseline;
+}
+
+.gridICStr {
+    justify-self: center;
+    align-self: stretch;
+}
+
+.gridIES {
+    justify-self: end;
+    align-self: start;
+}
+
+.gridIEC {
+    justify-self: end;
+    align-self: center;
+}
+
+.gridIE {
+    justify-self: end;
+    align-self: end;
+}
+
+.gridIEBL {
+    justify-self: end;
+    align-self: baseline;
+}
+
+.gridIEStr {
+    justify-self: end;
+    align-self: stretch;
+}
+
+.gridIBLS {
+    justify-self: baseline;
+    align-self: start;
+}
+
+.gridIBLC {
+    justify-self: baseline;
+    align-self: center;
+}
+
+.gridIBLE {
+    justify-self: baseline;
+    align-self: end;
+}
+
+.gridIBL {
+    justify-self: baseline;
+    align-self: baseline;
+}
+
+.gridIBLStr {
+    justify-self: baseline;
+    align-self: stretch;
+}
+
+.gridIStrS {
+    justify-self: stretch;
+    align-self: start;
+}
+
+.gridIStrC {
+    justify-self: stretch;
+    align-self: center;
+}
+
+.gridIStrE {
+    justify-self: stretch;
+    align-self: end;
+}
+
+.gridIStrBL {
+    justify-self: stretch;
+    align-self: baseline;
+}
+
+.gridIStr {
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+.grid-JCAC-S {
+    justify-content: start;
+    align-content: start;
+}
+
+.grid-JCAC-SC {
+    justify-content: start;
+    align-content: center;
+}
+
+.grid-JCAC-SE {
+    justify-content: start;
+    align-content: end;
+}
+
+.grid-JCAC-SBL {
+    justify-content: start;
+    align-content: baseline;
+}
+
+.grid-JCAC-SStr {
+    justify-content: start;
+    align-content: stretch;
+}
+
+.grid-JCAC-SSB {
+    justify-content: start;
+    align-content: space-between;
+}
+
+.grid-JCAC-SSA {
+    justify-content: start;
+    align-content: space-around;
+}
+
+.grid-JCAC-SSE {
+    justify-content: start;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-CS {
+    justify-content: center;
+    align-content: start;
+}
+
+.grid-JCAC-C {
+    justify-content: center;
+    align-content: center;
+}
+
+.grid-JCAC-CE {
+    justify-content: center;
+    align-content: end;
+}
+
+.grid-JCAC-CBL {
+    justify-content: center;
+    align-content: baseline;
+}
+
+.grid-JCAC-CStr {
+    justify-content: center;
+    align-content: stretch;
+}
+
+.grid-JCAC-CSB {
+    justify-content: center;
+    align-content: space-between;
+}
+
+.grid-JCAC-CSA {
+    justify-content: center;
+    align-content: space-around;
+}
+
+.grid-JCAC-CSE {
+    justify-content: center;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-ES {
+    justify-content: end;
+    align-content: start;
+}
+
+.grid-JCAC-EC {
+    justify-content: end;
+    align-content: center;
+}
+
+.grid-JCAC-E {
+    justify-content: end;
+    align-content: end;
+}
+
+.grid-JCAC-EBL {
+    justify-content: end;
+    align-content: baseline;
+}
+
+.grid-JCAC-EStr {
+    justify-content: end;
+    align-content: stretch;
+}
+
+.grid-JCAC-ESB {
+    justify-content: end;
+    align-content: space-between;
+}
+
+.grid-JCAC-ESA {
+    justify-content: end;
+    align-content: space-around;
+}
+
+.grid-JCAC-ESE {
+    justify-content: end;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-BLS {
+    justify-content: baseline;
+    align-content: start;
+}
+
+.grid-JCAC-BLC {
+    justify-content: baseline;
+    align-content: center;
+}
+
+.grid-JCAC-BLE {
+    justify-content: baseline;
+    align-content: end;
+}
+
+.grid-JCAC-BL {
+    justify-content: baseline;
+    align-content: baseline;
+}
+
+.grid-JCAC-BLStr {
+    justify-content: baseline;
+    align-content: stretch;
+}
+
+.grid-JCAC-BLSB {
+    justify-content: baseline;
+    align-content: space-between;
+}
+
+.grid-JCAC-BLSA {
+    justify-content: baseline;
+    align-content: space-around;
+}
+
+.grid-JCAC-BLSE {
+    justify-content: baseline;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-StrS {
+    justify-content: stretch;
+    align-content: start;
+}
+
+.grid-JCAC-StrC {
+    justify-content: stretch;
+    align-content: center;
+}
+
+.grid-JCAC-StrE {
+    justify-content: stretch;
+    align-content: end;
+}
+
+.grid-JCAC-StrBL {
+    justify-content: stretch;
+    align-content: baseline;
+}
+
+.grid-JCAC-Str {
+    justify-content: stretch;
+    align-content: stretch;
+}
+
+.grid-JCAC-StrSB {
+    justify-content: stretch;
+    align-content: space-between;
+}
+
+.grid-JCAC-StrSA {
+    justify-content: stretch;
+    align-content: space-around;
+}
+
+.grid-JCAC-StrSE {
+    justify-content: stretch;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-SBS {
+    justify-content: space-between;
+    align-content: start;
+}
+
+.grid-JCAC-SBC {
+    justify-content: space-between;
+    align-content: center;
+}
+
+.grid-JCAC-SBE {
+    justify-content: space-between;
+    align-content: end;
+}
+
+.grid-JCAC-SBBL {
+    justify-content: space-between;
+    align-content: baseline;
+}
+
+.grid-JCAC-SBStr {
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+.grid-JCAC-SB {
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.grid-JCAC-SBSA {
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.grid-JCAC-SBSE {
+    justify-content: space-between;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-SAS {
+    justify-content: space-around;
+    align-content: start;
+}
+
+.grid-JCAC-SAC {
+    justify-content: space-around;
+    align-content: center;
+}
+
+.grid-JCAC-SAE {
+    justify-content: space-around;
+    align-content: end;
+}
+
+.grid-JCAC-SABL {
+    justify-content: space-around;
+    align-content: baseline;
+}
+
+.grid-JCAC-SAStr {
+    justify-content: space-around;
+    align-content: stretch;
+}
+
+.grid-JCAC-SASB {
+    justify-content: space-around;
+    align-content: space-between;
+}
+
+.grid-JCAC-SA {
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.grid-JCAC-SASE {
+    justify-content: space-around;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-SES {
+    justify-content: space-evenly;
+    align-content: start;
+}
+
+.grid-JCAC-SEC {
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.grid-JCAC-SEE {
+    justify-content: space-evenly;
+    align-content: end;
+}
+
+.grid-JCAC-SEBL {
+    justify-content: space-evenly;
+    align-content: baseline;
+}
+
+.grid-JCAC-SEStr {
+    justify-content: space-evenly;
+    align-content: stretch;
+}
+
+.grid-JCAC-SESB {
+    justify-content: space-evenly;
+    align-content: space-between;
+}
+
+.grid-JCAC-SESA {
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.grid-JCAC-SESE {
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.gridAFC {
+    grid-auto-flow: column;
+}
+
+.gridAFR {
+    grid-auto-flow: row;
+}
+
+.gridAFD {
+    grid-auto-flow: dense;
+}
+
+.gridAFCD {
+    grid-auto-flow: column dense;
+}
+
+.gridAFRD {
+    grid-auto-flow: row dense;
+}
+
+.grid-wMH, .grid-wMVR *, .grid-wMVL *, .grid-wMSR *, .grid-wMSL * {
+    writing-mode: horizontal-tb;
+}
+
+.grid-wMVR {
+    writing-mode: vertical-lr;
+}
+
+.grid-wMVL {
+    writing-mode: vertical-rl;
+}
+
+.grid-wMSR {
+    writing-mode: sideways-lr;
+}
+
+.grid-wMSL {
+    writing-mode: sideways-rl;
+}
+
+.grid-dirLTR {
+    direction: ltr;
+}
+
+.grid-dirRTL {
+    direction: rtl;
+}

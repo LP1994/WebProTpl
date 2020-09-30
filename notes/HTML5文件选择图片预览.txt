@@ -1,0 +1,8 @@
+<input type = 'file' name = 'fileA' id = 'fileTestA' multiple = 'multiple' />
+选择完图片实现图片预览功能，注意一定要等FileReader读取完成后，再进行赋值，不然图片的src属性会是空的
+如：
+let fileReader = new FileReader();
+fileReader.readAsDataURL(document.querySelector('#fileTestA').files[0]);
+fileReader.onload = function(){
+document.querySelector('input[type="image"]').src = this.result;
+}

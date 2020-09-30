@@ -1,0 +1,148 @@
+注：
+IE8/IE9、Opera Mini 完全不支持XHR对象
+IE10/IE11部分支持，不支持XHR.responseType为json
+部分浏览器不支持设置请求超时，即无法使用xhr.timeout
+部分浏览器不支持XHR.responseType为blob
+
+
+
+XHR.readyState
+值  状态                  说明
+0	UNSENT	             实例化了XMLHttpRequest但未执行open()、未发送
+1	OPENED	             已经执行了open()
+2	HEADERS_RECEIVED	 send()已被调用，标题和状态可用。
+3	LOADING	             下载; responseText持有部分数据。
+4	DONE	             操作完成。
+IE特有的：
+0   READYSTATE_UNINITIALIZED
+1   READYSTATE_LOADING
+2   READYSTATE_LOADED
+3   READYSTATE_INTERACTIVE
+4   READYSTATE_COMPLETE
+
+
+
+XHR.responseType
+该XMLHttpRequest属性responseType是一个枚举字符串值，用于指定响应中包含的数据类型。它还允许作者更改响应类型。
+如果将空字符串设置为responseType值，则使用"text"作为默认值。
+值	             xhr.response的数据类型    说明
+""	             String字符串	          默认值(在不设置responseType时)
+"text"	         String字符串
+"document"	     Document对象	          希望返回 XML 格式数据时使用
+"json"	         javascript对象            存在兼容性问题，IE10/IE11不支持
+"blob"	         Blob对象
+"arrayBuffer"	 ArrayBuffer对象
+如：
+请求后台服务器的1.xml，数据类型是XML类型
+JS代码：
+XHR.overrideMimeType('text/xml;charset=utf-8'),
+XHR.responseType: 'document',
+响应数据会是一个Document对象的数据，数据支持文档操作
+
+
+XHR.overrideMimeType()
+overrideMimeType是“XHR Level 1”就有的方法，所以浏览器兼容性良好。这个方法的作用就是用来重写response的content-type，
+这样做有什么意义呢？比如：
+server端给客户端返回了一份document或者是xml文档，我们希望最终通过XHR.response拿到的就是一个DOM对象，
+那么就可以用XHR.overrideMimeType('text/xml; charset = utf-8')来实现。
+
+
+
+添加contentType: "application/json"之后，向后台发送数据的格式必须为“json字符串”。
+不添加contentType: "application/json"的时候可以向后台发送“json对象”形式
+如：
+$.ajax({
+    contentType: "application/json",
+    data: "{'name':'zhangsan','age':'15'}",
+    dataType: "json"
+});
+$.ajax({
+    data:{name:'zhangsan',age:'15'},
+    dataType: "json"
+})
+
+
+
+只读XHR.status属性(number)返回XHR响应的数字状态代码。在请求完成之前，值status将是0。浏览器在XHR错误的情况下报告状态为0。
+返回的状态代码是标准HTTP状态代码。例如，status 200表示成功请求。如果服务器响应未明确指定状态代码，XHR.status则将采用默认值200。
+如果请求readyState处于UNSENT(实例化了XMLHttpRequest但未执行open()、未发送)或OPENED(已经执行了open())状态，
+则值status将为0。
+XHR.onprogress事件(LOADING) 返回200
+XHR.onload事件(DONE) 返回200
+
+
+
+只读XHR.statusText属性(string)返回包含HTTP服务器返回的响应状态消息。与XHR.status表示数字状态代码不同，此属性包含响应状态的文本，
+例如“OK”或“Not Found”。如果请求readyState处于UNSENT(实例化了XMLHttpRequest但未执行open()、未发送)或OPENED(已经执行了open())状态，
+则值statusText将为空字符串''。
+如果服务器响应未明确指定状态文本，statusText则将采用默认值“OK”。
+XHR.onprogress事件(LOADING) 返回"OK"
+XHR.onload事件(DONE) 返回"OK"
+
+
+
+XHR.timeout = 2000;
+表示请求在自动终止之前可以采用的毫秒数。默认值为0(number)，表示没有超时。超时不应用于文档环境中使用的同步XMLHttpRequests请求，
+否则将引发InvalidAccessError异常。发生超时时，会触发超时事件。
+
+
+当 Access-Control-Allow-Origin:* 时
+不允许使用凭证(即 withCredentials:true)
+
+当 Access-Control-Allow-Origin:* 时，
+只需确保客户端在发出CORS请求时凭据标志的值为false就可以了。
+1、如果请求使用XMLHttpRequest发出，请确保withCredentials为false。
+2、如果使用服务器发送事件，确保EventSource.withCredentials是false（这是默认值）。
+3、如果使用Fetch API，请确保Request.credentials是"omit"。
+
+XHR.withCredentials属性(Boolean)指示Access-Control是否应使用cookie授权标头或TLS客户端证书等凭据进行跨站点请求
+来自不同域的cookie不能设置为XMLHttpRequest自己的域cookie值，除非在发出请求之前设置withCredentials为true。
+通过设置withCredentials为true获得的第三方cookie，但仍将遵循同源策略，因此请求脚本无法通过document.cookie或响应头来访问它们。
+此外，此标志还用于指示何时在响应中忽略cookie。默认是false。
+注：
+为true时，哪怕服务器的响应头设置为{'Access-Control-Allow-Origin': '*'}，也会被同源策略限制。
+为false时，只要服务器的响应头设置为{'Access-Control-Allow-Origin': '*'}，就能跨域访问了
+所以，默认为true，也就是不允许跨域
+
+
+
+如果尚未收到响应或响应中不存在标头则返回null。
+xhr.getResponseHeader( 'Content-Type' )
+
+
+
+XML、HTML的字符串序列化和解析为DOM对象
+如：
+字符串序列化:
+let xmlSerializer = new XMLSerializer(),
+xmlStr = xmlSerializer.serializeToString(document.querySelector('main'));
+xmlStr是序列化后的字符串XML
+'<main xmlns="http://www.w3.org/1999/xhtml" class="usN">
+    <div id="test1" class="flexBox flexC">1</div>
+</main>'
+解析为DOM对象:
+let domParser = new DOMParser();
+1、xmlDom:
+xmlDom = domParser.parseFromString(xmlStr, 'application/xml');
+xmlDom是解析后的XMLDOM对象
+<main xmlns="http://www.w3.org/1999/xhtml" class="usN">
+    <div id="test1" class="flexBox flexC">1</div>
+</main>
+2、htmlDom:
+htmlDom = domParser.parseFromString(xmlStr, 'text/html');
+htmlDom是解析后的HTMLDOM对象
+<html>
+<head>
+</head>
+<body>
+<main xmlns="http://www.w3.org/1999/xhtml" class="usN">
+    <div id="test1" class="flexBox flexC">1</div>
+</main>
+</body>
+</html>
+3、svgXMLDom:
+svgXMLDom = domParser.parseFromString(xmlStr, 'image/svg+xml');
+svgXMLDom是解析后的SVGXMLDOM对象
+<main xmlns="http://www.w3.org/1999/xhtml" class="usN">
+    <div id="test1" class="flexBox flexC">1</div>
+</main>

@@ -1,0 +1,3 @@
+components文件夹下都是.vue的基础组件！
+会用到“src/js/tools/CurrencyTools.esm.js”！！！
+一般每个组件对应着唯一的文件夹，这个文件夹里存放着这个组件的各种资源！！！

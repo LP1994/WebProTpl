@@ -1,0 +1,190 @@
+  显式定义列、行
+  grid-template-columns: 100px 1fr 2fr 3fr;
+  grid-template-columns: 1fr 2fr 3fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: minmax(100px, 1fr);
+  grid-template-columns: fit-content(40%);
+  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: subgrid;
+  grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
+  grid-template-columns: minmax(100px, max-content) repeat(auto-fill, 200px) 20%;
+  grid-template-columns: [linename1] 100px [linename2] repeat(auto-fit, [linename3 linename4] 300px) 100px;
+  grid-template-rows: repeat(3, 1fr);
+  
+  PS:
+max-content:是一个关键字，代表占据网格轨迹的网格项目的最大最大内容贡献。
+min-content:是一个关键字，代表占据网格轨迹的网格项目中最大的最小内容贡献。
+
+
+  隐式定义列、行
+  grid-auto-columns: minmax(100px, auto);
+  grid-auto-rows: minmax(100px, auto);
+  传入曲目列表，这将重复，每两行重复一次，第一行是100px，第二行是200px，重复之后，
+  奇数行是100px，偶数行是200px
+  grid-auto-rows: 100px 200px;
+  如上
+  grid-auto-columns: 300px 100px;
+
+
+
+  grid-auto-flow
+  按列安放元素，先填满第一列网格，再填满第二列，以此类推
+  grid-auto-flow: column;
+  按行安放元素，先填满第一行网格，再填满第二行，以此类推
+  grid-auto-flow: row;
+  按行密集型安放元素，先填满第一行网格，再填满第二行，以此类推
+  grid-auto-flow: dense;
+  同上一个
+  grid-auto-flow: row dense;
+  按列密集型安放元素，先填满第一列网格，再填满第二列，以此类推
+  grid-auto-flow: column dense;
+
+
+
+  定义列之间的距离、行之间的距离
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  grid-row-gap: 10px;
+  row-gap: 10px;
+  简写 行距、列距
+  gap: 10px;
+  兼容式写法：grid-gap: 10px;
+
+
+
+  列起始到结束线，行起始到结束线，支持负数(即反向)
+  grid-column-start: 1;
+  grid-column-end: 2;
+  简写
+  grid-column: 1 / 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  简写
+  grid-row: 1 / 2;
+  简写，上、左、下、右的线
+  grid-area: 1 / 1 / 4 / 2;
+  使用span关键字
+  行、列都行，然后指定希望跨越该区域的轨道数。
+  grid-column: 2 / span 2;
+  grid-row: 1 / span 2;
+  自动从起始位置开始排布，跨两行两列
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+
+
+
+  grid-area和grid-template-areas
+  先定义grid-template-areas再在grid-area中使用
+  如果定义了grid-template-areas，也就隐式定义了网格线名称！！！
+  值grid-template-areas必须网格完整，否则是无效的（且该属性被忽略）。这意味着每行必须具有相同数量的单元格，
+  如果为空且带有一个句号，表明该单元格必须为空。
+  如果区域不是矩形，您还将创建无效网格。
+    .wrapper {
+      grid-template-areas:
+              "hd hd hd hd hd hd hd hd hd"
+              "sd sd sd main main main main main main"
+              ". . . ft ft ft ft ft ft";
+      grid-template-areas:
+              "hd hd hd hd hd hd hd hd hd"
+              "sd sd sd main main main main main main"
+              "sd sd sd ft ft ft ft ft ft";
+    }
+  .header {
+    grid-area: hd;
+  }
+  .footer {
+    grid-area: ft;
+  }
+  .content {
+    grid-area: main;
+  }
+  .sidebar {
+    grid-area: sd;
+  }
+
+
+
+  grid-template简写属性设置以下属性：
+  grid-template-rows
+  grid-template-columns
+  grid-template-areas
+  每行的末尾声明行的大小
+  grid-template:
+          "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+          "sd sd sd main main main main main main" minmax(100px, auto)
+          "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
+             / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+
+
+
+  grid简写
+  该属性还会将属性重置grid-gap为0，但是您无法在此简写中指定间隙。
+  grid-template-rows
+  grid-template-columns
+  grid-template-areas
+  grid-auto-rows
+  grid-auto-columns
+  grid-auto-flow
+
+
+
+  自定义网格线名称
+  您可能希望为一行提供多个名称，例如，它可能表示侧栏末端和主要起点。
+  为此，请在方括号内添加名称，并在它们之间添加空格[sidebar-end main-start]。
+  然后，您可以通过任一名称引用该行。
+  使用的时候时，只需要引用其中一个就行了
+  grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end];
+  grid-template-rows: [main-start] 100px [content-start] 100px [content-end] 100px [main-end];
+  使用自定义网格线
+  .box1 {
+    grid-column-start: main-start;
+    grid-row-start: main-start;
+    grid-row-end: main-end;
+  }
+  .box2 {
+    grid-column-start: content-end;
+    grid-row-start: main-start;
+    grid-row-end: content-end;
+  }
+  .box3 {
+    grid-column-start: content-start;
+    grid-row-start: main-start;
+  }
+  .box4 {
+    grid-column-start: content-start;
+    grid-column-end: main-end;
+    grid-row-start: content-end;
+  }
+
+  如果是以-start和-end后缀命名的话，
+  则会形成“隐式网格区域”，该区域的名字就是"-start和-end"中"-"之前的那个名字
+  .wrapper {
+    display: grid;
+    grid-template-columns: [main-start] 1fr [content-start] 1fr [content-end] 1fr [main-end];
+    grid-template-rows: [main-start] 100px [content-start] 100px [content-end] 100px [main-end];
+  }
+  .thing {
+    grid-area: content;
+  }
+
+  使用repeat()命名网格线
+  .wrapper {
+    display: grid;
+    //12列，都是每一块的开头线名，没有终点线名
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    //8列，都是每一块的开头线名，没有终点线名
+    grid-template-columns: repeat(4, [col1-start] 1fr [col2-start] 3fr);
+    //4列，并且每一块的起点和终点都有线名
+    grid-template-columns: repeat(4, [col-start] 1fr [col-end] );
+  }
+  .item1 {
+    //第一条到第五条之间
+    //"col-start 5"表示第5条col-start线
+    grid-column: col-start / col-start 5;
+  }
+  .item2 {
+    //"col-start 7"表示第7条col-start线
+    grid-column: col-start 7 / span 3;
+  }

@@ -1,0 +1,14 @@
+/*只有iOS上能显示*/
+main > div:matches(.flexBox, .flexC) {
+  background-color: mediumvioletred !important;
+}
+
+.syntax-highlighted .css-keyword,
+.syntax-highlighted .css-tag {
+    color: rgb(170, 13, 145);
+}
+使用:matches()范围选择器后：
+.syntax-highlighted :matches(.css-keyword, .css-tag) {
+    color: rgb(170, 13, 145);
+}
+

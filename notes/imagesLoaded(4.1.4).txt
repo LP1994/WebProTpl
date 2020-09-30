@@ -1,0 +1,50 @@
+imagesLoaded(4.1.4)
+阅读网站了解使用
+https://imagesloaded.desandro.com/
+
+requirejs(
+["imageLoad/imagesloaded.pkgd.min"],
+function (imagesLoaded) {
+/*
+“elem”可以是“Element, NodeList, Array, or Selector String”
+“options”配置对象“{}”
+“callback”所有图像加载完成后触发的函数
+“options”说明：
+options"{background:true}"检测节点的背景图片
+options"{background:'.item'}"检测该节点子元素的背景图像
+*/
+var imagesLoadedO = new imagesLoaded(elem, options, callback);
+/*
+"always"事件在所有图像无论加载成功还是失败后完成后触发。
+"instance"图像实例
+*/
+imagesLoadedO.on("always", function (instance) {
+});
+/*
+"done"事件在所有图像成功加载之后触发，而没有任何破碎的图像。
+"instance"图像实例
+*/
+imagesLoadedO.on("done", function (instance) {
+});
+/*
+"fail"事件在所有图像加载至少一个破碎的图像后触发。
+"instance"图像实例
+*/
+imagesLoadedO.on("fail", function (instance) {
+});
+/*
+"progress"事件在每个图像加载后触发。
+"instance"图像实例
+"image"该张图片实例
+*/
+imagesLoadedO.on("progress", function (instance, image) {
+var result = image.isLoaded ? 'loaded' : 'broken', imgSrc = image.img.src;
+});
+
+/*imagesA检测到的图片数组*/
+var imagesA = imagesLoadedO.images;
+/*当这张图像已经成功加载，isLoaded为true*/
+var isLoaded = imagesA[0].isLoaded;
+/*这张图像的节点对象，可以拥有"img.src"等用法*/
+var img = imagesA[0].img;
+});

@@ -1,0 +1,38 @@
+1、关有私有属性的使用
+
+class ClassA{
+
+qwe = '实例上的普通属性qwe';
+#qwe = '实例上的私有属性qwe';
+static qwe = '类上的静态的普通属性qwe';
+// static #qwe = '类上的静态的私有属性qwe'; // Uncaught SyntaxError: Identifier '#qwe' has already been declared
+
+// get #qwe(){
+// return '实例上的私有的get属性qwe'; // Uncaught SyntaxError: Identifier '#qwe' has already been declared
+// }
+
+// set #qwe( value ){
+// this.#qwe = value; // Uncaught SyntaxError: Identifier '#qwe' has already been declared
+// }
+
+// #qwe(){
+// console.log( '原型上的私有方法qwe' ); // Uncaught SyntaxError: Identifier '#qwe' has already been declared
+// }
+
+// static #qwe(){
+// console.log( '类上的静态私有方法qwe' ); // Uncaught SyntaxError: Identifier '#qwe' has already been declared
+// }
+
+qwe(){
+console.log( '原型上的普通方法qwe()' );
+}
+
+static qwe(){
+console.log( '原型上的静态方法qwe()' ); // 会被上面的静态属性qwe覆盖掉！
+}
+
+}
+
+PS：
+当私有属性(“#”)出现在class类中时，有且只能有一个同名私有属性、原型方法、静态方法的存在，如上例子！
+“静态属性”和“静态方法”有且只能有一个同名的！且“同名的静态属性”会优先覆盖掉“同名的静态方法”！

@@ -1,0 +1,2487 @@
+/*
+Project: WebProTpl
+Author：12278
+Email：2726893248@qq.com
+CreateDate：2019-01-01 00:00:00
+IDE: WebStorm
+*/
+
+/*CSS Reset Start*/
+
+/*
+使用说明！！！
+
+该CSS reset是安全的！！！
+
+建议，为每个标签添加"css-reset"CSS类选择器！这样既不影响别人的样式，又能启动自己的CSS reset！！！
+
+所谓的“安全”是只有在标签上添加“css-reset”CSS类选择器才会触发该标签对应的CSS reset！！！
+
+对于input[type="range"]这类的CSS reset则是添加“css-reset-range”CSS类选择器才会触发，CSS类选择器格式是“css-reset-range”
+特别的属性如：目前只有这三种特别的属性
+"css-reset-range"
+"css-reset-moz-number"
+"css-reset-file"
+以上是对于input标签的特殊属性，当然也需要加上“css-reset”CSS类选择器
+*/
+
+*[v-cloak] {
+    display: none !important;
+}
+
+/*如果一个标签添加了“css-reset”修饰类，则自身将触发默认的CSS reset！！！但内部标签却不触发默认的CSS reset！！！*/
+.css-reset {
+    padding: 0;
+    border: none;
+    margin: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: black;
+    line-height: 1;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a.css-reset {
+    text-decoration: none;
+}
+
+body.css-reset {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+span.css-reset {
+    display: block;
+}
+
+/*输入框类型的光标的颜色*/
+input.css-reset {
+    -khtml-caret-color: #1e90ff;
+    -o-caret-color: #1e90ff;
+    -ms-caret-color: #1e90ff;
+    -moz-caret-color: #1e90ff;
+    -webkit-caret-color: #1e90ff;
+    caret-color: #1e90ff;
+}
+
+meter.css-reset {
+    box-shadow: none;
+    border-radius: 10px;
+    background: #f2f2f2;
+    width: 130px;
+    height: 16px;
+}
+
+iframe.css-reset {
+    display: flex;
+}
+
+dialog.css-reset {
+    display: block;
+}
+
+button.css-reset {
+    background-color: white;
+}
+
+progress.css-reset {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+    box-shadow: none;
+    background: #f2f2f2;
+    width: 130px;
+    height: 16px;
+}
+
+ol.css-reset,
+ul.css-reset,
+li.css-reset,
+dl.css-reset,
+dt.css-reset,
+dd.css-reset {
+    list-style: none;
+}
+
+fieldset.css-reset {
+    display: block;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding-block-end: 0;
+    min-inline-size: min-content;
+    border-width: 1px;
+    border-style: groove;
+    border-color: black;
+    border-image: initial;
+}
+
+legend.css-reset {
+    display: block;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+
+/*全部区域所在的那个区域*/
+meter.css-reset::-webkit-meter-inner-element {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*全部区域的样式，填满区域的样式会盖在其上头*/
+meter.css-reset::-webkit-meter-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*绿色区域的样式*/
+meter.css-reset::-webkit-meter-optimum-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*黄色区域的样式*/
+meter.css-reset::-webkit-meter-suboptimum-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: yellow;
+}
+
+/*红色区域的样式*/
+meter.css-reset::-webkit-meter-even-less-good-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: red;
+}
+
+/*值区域的样式*/
+meter.css-reset::-moz-meter-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*全部区域所在的那个区域*/
+progress.css-reset::-webkit-progress-inner-element {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*全部区域的样式，填满区域的样式会盖在其上头*/
+progress.css-reset::-webkit-progress-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #f2f2f2;
+}
+
+/*值区域的样式*/
+progress.css-reset::-webkit-progress-value {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*值区域的样式*/
+progress.css-reset::-moz-progress-bar {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*
+-ms-bar：长的动画进度条
+-ms-ring：圆的动画进度条
+*/
+progress.css-reset::-ms-fill {
+    animation-name: -ms-bar;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: #00ff00;
+}
+
+/*input[type="range"]*/
+input.css-reset-range {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    box-shadow: none;
+    height: 16px;
+    width: 130px;
+}
+
+/*滑块轨道*/
+/*input[type="range"]*/
+input.css-reset-range::-webkit-slider-runnable-track {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    height: 16px;
+}
+
+/*滑块*/
+/*input[type="range"]*/
+input.css-reset-range::-webkit-slider-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff00;
+    color: #00ff00;
+    border: none;
+    outline: none;
+}
+
+/*滑块轨道*/
+/*input[type="range"]*/
+input.css-reset-range::-moz-range-track {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    height: 16px;
+}
+
+/*滑块*/
+/*input[type="range"]*/
+input.css-reset-range::-moz-range-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff00;
+    color: #00ff00;
+    border: none;
+}
+
+/*滑块进度条*/
+/*input[type="range"]*/
+input.css-reset-range::-moz-range-progress {
+    background: transparent;
+}
+
+/*滑块轨道*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-track {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0078d7;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: transparent;
+    height: 16px;
+}
+
+/*滑块*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff00;
+    color: #00ff00;
+    border: none;
+}
+
+/*滑块进度条前*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-fill-lower {
+    background: transparent;
+}
+
+/*滑块进度条后*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-fill-upper {
+    background: transparent;
+}
+
+/*滑块轨道刻度线上*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-ticks-before {
+    display: none;
+}
+
+/*滑块轨道刻度线下*/
+/*input[type="range"]*/
+input.css-reset-range::-ms-ticks-after {
+    display: none;
+}
+
+/*input[type="range"]*/
+input.css-reset-range::-ms-tooltip {
+    display: block;
+    visibility: visible;
+}
+
+input.css-reset:disabled,
+input[disabled].css-reset,
+input[disabled='true'].css-reset,
+input[disabled='disabled'].css-reset,
+textarea.css-reset:disabled,
+textarea[disabled].css-reset,
+textarea[disabled='true'].css-reset,
+textarea[disabled='disabled'].css-reset {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset::placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-webkit-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-moz-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus:-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::-ms-input-placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+input.css-reset:focus::placeholder {
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #8b8b8b;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: #8b8b8b;
+    text-fill-color: #8b8b8b;
+}
+
+/*表单自动填充默认样式*/
+input.css-reset:-webkit-autofill {
+    background: transparent;
+    box-shadow: none;
+}
+
+/*去除搜狗浏览器中密码输入框那个虚拟机键盘*/
+input.css-reset::-webkit-input-safebox-button {
+    display: none;
+}
+
+/*侧边的上下小箭头*/
+input.css-reset::-webkit-inner-spin-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+    color: transparent; /*透明掉*/
+    background: transparent; /*透明掉*/
+}
+
+/*侧边的上下小箭头*/
+input.css-reset::-webkit-outer-spin-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+    color: transparent; /*透明掉*/
+    background: transparent; /*透明掉*/
+}
+
+/*隐藏取消按钮*/
+input.css-reset::-webkit-search-cancel-button {
+    display: none;
+}
+
+/*隐藏放大镜图标*/
+input.css-reset::-webkit-search-results-button {
+    display: none;
+}
+
+/*清除按钮*/
+input.css-reset::-webkit-clear-button {
+    display: none;
+}
+
+/*number类型input框的默认样式*/
+input.css-reset::-webkit-textfield-decoration-container {
+    background: transparent;
+}
+
+/*input[type="file"]*/
+input.css-reset-file::-webkit-file-upload-button {
+    padding: 0;
+    border: none;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: black;
+    text-fill-color: black;
+}
+
+/*input[type="file"]*/
+input.css-reset-file::-ms-browse {
+    padding: 0;
+    border: none;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-fill-color: black;
+    text-fill-color: black;
+}
+
+/*IE、Edge的radio、checkbox选中状态的背景颜色*/
+input.css-reset::-ms-check {
+    background: transparent;
+}
+
+input.css-reset::-ms-clear {
+    display: none;
+}
+
+/*向下的三角形*/
+select.css-reset::-ms-expand {
+    display: none;
+    cursor: pointer;
+}
+
+/*IE、Edge的select的值的样式*/
+select.css-reset::-ms-value {
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+/*谷歌、火狐的向下的三角形*/
+select.css-reset {
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    color: black;
+    background-color: white;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+option.css-reset::-ms-expand {
+    cursor: pointer;
+    display: none;
+}
+
+option.css-reset {
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-weight: normal;
+    min-height: auto;
+    padding: 0;
+}
+
+option.css-reset:hover {
+    color: white !important;
+    background: #1e90ff !important;
+    cursor: pointer;
+}
+
+option.css-reset:checked {
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+/*IE的密码显示按钮*/
+input.css-reset::-ms-reveal {
+    display: none;
+}
+
+/*IE、Edge的input的值的样式*/
+input.css-reset::-ms-value {
+    background: transparent;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-khtml-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-o-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-ms-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-moz-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::-webkit-input-speech-button {
+    display: none;
+}
+
+/*Andriod上去掉语音输入按钮*/
+input.css-reset::input-speech-button {
+    display: none;
+}
+
+/*向下的三角形箭头，webkit浏览器点击它会开启选择工具，被透明掉了而且被去掉了*/
+input.css-reset::-webkit-calendar-picker-indicator {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: transparent; /*透明掉*/
+    background: transparent; /*透明掉*/
+    display: none; /*去掉*/
+}
+
+/*火狐去除上下箭头，会导致允许输入非number数据，尽量不用*/
+/*input[type="number"]*/
+input.css-reset-moz-number {
+    -moz-appearance: textfield;
+}
+
+.css-reset:not(:defined) {
+    display: none;
+}
+
+/*CSS Reset End*/
+
+/*Common Start*/
+
+.css-reset:not(:defined) {
+    display: none;
+}
+
+/*
+一招让网站灰色
+PS：
+1、以下写法，在IE10和IE11中不起作用，但是在IE9以及IE9以下是可以的。
+2、如果不是svg的图片格式，filter在ie浏览器上都不支持。
+3、如果是svg的话，filter也只是在ie10和11上支持。
+*/
+.grayscale {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1) !important;
+    -webkit-filter: grayscale(100%) !important;
+    -khtml-filter: grayscale(100%) !important;
+    -moz-filter: grayscale(100%) !important;
+    -ms-filter: grayscale(100%) !important;
+    -o-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+    /*这种写法专门用于IE9以及IE9以下*/
+    filter: gray !important;
+}
+
+.pcMin {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 1300px) and (-moz-device-pixel-ratio: 1), only screen and (max-width: 1300px) and (-webkit-device-pixel-ratio: 1), only screen and (max-width: 1300px) and (device-pixel-ratio: 1) {
+
+    .pcMin {
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-width: 1300px;
+        height: 100%;
+        min-height: 600px;
+    }
+
+}
+
+.fullS {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.usN {
+    user-select: none;
+}
+
+.boxSC {
+    box-sizing: content-box;
+}
+
+.boxSB {
+    box-sizing: border-box;
+}
+
+.bgC {
+    background-clip: content-box !important;
+    background-origin: content-box !important;
+}
+
+.bgP {
+    background-clip: padding-box !important;
+    background-origin: padding-box !important;
+}
+
+.bgB {
+    background-clip: border-box !important;
+    background-origin: border-box !important;
+}
+
+.ofa {
+    overflow: auto;
+}
+
+.ofh {
+    overflow: hidden;
+}
+
+.ofXa {
+    overflow-x: auto;
+}
+
+.ofYa {
+    overflow-y: auto;
+}
+
+.ofXh {
+    overflow-x: hidden;
+}
+
+.ofYh {
+    overflow-Y: hidden;
+}
+
+.ofXaYh {
+    overflow-x: auto;
+    overflow-Y: hidden;
+}
+
+.ofXhYa {
+    overflow-x: hidden;
+    overflow-Y: auto;
+}
+
+.dC {
+    display: contents;
+}
+
+.dB {
+    display: block;
+}
+
+.dBI {
+    display: block !important;
+}
+
+.dILB {
+    display: inline-block;
+}
+
+.dN {
+    display: none;
+}
+
+.dNI {
+    display: none !important;
+}
+
+.cP {
+    cursor: pointer;
+}
+
+.fL {
+    float: left;
+}
+
+.fR {
+    float: right;
+}
+
+.cB {
+    clear: both;
+}
+
+.cf1 {
+    zoom: 1;
+}
+
+.cf1::after {
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    content: '';
+    line-height: 0;
+    clear: both;
+}
+
+.cf2 {
+    overflow: auto;
+    line-height: 0;
+    zoom: 1;
+}
+
+.cf3 {
+    overflow: hidden;
+    line-height: 0;
+    zoom: 1;
+}
+
+.sLTextE {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.mL2TextE {
+    display: -webkit-box !important;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.mL3TextE {
+    display: -webkit-box !important;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.mL4TextE {
+    display: -webkit-box !important;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.touchAN {
+    touch-action: none;
+    pointer-events: none;
+}
+
+.resizeN {
+    resize: none;
+}
+
+.resizeB {
+    resize: both;
+    overflow: auto;
+}
+
+.resizeH {
+    resize: horizontal;
+    overflow: auto;
+}
+
+.resizeV {
+    resize: vertical;
+    overflow: auto;
+}
+
+.css3HS {
+    transform: translate3d(0, 0, 0);
+    z-index: 2020;
+}
+
+.css3HS1 {
+    backface-visibility: hidden;
+    perspective: 2020px;
+    z-index: 2020;
+}
+
+.WillCC {
+    will-change: contents;
+}
+
+.WillCT {
+    will-change: transform;
+}
+
+.WillCO {
+    will-change: opacity;
+}
+
+.WillCCT {
+    will-change: contents, transform;
+}
+
+.WillCCO {
+    will-change: contents, opacity;
+}
+
+.WillCTO {
+    will-change: transform, opacity;
+}
+
+.rWillC {
+    will-change: auto;
+}
+
+.textI2em {
+    text-indent: 2em;
+}
+
+.tSCircle {
+    -webkit-text-security: circle;
+    text-security: circle;
+}
+
+.tSDisc {
+    -webkit-text-security: disc;
+    text-security: disc;
+}
+
+.tSSquare {
+    -webkit-text-security: square;
+    text-security: square;
+}
+
+.wM-H, .wM-VR *, .wM-VL *, .wM-SR *, .wM-SL * {
+    writing-mode: horizontal-tb;
+}
+
+.wM-VR {
+    writing-mode: vertical-lr;
+}
+
+.wM-VL {
+    writing-mode: vertical-rl;
+}
+
+.wM-SR {
+    writing-mode: sideways-lr;
+}
+
+.wM-SL {
+    writing-mode: sideways-rl;
+}
+
+.dir-LTR {
+    direction: ltr;
+}
+
+.dir-RTL {
+    direction: rtl;
+}
+
+.vwC1 {
+    width: calc(100% / 12);
+    width: calc(100vw / 12);
+}
+
+.vwC2 {
+    width: calc(100% / 12 * 2);
+    width: calc(100vw / 12 * 2);
+}
+
+.vwC3 {
+    width: 25%;
+    width: 25vw;
+}
+
+.vwC4 {
+    width: calc(100% / 12 * 4);
+    width: calc(100vw / 12 * 4);
+}
+
+.vwC5 {
+    width: calc(100% / 12 * 5);
+    width: calc(100vw / 12 * 5);
+}
+
+.vwC6 {
+    width: 50%;
+    width: 50vw;
+}
+
+.vwC7 {
+    width: calc(100% / 12 * 7);
+    width: calc(100vw / 12 * 7);
+}
+
+.vwC8 {
+    width: calc(100% / 12 * 8);
+    width: calc(100vw / 12 * 8);
+}
+
+.vwC9 {
+    width: 75%;
+    width: 75vw;
+}
+
+.vwC10 {
+    width: calc(100% / 12 * 10);
+    width: calc(100vw / 12 * 10);
+}
+
+.vwC11 {
+    width: calc(100% / 12 * 11);
+    width: calc(100vw / 12 * 11);
+}
+
+.vwC12 {
+    width: 100%;
+    width: 100vw;
+}
+
+/*Vue transition过渡效果 Start*/
+
+.vueTVar {
+    /*单位：ms*/
+    --fade-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --fade-toggle-timing-function: linear;
+    --fade-toggle-opacity: 1;
+
+
+    /*单位：ms*/
+    --slide-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --slide-toggle-timing-function: linear;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --slide-toggle-height: calc(250 * 1px);
+
+
+    /*单位：ms*/
+    --show-hide-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --show-hide-toggle-timing-function: linear;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-width: calc(250 * 1px);
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-height: calc(250 * 1px);
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-padding: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-border-width: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-margin: 0;
+    /*具体使用中，这个值需要JS来协助控制*/
+    --show-hide-toggle-outline-width: 0;
+    --show-hide-toggle-opacity: 1;
+
+
+    /*单位：ms*/
+    --scale-center-toggle-time: 300;
+    /*
+    transition-timing-function(动画函数)：
+
+    Keyword values：
+    // 在过渡的中间速度增加，在过渡结束时速度减慢。
+    ease( cubic-bezier(0.25, 0.1, 0.25, 1.0) )、
+    // 开始缓慢，过渡速度增加直到完成。
+    ease-in( cubic-bezier(0.42, 0, 1.0, 1.0) )、
+    // 开始快速过渡，放慢过渡速度。
+    ease-out( cubic-bezier(0, 0, 0.58, 1.0) )、
+    // 开始缓慢过渡，加速，然后再次减速。
+    ease-in-out( cubic-bezier(0.42, 0, 0.58, 1.0) )、
+    // 以均匀的速度过渡。
+    linear( cubic-bezier(0.0, 0.0, 1.0, 1.0) )、
+    step-start( steps(1, jump-start) )、
+    step-end( steps(1, jump-end) )
+
+    Function values：
+    steps(4, jump-end)、cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    注：
+    1、cubic-bezier(p1, p2, p3, p4)
+    三次贝塞尔曲线，其中p1和p3值必须在0到1的范围内。
+    2、steps( n, <jumpterm>)
+    显示沿转换的n个停止的转换，显示相等时间长度的每个停止。
+    例如，如果n是5，则有5个步骤。
+    过渡是否暂时保持在0%、20%、40%、60%和80%，是否在过渡的20%、40%、60%、80%和100%之间停留5次，或停留5次，
+    包括0%和100%标记（在0%、25%、50%、75%和100%）取决于使用下列哪一个跳跃项：
+    Steps Function keywords：
+    // 表示左连续函数，以便在过渡开始时发生第一个跳转；
+    steps(4, jump-start)、
+    // 表示一个右连续函数，以便在动画结束时发生最后一次跳转；
+    steps(10, jump-end)、
+    // 两端均无跳跃。而是同时按住0％和100％标记，持续时间均为1 / n
+    steps(20, jump-none)、
+    // 包括在0％和100％标记处的停顿，在过渡期间有效地增加了一步。
+    steps(5, jump-both)、
+    // Same as jump-start.
+    steps(6, start)、
+    // Same as jump-end.
+    steps(8, end)
+
+    Multiple timing functions：
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1)
+
+    Global values：
+    inherit、initial、unset
+    */
+    --scale-center-toggle-timing-function: linear;
+    --scale-center-toggle-transform: scale(1);
+    --scale-center-toggle-opacity: 1;
+}
+
+
+/*元素的淡入淡出效果 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.fadeToggle-enter-active, .fadeToggle-leave-active {
+    transition: opacity calc(var(--fade-toggle-time) * 1ms) var(--fade-toggle-timing-function);
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.fadeToggle-enter-to, .fadeToggle-leave {
+    opacity: var(--fade-toggle-opacity) !important;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.fadeToggle-enter, .fadeToggle-leave-to {
+    opacity: 0 !important;
+}
+
+/*元素的淡入淡出效果 End*/
+
+
+/*元素上下滑动 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.slideToggle-enter-active, .slideToggle-leave-active {
+    transition: height calc(var(--slide-toggle-time) * 1ms) var(--slide-toggle-timing-function);
+    overflow: hidden;
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.slideToggle-enter-to, .slideToggle-leave {
+    height: var(--slide-toggle-height) !important;
+    overflow: hidden;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.slideToggle-enter, .slideToggle-leave-to {
+    height: 0 !important;
+    overflow: hidden;
+}
+
+/*元素上下滑动 End*/
+
+
+/*元素隐藏、显示 Start*/
+
+/*x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程*/
+.showHideToggle-enter-active, .showHideToggle-leave-active {
+    transition: all calc(var(--show-hide-toggle-time) * 1ms) var(--show-hide-toggle-timing-function);
+    overflow: hidden;
+}
+
+/*x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果*/
+.showHideToggle-enter-to, .showHideToggle-leave {
+    width: var(--show-hide-toggle-width) !important;
+    height: var(--show-hide-toggle-height) !important;
+    padding: var(--show-hide-toggle-padding) !important;
+    border-width: var(--show-hide-toggle-border-width) !important;
+    margin: var(--show-hide-toggle-margin) !important;
+    outline-width: var(--show-hide-toggle-outline-width) !important;
+    opacity: var(--show-hide-toggle-opacity) !important;
+    overflow: hidden;
+}
+
+/*x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果*/
+.showHideToggle-enter, .showHideToggle-leave-to {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    border-width: 0 !important;
+    margin: 0 !important;
+    outline-width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden;
+}
+
+/*元素隐藏、显示 End*/
+
+
+/*元素中心缩小放大的隐藏、显示 Start*/
+
+/* x-enter-active是Enter(显示)的过程、x-leave-active是Leave(隐藏)的过程 */
+.scaleCenterToggle-enter-active, .scaleCenterToggle-leave-active {
+    transition: all calc(var(--scale-center-toggle-time) * 1ms) var(--scale-center-toggle-timing-function);
+    overflow: hidden;
+}
+
+/* x-enter-to是Enter(显示)的结束点、x-leave是Leave(隐藏)的起始点 完成“显示“后的效果 */
+.scaleCenterToggle-enter-to, .scaleCenterToggle-leave {
+    transform: var(--scale-center-toggle-transform) !important;
+    opacity: var(--scale-center-toggle-opacity) !important;
+    overflow: hidden;
+}
+
+/* x-enter是Enter(显示)的起始点、x-leave-to是Leave(隐藏)的结束点 完成“隐藏”后的效果 */
+.scaleCenterToggle-enter, .scaleCenterToggle-leave-to {
+    transform: scale(0) !important;
+    opacity: 0 !important;
+    overflow: hidden;
+}
+
+/*元素中心缩小放大的隐藏、显示 End*/
+
+/*Vue transition过渡效果 End*/
+
+/*Common End*/
+
+/*flexBox Start*/
+
+.flexBox {
+    display: flex;
+}
+
+.flexILB {
+    display: inline-flex;
+}
+
+.flexDC {
+    flex-direction: column;
+}
+
+.flexDCR {
+    flex-direction: column-reverse;
+}
+
+.flexDR {
+    flex-direction: row;
+}
+
+.flexDRR {
+    flex-direction: row-reverse;
+}
+
+.flexWN {
+    flex-wrap: nowrap;
+}
+
+.flexWW {
+    flex-wrap: wrap;
+}
+
+.flexWWR {
+    flex-wrap: wrap-reverse;
+}
+
+.flexS {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.flexSC {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flexSE {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.flexSBL {
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.flexSStr {
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.flexCS {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.flexC {
+    justify-content: center;
+    align-items: center;
+}
+
+.flexCE {
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.flexCBL {
+    justify-content: center;
+    align-items: baseline;
+}
+
+.flexCStr {
+    justify-content: center;
+    align-items: stretch;
+}
+
+.flexES {
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.flexEC {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flexE {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.flexEBL {
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.flexEStr {
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+.flexBLS {
+    justify-content: baseline;
+    align-items: flex-start;
+}
+
+.flexBLC {
+    justify-content: baseline;
+    align-items: center;
+}
+
+.flexBLE {
+    justify-content: baseline;
+    align-items: flex-end;
+}
+
+.flexBL {
+    justify-content: baseline;
+    align-items: baseline;
+}
+
+.flexBLStr {
+    justify-content: baseline;
+    align-items: stretch;
+}
+
+.flexStrS {
+    justify-content: stretch;
+    align-items: flex-start;
+}
+
+.flexStrC {
+    justify-content: stretch;
+    align-items: center;
+}
+
+.flexStrE {
+    justify-content: stretch;
+    align-items: flex-end;
+}
+
+.flexStrBL {
+    justify-content: stretch;
+    align-items: baseline;
+}
+
+.flexStr {
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.flexSBS {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flexSBC {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexSBE {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.flexSBBL {
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.flexSBStr {
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.flexSAS {
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.flexSAC {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flexSAE {
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.flexSABL {
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.flexSAStr {
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.flexSES {
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.flexSEC {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flexSEE {
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.flexSEBL {
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.flexSEStr {
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.flexACS {
+    align-content: flex-start;
+}
+
+.flexACC {
+    align-content: center;
+}
+
+.flexACE {
+    align-content: flex-end;
+}
+
+.flexACBL {
+    align-content: baseline;
+}
+
+.flexACStr {
+    align-content: stretch;
+}
+
+.flexACSB {
+    align-content: space-between;
+}
+
+.flexACSA {
+    align-content: space-around;
+}
+
+.flexACSE {
+    align-content: space-evenly;
+}
+
+.flexASS {
+    align-self: flex-start;
+}
+
+.flexASC {
+    align-self: center;
+}
+
+.flexASE {
+    align-self: flex-end;
+}
+
+.flexASBL {
+    align-self: baseline;
+}
+
+.flexASStr {
+    align-self: stretch;
+}
+
+.flexO1 {
+    order: 1;
+}
+
+.flexGrow1 {
+    flex-grow: 1;
+}
+
+.flexShrink1 {
+    flex-shrink: 1;
+}
+
+.flexBA {
+    flex-basis: auto;
+}
+
+.flexB50 {
+    flex-basis: 50%;
+}
+
+.flexBC {
+    flex-basis: content;
+}
+
+.flexBMaxC {
+    flex-basis: -moz-max-content;
+    flex-basis: max-content;
+}
+
+.flexBMinC {
+    flex-basis: -moz-min-content;
+    flex-basis: min-content;
+}
+
+.flexBFitC {
+    flex-basis: -moz-fit-content;
+    flex-basis: fit-content;
+}
+
+.flexBFill {
+    flex-basis: fill;
+}
+
+.flexA {
+    flex: auto;
+}
+
+.flexN {
+    flex: none;
+}
+
+.flex50 {
+    flex: 1 1 50%;
+}
+
+/*flexBox End*/
+
+/*gridLayout Start*/
+
+.gridBox {
+    display: grid;
+}
+
+.gridILBox {
+    display: inline-grid;
+}
+
+.gridS {
+    justify-items: start;
+    align-items: start;
+}
+
+.gridSC {
+    justify-items: start;
+    align-items: center;
+}
+
+.gridSE {
+    justify-items: start;
+    align-items: end;
+}
+
+.gridSBL {
+    justify-items: start;
+    align-items: baseline;
+}
+
+.gridSStr {
+    justify-items: start;
+    align-items: stretch;
+}
+
+.gridCS {
+    justify-items: center;
+    align-items: start;
+}
+
+.gridC {
+    justify-items: center;
+    align-items: center;
+}
+
+.gridCE {
+    justify-items: center;
+    align-items: end;
+}
+
+.gridCBL {
+    justify-items: center;
+    align-items: baseline;
+}
+
+.gridCStr {
+    justify-items: center;
+    align-items: stretch;
+}
+
+.gridES {
+    justify-items: end;
+    align-items: start;
+}
+
+.gridEC {
+    justify-items: end;
+    align-items: center;
+}
+
+.gridE {
+    justify-items: end;
+    align-items: end;
+}
+
+.gridEBL {
+    justify-items: end;
+    align-items: baseline;
+}
+
+.gridEStr {
+    justify-items: end;
+    align-items: stretch;
+}
+
+.gridBLS {
+    justify-items: baseline;
+    align-items: start;
+}
+
+.gridBLC {
+    justify-items: baseline;
+    align-items: center;
+}
+
+.gridBLE {
+    justify-items: baseline;
+    align-items: end;
+}
+
+.gridBL {
+    justify-items: baseline;
+    align-items: baseline;
+}
+
+.gridBLStr {
+    justify-items: baseline;
+    align-items: stretch;
+}
+
+.gridStrS {
+    justify-items: stretch;
+    align-items: start;
+}
+
+.gridStrC {
+    justify-items: stretch;
+    align-items: center;
+}
+
+.gridStrE {
+    justify-items: stretch;
+    align-items: end;
+}
+
+.gridStrBL {
+    justify-items: stretch;
+    align-items: baseline;
+}
+
+.gridStr {
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.gridIS {
+    justify-self: start;
+    align-self: start;
+}
+
+.gridISC {
+    justify-self: start;
+    align-self: center;
+}
+
+.gridISE {
+    justify-self: start;
+    align-self: end;
+}
+
+.gridISBL {
+    justify-self: start;
+    align-self: baseline;
+}
+
+.gridISStr {
+    justify-self: start;
+    align-self: stretch;
+}
+
+.gridICS {
+    justify-self: center;
+    align-self: start;
+}
+
+.gridIC {
+    justify-self: center;
+    align-self: center;
+}
+
+.gridICE {
+    justify-self: center;
+    align-self: end;
+}
+
+.gridICBL {
+    justify-self: center;
+    align-self: baseline;
+}
+
+.gridICStr {
+    justify-self: center;
+    align-self: stretch;
+}
+
+.gridIES {
+    justify-self: end;
+    align-self: start;
+}
+
+.gridIEC {
+    justify-self: end;
+    align-self: center;
+}
+
+.gridIE {
+    justify-self: end;
+    align-self: end;
+}
+
+.gridIEBL {
+    justify-self: end;
+    align-self: baseline;
+}
+
+.gridIEStr {
+    justify-self: end;
+    align-self: stretch;
+}
+
+.gridIBLS {
+    justify-self: baseline;
+    align-self: start;
+}
+
+.gridIBLC {
+    justify-self: baseline;
+    align-self: center;
+}
+
+.gridIBLE {
+    justify-self: baseline;
+    align-self: end;
+}
+
+.gridIBL {
+    justify-self: baseline;
+    align-self: baseline;
+}
+
+.gridIBLStr {
+    justify-self: baseline;
+    align-self: stretch;
+}
+
+.gridIStrS {
+    justify-self: stretch;
+    align-self: start;
+}
+
+.gridIStrC {
+    justify-self: stretch;
+    align-self: center;
+}
+
+.gridIStrE {
+    justify-self: stretch;
+    align-self: end;
+}
+
+.gridIStrBL {
+    justify-self: stretch;
+    align-self: baseline;
+}
+
+.gridIStr {
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+.grid-JCAC-S {
+    justify-content: start;
+    align-content: start;
+}
+
+.grid-JCAC-SC {
+    justify-content: start;
+    align-content: center;
+}
+
+.grid-JCAC-SE {
+    justify-content: start;
+    align-content: end;
+}
+
+.grid-JCAC-SBL {
+    justify-content: start;
+    align-content: baseline;
+}
+
+.grid-JCAC-SStr {
+    justify-content: start;
+    align-content: stretch;
+}
+
+.grid-JCAC-SSB {
+    justify-content: start;
+    align-content: space-between;
+}
+
+.grid-JCAC-SSA {
+    justify-content: start;
+    align-content: space-around;
+}
+
+.grid-JCAC-SSE {
+    justify-content: start;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-CS {
+    justify-content: center;
+    align-content: start;
+}
+
+.grid-JCAC-C {
+    justify-content: center;
+    align-content: center;
+}
+
+.grid-JCAC-CE {
+    justify-content: center;
+    align-content: end;
+}
+
+.grid-JCAC-CBL {
+    justify-content: center;
+    align-content: baseline;
+}
+
+.grid-JCAC-CStr {
+    justify-content: center;
+    align-content: stretch;
+}
+
+.grid-JCAC-CSB {
+    justify-content: center;
+    align-content: space-between;
+}
+
+.grid-JCAC-CSA {
+    justify-content: center;
+    align-content: space-around;
+}
+
+.grid-JCAC-CSE {
+    justify-content: center;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-ES {
+    justify-content: end;
+    align-content: start;
+}
+
+.grid-JCAC-EC {
+    justify-content: end;
+    align-content: center;
+}
+
+.grid-JCAC-E {
+    justify-content: end;
+    align-content: end;
+}
+
+.grid-JCAC-EBL {
+    justify-content: end;
+    align-content: baseline;
+}
+
+.grid-JCAC-EStr {
+    justify-content: end;
+    align-content: stretch;
+}
+
+.grid-JCAC-ESB {
+    justify-content: end;
+    align-content: space-between;
+}
+
+.grid-JCAC-ESA {
+    justify-content: end;
+    align-content: space-around;
+}
+
+.grid-JCAC-ESE {
+    justify-content: end;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-BLS {
+    justify-content: baseline;
+    align-content: start;
+}
+
+.grid-JCAC-BLC {
+    justify-content: baseline;
+    align-content: center;
+}
+
+.grid-JCAC-BLE {
+    justify-content: baseline;
+    align-content: end;
+}
+
+.grid-JCAC-BL {
+    justify-content: baseline;
+    align-content: baseline;
+}
+
+.grid-JCAC-BLStr {
+    justify-content: baseline;
+    align-content: stretch;
+}
+
+.grid-JCAC-BLSB {
+    justify-content: baseline;
+    align-content: space-between;
+}
+
+.grid-JCAC-BLSA {
+    justify-content: baseline;
+    align-content: space-around;
+}
+
+.grid-JCAC-BLSE {
+    justify-content: baseline;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-StrS {
+    justify-content: stretch;
+    align-content: start;
+}
+
+.grid-JCAC-StrC {
+    justify-content: stretch;
+    align-content: center;
+}
+
+.grid-JCAC-StrE {
+    justify-content: stretch;
+    align-content: end;
+}
+
+.grid-JCAC-StrBL {
+    justify-content: stretch;
+    align-content: baseline;
+}
+
+.grid-JCAC-Str {
+    justify-content: stretch;
+    align-content: stretch;
+}
+
+.grid-JCAC-StrSB {
+    justify-content: stretch;
+    align-content: space-between;
+}
+
+.grid-JCAC-StrSA {
+    justify-content: stretch;
+    align-content: space-around;
+}
+
+.grid-JCAC-StrSE {
+    justify-content: stretch;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-SBS {
+    justify-content: space-between;
+    align-content: start;
+}
+
+.grid-JCAC-SBC {
+    justify-content: space-between;
+    align-content: center;
+}
+
+.grid-JCAC-SBE {
+    justify-content: space-between;
+    align-content: end;
+}
+
+.grid-JCAC-SBBL {
+    justify-content: space-between;
+    align-content: baseline;
+}
+
+.grid-JCAC-SBStr {
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+.grid-JCAC-SB {
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.grid-JCAC-SBSA {
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+.grid-JCAC-SBSE {
+    justify-content: space-between;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-SAS {
+    justify-content: space-around;
+    align-content: start;
+}
+
+.grid-JCAC-SAC {
+    justify-content: space-around;
+    align-content: center;
+}
+
+.grid-JCAC-SAE {
+    justify-content: space-around;
+    align-content: end;
+}
+
+.grid-JCAC-SABL {
+    justify-content: space-around;
+    align-content: baseline;
+}
+
+.grid-JCAC-SAStr {
+    justify-content: space-around;
+    align-content: stretch;
+}
+
+.grid-JCAC-SASB {
+    justify-content: space-around;
+    align-content: space-between;
+}
+
+.grid-JCAC-SA {
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.grid-JCAC-SASE {
+    justify-content: space-around;
+    align-content: space-evenly;
+}
+
+.grid-JCAC-SES {
+    justify-content: space-evenly;
+    align-content: start;
+}
+
+.grid-JCAC-SEC {
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.grid-JCAC-SEE {
+    justify-content: space-evenly;
+    align-content: end;
+}
+
+.grid-JCAC-SEBL {
+    justify-content: space-evenly;
+    align-content: baseline;
+}
+
+.grid-JCAC-SEStr {
+    justify-content: space-evenly;
+    align-content: stretch;
+}
+
+.grid-JCAC-SESB {
+    justify-content: space-evenly;
+    align-content: space-between;
+}
+
+.grid-JCAC-SESA {
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.grid-JCAC-SESE {
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.gridAFC {
+    grid-auto-flow: column;
+}
+
+.gridAFR {
+    grid-auto-flow: row;
+}
+
+.gridAFD {
+    grid-auto-flow: dense;
+}
+
+.gridAFCD {
+    grid-auto-flow: column dense;
+}
+
+.gridAFRD {
+    grid-auto-flow: row dense;
+}
+
+.grid-wMH, .grid-wMVR *, .grid-wMVL *, .grid-wMSR *, .grid-wMSL * {
+    writing-mode: horizontal-tb;
+}
+
+.grid-wMVR {
+    writing-mode: vertical-lr;
+}
+
+.grid-wMVL {
+    writing-mode: vertical-rl;
+}
+
+.grid-wMSR {
+    writing-mode: sideways-lr;
+}
+
+.grid-wMSL {
+    writing-mode: sideways-rl;
+}
+
+.grid-dirLTR {
+    direction: ltr;
+}
+
+.grid-dirRTL {
+    direction: rtl;
+}
+
+/*gridLayout End*/

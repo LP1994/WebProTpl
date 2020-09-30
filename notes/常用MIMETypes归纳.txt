@@ -1,0 +1,271 @@
+https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_Types
+https://www.iana.org/assignments/media-types/media-types.xhtml
+http://www.w3school.com.cn/media/media_mimeref.asp
+
+浏览器使用MIME类型而不是文件扩展名来确定如何处理URL，因此Web服务器在响应Content-Type标头中发送正确的MIME类型非常重要。
+如果未正确配置，浏览器可能会错误解释文件内容，并且网站将无法正常工作，并且下载的文件可能会被错误处理。
+
+image/jpeg     .jpe、.jpeg、.jpg
+image/png      .png
+image/gif      .gif
+image/svg+xml  .svg
+image/webp     .webp
+
+
+一、独立类型
+text/plain
+text/html
+image/jpeg
+image/png
+audio/mpeg
+audio/ogg
+audio/*
+video/mp4
+application/*
+application/json
+application/javascript
+application/ecmascript
+application/octet-stream
+独立类型表明了对文件的分类，可以是如下之一：
+类型           描述                                      典型示例
+model         3D对象或场景的模型数据    model/3mf、model/vml
+font          表明文件是字体数据        font/woff、font/ttf、font/otf
+text	        表明文件是普通文本，理论上是人类可读          text/plain、text/html、text/css、text/csv
+image	        表明是某种图像。不包括视频，但是动态图（比如动态gif）也使用image类型          image/gif、image/png、image/jpeg、image/svg+xml、image/bmp、image/webp、image/x-icon、image/vnd.microsoft.icon
+audio	        表明是某种音频文件        audio/midi、audio/vorbis、audio/mpeg、audio/webm、audio/ogg、audio/wav
+video	        表明是某种视频文件        video/webm、video/ogg、video/mp4
+application	  表明是某种二进制数据      application/octet-stream、application/zip、application/pkcs8、application/pkcs12、application/vnd.mspowerpoint、application/xhtml+xml、application/xml、application/pdf
+注：
+对于text文件类型若没有特定的subtype，就使用text/plain。
+类似的，二进制文件没有特定或已知的subtype，即使用application/octet-stream。
+
+
+
+二、Multipart类型
+multipart/form-data、multipart/byteranges
+Multipart类型表示细分领域的文件类型的种类，经常对应不同的MIME类型。这是复合文件的一种表现方式。
+multipart/form-data可用于联系HTMLForms和POST方法，此外multipart/byteranges使用状态码206 Partial Content来发送整个文件的子集，
+而HTTP对不能处理的复合文件使用特殊的方式：将信息直接传送给浏览器（这时可能会建立一个“另存为”窗口，但是却不知道如何去显示内联文件。）
+
+
+
+三、重要的MIME类型
+application/octet-stream
+这是应用程序文件的默认值。意思是 未知的应用程序文件 ，浏览器一般不会自动执行或询问执行。浏览器会像对待 设置了HTTP头Content-Disposition 值为 attachment 的文件一样来对待这类文件。
+
+text/plain
+文本文件默认值。即使它意味着未知的文本文件，但浏览器认为是可以直接展示的。
+text/plain并不是意味着某种文本数据。如果浏览器想要一个文本文件的明确类型，浏览器并不会考虑他们是否匹配。
+比如说，如果通过一个表明是下载CSS文件的<link>链接下载了一个 text/plain 文件。
+如果提供的信息是text/plain，浏览器并不会认出这是有效的CSS文件。CSS类型需要使用text/css。
+
+text/css
+在网页中要被解析为CSS的任何CSS文件必须指定MIME为text/css。通常，服务器不识别以.css为后缀的文件的MIME类型，
+而是将其以MIME为text/plain 或 application/octet-stream 来发送给浏览器：在这种情况下，大多数浏览器不识别其为CSS文件，直接忽略掉。
+特别要注意为CSS文件提供正确的MIME类型。
+
+text/html
+所有的HTML内容都应该使用这种类型。XHTML的其他MIME类型（如application/xml+html）现在基本不再使用（HTML5统一了这些格式）。
+
+
+
+四、JavaScript types
+根据HTML规范，应始终使用MIME类型提供JavaScript文件text/javascript。没有其他值被认为是有效的，并且使用其中任何值都可能导致脚本无法加载或运行。
+注意：
+这与IANA的标准直接相矛盾！！！IANA的标准如下：
+下面是有效的 JavaScript MIME 类型
+application/javascript
+application/ecmascript
+所有的 text/JavaScript 类型已经被 RFC 4329 废弃。改为使用application/javascript。
+但是，application/javascript对于Web内容不正确，不应使用。
+
+
+
+五、图片类型
+只有一小部分图片类型是被广泛支持的，Web安全的，可随时在Web页面中使用的：
+MIME类型            图片类型
+image/gif           GIF 图片 (无损耗压缩方面被PNG所替代；提供基本动画支持)
+image/jpeg	        JPEG 图片
+image/png	          PNG 图片
+image/svg+xml	      SVG图片 (可缩放矢量图像)
+image/webp          WebP图像
+image/x-icon，image/vnd.microsoft.icon       Windows图标
+此处的类型划分有一定的争议，有人认为此处应该增加 WebP（image/webp），
+但是每个新增的图片类型都会增加代码的数量，这会带来一些新的安全问题，所以浏览器供应商对于添加类型非常小心。
+另外的一些图片种类可以在Web文档中找到。比如很多浏览器支持 icon 类型的图标作为 favicons或者类似的图标，
+并且浏览器在MIME类型中的 image/x-icon 支持ICO图像。
+尽管image/vnd.microsoft.icon正在与IANA登记，它在很大程度上是不支持的，并且image/x-icon正在被代替使用。
+
+
+
+六、音频与视频类型
+在web环境最常用的视频文件的格式，是以下这些这些文件类型：
+MIME类型               音频或视频类型
+audio/wave            音频流媒体文件。一般支持PCM音频编码 (WAVE codec "1") ，其他解码器有限支持（如果有的话）。
+audio/wav             音频流媒体文件。一般支持PCM音频编码 (WAVE codec "1") ，其他解码器有限支持（如果有的话）。
+audio/x-wav           音频流媒体文件。一般支持PCM音频编码 (WAVE codec "1") ，其他解码器有限支持（如果有的话）。
+audio/x-pn-wav        音频流媒体文件。一般支持PCM音频编码 (WAVE codec "1") ，其他解码器有限支持（如果有的话）。
+audio/webm            WebM 音频文件格式。Vorbis 和 Opus 是其最常用的解码器。
+video/webm            采用WebM视频文件格式的音视频文件。VP8 和 VP9是其最常用的视频解码器。Vorbis 和 Opus 是其最常用的音频解码器。
+audio/ogg             采用OGG多媒体文件格式的音频文件。 Vorbis 是这个多媒体文件格式最常用的音频解码器。
+video/ogg             采用OGG多媒体文件格式的音视频文件。常用的视频解码器是 Theora；音频解码器为Vorbis 。
+application/ogg       采用OGG多媒体文件格式的音视频文件。常用的视频解码器是 Theora；音频解码器为Vorbis 。
+application/json      application/json (MIME_type)\https://en.wikipedia.org/wiki/Media_type#Common_examples、https://www.iana.org/assignments/media-types/application/json
+
+
+
+七、multipart/form-data
+multipart/form-data 可用于HTML表单从浏览器发送信息给服务器。作为多部分文档格式，它由边界线（一个由'--'开始的字符串）划分出的不同部分组成。
+每一部分有自己的实体，以及自己的 HTTP 请求头，Content-Disposition和 Content-Type 用于文件上传领域，
+最常用的 (Content-Length 因为边界线作为分隔符而被忽略）。
+如：
+Content-Type: multipart/form-data; boundary=aBoundaryString
+(other headers associated with the multipart document as a whole)
+
+--aBoundaryString
+Content-Disposition: form-data; name="myFile"; filename="img.jpg"
+Content-Type: image/jpeg
+
+(data)
+--aBoundaryString
+Content-Disposition: form-data; name="myField"
+
+(data)
+--aBoundaryString
+(more subparts)
+--aBoundaryString--
+
+
+
+常见归纳
+
+        '.jpe': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.jpg': 'image/jpeg',
+        '.png': 'image/png',
+        '.gif': 'image/gif',
+        '.svg': 'image/svg+xml',
+        '.svgz': 'image/svg+xml',
+        '.webp': 'image/webp',
+        '.bmp': 'image/x-ms-bmp',
+        '.jng': 'image/x-jng',
+        // '.ico': 'image/x-icon',
+        '.ico': 'image/vnd.microsoft.ico',
+        '.wbmp': 'image/vnd.wap.wbmp',
+        '.tif': 'image/tiff',
+        '.tiff': 'image/tiff',
+
+        '.txt': 'text/plain', // 'Content-Type': 'text/plain;charset=utf-8'
+        '.html': 'text/html', // 'Content-Type': 'text/html;charset=utf-8'
+        '.htm': 'text/html', // 'Content-Type': 'text/html;charset=utf-8'
+        '.shtml': 'text/html', // 'Content-Type': 'text/html;charset=utf-8'
+        '.appcache': 'text/cache-manifest',
+        '.mml': 'text/mathml',
+        '.css': 'text/css', // 'Content-Type': 'text/css;charset=utf-8'
+        '.xml': 'application/xml', // 'Content-Type': 'application/xml;charset=utf-8'
+        /*'.xml': 'text/xml', // 'Content-Type': 'text/xml;charset=utf-8'*/
+        '.htc': 'text/x-component',
+        '.wml': 'text/vnd.wap.wml',
+        '.jad': 'text/vnd.sun.j2me.app-descriptor',
+
+        '.mp3': 'audio/mpeg',
+        // '.ogg': 'audio/ogg',
+        // '.webm': 'audio/webm',
+        '.mid': 'audio/midi',
+        '.midi': 'audio/midi',
+        '.kar': 'audio/midi',
+        '.ra': 'audio/x-realaudio',
+        '.m4a': 'audio/x-m4a',
+        '.flac': 'audio/flac',
+        // '.flac': 'audio/x-flac',
+        '.wav': 'audio/wave',
+        // '.wav': 'audio/wav',
+        // '.wav': 'audio/x-wav',
+        // '.wav': 'audio/x-pn-wav',
+
+        '.avi': 'video/x-msvideo',
+        '.wmv': 'video/x-ms-wmv',
+        '.asx': 'video/x-ms-asf',
+        '.asf': 'video/x-ms-asf',
+        '.mng': 'video/x-mng',
+        '.m4v': 'video/x-m4v',
+        '.flv': 'video/x-flv',
+        '.mp4': 'video/mp4',
+        '.webm': 'video/webm',
+        '.mov': 'video/quicktime',
+        '.mpeg': 'video/mpeg',
+        '.mpg': 'video/mpeg',
+        '.ts': 'video/mp2t',
+        '.3gpp': 'video/3gpp',
+        '.3gp': 'video/3gpp',
+        '.ogg': 'video/ogg',
+
+        '.otf': 'font/opentype',
+        '.ttf': 'font/ttf',
+        '.woff2': 'font/woff2',
+        '.woff': 'font/woff',
+
+        '.json': 'application/json',
+        // '.json': 'application/manifest+json',
+        '.js': 'text/javascript',
+        // '.js': 'application/javascript',
+        // '.js': 'application/ecmascript',
+        '.zip': 'application/zip',
+        '.xspf': 'application/xspf+xml',
+        '.atom': 'application/atom+xml',
+        '.rss': 'application/rss+xml',
+        '.xhtml': 'application/xhtml+xml',
+        '.xpi': 'application/x-xpinstall',
+        '.der': 'application/x-x509-ca-cert',
+        '.pem': 'application/x-x509-ca-cert',
+        '.crt': 'application/x-x509-ca-cert',
+        '.tcl': 'application/x-tcl',
+        '.tk': 'application/x-tcl',
+        '.sit': 'application/x-stuffit',
+        '.swf': 'application/x-shockwave-flash',
+        '.sea': 'application/x-sea',
+        '.rpm': 'application/x-redhat-package-manager',
+        '.rar': 'application/x-rar-compressed',
+        '.prc': 'application/x-pilot',
+        '.pdb': 'application/x-pilot',
+        '.pl': 'application/x-perl',
+        '.pm': 'application/x-perl',
+        '.run': 'application/x-makeself',
+        '.jnlp': 'application/x-java-jnlp-file',
+        '.jardiff': 'application/x-java-archive-diff',
+        '.cco': 'application/x-cocoa',
+        '.7z': 'application/x-7z-compressed',
+        '.wmlc': 'application/vnd.wap.wmlc',
+        '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        '.pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        '.odt': 'application/vnd.oasis.opendocument.text',
+        '.ods': 'application/vnd.oasis.opendocument.spreadsheet',
+        '.odp': 'application/vnd.oasis.opendocument.presentation',
+        '.odg': 'application/vnd.oasis.opendocument.graphics',
+        '.ppt': 'application/vnd.ms-powerpoint',
+        '.eot': 'application/vnd.ms-fontobject',
+        '.xls': 'application/vnd.ms-excel',
+        '.kmz': 'application/vnd.google-earth.kmz',
+        '.kml': 'application/vnd.google-earth.kml+xml',
+        '.m3u8': 'application/vnd.apple.mpegurl',
+        '.rtf': 'application/rtf',
+        '.ps': 'application/postscript',
+        '.eps': 'application/postscript',
+        '.ai': 'application/postscript',
+        '.pdf': 'application/pdf',
+        '.doc': 'application/msword',
+        '.hqx': 'application/mac-binhex40',
+        '.jar': 'application/java-archive',
+        '.war': 'application/java-archive',
+        '.ear': 'application/java-archive',
+        '.bin': 'application/octet-stream',
+        '.exe': 'application/octet-stream',
+        '.dll': 'application/octet-stream',
+        '.deb': 'application/octet-stream',
+        '.dmg': 'application/octet-stream',
+        '.iso': 'application/octet-stream',
+        '.img': 'application/octet-stream',
+        '.msi': 'application/octet-stream',
+        '.msp': 'application/octet-stream',
+        '.msm': 'application/octet-stream',

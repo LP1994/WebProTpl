@@ -1,0 +1,20 @@
+jsSHA(2.3.1)
+
+Hashing
+
+requirejs(["othersF/jsSHA/sha1.min"], function (jsSHA) {
+var shaObj = new jsSHA("SHA-1", "TEXT");
+shaObj.update("This is a ");
+shaObj.update("test");
+var signature = shaObj.getHash("HEX");
+});
+
+
+
+HMAC
+
+var shaObj = new jsSHA("SHA-1", "TEXT");
+shaObj.setHMACKey("abc", "TEXT");
+shaObj.update("This is a ");
+shaObj.update("test");
+var hmac = shaObj.getHMAC("HEX");

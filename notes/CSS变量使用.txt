@@ -1,0 +1,71 @@
+CSS变量提供了JavaScript与CSS通信的一种途径！！！
+
+一、
+var()函数用于读取变量，第二个参数，表示变量的默认值。如果该变量不存在，就会使用这个默认值。
+第二个参数不处理内部的逗号或空格，都视作参数的一部分。第一个逗号后面的全算是第二个参数，不管第一个逗号后面有几个逗号
+color:var(--cAqua, #00FFFF);
+var(--font-stack, "Roboto", "Helvetica");
+var(--pad, 10px 15px 20px);
+
+二、
+var()函数还可以用在变量值的声明。
+--primary-color: red;
+--logo-text: var(--primary-color);
+
+三、
+变量值只能用作属性值，不能用作属性名。
+
+四、
+如果变量值是一个字符串，可以与其他字符串拼接。
+--bar: 'hello';
+--foo: var(--bar)' world';
+
+五、
+如果变量值是数值，不能与数值单位直接连用。
+必须使用calc()函数，将它们连接。
+--gap: 20;
+margin-top: calc(var(--gap) * 1px);
+
+六、
+如果变量值带有单位，就不能写成字符串。
+
+七、
+对于不支持 CSS 变量的浏览器，可以采用下面的写法。
+color: #7F583F;
+color: var(--primary);
+或者
+@supports ((--a: 0)) {
+	supported
+}
+@supports ( not (--a: 0)) {
+	not supported
+}
+
+八、
+JavaScript也可以检测浏览器是否支持CSS变量。
+const isSupported = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+if (isSupported) {
+  supported
+} else {
+  not supported
+}
+
+九、
+JavaScript 操作 CSS 变量的写法如下。
+设置变量 挂在目标的style属性上( style.setProperty( cssNameString, cssValueString, priority ) )
+document.documentElement.style.setProperty('--primary', '#7F583F');
+document.body.style.setProperty('--primary', '#7F583F');
+document.getElementById('id1').style.setProperty('--primary', '#7F583F');
+读取变量 挂在目标的style属性上
+document.documentElement.style.getPropertyValue('--primary').trim();
+document.body.style.getPropertyValue('--primary').trim();
+document.getElementById('id1').style.getPropertyValue('--primary').trim();
+删除变量 挂在目标的style属性上
+document.documentElement.style.removeProperty('--primary');
+document.body.style.removeProperty('--primary');
+document.getElementById('id1').style.removeProperty('--primary');
+
+十、得跟postcss的postcss-calc插件一起使用
+div[data-size="calc(3*3)"] {
+  width: 100px;
+}

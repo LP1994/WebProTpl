@@ -1,0 +1,3 @@
+这里头存放着Web Worker、Shared Worker、Service Worker这三个类型worker的工具类！！！
+使用：
+self.importScripts( './tools/WWorker4CT.js' );
