@@ -9,6 +9,3 @@
 /backups/package.json
 /package-lock.json
 /backups/package-lock.json
-
-# Project exclude paths
-/dist/
