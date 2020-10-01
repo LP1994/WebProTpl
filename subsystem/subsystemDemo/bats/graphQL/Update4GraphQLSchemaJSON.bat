@@ -1,1 +1,0 @@
-node --experimental-import-meta-resolve --experimental-json-modules --experimental-repl-await --experimental-wasi-unstable-preview1 --experimental-vm-modules --experimental-wasm-modules Update4GraphQLSchemaJSON.cjs&pause

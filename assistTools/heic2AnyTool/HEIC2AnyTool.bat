@@ -1,1 +1,1 @@
-node --experimental-import-meta-resolve --experimental-json-modules --experimental-repl-await --experimental-wasi-unstable-preview1 --experimental-vm-modules --experimental-wasm-modules HEIC2AnyTool.mjs&pause
+node --experimental-import-meta-resolve --experimental-json-modules --experimental-repl-await --experimental-wasi-unstable-preview1 --experimental-vm-modules --experimental-wasm-modules --experimental-top-level-await HEIC2AnyTool.mjs&pause

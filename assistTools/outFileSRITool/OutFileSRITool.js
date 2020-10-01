@@ -6,9 +6,15 @@
  * IDE: WebStorm
  */
 
-'use strict';
+/**
+ * 根据文件输出这个文件的SRI值
+ *
+ * 1、把文件放到dir文件夹(不支持文件夹嵌套)里，结果会存在跟“OutFileSRITool.js”同级的“OutFileSRITool.json”里。
+ *
+ * 2、运行“OutFileSRITool.bat”就行。
+ */
 
-// 根据文件输出这个文件的SRI值！！！把文件放到dir文件夹里！结果会存在OutFileSRITool.json里！运行“OutFileSRITool.bat”就行！
+'use strict';
 
 const startTime_num = Date.now();
 

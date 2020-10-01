@@ -1,11 +1,8 @@
 # Project exclude paths
 /.idea/
 /node_modules/
-/test/
-/src/graphQL/test/
 /node_modules.7z
 /node_modules.zip
-/package.json
-/backups/package.json
-/package-lock.json
-/backups/package-lock.json
+/test/src
+/test/TSBuildInfo.tsbuildinfo
+/test/tsconfig.json

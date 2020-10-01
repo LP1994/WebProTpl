@@ -6,9 +6,11 @@
  * IDE: WebStorm
  */
 
-'use strict';
+/**
+ * 图片压缩工具！图片大小只能是小于5M的。只支持后缀名为“.png”、“.jpe”、“.jpeg”、“.jpg”的图片。
+ */
 
-// 图片压缩工具！图片大小只能是小于5M的。只支持后缀名为“.png”、“.jpe”、“.jpeg”、“.jpg”的图片。
+'use strict';
 
 const Tinify = require( 'tinify' ),
     fs = require( 'fs' ),

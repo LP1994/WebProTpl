@@ -1,8 +1,8 @@
 /**
- * Project: sn-micro-front-web-project-template
- * Author：12278
- * Email：1227839175@qq.com
- * CreateDate：2020-06-01 00:00:00
+ * Project: WebProTpl
+ * Author: 12278
+ * Email: 2726893248@qq.com
+ * CreateDate: 2019-01-01 00:00:00
  * IDE: WebStorm
  */
 
