@@ -720,21 +720,21 @@ let fs = require( 'fs' ),
          'iOS >= 14',
          'Safari >= 14',
 
-         'Edge >= 85',
+         'Edge >= 86',
 
          'Opera >= 71',
          'OperaMobile >= 71',
 
-         'Chrome >= 85',
-         'Android >= 85',
-         'ChromeAndroid >= 85',
+         'Chrome >= 86',
+         'Android >= 86',
+         'ChromeAndroid >= 86',
 
          'Firefox >= 81',
          'FirefoxAndroid >= 81',
          */
 
         // 专门在最新稳定版本的谷歌浏览器上测试用
-        'Chrome >= 85',
+        'Chrome >= 86',
     ],
     postCSSLoader_fun = isPro => ( {
         loader: 'postcss-loader',

@@ -11,12 +11,12 @@
                     "browsers": [
                         "iOS >= 14",
                         "Safari >= 14",
-                        "Edge >= 85",
+                        "Edge >= 86",
                         "Opera >= 71",
                         "OperaMobile >= 71",
-                        "Chrome >= 85",
-                        "Android >= 85",
-                        "ChromeAndroid >= 85",
+                        "Chrome >= 86",
+                        "Android >= 86",
+                        "ChromeAndroid >= 86",
                         "Firefox >= 81",
                         "FirefoxAndroid >= 81"
                     ]
