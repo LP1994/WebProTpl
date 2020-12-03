@@ -7713,6 +7713,10 @@ class OthersHandle {
      *   onLoad: 节点的onload事件函数(会有一个event的事件参数)，当需要立即执行.js脚本时，<br />
      *   为了保证被立即执行的.js脚本代码确确实实全部下载完了，再执行后续的依赖其代码的操作时就用上了这个事件函数，可选<br/><br />
      *
+     *   onError: 节点的onerror事件函数(会有一个event的事件参数)，当下载.js脚本失败时触发<br /><br />
+     *
+     *   onAbort: 节点的onabort事件函数(会有一个event的事件参数)，当下载.js脚本中止时触发<br /><br />
+     *
      * as的值:<br />
      * 支持不填写“as”属性，那么链接地址就是资源任何地址<br />
      * audio(音频文件)、<br />
@@ -7755,6 +7759,8 @@ class OthersHandle {
             if( c.href.includes( '.js' ) && 'isExecute' in c && c.isExecute ){
                 preloadScriptElem = document.createElement( 'script' );
                 this.isFunction( c.onLoad ) && ( preloadScriptElem.onload = c.onLoad );
+                this.isFunction( c.onError ) && ( preloadScriptElem.onerror = c.onError );
+                this.isFunction( c.onAbort ) && ( preloadScriptElem.onabort = c.onAbort );
                 preloadScriptElem.src = c.href;
                 'attrs' in c && ( Object.keys( c.attrs )
                                         .forEach( c1 => void ( preloadScriptElem.setAttribute( c1, c.attrs[ c1 ] ) ) ) );
